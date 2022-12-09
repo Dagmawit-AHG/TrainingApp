@@ -7,15 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AB42ED600187E9096BF15FA /* Pods_TrainingApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 603CED4D8D8F16E1225510FA /* Pods_TrainingApp.framework */; };
 		C110A036293604FF0066535D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A035293604FF0066535D /* AppDelegate.swift */; };
 		C110A038293604FF0066535D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A037293604FF0066535D /* SceneDelegate.swift */; };
 		C110A03A293604FF0066535D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A039293604FF0066535D /* ViewController.swift */; };
 		C110A03D293604FF0066535D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C110A03B293604FF0066535D /* Main.storyboard */; };
 		C110A03F293605020066535D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C110A03E293605020066535D /* Assets.xcassets */; };
 		C110A042293605020066535D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C110A040293605020066535D /* LaunchScreen.storyboard */; };
+		C110A053293615610066535D /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A052293615610066535D /* AuthViewModel.swift */; };
+		C110A056293629E10066535D /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A055293629E10066535D /* LoginController.swift */; };
+		C110A058293629EE0066535D /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A057293629EE0066535D /* RegistrationController.swift */; };
+		C110A05A2936365F0066535D /* App in Resources */ = {isa = PBXBuildFile; fileRef = C110A0592936365E0066535D /* App */; };
+		C110A05C29364E260066535D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A05B29364E260066535D /* User.swift */; };
+		C110A05E2938A89F0066535D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A05D2938A89F0066535D /* CustomTextField.swift */; };
+		C110A060293A03E40066535D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A05F293A03E40066535D /* MainViewController.swift */; };
+		C110A062293A2EEB0066535D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A061293A2EEB0066535D /* Extensions.swift */; };
+		C110A06429407E900066535D /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A06329407E900066535D /* Checkbox.swift */; };
+		C110A0662941FAE30066535D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C110A0652941FAE30066535D /* GoogleService-Info.plist */; };
+		C110A06829420C440066535D /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A06729420C440066535D /* HomeController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		58CE912C94A877D48CB57463 /* Pods-TrainingApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainingApp.debug.xcconfig"; path = "Target Support Files/Pods-TrainingApp/Pods-TrainingApp.debug.xcconfig"; sourceTree = "<group>"; };
+		603CED4D8D8F16E1225510FA /* Pods_TrainingApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrainingApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C110A032293604FF0066535D /* TrainingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrainingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C110A035293604FF0066535D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C110A037293604FF0066535D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +38,18 @@
 		C110A03E293605020066535D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C110A041293605020066535D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C110A043293605020066535D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C110A052293615610066535D /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		C110A055293629E10066535D /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		C110A057293629EE0066535D /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
+		C110A0592936365E0066535D /* App */ = {isa = PBXFileReference; lastKnownFileType = folder; path = App; sourceTree = "<group>"; };
+		C110A05B29364E260066535D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C110A05D2938A89F0066535D /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		C110A05F293A03E40066535D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		C110A061293A2EEB0066535D /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		C110A06329407E900066535D /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
+		C110A0652941FAE30066535D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C110A06729420C440066535D /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		CD7DD6E09B9A3BD7063F773A /* Pods-TrainingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainingApp.release.xcconfig"; path = "Target Support Files/Pods-TrainingApp/Pods-TrainingApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +57,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AB42ED600187E9096BF15FA /* Pods_TrainingApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		37D067AE0696F44940629E71 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				603CED4D8D8F16E1225510FA /* Pods_TrainingApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C110A029293604FF0066535D = {
 			isa = PBXGroup;
 			children = (
+				C110A0592936365E0066535D /* App */,
 				C110A034293604FF0066535D /* TrainingApp */,
 				C110A033293604FF0066535D /* Products */,
+				CC21463250C61EF099BDEE4F /* Pods */,
+				37D067AE0696F44940629E71 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +94,12 @@
 		C110A034293604FF0066535D /* TrainingApp */ = {
 			isa = PBXGroup;
 			children = (
+				C110A04E293605250066535D /* Model */,
+				C110A04D293605220066535D /* View */,
+				C110A04C2936051F0066535D /* ViewModel */,
+				C110A04B2936051C0066535D /* Controller */,
+				C110A04A293605190066535D /* API */,
+				C110A049293605160066535D /* Utils */,
 				C110A035293604FF0066535D /* AppDelegate.swift */,
 				C110A037293604FF0066535D /* SceneDelegate.swift */,
 				C110A039293604FF0066535D /* ViewController.swift */,
@@ -63,8 +107,85 @@
 				C110A03E293605020066535D /* Assets.xcassets */,
 				C110A040293605020066535D /* LaunchScreen.storyboard */,
 				C110A043293605020066535D /* Info.plist */,
+				C110A0652941FAE30066535D /* GoogleService-Info.plist */,
 			);
 			path = TrainingApp;
+			sourceTree = "<group>";
+		};
+		C110A049293605160066535D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C110A061293A2EEB0066535D /* Extensions.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		C110A04A293605190066535D /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		C110A04B2936051C0066535D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C110A0542936298A0066535D /* Authentication */,
+				C110A05F293A03E40066535D /* MainViewController.swift */,
+				C110A06729420C440066535D /* HomeController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C110A04C2936051F0066535D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C110A051293613980066535D /* Authentication */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C110A04D293605220066535D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C110A05D2938A89F0066535D /* CustomTextField.swift */,
+				C110A06329407E900066535D /* Checkbox.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C110A04E293605250066535D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C110A05B29364E260066535D /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C110A051293613980066535D /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				C110A052293615610066535D /* AuthViewModel.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		C110A0542936298A0066535D /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				C110A055293629E10066535D /* LoginController.swift */,
+				C110A057293629EE0066535D /* RegistrationController.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		CC21463250C61EF099BDEE4F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				58CE912C94A877D48CB57463 /* Pods-TrainingApp.debug.xcconfig */,
+				CD7DD6E09B9A3BD7063F773A /* Pods-TrainingApp.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +195,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C110A046293605020066535D /* Build configuration list for PBXNativeTarget "TrainingApp" */;
 			buildPhases = (
+				7C7CFAEA12C8F2FA65074AC7 /* [CP] Check Pods Manifest.lock */,
 				C110A02E293604FF0066535D /* Sources */,
 				C110A02F293604FF0066535D /* Frameworks */,
 				C110A030293604FF0066535D /* Resources */,
+				AA824A713F5524B4CDB89733 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,7 +248,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C110A05A2936365F0066535D /* App in Resources */,
 				C110A042293605020066535D /* LaunchScreen.storyboard in Resources */,
+				C110A0662941FAE30066535D /* GoogleService-Info.plist in Resources */,
 				C110A03F293605020066535D /* Assets.xcassets in Resources */,
 				C110A03D293604FF0066535D /* Main.storyboard in Resources */,
 			);
@@ -133,14 +258,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7C7CFAEA12C8F2FA65074AC7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TrainingApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AA824A713F5524B4CDB89733 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TrainingApp/Pods-TrainingApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TrainingApp/Pods-TrainingApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TrainingApp/Pods-TrainingApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C110A02E293604FF0066535D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C110A053293615610066535D /* AuthViewModel.swift in Sources */,
 				C110A03A293604FF0066535D /* ViewController.swift in Sources */,
 				C110A036293604FF0066535D /* AppDelegate.swift in Sources */,
 				C110A038293604FF0066535D /* SceneDelegate.swift in Sources */,
+				C110A06429407E900066535D /* Checkbox.swift in Sources */,
+				C110A05E2938A89F0066535D /* CustomTextField.swift in Sources */,
+				C110A062293A2EEB0066535D /* Extensions.swift in Sources */,
+				C110A058293629EE0066535D /* RegistrationController.swift in Sources */,
+				C110A06829420C440066535D /* HomeController.swift in Sources */,
+				C110A060293A03E40066535D /* MainViewController.swift in Sources */,
+				C110A056293629E10066535D /* LoginController.swift in Sources */,
+				C110A05C29364E260066535D /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +458,7 @@
 		};
 		C110A047293605020066535D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58CE912C94A877D48CB57463 /* Pods-TrainingApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -310,6 +487,7 @@
 		};
 		C110A048293605020066535D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD7DD6E09B9A3BD7063F773A /* Pods-TrainingApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
