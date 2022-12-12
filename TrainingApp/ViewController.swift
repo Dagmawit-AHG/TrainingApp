@@ -19,9 +19,9 @@ class ViewController: UIViewController {
         signInButton.backgroundColor = UIColor.clear
         signInButton.layer.cornerRadius = 5
         signInButton.layer.borderWidth = 3
-        signInButton.layer.borderColor = UIColor(red: 142, green: 202, blue: 255, alpha: 1).cgColor
+//        signInButton.layer.borderColor = UIColor(red: 142, green: 202, blue: 255, alpha: 1).cgColor
         
-        configureUI()
+//        configureUI()
         
     }
     
@@ -46,8 +46,8 @@ class ViewController: UIViewController {
         navigationController?.navigationBar.barStyle = .black
         
         let gradient = CAGradientLayer()
-        let color1 = UIColor(red: 139, green: 201, blue: 255, alpha: 1).cgColor
-        let color2 = UIColor(red: 227, green: 224, blue: 254, alpha: 1).cgColor
+//        let color1 = UIColor(red: 139, green: 201, blue: 255, alpha: 1).cgColor
+//        let color2 = UIColor(red: 227, green: 224, blue: 254, alpha: 1).cgColor
         gradient.colors = [UIColor.systemCyan.cgColor, UIColor.systemPink.cgColor, UIColor.white.cgColor]
         gradient.locations = [0, 1]
         view.layer.addSublayer(gradient)

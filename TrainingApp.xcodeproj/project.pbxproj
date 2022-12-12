@@ -25,6 +25,7 @@
 		C110A06429407E900066535D /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A06329407E900066535D /* Checkbox.swift */; };
 		C110A0662941FAE30066535D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C110A0652941FAE30066535D /* GoogleService-Info.plist */; };
 		C110A06829420C440066535D /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A06729420C440066535D /* HomeController.swift */; };
+		C110A06A2947312E0066535D /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A0692947312E0066535D /* AuthService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		C110A06329407E900066535D /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 		C110A0652941FAE30066535D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C110A06729420C440066535D /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		C110A0692947312E0066535D /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		CD7DD6E09B9A3BD7063F773A /* Pods-TrainingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainingApp.release.xcconfig"; path = "Target Support Files/Pods-TrainingApp/Pods-TrainingApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +125,7 @@
 		C110A04A293605190066535D /* API */ = {
 			isa = PBXGroup;
 			children = (
+				C110A0692947312E0066535D /* AuthService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				C110A038293604FF0066535D /* SceneDelegate.swift in Sources */,
 				C110A06429407E900066535D /* Checkbox.swift in Sources */,
 				C110A05E2938A89F0066535D /* CustomTextField.swift in Sources */,
+				C110A06A2947312E0066535D /* AuthService.swift in Sources */,
 				C110A062293A2EEB0066535D /* Extensions.swift in Sources */,
 				C110A058293629EE0066535D /* RegistrationController.swift in Sources */,
 				C110A06829420C440066535D /* HomeController.swift in Sources */,

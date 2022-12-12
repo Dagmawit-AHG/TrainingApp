@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "4EB4353B-F266-42AA-B273-EE3AC1EBAE3B"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.SymbolicBreakpoint">
+         <BreakpointContent
+            uuid = "BC84B364-7229-4929-8455-56B1D0794F9F"
+            shouldBeEnabled = "Yes"
+            nameForDebugger = "createAccountPressed"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            symbolName = "createAccountPressed"
+            moduleName = "LoginController">
+            <Locations>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

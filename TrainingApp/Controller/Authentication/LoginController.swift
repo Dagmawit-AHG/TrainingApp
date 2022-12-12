@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginController: UIViewController {
     //implementation
@@ -86,6 +87,16 @@ class LoginController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let gradient = CAGradientLayer()
+        //
+//        let colorOne = UIColor(red: 139, green: 201, blue: 255, alpha: 1)
+//        let colorTwo = UIColor(red: 277, green: 224, blue: 254, alpha: 1)
+        
+//        gradient.colors = [UIColor.systemCyan.cgColor, UIColor.systemPink.cgColor, UIColor.white.cgColor]
+        gradient.locations = [0,1]
+        
+        self.view.layer.addSublayer(gradient)
+        
         emailTextField.setBorder()
         passwordTextField.setBorder()
         
@@ -145,7 +156,31 @@ class LoginController: UIViewController {
 //        view.addSubview(backgroundImage)
         
     }
-//    @IBAction
+    
+    @IBAction func createAccountPressed(_ sender: UIButton) {
+        let registrationVC = RegistrationController()
+        
+        self.present(registrationVC, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func signInButtonPressed(_ sender: UIButton) {
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        
+        Auth.auth().signIn(withEmail: email, password: password, completion: { authResult, error in
+            if let error = error {
+                print("DEBUG: Failed to login user \(error.localizedDescription)")
+                return
+            }
+            else if authResult != nil {
+                print("DEBUG: Successfully logged in user")
+                self.performSegue(withIdentifier: "HomeController", sender: self)
+            }
+        })
+        }
+    }
+    
     
 //    if self.createAccountButton.isTouchInside == true {
 //        createAccountButtonPressed()
@@ -154,5 +189,5 @@ class LoginController: UIViewController {
 //    func createAccountButtonPressed() {
 //        let registrationVC = RegistrationController()
 //        self.present(registrationVC, animated: true, completion: nil)
-    }
+//    }
 //}

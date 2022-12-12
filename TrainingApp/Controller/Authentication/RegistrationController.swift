@@ -6,78 +6,60 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class RegistrationController: UIViewController {
     //implementation
     
-    @IBOutlet var registrationView: UIView!
     
-//    @IBOutlet weak var fullNameTextField: UITextField!
-//
-//    @IBOutlet weak var emailTextField: UITextField!
-//
-//    @IBOutlet weak var phoneNumberTextField: UITextField!
-//
-//
-//    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var fullNameTextField: UITextField!
     
-    private let fullNameTextField = CustomTextField(placeholder: "Fullname")
+    @IBOutlet weak var emailTextField: UITextField!
     
-    private let emailTextField: CustomTextField = {
-        let tf = CustomTextField(placeholder: "Email")
-        tf.keyboardType = .emailAddress
-        return tf
-    }()
+    @IBOutlet weak var phoneNumberTextField: UITextField!
     
-    private let phoneNumberTextField: CustomTextField = {
-        let tf = CustomTextField(placeholder: "Phone Number")
-        tf.keyboardType = .phonePad
-        return tf
-    }()
+    @IBOutlet weak var passwordTextField: UITextField!
     
-    private let passwordTextField: CustomTextField = {
-        let tf = CustomTextField(placeholder: "Password")
-        tf.isSecureTextEntry = true
-        return tf
-    }()
-    
-    
-    private let signUpButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Sign Up", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = UIColor(red: 0, green: 150, blue: 255, alpha: 1)
-        button.layer.cornerRadius = 5
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
-        return button
-    }()
+    @IBOutlet weak var createAccountButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        registrationView.backgroundColor = UIColor(red: 139, green: 201, blue: 255, alpha: 1)
         
         configureUI()
     }
     
     func configureUI(){
-        print("in configure ui")
-        let stack = UIStackView(arrangedSubviews: [fullNameTextField, emailTextField, phoneNumberTextField, passwordTextField, signUpButton])
-        stack.axis = .vertical
-        stack.spacing = 20
-        
-        view.addSubview(stack)
+        fullNameTextField.setBorder()
+        emailTextField.setBorder()
+        phoneNumberTextField.setBorder()
+        passwordTextField.setBorder()
+        createAccountButton.layer.cornerRadius = 5
     }
+    
+    
     
     @IBAction func createAccountPressed(_ sender: UIButton) {
         
-        let fullName = fullNameTextField.text
-        let email = emailTextField.text
-        let phoneNumber = phoneNumberTextField.text
-        let password = passwordTextField.text
+        guard let fullName = fullNameTextField.text else { return }
+        guard let email = emailTextField.text else { return }
+        guard let phoneNumber = phoneNumberTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
         
-//        fullname.text
-    }
+        let credentials = AuthCredentials(email: email, password: password, fullName: fullName, phoneNumber: phoneNumber)
+        
+        AuthService.registerUser(withCredential: credentials) { error in
+            if let error = error {
+                print("DEBUG: Failed to register user \(error.localizedDescription)")
+                return
+            }
+            
+            print("DEBUG: Successfully registered user with firestore...")
+        }
+                
+            
+        }
+        
     
-
+    
 }
