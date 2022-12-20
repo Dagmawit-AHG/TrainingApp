@@ -22,10 +22,10 @@
 		C110A05E2938A89F0066535D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A05D2938A89F0066535D /* CustomTextField.swift */; };
 		C110A060293A03E40066535D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A05F293A03E40066535D /* MainViewController.swift */; };
 		C110A062293A2EEB0066535D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A061293A2EEB0066535D /* Extensions.swift */; };
-		C110A06429407E900066535D /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A06329407E900066535D /* Checkbox.swift */; };
 		C110A0662941FAE30066535D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C110A0652941FAE30066535D /* GoogleService-Info.plist */; };
 		C110A06829420C440066535D /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A06729420C440066535D /* HomeController.swift */; };
 		C110A06A2947312E0066535D /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A0692947312E0066535D /* AuthService.swift */; };
+		C110A06C2949AE5D0066535D /* iOSDropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C110A06B2949AE5D0066535D /* iOSDropDown.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,10 +47,10 @@
 		C110A05D2938A89F0066535D /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		C110A05F293A03E40066535D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C110A061293A2EEB0066535D /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		C110A06329407E900066535D /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 		C110A0652941FAE30066535D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C110A06729420C440066535D /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		C110A0692947312E0066535D /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		C110A06B2949AE5D0066535D /* iOSDropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = iOSDropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD7DD6E09B9A3BD7063F773A /* Pods-TrainingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainingApp.release.xcconfig"; path = "Target Support Files/Pods-TrainingApp/Pods-TrainingApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -59,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C110A06C2949AE5D0066535D /* iOSDropDown.framework in Frameworks */,
 				0AB42ED600187E9096BF15FA /* Pods_TrainingApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -69,6 +70,7 @@
 		37D067AE0696F44940629E71 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C110A06B2949AE5D0066535D /* iOSDropDown.framework */,
 				603CED4D8D8F16E1225510FA /* Pods_TrainingApp.framework */,
 			);
 			name = Frameworks;
@@ -152,7 +154,6 @@
 			isa = PBXGroup;
 			children = (
 				C110A05D2938A89F0066535D /* CustomTextField.swift */,
-				C110A06329407E900066535D /* Checkbox.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -312,7 +313,6 @@
 				C110A03A293604FF0066535D /* ViewController.swift in Sources */,
 				C110A036293604FF0066535D /* AppDelegate.swift in Sources */,
 				C110A038293604FF0066535D /* SceneDelegate.swift in Sources */,
-				C110A06429407E900066535D /* Checkbox.swift in Sources */,
 				C110A05E2938A89F0066535D /* CustomTextField.swift in Sources */,
 				C110A06A2947312E0066535D /* AuthService.swift in Sources */,
 				C110A062293A2EEB0066535D /* Extensions.swift in Sources */,
@@ -476,12 +476,13 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = co.dagmawit.TrainingApp;
+				PRODUCT_BUNDLE_IDENTIFIER = co.dagmawit.TrainingApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -505,12 +506,13 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = co.dagmawit.TrainingApp;
+				PRODUCT_BUNDLE_IDENTIFIER = co.dagmawit.TrainingApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

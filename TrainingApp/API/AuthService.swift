@@ -36,4 +36,6 @@ struct AuthService {
         }
         
     }
+    
+//    static func signInUser(
 }

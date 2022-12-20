@@ -11,6 +11,9 @@ import FirebaseAuth
 class RegistrationController: UIViewController {
     //implementation
     
+    //MARK: - Properties
+    
+    private var viewModel = RegistrationViewModel()
     
     @IBOutlet weak var fullNameTextField: UITextField!
     
@@ -22,24 +25,33 @@ class RegistrationController: UIViewController {
     
     @IBOutlet weak var createAccountButton: UIButton!
     
+    //MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        self.hideKeyboard()
         configureUI()
+        configureNotificationObservers()
+        
+        createAccountButton.buttonSetup()
     }
     
-    func configureUI(){
-        fullNameTextField.setBorder()
-        emailTextField.setBorder()
-        phoneNumberTextField.setBorder()
-        passwordTextField.setBorder()
-        createAccountButton.layer.cornerRadius = 5
+    //MARK: - Actions
+    
+    @objc func textDidChange(sender: UITextField) {
+        if sender == emailTextField {
+            viewModel.email = sender.text
+        } else if sender == passwordTextField {
+            viewModel.password = sender.text
+        } else if sender == fullNameTextField {
+            viewModel.fullname = sender.text
+        } else {
+            viewModel.phoneNumber = sender.text
+        }
+        updateForm()
     }
     
-    
-    
-    @IBAction func createAccountPressed(_ sender: UIButton) {
+    @IBAction private func createAccountPressed(_ sender: UIButton) {
         
         guard let fullName = fullNameTextField.text else { return }
         guard let email = emailTextField.text else { return }
@@ -48,18 +60,44 @@ class RegistrationController: UIViewController {
         
         let credentials = AuthCredentials(email: email, password: password, fullName: fullName, phoneNumber: phoneNumber)
         
-        AuthService.registerUser(withCredential: credentials) { error in
+        AuthService.registerUser(withCredential: credentials) { [weak self] error in
             if let error = error {
                 print("DEBUG: Failed to register user \(error.localizedDescription)")
                 return
             }
             
             print("DEBUG: Successfully registered user with firestore...")
+            self?.performSegue(withIdentifier: "HomeController", sender: self)
         }
                 
             
         }
+    
+    //MARK: - Helpers
+    
+    func configureUI(){
+        fullNameTextField.setBorder()
+        emailTextField.setBorder()
+        phoneNumberTextField.setBorder()
+        passwordTextField.setBorder()
+        createAccountButton.layer.cornerRadius = 5
+    }
         
+    func configureNotificationObservers(){
+        emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        fullNameTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        phoneNumberTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+    }
     
-    
+}
+
+//MARK: FormViewModel
+
+extension RegistrationController: FormViewModel {
+    func updateForm() {
+        createAccountButton.backgroundColor = viewModel.buttonBackgroundColor
+        createAccountButton.setTitleColor(viewModel.buttonTitleColor, for: .normal)
+        createAccountButton.isEnabled = viewModel.formIsValid
+    }
 }

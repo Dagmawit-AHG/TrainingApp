@@ -13,5 +13,7 @@ target 'TrainingApp' do
   pod 'FirebaseFirestore'
   pod 'FirebaseStorage'
   pod 'JGProgressHUD', '~> 2.2'
+  pod 'iOSDropDown'
+  pod 'DropDown'
 
 end

@@ -35,6 +35,16 @@ extension UIViewController {
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
+    
+    func hideKeyboard(){
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard(){
+        view.endEditing(true)
+    }
 }
 
 extension UIButton {
@@ -46,6 +56,15 @@ extension UIButton {
         attributedTitle.append(NSAttributedString(string: secondPart, attributes: boldAtts))
         
         setAttributedTitle(attributedTitle, for: .normal)
+    }
+    
+    func buttonSetup(){
+        let title = NSAttributedString(string: "Sign In", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        self.setAttributedTitle(title, for: .normal)
+        self.isEnabled = false
+        self.backgroundColor = UIColor(red: 0.0, green: 0.5, blue: 1.0, alpha: 0.5)
+//        self.tintColor = UIColor(red: 0.0, green: 0.6, blue: 1.0, alpha: 1.0)
+//        self.setTitleColor(UIColor.white, for: .normal)
     }
 }
 
@@ -62,6 +81,74 @@ extension UITextField {
         self.layer.addSublayer(bottomLine)
         
     }
+}
+
+extension UIImage{
+
+    class func getColoredRectImageWith(color: CGColor, andSize size: CGSize) -> UIImage{
+        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
+        let graphicsContext = UIGraphicsGetCurrentContext()
+        graphicsContext?.setFillColor(color)
+        let rectangle = CGRect(x: 0.0, y: 0.0, width: size.width, height: size.height)
+        graphicsContext?.fill(rectangle)
+        let rectangleImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return rectangleImage!
+    }
+}
+
+extension UISegmentedControl {
+    func setFontSize(){
+        let font = UIFont.systemFont(ofSize: 16)
+        self.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
+    }
+    func removeBorders(){
+//        setBackgroundImage(imageWithColor(color: backgroundColor ?? .clear), for: .normal, barMetrics: .default)
+//                setBackgroundImage(imageWithColor(color: tintColor!), for: .selected, barMetrics: .default)
+//                setDividerImage(imageWithColor(color: UIColor.clear), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
+        
+        let backgroundImage = UIImage.getColoredRectImageWith(color: UIColor.white.cgColor, andSize: self.bounds.size)
+                self.setBackgroundImage(backgroundImage, for: .normal, barMetrics: .default)
+                self.setBackgroundImage(backgroundImage, for: .selected, barMetrics: .default)
+                self.setBackgroundImage(backgroundImage, for: .highlighted, barMetrics: .default)
+
+                let deviderImage = UIImage.getColoredRectImageWith(color: UIColor.white.cgColor, andSize: CGSize(width: 1.0, height: self.bounds.size.height))
+                self.setDividerImage(deviderImage, forLeftSegmentState: .selected, rightSegmentState: .normal, barMetrics: .default)
+        self.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.gray], for: .normal)
+        self.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(red: 67/255, green: 129/255, blue: 244/255, alpha: 1.0)], for: .selected)
+    }
+    
+    func addUnderlineForSelectedSegment(){
+            removeBorders()
+            let underlineWidth: CGFloat = self.bounds.size.width / CGFloat(self.numberOfSegments)
+            let underlineHeight: CGFloat = 2.0
+            let underlineXPosition = CGFloat(selectedSegmentIndex * Int(underlineWidth))
+            let underLineYPosition = self.bounds.size.height - 1.0
+            let underlineFrame = CGRect(x: underlineXPosition, y: underLineYPosition, width: underlineWidth, height: underlineHeight)
+            let underline = UIView(frame: underlineFrame)
+            underline.backgroundColor = UIColor(red: 67/255, green: 129/255, blue: 244/255, alpha: 1.0)
+            underline.tag = 1
+            self.addSubview(underline)
+        }
+    
+    func changeUnderlinePosition(){
+            guard let underline = self.viewWithTag(1) else {return}
+            let underlineFinalXPosition = (self.bounds.width / CGFloat(self.numberOfSegments)) * CGFloat(selectedSegmentIndex)
+            UIView.animate(withDuration: 0.1, animations: {
+                underline.frame.origin.x = underlineFinalXPosition
+            })
+        }
+    
+    private func imageWithColor(color: UIColor) -> UIImage {
+            let rect = CGRect(x: 0.0, y: 0.0, width:  1.0, height: 1.0)
+            UIGraphicsBeginImageContext(rect.size)
+            let context = UIGraphicsGetCurrentContext()
+            context!.setFillColor(color.cgColor);
+            context!.fill(rect);
+            let image = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
+            return image!
+        }
 }
 
 extension UIView {
