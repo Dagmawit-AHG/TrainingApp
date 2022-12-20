@@ -15,6 +15,9 @@ class HomeController: UIViewController {
     @IBOutlet weak var fromTextField: UITextField!
     @IBOutlet weak var fromDropDown: DropDown!
     
+    @IBOutlet weak var roundTripView: UIView!
+    @IBOutlet weak var oneWayTripView: UIView!
+    
     @IBOutlet weak var fromPickerView: UIPickerView!
     @IBOutlet weak var optionsSegment: UISegmentedControl!
     
@@ -34,7 +37,20 @@ class HomeController: UIViewController {
     
     @IBAction func segmentedControlDidChange(_ sender: UISegmentedControl) {
         optionsSegment.changeUnderlinePosition()
+        switch optionsSegment.selectedSegmentIndex {
+        case 0:
+            oneWayTripView.isHidden = true
+            roundTripView.isHidden = false
+        case 1:
+            roundTripView.isHidden = true
+            oneWayTripView.isHidden = false
+        default:
+            break
+        }
+        
     }
+    
+    
     
     func setupPickerView(){
         let pickerView = UIPickerView()
