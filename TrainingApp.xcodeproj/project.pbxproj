@@ -10,20 +10,20 @@
 		0AB42ED600187E9096BF15FA /* Pods_TrainingApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 603CED4D8D8F16E1225510FA /* Pods_TrainingApp.framework */; };
 		C110A036293604FF0066535D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A035293604FF0066535D /* AppDelegate.swift */; };
 		C110A038293604FF0066535D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A037293604FF0066535D /* SceneDelegate.swift */; };
-		C110A03A293604FF0066535D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A039293604FF0066535D /* ViewController.swift */; };
+		C110A03A293604FF0066535D /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A039293604FF0066535D /* StartViewController.swift */; };
 		C110A03D293604FF0066535D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C110A03B293604FF0066535D /* Main.storyboard */; };
 		C110A03F293605020066535D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C110A03E293605020066535D /* Assets.xcassets */; };
 		C110A042293605020066535D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C110A040293605020066535D /* LaunchScreen.storyboard */; };
 		C110A053293615610066535D /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A052293615610066535D /* AuthViewModel.swift */; };
-		C110A056293629E10066535D /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A055293629E10066535D /* LoginController.swift */; };
-		C110A058293629EE0066535D /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A057293629EE0066535D /* RegistrationController.swift */; };
+		C110A056293629E10066535D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A055293629E10066535D /* LoginViewController.swift */; };
+		C110A058293629EE0066535D /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A057293629EE0066535D /* RegistrationViewController.swift */; };
 		C110A05A2936365F0066535D /* App in Resources */ = {isa = PBXBuildFile; fileRef = C110A0592936365E0066535D /* App */; };
 		C110A05C29364E260066535D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A05B29364E260066535D /* User.swift */; };
 		C110A05E2938A89F0066535D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A05D2938A89F0066535D /* CustomTextField.swift */; };
 		C110A060293A03E40066535D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A05F293A03E40066535D /* MainViewController.swift */; };
 		C110A062293A2EEB0066535D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A061293A2EEB0066535D /* Extensions.swift */; };
 		C110A0662941FAE30066535D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C110A0652941FAE30066535D /* GoogleService-Info.plist */; };
-		C110A06829420C440066535D /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A06729420C440066535D /* HomeController.swift */; };
+		C110A06829420C440066535D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A06729420C440066535D /* HomeViewController.swift */; };
 		C110A06A2947312E0066535D /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A0692947312E0066535D /* AuthService.swift */; };
 		C110A06C2949AE5D0066535D /* iOSDropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C110A06B2949AE5D0066535D /* iOSDropDown.framework */; };
 /* End PBXBuildFile section */
@@ -34,21 +34,21 @@
 		C110A032293604FF0066535D /* TrainingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrainingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C110A035293604FF0066535D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C110A037293604FF0066535D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C110A039293604FF0066535D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C110A039293604FF0066535D /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		C110A03C293604FF0066535D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C110A03E293605020066535D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C110A041293605020066535D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C110A043293605020066535D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C110A052293615610066535D /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
-		C110A055293629E10066535D /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
-		C110A057293629EE0066535D /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
+		C110A055293629E10066535D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C110A057293629EE0066535D /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		C110A0592936365E0066535D /* App */ = {isa = PBXFileReference; lastKnownFileType = folder; path = App; sourceTree = "<group>"; };
 		C110A05B29364E260066535D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C110A05D2938A89F0066535D /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		C110A05F293A03E40066535D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C110A061293A2EEB0066535D /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C110A0652941FAE30066535D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		C110A06729420C440066535D /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		C110A06729420C440066535D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C110A0692947312E0066535D /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		C110A06B2949AE5D0066535D /* iOSDropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = iOSDropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD7DD6E09B9A3BD7063F773A /* Pods-TrainingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainingApp.release.xcconfig"; path = "Target Support Files/Pods-TrainingApp/Pods-TrainingApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -106,7 +106,7 @@
 				C110A049293605160066535D /* Utils */,
 				C110A035293604FF0066535D /* AppDelegate.swift */,
 				C110A037293604FF0066535D /* SceneDelegate.swift */,
-				C110A039293604FF0066535D /* ViewController.swift */,
+				C110A039293604FF0066535D /* StartViewController.swift */,
 				C110A03B293604FF0066535D /* Main.storyboard */,
 				C110A03E293605020066535D /* Assets.xcassets */,
 				C110A040293605020066535D /* LaunchScreen.storyboard */,
@@ -137,7 +137,7 @@
 			children = (
 				C110A0542936298A0066535D /* Authentication */,
 				C110A05F293A03E40066535D /* MainViewController.swift */,
-				C110A06729420C440066535D /* HomeController.swift */,
+				C110A06729420C440066535D /* HomeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -177,8 +177,8 @@
 		C110A0542936298A0066535D /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				C110A055293629E10066535D /* LoginController.swift */,
-				C110A057293629EE0066535D /* RegistrationController.swift */,
+				C110A055293629E10066535D /* LoginViewController.swift */,
+				C110A057293629EE0066535D /* RegistrationViewController.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -328,16 +328,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				C110A053293615610066535D /* AuthViewModel.swift in Sources */,
-				C110A03A293604FF0066535D /* ViewController.swift in Sources */,
+				C110A03A293604FF0066535D /* StartViewController.swift in Sources */,
 				C110A036293604FF0066535D /* AppDelegate.swift in Sources */,
 				C110A038293604FF0066535D /* SceneDelegate.swift in Sources */,
 				C110A05E2938A89F0066535D /* CustomTextField.swift in Sources */,
 				C110A06A2947312E0066535D /* AuthService.swift in Sources */,
 				C110A062293A2EEB0066535D /* Extensions.swift in Sources */,
-				C110A058293629EE0066535D /* RegistrationController.swift in Sources */,
-				C110A06829420C440066535D /* HomeController.swift in Sources */,
+				C110A058293629EE0066535D /* RegistrationViewController.swift in Sources */,
+				C110A06829420C440066535D /* HomeViewController.swift in Sources */,
 				C110A060293A03E40066535D /* MainViewController.swift in Sources */,
-				C110A056293629E10066535D /* LoginController.swift in Sources */,
+				C110A056293629E10066535D /* LoginViewController.swift in Sources */,
 				C110A05C29364E260066535D /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

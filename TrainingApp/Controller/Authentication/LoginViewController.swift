@@ -8,8 +8,7 @@
 import UIKit
 import FirebaseAuth
 
-class LoginController: UIViewController {
-    //implementation
+class LoginViewController: UIViewController {
     
     //MARK: - Properties
     
@@ -28,16 +27,7 @@ class LoginController: UIViewController {
         self.navigationController?.isNavigationBarHidden = false
         self.hideKeyboard()
         configureNotificationObservers()
-        
-        let gradient = CAGradientLayer()
-        gradient.locations = [0,1]
-        self.view.layer.addSublayer(gradient)
-        
-        emailTextField.setBorder()
-        passwordTextField.setBorder()
-        
-        signInButton.layer.cornerRadius = 5
-        signInButton.buttonSetup()
+        configureUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,7 +48,7 @@ class LoginController: UIViewController {
     }
     
     @IBAction func createAccountPressed(_ sender: UIButton) {
-        let registrationVC = RegistrationController()
+        let registrationVC = RegistrationViewController()
         
         self.present(registrationVC, animated: true, completion: nil)
     }
@@ -75,7 +65,7 @@ class LoginController: UIViewController {
             }
             else if authResult != nil {
                 print("DEBUG: Successfully logged in user")
-                self?.performSegue(withIdentifier: "HomeController", sender: self)
+                self?.performSegue(withIdentifier: "HomeViewController", sender: self)
             }
         })
         }
@@ -83,15 +73,11 @@ class LoginController: UIViewController {
     //MARK: - Helpers
     
     func configureUI(){
-
-        let stack = UIStackView(arrangedSubviews: [emailTextField, passwordTextField])
-        
-        stack.axis = .vertical
-        stack.spacing = 20
-        view.addSubview(stack)
-        stack.anchor(top: view.topAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 80, paddingLeft: 32, paddingRight: 32)
-//        view.addSubview(backgroundImage)
-        
+            emailTextField.setBorder()
+            passwordTextField.setBorder()
+            
+            signInButton.layer.cornerRadius = 5
+            signInButton.buttonSetup()
     }
     
     func configureNotificationObservers(){
@@ -102,7 +88,7 @@ class LoginController: UIViewController {
 
 //MARK: FormViewModel
 
-extension LoginController: FormViewModel {
+extension LoginViewController: FormViewModel {
     func updateForm() {
         signInButton.backgroundColor = viewModel.buttonBackgroundColor
         signInButton.setTitleColor(viewModel.buttonTitleColor, for: .normal)

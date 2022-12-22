@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseAuth
 
-class RegistrationController: UIViewController {
+class RegistrationViewController: UIViewController {
     //implementation
     
     //MARK: - Properties
@@ -32,8 +32,6 @@ class RegistrationController: UIViewController {
         self.hideKeyboard()
         configureUI()
         configureNotificationObservers()
-        
-        createAccountButton.buttonSetup()
     }
     
     //MARK: - Actions
@@ -67,7 +65,7 @@ class RegistrationController: UIViewController {
             }
             
             print("DEBUG: Successfully registered user with firestore...")
-            self?.performSegue(withIdentifier: "HomeController", sender: self)
+            self?.performSegue(withIdentifier: "HomeViewController", sender: self)
         }
                 
             
@@ -81,6 +79,7 @@ class RegistrationController: UIViewController {
         phoneNumberTextField.setBorder()
         passwordTextField.setBorder()
         createAccountButton.layer.cornerRadius = 5
+        createAccountButton.buttonSetup()
     }
         
     func configureNotificationObservers(){
@@ -94,7 +93,7 @@ class RegistrationController: UIViewController {
 
 //MARK: FormViewModel
 
-extension RegistrationController: FormViewModel {
+extension RegistrationViewController: FormViewModel {
     func updateForm() {
         createAccountButton.backgroundColor = viewModel.buttonBackgroundColor
         createAccountButton.setTitleColor(viewModel.buttonTitleColor, for: .normal)

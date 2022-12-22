@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Start View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="TrainingApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StartViewController" id="BYZ-38-t0r" customClass="StartViewController" customModule="TrainingApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -93,10 +93,10 @@
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="65.625"/>
         </scene>
-        <!--Registration Controller-->
+        <!--Registration View Controller-->
         <scene sceneID="ggQ-rZ-t6m">
             <objects>
-                <viewController storyboardIdentifier="RegistrationController" id="bW6-cb-yvw" customClass="RegistrationController" customModule="TrainingApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegistrationViewController" id="bW6-cb-yvw" customClass="RegistrationViewController" customModule="TrainingApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iiI-FJ-CdS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -204,10 +204,10 @@
             </objects>
             <point key="canvasLocation" x="1815.9420289855075" y="425.89285714285711"/>
         </scene>
-        <!--Login Controller-->
+        <!--Login View Controller-->
         <scene sceneID="DsZ-e5-PDV">
             <objects>
-                <viewController storyboardIdentifier="LoginController" id="kW6-AD-OUT" customClass="LoginController" customModule="TrainingApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="kW6-AD-OUT" customClass="LoginViewController" customModule="TrainingApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nm9-ee-0Bd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -329,10 +329,10 @@
             </objects>
             <point key="canvasLocation" x="1815.9420289855075" y="-356.25"/>
         </scene>
-        <!--Home Controller-->
+        <!--Home View Controller-->
         <scene sceneID="8xa-FZ-mg0">
             <objects>
-                <viewController storyboardIdentifier="HomeController" id="yz8-FX-B3Q" customClass="HomeController" customModule="TrainingApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="yz8-FX-B3Q" customClass="HomeViewController" customModule="TrainingApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A8Q-ER-4wl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -603,7 +603,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="lYr-2l-ymr"/>
+        <segue reference="n5q-oz-pg7"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Start" width="428" height="926"/>

@@ -10,7 +10,9 @@ import UIKit
 import iOSDropDown
 //#import "iOSDropDown/iOSDropDown.swift>";
 
-class HomeController: UIViewController {
+class HomeViewController: UIViewController {
+    
+    //MARK: - Properties
     
     @IBOutlet weak var fromTextField: UITextField!
     @IBOutlet weak var fromDropDown: DropDown!
@@ -24,16 +26,16 @@ class HomeController: UIViewController {
     var selectedCity: String?
     var listOfCities = ["Frankfurt","Addis Ababa","Heathrow","Wroclow","Hong Kong","New Delhi","Frankfurt","Addis Ababa","Heathrow","Wroclow","Hong Kong","New Delhi"]
     
+    //MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupPickerView()
         self.dismissPickerView()
-        
-        optionsSegment.addUnderlineForSelectedSegment()
-        optionsSegment.setFontSize()
-        
-       
+        configureUI()
     }
+    
+    //MARK: - Actions
     
     @IBAction func segmentedControlDidChange(_ sender: UISegmentedControl) {
         optionsSegment.changeUnderlinePosition()
@@ -50,7 +52,12 @@ class HomeController: UIViewController {
         
     }
     
+    //MARK: - Helpers
     
+    func configureUI(){
+        optionsSegment.addUnderlineForSelectedSegment()
+        optionsSegment.setFontSize()
+    }
     
     func setupPickerView(){
         let pickerView = UIPickerView()
@@ -75,7 +82,9 @@ class HomeController: UIViewController {
     }
 }
 
-extension HomeController: UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+//MARK: - Extension
+
+extension HomeViewController: UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
