@@ -20,6 +20,7 @@ protocol AuthenticationViewModel {
 }
 
 struct LoginViewModel: AuthenticationViewModel {
+
     var email: String?
     var password: String?
     

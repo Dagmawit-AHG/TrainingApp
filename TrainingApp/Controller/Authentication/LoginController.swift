@@ -15,11 +15,11 @@ class LoginController: UIViewController {
     
     private var viewModel = LoginViewModel()
     
-    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet private var emailTextField: UITextField!
     
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet private var passwordTextField: UITextField!
     
-    @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet private var signInButton: UIButton!
     
     //MARK: - Lifecycle
     
@@ -38,6 +38,11 @@ class LoginController: UIViewController {
         
         signInButton.layer.cornerRadius = 5
         signInButton.buttonSetup()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = false
     }
     
     //MARK: - Actions

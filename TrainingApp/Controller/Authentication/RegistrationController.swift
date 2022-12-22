@@ -15,15 +15,15 @@ class RegistrationController: UIViewController {
     
     private var viewModel = RegistrationViewModel()
     
-    @IBOutlet weak var fullNameTextField: UITextField!
+    @IBOutlet private var fullNameTextField: UITextField!
     
-    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet private var emailTextField: UITextField!
     
-    @IBOutlet weak var phoneNumberTextField: UITextField!
+    @IBOutlet private var phoneNumberTextField: UITextField!
     
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet private var passwordTextField: UITextField!
     
-    @IBOutlet weak var createAccountButton: UIButton!
+    @IBOutlet private var createAccountButton: UIButton!
     
     //MARK: - Lifecycle
     
