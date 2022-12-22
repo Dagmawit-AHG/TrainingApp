@@ -11,9 +11,9 @@ class StartViewController: UIViewController {
 
     //MARK: - Properties
     
-    @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet private var signInButton: UIButton!
     
-    @IBOutlet var signUpButton: UIButton!
+    @IBOutlet private var signUpButton: UIButton!
     
     //MARK: - Lifecycle
     

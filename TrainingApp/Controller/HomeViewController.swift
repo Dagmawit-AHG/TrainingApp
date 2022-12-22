@@ -14,14 +14,14 @@ class HomeViewController: UIViewController {
     
     //MARK: - Properties
     
-    @IBOutlet weak var fromTextField: UITextField!
-    @IBOutlet weak var fromDropDown: DropDown!
+    @IBOutlet private var fromTextField: UITextField!
+    @IBOutlet private var fromDropDown: DropDown!
     
-    @IBOutlet weak var roundTripView: UIView!
-    @IBOutlet weak var oneWayTripView: UIView!
+    @IBOutlet private var roundTripView: UIView!
+    @IBOutlet private var oneWayTripView: UIView!
     
-    @IBOutlet weak var fromPickerView: UIPickerView!
-    @IBOutlet weak var optionsSegment: UISegmentedControl!
+    @IBOutlet private var fromPickerView: UIPickerView!
+    @IBOutlet private var optionsSegment: UISegmentedControl!
     
     var selectedCity: String?
     var listOfCities = ["Frankfurt","Addis Ababa","Heathrow","Wroclow","Hong Kong","New Delhi","Frankfurt","Addis Ababa","Heathrow","Wroclow","Hong Kong","New Delhi"]
