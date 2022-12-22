@@ -24,6 +24,7 @@
 		C110A06829420C440066535D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A06729420C440066535D /* HomeViewController.swift */; };
 		C110A06A2947312E0066535D /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A0692947312E0066535D /* AuthService.swift */; };
 		C110A06C2949AE5D0066535D /* iOSDropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C110A06B2949AE5D0066535D /* iOSDropDown.framework */; };
+		C111177729547557003EDE37 /* Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C111177629547557003EDE37 /* Cities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		C110A06729420C440066535D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C110A0692947312E0066535D /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		C110A06B2949AE5D0066535D /* iOSDropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = iOSDropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C111177629547557003EDE37 /* Cities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cities.swift; sourceTree = "<group>"; };
 		CD7DD6E09B9A3BD7063F773A /* Pods-TrainingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainingApp.release.xcconfig"; path = "Target Support Files/Pods-TrainingApp/Pods-TrainingApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -156,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				C110A05B29364E260066535D /* User.swift */,
+				C111177629547557003EDE37 /* Cities.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C111177729547557003EDE37 /* Cities.swift in Sources */,
 				C110A053293615610066535D /* AuthViewModel.swift in Sources */,
 				C110A03A293604FF0066535D /* StartViewController.swift in Sources */,
 				C110A036293604FF0066535D /* AppDelegate.swift in Sources */,
