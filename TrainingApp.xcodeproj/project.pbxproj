@@ -17,10 +17,8 @@
 		C110A053293615610066535D /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A052293615610066535D /* AuthViewModel.swift */; };
 		C110A056293629E10066535D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A055293629E10066535D /* LoginViewController.swift */; };
 		C110A058293629EE0066535D /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A057293629EE0066535D /* RegistrationViewController.swift */; };
-		C110A05A2936365F0066535D /* App in Resources */ = {isa = PBXBuildFile; fileRef = C110A0592936365E0066535D /* App */; };
 		C110A05C29364E260066535D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A05B29364E260066535D /* User.swift */; };
 		C110A05E2938A89F0066535D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A05D2938A89F0066535D /* CustomTextField.swift */; };
-		C110A060293A03E40066535D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A05F293A03E40066535D /* MainViewController.swift */; };
 		C110A062293A2EEB0066535D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A061293A2EEB0066535D /* Extensions.swift */; };
 		C110A0662941FAE30066535D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C110A0652941FAE30066535D /* GoogleService-Info.plist */; };
 		C110A06829420C440066535D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A06729420C440066535D /* HomeViewController.swift */; };
@@ -42,10 +40,8 @@
 		C110A052293615610066535D /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		C110A055293629E10066535D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C110A057293629EE0066535D /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
-		C110A0592936365E0066535D /* App */ = {isa = PBXFileReference; lastKnownFileType = folder; path = App; sourceTree = "<group>"; };
 		C110A05B29364E260066535D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C110A05D2938A89F0066535D /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
-		C110A05F293A03E40066535D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C110A061293A2EEB0066535D /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C110A0652941FAE30066535D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C110A06729420C440066535D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -79,7 +75,6 @@
 		C110A029293604FF0066535D = {
 			isa = PBXGroup;
 			children = (
-				C110A0592936365E0066535D /* App */,
 				C110A034293604FF0066535D /* TrainingApp */,
 				C110A033293604FF0066535D /* Products */,
 				CC21463250C61EF099BDEE4F /* Pods */,
@@ -136,7 +131,6 @@
 			isa = PBXGroup;
 			children = (
 				C110A0542936298A0066535D /* Authentication */,
-				C110A05F293A03E40066535D /* MainViewController.swift */,
 				C110A06729420C440066535D /* HomeViewController.swift */,
 			);
 			path = Controller;
@@ -253,7 +247,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C110A05A2936365F0066535D /* App in Resources */,
 				C110A042293605020066535D /* LaunchScreen.storyboard in Resources */,
 				C110A0662941FAE30066535D /* GoogleService-Info.plist in Resources */,
 				C110A03F293605020066535D /* Assets.xcassets in Resources */,
@@ -336,7 +329,6 @@
 				C110A062293A2EEB0066535D /* Extensions.swift in Sources */,
 				C110A058293629EE0066535D /* RegistrationViewController.swift in Sources */,
 				C110A06829420C440066535D /* HomeViewController.swift in Sources */,
-				C110A060293A03E40066535D /* MainViewController.swift in Sources */,
 				C110A056293629E10066535D /* LoginViewController.swift in Sources */,
 				C110A05C29364E260066535D /* User.swift in Sources */,
 			);

@@ -47,7 +47,7 @@ class LoginViewController: UIViewController {
         updateForm()
     }
     
-    @IBAction func createAccountPressed(_ sender: UIButton) {
+    @IBAction private func createAccountPressed(_ sender: UIButton) {
         let registrationVC = RegistrationViewController()
         
         self.present(registrationVC, animated: true, completion: nil)

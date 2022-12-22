@@ -84,12 +84,15 @@ class HomeViewController: UIViewController {
 
 //MARK: - Extension
 
-extension HomeViewController: UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+extension HomeViewController: UIPickerViewDelegate {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    
+
+}
+
+extension HomeViewController: UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return self.listOfCities.count
     }
@@ -102,8 +105,10 @@ extension HomeViewController: UIPickerViewDelegate, UIPickerViewDataSource, UITe
         self.selectedCity = self.listOfCities[row]
         self.fromTextField.text = self.selectedCity
     }
-    
-//    func textFieldDidBeginEditing(_ textField: UITextField) {
-//        <#code#>
-//    }
+}
+
+extension HomeViewController: UITextFieldDelegate {
+    //    func textFieldDidBeginEditing(_ textField: UITextField) {
+    //        <#code#>
+    //    }
 }
