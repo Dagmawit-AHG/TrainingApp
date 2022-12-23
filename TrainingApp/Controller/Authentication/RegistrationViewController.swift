@@ -5,13 +5,12 @@
 //  Created by Dagmawit Alemayehu on 29/11/2022.
 //
 
-import UIKit
 import FirebaseAuth
+import UIKit
 
 class RegistrationViewController: UIViewController {
-    //implementation
-    
-    //MARK: - Properties
+
+    // MARK: - Properties
     
     private var viewModel = RegistrationViewModel()
     
@@ -25,7 +24,7 @@ class RegistrationViewController: UIViewController {
     
     @IBOutlet private var createAccountButton: UIButton!
     
-    //MARK: - Lifecycle
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,16 +33,19 @@ class RegistrationViewController: UIViewController {
         configureNotificationObservers()
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
     @objc func textDidChange(sender: UITextField) {
         if sender == emailTextField {
             viewModel.email = sender.text
-        } else if sender == passwordTextField {
+        }
+        else if sender == passwordTextField {
             viewModel.password = sender.text
-        } else if sender == fullNameTextField {
+        }
+        else if sender == fullNameTextField {
             viewModel.fullname = sender.text
-        } else {
+        }
+        else {
             viewModel.phoneNumber = sender.text
         }
         updateForm()
@@ -67,13 +69,11 @@ class RegistrationViewController: UIViewController {
             print("DEBUG: Successfully registered user with firestore...")
             self?.performSegue(withIdentifier: "HomeViewController", sender: self)
         }
-                
-            
         }
     
-    //MARK: - Helpers
+    // MARK: - Helpers
     
-    func configureUI(){
+    func configureUI() {
         fullNameTextField.setBorder()
         emailTextField.setBorder()
         phoneNumberTextField.setBorder()
@@ -82,16 +82,15 @@ class RegistrationViewController: UIViewController {
         createAccountButton.buttonSetup()
     }
         
-    func configureNotificationObservers(){
+    func configureNotificationObservers() {
         emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         fullNameTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         phoneNumberTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
     }
-    
 }
 
-//MARK: FormViewModel
+// MARK: FormViewModel
 
 extension RegistrationViewController: FormViewModel {
     func updateForm() {

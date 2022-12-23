@@ -6,8 +6,8 @@
 //
 
 import UIKit
-import FirebaseAuth
 import FirebaseFirestore
+import FirebaseAuth
 
 struct AuthCredentials {
     let email: String
@@ -17,7 +17,7 @@ struct AuthCredentials {
 }
 
 struct AuthService {
-    static func registerUser(withCredential credentials: AuthCredentials, completion: @escaping(Error?) -> Void){
+    static func registerUser(withCredential credentials: AuthCredentials, completion: @escaping (Error?) -> Void) {
         
         Auth.auth().createUser(withEmail: credentials.email, password: credentials.password) { (result, error) in
             if let error = error {
@@ -34,7 +34,6 @@ struct AuthService {
             
             Firestore.firestore().collection("users").document(uid).setData(data, completion: completion)
         }
-        
     }
     
 //    static func signInUser(

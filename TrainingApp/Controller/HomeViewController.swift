@@ -6,13 +6,14 @@
 //
 
 import Foundation
-import UIKit
 import iOSDropDown
-//#import "iOSDropDown/iOSDropDown.swift>";
+import UIKit
+
+// #import "iOSDropDown/iOSDropDown.swift>";
 
 class HomeViewController: UIViewController {
     
-    //MARK: - Properties
+    // MARK: - Properties
     
     @IBOutlet private var fromTextField: UITextField!
     @IBOutlet private var fromDropDown: DropDown!
@@ -26,7 +27,7 @@ class HomeViewController: UIViewController {
     var selectedCity: String?
     var listOfCities = ["Frankfurt","Addis Ababa","Heathrow","Wroclow","Hong Kong","New Delhi","Frankfurt","Addis Ababa","Heathrow","Wroclow","Hong Kong","New Delhi"]
     
-    //MARK: - Lifecycle
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +36,7 @@ class HomeViewController: UIViewController {
         configureUI()
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
     @IBAction func segmentedControlDidChange(_ sender: UISegmentedControl) {
         optionsSegment.changeUnderlinePosition()
@@ -49,17 +50,16 @@ class HomeViewController: UIViewController {
         default:
             break
         }
-        
     }
     
-    //MARK: - Helpers
+    // MARK: - Helpers
     
-    func configureUI(){
+    func configureUI() {
         optionsSegment.addUnderlineForSelectedSegment()
         optionsSegment.setFontSize()
     }
     
-    func setupPickerView(){
+    func setupPickerView() {
         let pickerView = UIPickerView()
         pickerView.delegate = self
         pickerView.dataSource = self
@@ -67,7 +67,7 @@ class HomeViewController: UIViewController {
         self.fromTextField.inputView = pickerView
     }
     
-    func dismissPickerView(){
+    func dismissPickerView() {
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         
@@ -77,19 +77,18 @@ class HomeViewController: UIViewController {
         self.fromTextField.inputAccessoryView = toolbar
     }
     
-    @objc func dismissAction(){
+    @objc func dismissAction() {
         self.view.endEditing(true)
     }
 }
 
-//MARK: - Extension
+// MARK: - Extension
 
 extension HomeViewController: UIPickerViewDelegate {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-
 }
 
 extension HomeViewController: UIPickerViewDataSource {

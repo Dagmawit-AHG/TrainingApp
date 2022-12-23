@@ -5,12 +5,12 @@
 //  Created by Dagmawit Alemayehu on 29/11/2022.
 //
 
-import UIKit
 import FirebaseAuth
+import UIKit
 
 class LoginViewController: UIViewController {
     
-    //MARK: - Properties
+    // MARK: - Properties
     
     private var viewModel = LoginViewModel()
     
@@ -20,11 +20,11 @@ class LoginViewController: UIViewController {
     
     @IBOutlet private var signInButton: UIButton!
     
-    //MARK: - Lifecycle
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = false
+//        self.navigationController?.isNavigationBarHidden = false
         self.hideKeyboard()
         configureNotificationObservers()
         configureUI()
@@ -35,8 +35,7 @@ class LoginViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = false
     }
     
-    //MARK: - Actions
-    
+    // MARK: - Actions
     
     @objc func textDidChange(sender: UITextField) {
         if sender == emailTextField {
@@ -52,7 +51,6 @@ class LoginViewController: UIViewController {
         
         self.present(registrationVC, animated: true, completion: nil)
     }
-    
     
     @IBAction private func signInButtonPressed(_ sender: UIButton) {
         guard let email = emailTextField.text else { return }
@@ -70,9 +68,9 @@ class LoginViewController: UIViewController {
         })
         }
     
-    //MARK: - Helpers
+    // MARK: - Helpers
     
-    func configureUI(){
+    func configureUI() {
             emailTextField.setBorder()
             passwordTextField.setBorder()
             
@@ -80,13 +78,13 @@ class LoginViewController: UIViewController {
             signInButton.buttonSetup()
     }
     
-    func configureNotificationObservers(){
+    func configureNotificationObservers() {
         emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
     }
 }
 
-//MARK: FormViewModel
+// MARK: FormViewModel
 
 extension LoginViewController: FormViewModel {
     func updateForm() {

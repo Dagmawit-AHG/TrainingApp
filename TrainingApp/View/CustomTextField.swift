@@ -14,7 +14,7 @@ class CustomTextField: UITextField {
         
         let bottomLine = CALayer()
         
-        bottomLine.frame = CGRect(x: 0, y: self.frame.height-2, width: self.frame.width, height: 2)
+        bottomLine.frame = CGRect(x: 0, y: self.frame.height - 2, width: self.frame.width, height: 2)
         
         bottomLine.backgroundColor = UIColor.systemGray4.cgColor
         
@@ -30,7 +30,7 @@ class CustomTextField: UITextField {
         
     }
     
-    required init?(coder: NSCoder){
+    required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been initialized")
     }
 }

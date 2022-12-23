@@ -9,21 +9,21 @@ import UIKit
 
 class StartViewController: UIViewController {
 
-    //MARK: - Properties
+    // MARK: - Properties
     
     @IBOutlet private var signInButton: UIButton!
     
     @IBOutlet private var signUpButton: UIButton!
     
-    //MARK: - Lifecycle
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationController?.navigationBar.isHidden = false
         configureUI()
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
     @IBAction func signInButtonPressed(_ sender: UIButton) {
         let loginVC = LoginViewController()
@@ -41,18 +41,15 @@ class StartViewController: UIViewController {
         if segue.identifier == "ShowLoginPageSegue" {
             guard let destinationVC = segue.destination as? LoginViewController else { return }
             present(destinationVC, animated: true, completion: nil)
-            
         }
     }
     
-    //MARK: - Helpers
+    // MARK: - Helpers
     
-    func configureUI(){
+    func configureUI() {
         signInButton.layer.cornerRadius = 5
         signInButton.layer.borderWidth = 1
         signInButton.layer.borderColor = UIColor(red: 0.56, green: 0.8, blue: 1.0, alpha: 1.0).cgColor
         signUpButton.layer.cornerRadius = 5
     }
-
 }
-
