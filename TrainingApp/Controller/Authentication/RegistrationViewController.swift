@@ -79,7 +79,7 @@ class RegistrationViewController: UIViewController {
         phoneNumberTextField.setBorder()
         passwordTextField.setBorder()
         createAccountButton.layer.cornerRadius = 5
-        createAccountButton.buttonSetup()
+        createAccountButton.buttonSetupForRegistration()
     }
         
     func configureNotificationObservers() {

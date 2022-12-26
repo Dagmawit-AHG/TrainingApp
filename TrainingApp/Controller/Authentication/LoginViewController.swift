@@ -75,7 +75,7 @@ class LoginViewController: UIViewController {
             passwordTextField.setBorder()
             
             signInButton.layer.cornerRadius = 5
-            signInButton.buttonSetup()
+            signInButton.buttonSetupForLogin()
     }
     
     func configureNotificationObservers() {

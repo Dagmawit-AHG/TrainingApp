@@ -59,8 +59,17 @@ extension UIButton {
         setAttributedTitle(attributedTitle, for: .normal)
     }
     
-    func buttonSetup() {
+    func buttonSetupForLogin() {
         let title = NSAttributedString(string: "Sign In", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        self.setAttributedTitle(title, for: .normal)
+        self.isEnabled = false
+        self.backgroundColor = UIColor(red: 0.0, green: 0.5, blue: 1.0, alpha: 0.5)
+//        self.tintColor = UIColor(red: 0.0, green: 0.6, blue: 1.0, alpha: 1.0)
+//        self.setTitleColor(UIColor.white, for: .normal)
+    }
+    
+    func buttonSetupForRegistration() {
+        let title = NSAttributedString(string: "Create Account", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         self.setAttributedTitle(title, for: .normal)
         self.isEnabled = false
         self.backgroundColor = UIColor(red: 0.0, green: 0.5, blue: 1.0, alpha: 0.5)
