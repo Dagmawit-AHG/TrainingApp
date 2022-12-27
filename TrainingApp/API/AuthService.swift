@@ -36,5 +36,16 @@ struct AuthService {
         }
     }
     
-//    static func signInUser(
+    static func signInUser(withEmail email: String, password: String, completion: @escaping (Error?) -> Void) {
+        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+            if let error = error {
+                print("DEBUG: Failed to login user \(error.localizedDescription)")
+                return
+            }
+            else if result != nil {
+                print("DEBUG: Successfully logged in user: \(String(describing: result?.user.email))")
+            }
+        }
+        
+    }
 }

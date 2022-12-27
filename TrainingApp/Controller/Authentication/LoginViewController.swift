@@ -24,6 +24,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.modalPresentationStyle = .fullScreen
 //        self.navigationController?.isNavigationBarHidden = false
         self.hideKeyboard()
         configureNotificationObservers()
@@ -32,7 +33,7 @@ class LoginViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     // MARK: - Actions
@@ -47,25 +48,46 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction private func createAccountPressed(_ sender: UIButton) {
-        let registrationVC = RegistrationViewController()
-        
-        self.present(registrationVC, animated: true, completion: nil)
+//        let registrationVC = RegistrationViewController()
+//
+//        self.present(registrationVC, animated: true, completion: nil)
+        performSegue(withIdentifier: "showCreateAccountPage", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let destinationVC = segue.destination as? RegistrationViewController else { return }
+        destinationVC.modalPresentationStyle = .fullScreen
+        destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
+        present(destinationVC, animated: true, completion: nil)
     }
     
     @IBAction private func signInButtonPressed(_ sender: UIButton) {
         guard let email = emailTextField.text else { return }
         guard let password = passwordTextField.text else { return }
         
-        Auth.auth().signIn(withEmail: email, password: password, completion: { [weak self] authResult, error in
+        AuthService.signInUser(withEmail: email, password: password) { [weak self] error in
+            print("DEBUG: In LoginViewController")
             if let error = error {
                 print("DEBUG: Failed to login user \(error.localizedDescription)")
                 return
             }
-            else if authResult != nil {
-                print("DEBUG: Successfully logged in user")
+            else{
+                
                 self?.performSegue(withIdentifier: "HomeViewController", sender: self)
+                
             }
-        })
+        }
+        
+//        Auth.auth().signIn(withEmail: email, password: password, completion: { [weak self] authResult, error in
+//            if let error = error {
+//                print("DEBUG: Failed to login user \(error.localizedDescription)")
+//                return
+//            }
+//            else if authResult != nil {
+//                print("DEBUG: Successfully logged in user")
+//                self?.performSegue(withIdentifier: "HomeViewController", sender: self)
+//            }
+//        })
         }
     
     // MARK: - Helpers

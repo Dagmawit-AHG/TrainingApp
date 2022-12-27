@@ -26,20 +26,25 @@ class StartViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func signInButtonPressed(_ sender: UIButton) {
-        let loginVC = LoginViewController()
-        
-        self.present(loginVC, animated: true, completion: nil)
+        performSegue(withIdentifier: "ShowLoginPageSegue", sender: self)
     }
-    
+//
     @IBAction func signUpButtonPressed(_ sender: UIButton) {
-        let registrationVC = RegistrationViewController()
-        
-        self.present(registrationVC, animated: true, completion: nil)
+        performSegue(withIdentifier: "ShowRegistrationPageSegue", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowLoginPageSegue" {
             guard let destinationVC = segue.destination as? LoginViewController else { return }
+            destinationVC.modalPresentationStyle = .fullScreen
+            destinationVC.navigationController?.isNavigationBarHidden = false
+            present(destinationVC, animated: true, completion: nil)
+        }
+        
+        else if segue.identifier == "ShowRegistrationPageSegue" {
+            guard let destinationVC = segue.destination as? RegistrationViewController else { return }
+            destinationVC.modalPresentationStyle = .fullScreen
+            destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
             present(destinationVC, animated: true, completion: nil)
         }
     }

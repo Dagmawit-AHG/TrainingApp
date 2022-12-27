@@ -71,6 +71,16 @@ class RegistrationViewController: UIViewController {
         }
         }
     
+    @IBAction func signInButtonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "showLoginPage", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let destinationVC = segue.destination as? LoginViewController else { return }
+        destinationVC.modalPresentationStyle = .fullScreen
+        destinationVC.navigationController?.isNavigationBarHidden = false
+        present(destinationVC, animated: true, completion: nil)
+    }
     // MARK: - Helpers
     
     func configureUI() {
