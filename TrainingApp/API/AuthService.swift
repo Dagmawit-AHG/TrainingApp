@@ -42,9 +42,11 @@ struct AuthService {
                 print("DEBUG: Failed to login user \(error.localizedDescription)")
                 return
             }
-            else if result != nil {
-                print("DEBUG: Successfully logged in user: \(String(describing: result?.user.email))")
-            }
+        
+            completion(error)
+                
+            print("DEBUG: Successfully logged in user: \(String(describing: result?.user.email))")
+            
         }
         
     }

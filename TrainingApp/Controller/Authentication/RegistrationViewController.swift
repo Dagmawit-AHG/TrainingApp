@@ -76,10 +76,18 @@ class RegistrationViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let destinationVC = segue.destination as? LoginViewController else { return }
-        destinationVC.modalPresentationStyle = .fullScreen
-        destinationVC.navigationController?.isNavigationBarHidden = false
-        present(destinationVC, animated: true, completion: nil)
+        if segue.identifier == "showLoginPage" {
+            guard let destinationVC = segue.destination as? LoginViewController else { return }
+            destinationVC.modalPresentationStyle = .fullScreen
+            destinationVC.navigationController?.isNavigationBarHidden = false
+            present(destinationVC, animated: true, completion: nil)
+        }
+        else if segue.identifier == "HomeViewController" {
+            guard let destinationVC = segue.destination as? HomeViewController else { return }
+            destinationVC.modalPresentationStyle = .fullScreen
+            destinationVC.navigationController?.isNavigationBarHidden = false
+            present(destinationVC, animated: true, completion: nil)
+        }
     }
     // MARK: - Helpers
     

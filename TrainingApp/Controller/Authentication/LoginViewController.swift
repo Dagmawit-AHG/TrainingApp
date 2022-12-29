@@ -48,36 +48,32 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction private func createAccountPressed(_ sender: UIButton) {
-//        let registrationVC = RegistrationViewController()
-//
-//        self.present(registrationVC, animated: true, completion: nil)
         performSegue(withIdentifier: "showCreateAccountPage", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let destinationVC = segue.destination as? RegistrationViewController else { return }
-        destinationVC.modalPresentationStyle = .fullScreen
-        destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
-        present(destinationVC, animated: true, completion: nil)
+        if segue.identifier == "showCreateAccountPage" {
+            guard let destinationVC = segue.destination as? RegistrationViewController else { return }
+            destinationVC.modalPresentationStyle = .fullScreen
+            destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
+            present(destinationVC, animated: true, completion: nil)
+        }
+        else if segue.identifier == "HomeViewController" {
+            guard let destinationVC = segue.destination as? HomeViewController else { return }
+            destinationVC.modalPresentationStyle = .fullScreen
+            destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
+            present(destinationVC, animated: true, completion: nil)
+        }
     }
     
     @IBAction private func signInButtonPressed(_ sender: UIButton) {
         guard let email = emailTextField.text else { return }
         guard let password = passwordTextField.text else { return }
-        
-        AuthService.signInUser(withEmail: email, password: password) { [weak self] error in
-            print("DEBUG: In LoginViewController")
-            if let error = error {
-                print("DEBUG: Failed to login user \(error.localizedDescription)")
-                return
-            }
-            else{
-                
-                self?.performSegue(withIdentifier: "HomeViewController", sender: self)
-                
-            }
+
+        AuthService.signInUser(withEmail: email, password: password, completion: {error in
+            self.performSegue(withIdentifier: "HomeViewController", sender: self)
+        })
         }
-        
 //        Auth.auth().signIn(withEmail: email, password: password, completion: { [weak self] authResult, error in
 //            if let error = error {
 //                print("DEBUG: Failed to login user \(error.localizedDescription)")
@@ -88,7 +84,7 @@ class LoginViewController: UIViewController {
 //                self?.performSegue(withIdentifier: "HomeViewController", sender: self)
 //            }
 //        })
-        }
+//        }
     
     // MARK: - Helpers
     
