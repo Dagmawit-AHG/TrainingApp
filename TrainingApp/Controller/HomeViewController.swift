@@ -17,29 +17,30 @@ class HomeViewController: UIViewController {
     
     @IBOutlet private var fromTextField: UITextField!
     @IBOutlet private var fromDropDown: DropDown!
-    
     @IBOutlet private var roundTripView: UIView!
     @IBOutlet private var oneWayTripView: UIView!
-    
     @IBOutlet private var fromPickerView: UIPickerView!
     @IBOutlet private var optionsSegment: UISegmentedControl!
     
-    var selectedCity: String?
-    var listOfCities = ["Frankfurt","Addis Ababa","Heathrow","Wroclow","Hong Kong","New Delhi","Frankfurt","Addis Ababa","Heathrow","Wroclow","Hong Kong","New Delhi"]
+    private var selectedCity: String?
+    private var listOfCities = ["Frankfurt","Addis Ababa","Heathrow","Wroclow","Hong Kong","New Delhi","Frankfurt","Addis Ababa","Heathrow","Wroclow","Hong Kong","New Delhi"]
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupPickerView()
-        self.dismissPickerView()
+        
         configureUI()
+        setupPickerView()
+        dismissPickerView()
+        
     }
     
     // MARK: - Actions
     
-    @IBAction func segmentedControlDidChange(_ sender: UISegmentedControl) {
+    @IBAction private func segmentedControlDidChange(_ sender: UISegmentedControl) {
         optionsSegment.changeUnderlinePosition()
+        
         switch optionsSegment.selectedSegmentIndex {
         case 0:
             oneWayTripView.isHidden = true
@@ -54,12 +55,12 @@ class HomeViewController: UIViewController {
     
     // MARK: - Helpers
     
-    func configureUI() {
+    private func configureUI() {
         optionsSegment.addUnderlineForSelectedSegment()
         optionsSegment.setFontSize()
     }
     
-    func setupPickerView() {
+    private func setupPickerView() {
         let pickerView = UIPickerView()
         pickerView.delegate = self
         pickerView.dataSource = self
@@ -67,7 +68,7 @@ class HomeViewController: UIViewController {
         self.fromTextField.inputView = pickerView
     }
     
-    func dismissPickerView() {
+    private func dismissPickerView() {
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         
@@ -77,7 +78,8 @@ class HomeViewController: UIViewController {
         self.fromTextField.inputAccessoryView = toolbar
     }
     
-    @objc func dismissAction() {
+    @objc
+    private func dismissAction() {
         self.view.endEditing(true)
     }
 }
@@ -85,7 +87,6 @@ class HomeViewController: UIViewController {
 // MARK: - Extension
 
 extension HomeViewController: UIPickerViewDelegate {
-    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }

@@ -15,20 +15,17 @@ class LoginViewController: UIViewController {
     private var viewModel = LoginViewModel()
     
     @IBOutlet private var emailTextField: UITextField!
-    
     @IBOutlet private var passwordTextField: UITextField!
-    
     @IBOutlet private var signInButton: UIButton!
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.modalPresentationStyle = .fullScreen
-//        self.navigationController?.isNavigationBarHidden = false
+        
         self.hideKeyboard()
-        configureNotificationObservers()
         configureUI()
+        configureNotificationObservers()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,17 +35,16 @@ class LoginViewController: UIViewController {
     
     // MARK: - Actions
     
-    @objc func textDidChange(sender: UITextField) {
-        if sender == emailTextField {
-            viewModel.email = sender.text
-        } else {
-            viewModel.password = sender.text
-        }
-        updateForm()
-    }
-    
     @IBAction private func createAccountPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "showCreateAccountPage", sender: self)
+    }
+    
+    @IBAction private func signInButtonPressed(_ sender: UIButton) {
+        guard let email = emailTextField.text, let password = passwordTextField.text else { return }
+
+        AuthService.signInUser(withEmail: email, password: password, completion: { [ weak self ] error in
+            self?.performSegue(withIdentifier: "HomeViewController", sender: self)
+        })
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -66,39 +62,29 @@ class LoginViewController: UIViewController {
         }
     }
     
-    @IBAction private func signInButtonPressed(_ sender: UIButton) {
-        guard let email = emailTextField.text else { return }
-        guard let password = passwordTextField.text else { return }
-
-        AuthService.signInUser(withEmail: email, password: password, completion: {error in
-            self.performSegue(withIdentifier: "HomeViewController", sender: self)
-        })
-        }
-//        Auth.auth().signIn(withEmail: email, password: password, completion: { [weak self] authResult, error in
-//            if let error = error {
-//                print("DEBUG: Failed to login user \(error.localizedDescription)")
-//                return
-//            }
-//            else if authResult != nil {
-//                print("DEBUG: Successfully logged in user")
-//                self?.performSegue(withIdentifier: "HomeViewController", sender: self)
-//            }
-//        })
-//        }
-    
     // MARK: - Helpers
     
-    func configureUI() {
+    private func configureUI() {
             emailTextField.setBorder()
             passwordTextField.setBorder()
-            
             signInButton.layer.cornerRadius = 5
             signInButton.buttonSetupForLogin()
     }
     
-    func configureNotificationObservers() {
+    private func configureNotificationObservers() {
         emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+    }
+    
+    @objc
+    private func textDidChange(sender: UITextField) {
+        if sender == emailTextField {
+            viewModel.email = sender.text
+        }
+        else {
+            viewModel.password = sender.text
+        }
+        updateForm()
     }
 }
 

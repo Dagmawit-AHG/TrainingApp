@@ -6,8 +6,8 @@
 //  Copyright © 2020 Stephan Dowless. All rights reserved.
 //
 
-import UIKit
 import JGProgressHUD
+import UIKit
 
 extension UIViewController {
     static let hud = JGProgressHUD(style: .dark)
@@ -120,14 +120,14 @@ extension UISegmentedControl {
                 let deviderImage = UIImage.getColoredRectImageWith(color: UIColor.white.cgColor, andSize: CGSize(width: 1.0, height: self.bounds.size.height))
                 self.setDividerImage(deviderImage, forLeftSegmentState: .selected, rightSegmentState: .normal, barMetrics: .default)
         self.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.gray], for: .normal)
-        self.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(red: 67/255, green: 129/255, blue: 244/255, alpha: 1.0)], for: .selected)
+        self.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(red: 67 / 255, green: 129 / 255, blue: 244 / 255, alpha: 1.0)], for: .selected)
     }
     
     func addUnderlineForSelectedSegment() {
             removeBorders()
             let underlineWidth: CGFloat = self.bounds.size.width / CGFloat(self.numberOfSegments)
             let underlineHeight: CGFloat = 2.0
-            let underlineXPosition = CGFloat (selectedSegmentIndex * Int(underlineWidth))
+            let underlineXPosition = CGFloat(selectedSegmentIndex * Int(underlineWidth))
             let underLineYPosition = self.bounds.size.height - 1.0
             let underlineFrame = CGRect(x: underlineXPosition, y: underLineYPosition, width: underlineWidth, height: underlineHeight)
             let underline = UIView(frame: underlineFrame)
@@ -145,12 +145,12 @@ extension UISegmentedControl {
         }
     
     private func imageWithColor(color: UIColor) -> UIImage {
-            let rect = CGRect(x: 0.0, y: 0.0, width:  1.0, height: 1.0)
+            let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 1.0)
             UIGraphicsBeginImageContext(rect.size)
             let context = UIGraphicsGetCurrentContext()
             context!.setFillColor(color.cgColor)
             context!.fill(rect)
-            let image = UIGraphicsGetImageFromCurrentImageContext();
+            let image = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
             return image!
         }
@@ -211,7 +211,7 @@ extension UIView {
     }
     
     func centerY(inView view: UIView, leftAnchor: NSLayoutXAxisAnchor? = nil,
-                 paddingLeft: CGFloat = 0, constant: CGFloat = 0) {
+         paddingLeft: CGFloat = 0, constant: CGFloat = 0) {
         
         translatesAutoresizingMaskIntoConstraints = false
         centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: constant).isActive = true

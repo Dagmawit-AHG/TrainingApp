@@ -5,9 +5,9 @@
 //  Created by Dagmawit Alemayehu on 12/12/2022.
 //
 
-import UIKit
 import FirebaseFirestore
 import FirebaseAuth
+import UIKit
 
 struct AuthCredentials {
     let email: String
@@ -46,8 +46,6 @@ struct AuthService {
             completion(error)
                 
             print("DEBUG: Successfully logged in user: \(String(describing: result?.user.email))")
-            
         }
-        
     }
 }
