@@ -25,11 +25,11 @@ class StartViewController: UIViewController {
     
     // MARK: - Actions
     
-    @IBAction func signInButtonPressed(_ sender: UIButton) {
+    @IBAction private func signInButtonPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "ShowLoginPageSegue", sender: self)
     }
 //
-    @IBAction func signUpButtonPressed(_ sender: UIButton) {
+    @IBAction private func signUpButtonPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "ShowRegistrationPageSegue", sender: self)
     }
     
@@ -38,6 +38,7 @@ class StartViewController: UIViewController {
             guard let destinationVC = segue.destination as? LoginViewController else { return }
             destinationVC.modalPresentationStyle = .fullScreen
             destinationVC.navigationController?.isNavigationBarHidden = false
+            destinationVC.navigationController?.navigationBar.backgroundColor = .clear
             present(destinationVC, animated: true, completion: nil)
         }
         

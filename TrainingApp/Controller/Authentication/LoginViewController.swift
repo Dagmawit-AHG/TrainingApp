@@ -30,7 +30,7 @@ class LoginViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
+//        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     // MARK: - Actions
@@ -58,6 +58,7 @@ class LoginViewController: UIViewController {
             guard let destinationVC = segue.destination as? HomeViewController else { return }
             destinationVC.modalPresentationStyle = .fullScreen
             destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
+            destinationVC.navigationController?.navigationBar.backgroundColor = .clear
             present(destinationVC, animated: true, completion: nil)
         }
     }
