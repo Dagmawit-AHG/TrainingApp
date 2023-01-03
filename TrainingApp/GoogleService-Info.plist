@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>co.dagmawit.TrainingApplication</string>
+	<string>co.dagmawit.TrainingApp</string>
 	<key>PROJECT_ID</key>
 	<string>trainingapp-753c3</string>
 	<key>STORAGE_BUCKET</key>

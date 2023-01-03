@@ -21,6 +21,7 @@ class HomeViewController: UIViewController {
     @IBOutlet private var oneWayTripView: UIView!
     @IBOutlet private var fromPickerView: UIPickerView!
     @IBOutlet private var optionsSegment: UISegmentedControl!
+    @IBOutlet var settingsButton: UIImageView!
     
     private var selectedCity: String?
     private var listOfCities = ["Frankfurt","Addis Ababa","Heathrow","Wroclow","Hong Kong","New Delhi","Frankfurt","Addis Ababa","Heathrow","Wroclow","Hong Kong","New Delhi"]
@@ -34,6 +35,11 @@ class HomeViewController: UIViewController {
         configureUI()
         setupPickerView()
         dismissPickerView()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(HomeViewController.imageTapped(gesture:)))
+        
+        settingsButton.addGestureRecognizer(tapGesture)
+        settingsButton.isUserInteractionEnabled = true
     }
     
     // MARK: - Actions
@@ -50,6 +56,20 @@ class HomeViewController: UIViewController {
             oneWayTripView.isHidden = false
         default:
             break
+        }
+    }
+    
+    
+    @IBAction func settingsClicked(_ sender: UITapGestureRecognizer) {
+        performSegue(withIdentifier: "showSettingsPage", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showSettingsPage" {
+            guard let destinationVC = segue.destination as? SettingsViewController else { return }
+            destinationVC.modalPresentationStyle = .fullScreen
+            destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
+            present(destinationVC, animated: true, completion: nil)
         }
     }
     
@@ -81,6 +101,14 @@ class HomeViewController: UIViewController {
     @objc
     private func dismissAction() {
         self.view.endEditing(true)
+    }
+    
+    @objc
+    private func imageTapped(gesture: UIGestureRecognizer){
+        if(gesture.view as? UIImageView) != nil {
+            print("Image Tapped")
+            performSegue(withIdentifier: "showSettingsPage", sender: self)
+        }
     }
 }
 

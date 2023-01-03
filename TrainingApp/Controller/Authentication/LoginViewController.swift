@@ -26,6 +26,7 @@ class LoginViewController: UIViewController {
         self.hideKeyboard()
         configureUI()
         configureNotificationObservers()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
