@@ -13,4 +13,7 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    @IBAction private func signOutPressed(_ sender: UIButton) {
+        
+    }
 }
