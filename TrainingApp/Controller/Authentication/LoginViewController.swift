@@ -14,6 +14,8 @@ class LoginViewController: UIViewController {
     
     private var viewModel = LoginViewModel()
     
+    var isSeguePending: Bool = false
+    
     @IBOutlet private var emailTextField: UITextField!
     @IBOutlet private var passwordTextField: UITextField!
     @IBOutlet private var signInButton: UIButton!
@@ -22,17 +24,19 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationController?.navigationBar.backgroundColor = .clear
         self.hideKeyboard()
         configureUI()
         configureNotificationObservers()
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-//        self.navigationController?.setNavigationBarHidden(false, animated: true)
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+////        self.navigationController?.navigationBar.backgroundColor = .clear
+//
+////        self.navigationController?.setNavigationBarHidden(false, animated: true)
+//    }
     
     // MARK: - Actions
     

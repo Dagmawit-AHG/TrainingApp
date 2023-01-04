@@ -7,6 +7,7 @@
 
 import Foundation
 import iOSDropDown
+import FirebaseAuth
 import UIKit
 
 // #import "iOSDropDown/iOSDropDown.swift>";
@@ -35,11 +36,25 @@ class HomeViewController: UIViewController {
         configureUI()
         setupPickerView()
         dismissPickerView()
+        checkIfUserIsLoggedIn()
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(HomeViewController.imageTapped(gesture:)))
         
         settingsButton.addGestureRecognizer(tapGesture)
         settingsButton.isUserInteractionEnabled = true
+    }
+    
+    //MARK: - API
+    
+    private func checkIfUserIsLoggedIn() {
+        if Auth.auth().currentUser == nil {
+            DispatchQueue.main.async {
+                let controller = LoginViewController()
+                let nav = UINavigationController(rootViewController: controller)
+                nav.modalPresentationStyle = .fullScreen
+                self.present(nav, animated: true, completion: nil)
+            }
+        }
     }
     
     // MARK: - Actions

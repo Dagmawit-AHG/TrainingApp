@@ -27,6 +27,8 @@ class StartViewController: UIViewController {
     
     @IBAction private func signInButtonPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "ShowLoginPageSegue", sender: self)
+//        let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController")
+//        UIApplication.topViewController.present(loginVC, animated: true, completion: nil)
     }
 //
     @IBAction private func signUpButtonPressed(_ sender: UIButton) {
