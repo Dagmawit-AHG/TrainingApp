@@ -39,7 +39,6 @@ class HomeViewController: UIViewController {
         checkIfUserIsLoggedIn()
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(HomeViewController.imageTapped(gesture:)))
-        
         settingsButton.addGestureRecognizer(tapGesture)
         settingsButton.isUserInteractionEnabled = true
     }
@@ -75,7 +74,7 @@ class HomeViewController: UIViewController {
     }
     
     
-    @IBAction func settingsClicked(_ sender: UITapGestureRecognizer) {
+    @IBAction private func settingsClicked(_ sender: UITapGestureRecognizer) {
         performSegue(withIdentifier: "showSettingsPage", sender: self)
     }
     

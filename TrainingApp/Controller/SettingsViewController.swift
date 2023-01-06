@@ -13,6 +13,9 @@ class SettingsViewController: UIViewController {
     
     // MARK: - Properties
 
+    
+    @IBOutlet var backButton: UIImageView!
+    @IBOutlet var languagesButton: UIImageView!
     @IBOutlet private var darkModeToggleButton: UIButton!
     @IBOutlet private var notificationsToggleButton: UIButton!
     @IBOutlet private var languageRectangle: UIImageView!
@@ -32,12 +35,17 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         
         initialButtonsSetup()
+        
+        let backTapGesture = UITapGestureRecognizer(target: self, action: #selector(SettingsViewController.backImageTapped(gesture:)))
+        backButton.addGestureRecognizer(backTapGesture)
+        backButton.isUserInteractionEnabled = true
+        
+        let languagesTapGesture = UITapGestureRecognizer(target: self, action: #selector(SettingsViewController.LanguagesImageTapped(gesture:)))
+        languagesButton.addGestureRecognizer(languagesTapGesture)
+        languagesButton.isUserInteractionEnabled = true
     }
     
     // MARK: - Actions
-    
-    
-    
     
     @IBAction private func darkModeTogglePressed(_ sender: UIButton) {
         if darkModeToggleButton.currentImage == UIImage(named: "button"){
@@ -101,9 +109,35 @@ class SettingsViewController: UIViewController {
             destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
             present(destinationVC, animated: true, completion: nil)
         }
+        else if segue.identifier == "backToHomepageSegue" {
+            guard let destinationVC = segue.destination as? HomeViewController else { return }
+            destinationVC.modalPresentationStyle = .fullScreen
+            destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
+            present(destinationVC, animated: true, completion: nil)
+        }
+        else if segue.identifier == "showLanguagesPage" {
+            guard let destinationVC = segue.destination as? LanguageViewController else { return }
+            destinationVC.modalPresentationStyle = .fullScreen
+            destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
+            present(destinationVC, animated: true, completion: nil)
+        }
     }
     
     // MARK: - Helpers
+    
+    @objc
+    private func backImageTapped(gesture: UIGestureRecognizer) {
+        if(gesture.view as? UIImageView) != nil {
+            performSegue(withIdentifier: "backToHomepageSegue", sender: self)
+        }
+    }
+    
+    @objc
+    private func LanguagesImageTapped(gesture: UIGestureRecognizer) {
+        if(gesture.view as? UIImageView) != nil {
+            performSegue(withIdentifier: "showLanguagesPage", sender: self)
+        }
+    }
     
     private func initialButtonsSetup() {
         darkModeToggleButton.setTitle("", for: .normal)
