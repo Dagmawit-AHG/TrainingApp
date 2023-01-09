@@ -1487,6 +1487,12 @@
                     <navigationItem key="navigationItem" id="zyj-e1-4Um"/>
                     <connections>
                         <outlet property="backButton" destination="Cel-KJ-H38" id="Ol3-BU-1Bc"/>
+                        <outlet property="englishCheck" destination="vFa-Qy-Zay" id="cjH-C8-o6f"/>
+                        <outlet property="englishLabel" destination="r5O-EX-F8D" id="hn3-Kq-n4J"/>
+                        <outlet property="englishUKCheck" destination="kG4-Xt-ZD5" id="vkd-i1-7ah"/>
+                        <outlet property="englishUKLabel" destination="EL9-Gr-M7P" id="DKz-t4-1bV"/>
+                        <outlet property="englishUSCheck" destination="xLs-wE-fuv" id="3rF-LN-9Jv"/>
+                        <outlet property="englishUSLabel" destination="c3D-2h-z4D" id="d4A-vu-oaU"/>
                         <outlet property="languagesTableView" destination="k6s-ah-e8U" id="P6e-Wy-dzh"/>
                         <outlet property="settingsButton" destination="3rQ-uK-Grh" id="fY1-sh-yta"/>
                         <segue destination="QP6-EM-ed8" kind="show" identifier="backToSettingsSegue" destinationCreationSelector="backToSettingsSegue" id="yuc-sx-u29"/>

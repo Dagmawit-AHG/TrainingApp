@@ -12,9 +12,16 @@ class LanguageViewController: UIViewController {
     
     // MARK: - Properties
     
-    @IBOutlet var backButton: UIImageView!
-    @IBOutlet var settingsButton: UIImageView!
-    @IBOutlet var languagesTableView: UITableView!
+    @IBOutlet private var backButton: UIImageView!
+    @IBOutlet private var settingsButton: UIImageView!
+    @IBOutlet private var englishUSLabel: UILabel!
+    @IBOutlet private var englishLabel: UILabel!
+    @IBOutlet var englishUKLabel: UILabel!
+    @IBOutlet var englishUSCheck: UIImageView!
+    @IBOutlet var englishCheck: UIImageView!
+    @IBOutlet var englishUKCheck: UIImageView!
+    @IBOutlet private var languagesTableView: UITableView!
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -29,6 +36,18 @@ class LanguageViewController: UIViewController {
         let settingsTapGesture = UITapGestureRecognizer(target: self, action: #selector(LanguageViewController.settingsImageTapped(gesture:)))
         settingsButton.addGestureRecognizer(settingsTapGesture)
         settingsButton.isUserInteractionEnabled = true
+        
+        let englishUSTapGesture = UITapGestureRecognizer(target: self, action: #selector(LanguageViewController.englishUSTapped(gesture:)))
+        englishUSLabel.addGestureRecognizer(englishUSTapGesture)
+        englishUSLabel.isUserInteractionEnabled = true
+        
+        let englishTapGesture = UITapGestureRecognizer(target: self, action: #selector(LanguageViewController.englishTapped(gesture:)))
+        englishLabel.addGestureRecognizer(englishTapGesture)
+        englishLabel.isUserInteractionEnabled = true
+        
+        let englishUKTapGesture = UITapGestureRecognizer(target: self, action: #selector(LanguageViewController.englishUKTapped(gesture:)))
+        englishUKLabel.addGestureRecognizer(englishUKTapGesture)
+        englishUKLabel.isUserInteractionEnabled = true
     }
     
     // MARK: - Actions
@@ -55,6 +74,33 @@ class LanguageViewController: UIViewController {
     private func settingsImageTapped(gesture: UIGestureRecognizer) {
         if(gesture.view as? UIImageView) != nil {
             performSegue(withIdentifier: "backToSettingsSegue", sender: self)
+        }
+    }
+    
+    @objc
+    private func englishUSTapped(gesture: UIGestureRecognizer) {
+        if(gesture.view as? UILabel) != nil {
+            englishUSCheck.isHidden = false
+            englishCheck.isHidden = true
+            englishUKCheck.isHidden = true
+        }
+    }
+    
+    @objc
+    private func englishTapped(gesture: UIGestureRecognizer) {
+        if(gesture.view as? UILabel) != nil {
+            englishUSCheck.isHidden = true
+            englishCheck.isHidden = false
+            englishUKCheck.isHidden = true
+        }
+    }
+    
+    @objc
+    private func englishUKTapped(gesture: UIGestureRecognizer) {
+        if(gesture.view as? UILabel) != nil {
+            englishUSCheck.isHidden = true
+            englishCheck.isHidden = true
+            englishUKCheck.isHidden = false
         }
     }
 }

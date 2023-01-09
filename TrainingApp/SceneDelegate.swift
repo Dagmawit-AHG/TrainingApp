@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        let rootVC = storyboard.instantiateViewController(withIdentifier: "SettingsViewController")
+        let rootVC = storyboard.instantiateViewController(withIdentifier: "StartViewController")
 //        let navController = UINavigationController(rootViewController: rootVC)
 //        navController.navigationBar.backgroundColor = .clear
         self.window?.rootViewController = rootVC
