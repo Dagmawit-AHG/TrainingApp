@@ -8,9 +8,18 @@
 import Foundation
 import UIKit
 
-class LanguageViewController: UIViewController {
+class LanguageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - Properties
+    
+    var languages: [String: String] = ["Dansk": "Danish",
+                                       "Netherlands": "Dutch",
+                                       "English(Canada)": "English(Canada)",
+                                       "English(Australia)": "English(Australia)",
+                                       "English(United States)": "English(United States)",
+                                       "Italy": "Italian"]
+    
+    var lang: [String] = ["Dansk", "Netherlands", "English(Canada)", "English(Australia)", "English(United States)", "Italy"]
     
     @IBOutlet private var backButton: UIImageView!
     @IBOutlet private var settingsButton: UIImageView!
@@ -21,12 +30,17 @@ class LanguageViewController: UIViewController {
     @IBOutlet var englishCheck: UIImageView!
     @IBOutlet var englishUKCheck: UIImageView!
     @IBOutlet private var languagesTableView: UITableView!
+//    @IBOutlet var tableCellLabel: UILabel!
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        languagesTableView.dataSource = self
+        languagesTableView.delegate = self
+        
+        languagesTableView.backgroundColor = UIColor(red: 139, green: 201, blue: 255, alpha: 0.2)
         languagesTableView.backgroundView = UIImageView(image: UIImage(named: "Rectangle_all"))
         
         let backTapGesture = UITapGestureRecognizer(target: self, action: #selector(LanguageViewController.backImageTapped(gesture:)))
@@ -59,6 +73,36 @@ class LanguageViewController: UIViewController {
             destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
             present(destinationVC, animated: true, completion: nil)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        languagesTableView.backgroundView = UIImageView(image: UIImage(named: "Rectangle_all"))
+        return languages.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if indexPath.row > languages.count - 1 {
+            return UITableViewCell()
+        }
+        else {
+            languagesTableView.backgroundView = UIImageView(image: UIImage(named: "Rectangle_all"))
+            let cell = tableView.dequeueReusableCell(withIdentifier: "LanguageCell", for: indexPath)
+            cell.textLabel?.text = Array(languages.keys)[indexPath.row]
+//            tableCellLabel.text = Array(languages.values)[indexPath.row]
+            print(Array(languages.keys)[indexPath.row])
+            return cell
+        }
+        
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        for row in 0..<tableView.numberOfRows(inSection: indexPath.section) {
+            if let cell = tableView.cellForRow(at: IndexPath(row: row, section: indexPath.section)) {
+                cell.accessoryType = row == indexPath.row ? .checkmark : .none
+            }
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     // MARK: - Helpers
@@ -104,3 +148,18 @@ class LanguageViewController: UIViewController {
         }
     }
 }
+
+//extension LanguageViewController: UITableViewDataSource {
+//
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return languages.count
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = languagesTableView.dequeueReusableCell(withIdentifier: "LanguageCell", for: indexPath)
+//        cell.textLabel?.text = Array(languages.keys)[indexPath.row]
+//        return cell
+//    }
+//
+//
+//}
