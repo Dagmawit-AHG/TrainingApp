@@ -13,6 +13,7 @@ class SettingsViewController: UIViewController {
     
     // MARK: - Properties
 
+//    var window: UIWindow
     
     @IBOutlet var backButton: UIImageView!
     @IBOutlet var languagesButton: UIImageView!
@@ -33,6 +34,8 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        self.window = UIWindow(frame: UIScreen.main.bounds)
         
         initialButtonsSetup()
         
@@ -149,7 +152,7 @@ class SettingsViewController: UIViewController {
     
     private func darkModeIsOn() {
         darkModeToggleButton.setImage(UIImage(named: "button_on"), for: .normal)
-        self.overrideUserInterfaceStyle = .dark
+        overrideUserInterfaceStyle = .dark
         languageRectangle.image = UIImage(named: "Rectangle_white")
         darkModeRectangle.image = UIImage(named: "Rectangle_white")
         notificationsRectangle.image = UIImage(named: "Rectangle_white")

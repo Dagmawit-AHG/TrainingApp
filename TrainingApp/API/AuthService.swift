@@ -21,7 +21,7 @@ struct AuthService {
         
         Auth.auth().createUser(withEmail: credentials.email, password: credentials.password) { (result, error) in
             if let error = error {
-                print("DEBUG: Failed to register user \(error.localizedDescription)")
+//                print("DEBUG: Failed to register user \(error.localizedDescription)")
                 return
             }
             guard let uid = result?.user.uid else { return }
@@ -40,6 +40,9 @@ struct AuthService {
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if let error = error {
                 print("DEBUG: Failed to login user \(error.localizedDescription)")
+                let alert = UIAlertController(title: "Couldn't Sign in", message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                
                 return
             }
         

@@ -89,6 +89,8 @@ class LanguageViewController: UIViewController, UITableViewDataSource, UITableVi
             languagesTableView.backgroundView = UIImageView(image: UIImage(named: "Rectangle_all"))
             let cell = tableView.dequeueReusableCell(withIdentifier: "LanguageCell", for: indexPath)
             cell.textLabel?.text = Array(languages.keys)[indexPath.row]
+            cell.textLabel?.font.withSize(18.0)
+//            cell.textLabel.font.fontWeight
 //            tableCellLabel.text = Array(languages.values)[indexPath.row]
             print(Array(languages.keys)[indexPath.row])
             return cell

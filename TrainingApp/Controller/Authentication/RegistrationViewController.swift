@@ -43,10 +43,14 @@ class RegistrationViewController: UIViewController {
         
         AuthService.registerUser(withCredential: credentials) { [weak self] error in
             if let error = error {
-                print("DEBUG: Failed to register user \(error.localizedDescription)")
+                    print("DEBUG: Failed to register user \(error.localizedDescription)")
+                
+                
+                let alert = UIAlertController(title: "Couldn't Sign up", message: "\(error.localizedDescription)", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                self?.present(alert, animated: true, completion: nil)
                 return
             }
-            
             print("DEBUG: Successfully registered user with firestore...")
             self?.performSegue(withIdentifier: "HomeViewController", sender: self)
         }

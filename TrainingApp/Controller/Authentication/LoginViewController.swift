@@ -48,6 +48,11 @@ class LoginViewController: UIViewController {
         guard let email = emailTextField.text, let password = passwordTextField.text else { return }
 
         AuthService.signInUser(withEmail: email, password: password, completion: { [ weak self ] error in
+            if let error = error {
+                let alert = UIAlertController(title: "Couldn't Sign in", message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                self?.present(alert, animated: true, completion: nil)
+            }
             self?.performSegue(withIdentifier: "HomeViewController", sender: self)
         })
     }
