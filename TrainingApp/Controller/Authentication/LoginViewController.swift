@@ -18,6 +18,7 @@ class LoginViewController: UIViewController {
     
     @IBOutlet private var emailTextField: UITextField!
     @IBOutlet private var passwordTextField: UITextField!
+    @IBOutlet private var forgotPasswordLabel: UILabel!
     @IBOutlet private var signInButton: UIButton!
     
     // MARK: - Lifecycle
@@ -29,6 +30,9 @@ class LoginViewController: UIViewController {
         configureUI()
         configureNotificationObservers()
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.forgotPasswordTapped(gesture:)))
+        forgotPasswordLabel.addGestureRecognizer(tapGesture)
+        forgotPasswordLabel.isUserInteractionEnabled = true
     }
     
 //    override func viewWillAppear(_ animated: Bool) {
@@ -71,6 +75,13 @@ class LoginViewController: UIViewController {
             destinationVC.navigationController?.navigationBar.backgroundColor = .clear
             present(destinationVC, animated: true, completion: nil)
         }
+        else if segue.identifier == "showForgotPasswordPage" {
+            guard let destinationVC = segue.destination as? ForgotPasswordViewController else { return }
+            destinationVC.modalPresentationStyle = .fullScreen
+            destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
+            destinationVC.navigationController?.navigationBar.backgroundColor = .clear
+            present(destinationVC, animated: true, completion: nil)
+        }
     }
     
     // MARK: - Helpers
@@ -96,6 +107,13 @@ class LoginViewController: UIViewController {
             viewModel.password = sender.text
         }
         updateForm()
+    }
+    
+    @objc
+    private func forgotPasswordTapped(gesture: UIGestureRecognizer){
+        if(gesture.view as? UILabel) != nil {
+            performSegue(withIdentifier: "showForgotPasswordPage", sender: self)
+        }
     }
 }
 
