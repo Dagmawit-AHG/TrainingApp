@@ -12,8 +12,9 @@ class ForgotPasswordViewController: UIViewController {
     
     // MARK: - Properties
     
+    @IBOutlet private var backButton: UIImageView!
     @IBOutlet private var emailTextField: UITextField!
-    @IBOutlet var confirmButton: UIButton!
+    @IBOutlet private var confirmButton: UIButton!
     
     // MARK: - Lifecycle
     
@@ -26,10 +27,21 @@ class ForgotPasswordViewController: UIViewController {
     
     // MARK: - Actions
     
+    @IBAction private func confirmButtonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "goToCodeSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToCodeSegue" {
+            guard let destinationVC = segue.destination as? CodeViewController else { return }
+            destinationVC.modalPresentationStyle = .fullScreen
+            destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
+            present(destinationVC, animated: true, completion: nil)
+        }
+    }
     // MARK: - Helpers
     
     private func configureUI() {
         emailTextField.setBorder()
-        confirmButton.layer.cornerRadius = 5
     }
 }
