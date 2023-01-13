@@ -47,7 +47,7 @@ struct AuthService {
             }
         
             completion(error)
-                
+            UserDefaults.standard.set(true, forKey: "isUserSignedIn")
             print("DEBUG: Successfully logged in user: \(String(describing: result?.user.email))")
         }
     }

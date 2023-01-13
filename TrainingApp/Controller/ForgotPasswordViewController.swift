@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
 
 class ForgotPasswordViewController: UIViewController {
     
@@ -28,7 +29,18 @@ class ForgotPasswordViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction private func confirmButtonPressed(_ sender: UIButton) {
-        performSegue(withIdentifier: "goToCodeSegue", sender: self)
+        Auth.auth().sendPasswordReset(withEmail: emailTextField.text ?? "") { (error) in
+            if let error = error {
+                let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                return
+            }
+            let alert = UIAlertController(title: "Success", message: "A reset email has been sent to \(self.emailTextField.text ?? "email")", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            self.performSegue(withIdentifier: "goToCodeSegue", sender: self)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
