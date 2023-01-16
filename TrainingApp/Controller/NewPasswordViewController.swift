@@ -14,10 +14,10 @@ class NewPasswordViewController: UIViewController {
     
     private var viewModel = NewPasswordViewModel()
     
-    @IBOutlet var backButton: UIImageView!
-    @IBOutlet var newPasswordTextField: UITextField!
-    @IBOutlet var confirmPasswordTextField: UITextField!
-    @IBOutlet var setPasswordButton: UIButton!
+    @IBOutlet private var backButton: UIImageView!
+    @IBOutlet private var newPasswordTextField: UITextField!
+    @IBOutlet private var confirmPasswordTextField: UITextField!
+    @IBOutlet private var setPasswordButton: UIButton!
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
