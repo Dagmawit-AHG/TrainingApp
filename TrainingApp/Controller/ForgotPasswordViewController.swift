@@ -13,6 +13,8 @@ class ForgotPasswordViewController: UIViewController {
     
     // MARK: - Properties
     
+    private var viewModel = ForgotPasswordViewModel()
+    
     @IBOutlet private var backButton: UIImageView!
     @IBOutlet private var emailTextField: UITextField!
     @IBOutlet private var confirmButton: UIButton!
@@ -24,6 +26,7 @@ class ForgotPasswordViewController: UIViewController {
         
         self.hideKeyboard()
         configureUI()
+        configureNotificationObservers()
     }
     
     // MARK: - Actions
@@ -55,5 +58,26 @@ class ForgotPasswordViewController: UIViewController {
     
     private func configureUI() {
         emailTextField.setBorder()
+        confirmButton.buttonSetupForConfirm()
+    }
+    
+    private func configureNotificationObservers() {
+        emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+    }
+    
+    @objc
+    private func textDidChange(sender: UITextField) {
+        if sender == emailTextField {
+            viewModel.email = sender.text
+        }
+        updateForm()
+    }
+}
+
+extension ForgotPasswordViewController: FormViewModel {
+    func updateForm() {
+        confirmButton.backgroundColor = viewModel.buttonBackgroundColor
+        confirmButton.setTitleColor(viewModel.buttonTitleColor, for: .normal)
+        confirmButton.isEnabled = viewModel.formIsValid
     }
 }

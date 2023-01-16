@@ -76,6 +76,13 @@ extension UIButton {
 //        self.tintColor = UIColor(red: 0.0, green: 0.6, blue: 1.0, alpha: 1.0)
 //        self.setTitleColor(UIColor.white, for: .normal)
     }
+    
+    func buttonSetupForConfirm() {
+        let title = NSAttributedString(string: "Confirm", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        self.setAttributedTitle(title, for: .normal)
+        self.isEnabled = false
+        self.backgroundColor = UIColor(red: 0.0, green: 0.5, blue: 1.0, alpha: 0.5)
+    }
 }
 
 extension UITextField {

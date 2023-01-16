@@ -55,3 +55,20 @@ struct RegistrationViewModel: AuthenticationViewModel {
         return formIsValid ? .white : UIColor(white: 1, alpha: 0.67)
     }
 }
+
+struct ForgotPasswordViewModel: AuthenticationViewModel {
+    var email: String?
+    
+    var formIsValid: Bool {
+        return email?.isEmpty == false
+    }
+    
+    var buttonBackgroundColor: UIColor {
+        return formIsValid ? UIColor(red: 0.0, green: 0.6, blue: 1.0, alpha: 1.0) : UIColor(red: 0.0, green: 0.5, blue: 1.0, alpha: 0.5)
+    }
+    
+    var buttonTitleColor: UIColor {
+        return formIsValid ? .white : UIColor(white: 1, alpha: 0.67)
+    }
+    
+}
