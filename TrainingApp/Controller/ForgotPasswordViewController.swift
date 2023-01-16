@@ -27,6 +27,10 @@ class ForgotPasswordViewController: UIViewController {
         self.hideKeyboard()
         configureUI()
         configureNotificationObservers()
+        
+        let backTapGesture = UITapGestureRecognizer(target: self, action: #selector(ForgotPasswordViewController.backImageTapped(gesture:)))
+        backButton.addGestureRecognizer(backTapGesture)
+        backButton.isUserInteractionEnabled = true
     }
     
     // MARK: - Actions
@@ -53,6 +57,12 @@ class ForgotPasswordViewController: UIViewController {
             destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
             present(destinationVC, animated: true, completion: nil)
         }
+        else if segue.identifier == "backToLoginSegue" {
+            guard let destinationVC = segue.destination as? LoginViewController else { return }
+            destinationVC.modalPresentationStyle = .fullScreen
+            destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
+            present(destinationVC, animated: true, completion: nil)
+        }
     }
     // MARK: - Helpers
     
@@ -66,6 +76,13 @@ class ForgotPasswordViewController: UIViewController {
     }
     
     @objc
+    private func backImageTapped(gesture: UIGestureRecognizer) {
+        if(gesture.view as? UIImageView) != nil {
+            performSegue(withIdentifier: "backToLoginSegue", sender: self)
+        }
+    }
+    
+    @objc
     private func textDidChange(sender: UITextField) {
         if sender == emailTextField {
             viewModel.email = sender.text
@@ -73,6 +90,8 @@ class ForgotPasswordViewController: UIViewController {
         updateForm()
     }
 }
+
+// MARK: FormViewModel
 
 extension ForgotPasswordViewController: FormViewModel {
     func updateForm() {

@@ -30,6 +30,7 @@
 		C1FA9451296808DB00D072C3 /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FA9450296808DA00D072C3 /* LanguageViewController.swift */; };
 		C1FF9B52296EDCE300D5C67D /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FF9B51296EDCE300D5C67D /* ForgotPasswordViewController.swift */; };
 		C1FF9B5429700F1C00D5C67D /* CodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FF9B5329700F1B00D5C67D /* CodeViewController.swift */; };
+		C1FF9B562975754100D5C67D /* NewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FF9B552975754100D5C67D /* NewPasswordViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		C1FA9450296808DA00D072C3 /* LanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };
 		C1FF9B51296EDCE300D5C67D /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		C1FF9B5329700F1B00D5C67D /* CodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeViewController.swift; sourceTree = "<group>"; };
+		C1FF9B552975754100D5C67D /* NewPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordViewController.swift; sourceTree = "<group>"; };
 		CD7DD6E09B9A3BD7063F773A /* Pods-TrainingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainingApp.release.xcconfig"; path = "Target Support Files/Pods-TrainingApp/Pods-TrainingApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,6 +150,7 @@
 				C1FA9450296808DA00D072C3 /* LanguageViewController.swift */,
 				C1FF9B51296EDCE300D5C67D /* ForgotPasswordViewController.swift */,
 				C1FF9B5329700F1B00D5C67D /* CodeViewController.swift */,
+				C1FF9B552975754100D5C67D /* NewPasswordViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				C1FF9B5429700F1C00D5C67D /* CodeViewController.swift in Sources */,
 				C110A038293604FF0066535D /* SceneDelegate.swift in Sources */,
 				C1FA9451296808DB00D072C3 /* LanguageViewController.swift in Sources */,
+				C1FF9B562975754100D5C67D /* NewPasswordViewController.swift in Sources */,
 				C110A05E2938A89F0066535D /* CustomTextField.swift in Sources */,
 				C110A06A2947312E0066535D /* AuthService.swift in Sources */,
 				C1FA944D29640B4700D072C3 /* Field.swift in Sources */,

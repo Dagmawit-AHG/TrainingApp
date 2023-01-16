@@ -83,15 +83,40 @@ extension UIButton {
         self.isEnabled = false
         self.backgroundColor = UIColor(red: 0.0, green: 0.5, blue: 1.0, alpha: 0.5)
     }
+    
+    func buttonSetupForNewPassword() {
+        let title = NSAttributedString(string: "Set Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        self.setAttributedTitle(title, for: .normal)
+        self.isEnabled = false
+        self.backgroundColor = UIColor(red: 0.0, green: 0.5, blue: 1.0, alpha: 0.5)
+    }
 }
 
 extension UITextField {
     func setBorder() {
         let bottomLine = CALayer()
-
         bottomLine.frame = CGRect(x: 0, y: self.frame.height - 2, width: self.frame.width, height: 2)
-        
         bottomLine.backgroundColor = UIColor.systemGray4.cgColor
+        
+        self.borderStyle = .none
+        
+        self.layer.addSublayer(bottomLine)
+    }
+    
+    func setRedBorder() {
+        let bottomLine = CALayer()
+        bottomLine.frame = CGRect(x: 0, y: self.frame.height - 2, width: self.frame.width, height: 2)
+        bottomLine.backgroundColor = UIColor.systemRed.cgColor
+        
+        self.borderStyle = .none
+        
+        self.layer.addSublayer(bottomLine)
+    }
+    
+    func setGreenBorder() {
+        let bottomLine = CALayer()
+        bottomLine.frame = CGRect(x: 0, y: self.frame.height - 2, width: self.frame.width, height: 2)
+        bottomLine.backgroundColor = UIColor.systemGreen.cgColor
         
         self.borderStyle = .none
         
