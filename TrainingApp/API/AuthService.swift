@@ -5,8 +5,8 @@
 //  Created by Dagmawit Alemayehu on 12/12/2022.
 //
 
-import FirebaseFirestore
 import FirebaseAuth
+import FirebaseFirestore
 import UIKit
 
 struct AuthCredentials {

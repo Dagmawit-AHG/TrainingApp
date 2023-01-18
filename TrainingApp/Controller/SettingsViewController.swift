@@ -5,18 +5,15 @@
 //  Created by Dagmawit Alemayehu on 03/01/2023.
 //
 
-import Foundation
 import FirebaseAuth
 import UIKit
 
-class SettingsViewController: UIViewController {
+final class SettingsViewController: UIViewController {
     
     // MARK: - Properties
-
-//    var window: UIWindow
     
-    @IBOutlet var backButton: UIImageView!
-    @IBOutlet var languagesButton: UIImageView!
+    @IBOutlet private var backButton: UIImageView!
+    @IBOutlet private var languagesButton: UIImageView!
     @IBOutlet private var darkModeToggleButton: UIButton!
     @IBOutlet private var notificationsToggleButton: UIButton!
     @IBOutlet private var languageRectangle: UIImageView!
@@ -35,23 +32,14 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        self.window = UIWindow(frame: UIScreen.main.bounds)
-        
         initialButtonsSetup()
-        
-        let backTapGesture = UITapGestureRecognizer(target: self, action: #selector(SettingsViewController.backImageTapped(gesture:)))
-        backButton.addGestureRecognizer(backTapGesture)
-        backButton.isUserInteractionEnabled = true
-        
-        let languagesTapGesture = UITapGestureRecognizer(target: self, action: #selector(SettingsViewController.LanguagesImageTapped(gesture:)))
-        languagesButton.addGestureRecognizer(languagesTapGesture)
-        languagesButton.isUserInteractionEnabled = true
+        setupTapGestureForViews()
     }
     
     // MARK: - Actions
     
     @IBAction private func darkModeTogglePressed(_ sender: UIButton) {
-        if darkModeToggleButton.currentImage == UIImage(named: "button"){
+        if darkModeToggleButton.currentImage == UIImage(named: "button") {
             darkModeIsOn()
         }
         else {
@@ -100,7 +88,8 @@ class SettingsViewController: UIViewController {
             try Auth.auth().signOut()
             print("DEBUG: Successfully signed out user.")
             performSegue(withIdentifier: "signOutSegue", sender: self)
-        } catch let signOutError as NSError {
+        }
+        catch let signOutError as NSError {
             print("Error signing out: \(signOutError.localizedDescription)")
         }
     }
@@ -127,6 +116,16 @@ class SettingsViewController: UIViewController {
     }
     
     // MARK: - Helpers
+    
+    private func setupTapGestureForViews() {
+        let backTapGesture = UITapGestureRecognizer(target: self, action: #selector(SettingsViewController.backImageTapped(gesture:)))
+        backButton.addGestureRecognizer(backTapGesture)
+        backButton.isUserInteractionEnabled = true
+        
+        let languagesTapGesture = UITapGestureRecognizer(target: self, action: #selector(SettingsViewController.LanguagesImageTapped(gesture:)))
+        languagesButton.addGestureRecognizer(languagesTapGesture)
+        languagesButton.isUserInteractionEnabled = true
+    }
     
     @objc
     private func backImageTapped(gesture: UIGestureRecognizer) {

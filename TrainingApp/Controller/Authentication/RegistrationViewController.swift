@@ -45,7 +45,6 @@ class RegistrationViewController: UIViewController {
             if let error = error {
                     print("DEBUG: Failed to register user \(error.localizedDescription)")
                 
-                
                 let alert = UIAlertController(title: "Couldn't Sign up", message: "\(error.localizedDescription)", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
                 self?.present(alert, animated: true, completion: nil)

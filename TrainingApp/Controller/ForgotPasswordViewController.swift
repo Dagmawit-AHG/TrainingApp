@@ -5,11 +5,10 @@
 //  Created by Dagmawit Alemayehu on 11/01/2023.
 //
 
-import Foundation
-import UIKit
 import FirebaseAuth
+import UIKit
 
-class ForgotPasswordViewController: UIViewController {
+final class ForgotPasswordViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -27,10 +26,7 @@ class ForgotPasswordViewController: UIViewController {
         self.hideKeyboard()
         configureUI()
         configureNotificationObservers()
-        
-        let backTapGesture = UITapGestureRecognizer(target: self, action: #selector(ForgotPasswordViewController.backImageTapped(gesture:)))
-        backButton.addGestureRecognizer(backTapGesture)
-        backButton.isUserInteractionEnabled = true
+        setupTapGestureForViews()
     }
     
     // MARK: - Actions
@@ -52,7 +48,7 @@ class ForgotPasswordViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToCodeSegue" {
-            guard let destinationVC = segue.destination as? CodeViewController else { return }
+            guard let destinationVC = segue.destination as? VerificationCodeViewController else { return }
             destinationVC.modalPresentationStyle = .fullScreen
             destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
             present(destinationVC, animated: true, completion: nil)
@@ -69,6 +65,12 @@ class ForgotPasswordViewController: UIViewController {
     private func configureUI() {
         emailTextField.setBorder()
         confirmButton.buttonSetupForConfirm()
+    }
+    
+    private func setupTapGestureForViews() {
+        let backTapGesture = UITapGestureRecognizer(target: self, action: #selector(ForgotPasswordViewController.backImageTapped(gesture:)))
+        backButton.addGestureRecognizer(backTapGesture)
+        backButton.isUserInteractionEnabled = true
     }
     
     private func configureNotificationObservers() {

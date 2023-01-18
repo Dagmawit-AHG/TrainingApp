@@ -5,10 +5,9 @@
 //  Created by Dagmawit Alemayehu on 06/01/2023.
 //
 
-import Foundation
 import UIKit
 
-class LanguageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+final class LanguageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - Properties
     
@@ -25,12 +24,11 @@ class LanguageViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet private var settingsButton: UIImageView!
     @IBOutlet private var englishUSLabel: UILabel!
     @IBOutlet private var englishLabel: UILabel!
-    @IBOutlet var englishUKLabel: UILabel!
-    @IBOutlet var englishUSCheck: UIImageView!
-    @IBOutlet var englishCheck: UIImageView!
-    @IBOutlet var englishUKCheck: UIImageView!
+    @IBOutlet private var englishUKLabel: UILabel!
+    @IBOutlet private var englishUSCheck: UIImageView!
+    @IBOutlet private var englishCheck: UIImageView!
+    @IBOutlet private var englishUKCheck: UIImageView!
     @IBOutlet private var languagesTableView: UITableView!
-//    @IBOutlet var tableCellLabel: UILabel!
     
     // MARK: - Lifecycle
     
@@ -40,28 +38,9 @@ class LanguageViewController: UIViewController, UITableViewDataSource, UITableVi
         languagesTableView.dataSource = self
         languagesTableView.delegate = self
         
-        languagesTableView.backgroundColor = UIColor(red: 139, green: 201, blue: 255, alpha: 0.2)
-        languagesTableView.backgroundView = UIImageView(image: UIImage(named: "Rectangle_all"))
+        configureUI()
+        setupTapGestureForViews()
         
-        let backTapGesture = UITapGestureRecognizer(target: self, action: #selector(LanguageViewController.backImageTapped(gesture:)))
-        backButton.addGestureRecognizer(backTapGesture)
-        backButton.isUserInteractionEnabled = true
-        
-        let settingsTapGesture = UITapGestureRecognizer(target: self, action: #selector(LanguageViewController.settingsImageTapped(gesture:)))
-        settingsButton.addGestureRecognizer(settingsTapGesture)
-        settingsButton.isUserInteractionEnabled = true
-        
-        let englishUSTapGesture = UITapGestureRecognizer(target: self, action: #selector(LanguageViewController.englishUSTapped(gesture:)))
-        englishUSLabel.addGestureRecognizer(englishUSTapGesture)
-        englishUSLabel.isUserInteractionEnabled = true
-        
-        let englishTapGesture = UITapGestureRecognizer(target: self, action: #selector(LanguageViewController.englishTapped(gesture:)))
-        englishLabel.addGestureRecognizer(englishTapGesture)
-        englishLabel.isUserInteractionEnabled = true
-        
-        let englishUKTapGesture = UITapGestureRecognizer(target: self, action: #selector(LanguageViewController.englishUKTapped(gesture:)))
-        englishUKLabel.addGestureRecognizer(englishUKTapGesture)
-        englishUKLabel.isUserInteractionEnabled = true
     }
     
     // MARK: - Actions
@@ -90,12 +69,9 @@ class LanguageViewController: UIViewController, UITableViewDataSource, UITableVi
             let cell = tableView.dequeueReusableCell(withIdentifier: "LanguageCell", for: indexPath)
             cell.textLabel?.text = Array(languages.keys)[indexPath.row]
             cell.textLabel?.font.withSize(18.0)
-//            cell.textLabel.font.fontWeight
-//            tableCellLabel.text = Array(languages.values)[indexPath.row]
             print(Array(languages.keys)[indexPath.row])
             return cell
         }
-        
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -108,6 +84,35 @@ class LanguageViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     // MARK: - Helpers
+    
+    private func configureUI() {
+        
+    }
+    
+    private func setupTapGestureForViews() {
+        languagesTableView.backgroundColor = UIColor(red: 139, green: 201, blue: 255, alpha: 0.2)
+        languagesTableView.backgroundView = UIImageView(image: UIImage(named: "Rectangle_all"))
+        
+        let backTapGesture = UITapGestureRecognizer(target: self, action: #selector(LanguageViewController.backImageTapped(gesture:)))
+        backButton.addGestureRecognizer(backTapGesture)
+        backButton.isUserInteractionEnabled = true
+        
+        let settingsTapGesture = UITapGestureRecognizer(target: self, action: #selector(LanguageViewController.settingsImageTapped(gesture:)))
+        settingsButton.addGestureRecognizer(settingsTapGesture)
+        settingsButton.isUserInteractionEnabled = true
+        
+        let englishUSTapGesture = UITapGestureRecognizer(target: self, action: #selector(LanguageViewController.englishUSTapped(gesture:)))
+        englishUSLabel.addGestureRecognizer(englishUSTapGesture)
+        englishUSLabel.isUserInteractionEnabled = true
+        
+        let englishTapGesture = UITapGestureRecognizer(target: self, action: #selector(LanguageViewController.englishTapped(gesture:)))
+        englishLabel.addGestureRecognizer(englishTapGesture)
+        englishLabel.isUserInteractionEnabled = true
+        
+        let englishUKTapGesture = UITapGestureRecognizer(target: self, action: #selector(LanguageViewController.englishUKTapped(gesture:)))
+        englishUKLabel.addGestureRecognizer(englishUKTapGesture)
+        englishUKLabel.isUserInteractionEnabled = true
+    }
     
     @objc
     private func backImageTapped(gesture: UIGestureRecognizer) {
@@ -150,18 +155,3 @@ class LanguageViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
 }
-
-//extension LanguageViewController: UITableViewDataSource {
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return languages.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = languagesTableView.dequeueReusableCell(withIdentifier: "LanguageCell", for: indexPath)
-//        cell.textLabel?.text = Array(languages.keys)[indexPath.row]
-//        return cell
-//    }
-//
-//
-//}

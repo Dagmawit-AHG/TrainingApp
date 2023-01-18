@@ -8,13 +8,13 @@
 import FirebaseAuth
 import UIKit
 
-class LoginViewController: UIViewController {
+final class LoginViewController: UIViewController {
     
     // MARK: - Properties
     
     private var viewModel = LoginViewModel()
     
-    var isSeguePending: Bool = false
+    var isSeguePending = false
     
     @IBOutlet private var emailTextField: UITextField!
     @IBOutlet private var passwordTextField: UITextField!
@@ -37,9 +37,9 @@ class LoginViewController: UIViewController {
     
 //    override func viewWillAppear(_ animated: Bool) {
 //        super.viewWillAppear(animated)
-////        self.navigationController?.navigationBar.backgroundColor = .clear
+//        self.navigationController?.navigationBar.backgroundColor = .clear
 //
-////        self.navigationController?.setNavigationBarHidden(false, animated: true)
+//        self.navigationController?.setNavigationBarHidden(false, animated: true)
 //    }
     
     // MARK: - Actions
@@ -110,7 +110,7 @@ class LoginViewController: UIViewController {
     }
     
     @objc
-    private func forgotPasswordTapped(gesture: UIGestureRecognizer){
+    private func forgotPasswordTapped(gesture: UIGestureRecognizer) {
         if(gesture.view as? UILabel) != nil {
             performSegue(withIdentifier: "showForgotPasswordPage", sender: self)
         }

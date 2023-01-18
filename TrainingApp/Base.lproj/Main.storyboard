@@ -588,10 +588,10 @@
             </objects>
             <point key="canvasLocation" x="3624.6376811594205" y="-644.19642857142856"/>
         </scene>
-        <!--Code View Controller-->
+        <!--Verification Code View Controller-->
         <scene sceneID="LNm-Gc-2TO">
             <objects>
-                <viewController storyboardIdentifier="CodeViewController" id="JW5-u9-kn5" customClass="CodeViewController" customModule="TrainingApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CodeViewController" id="JW5-u9-kn5" customClass="VerificationCodeViewController" customModule="TrainingApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="W5F-rC-xId">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

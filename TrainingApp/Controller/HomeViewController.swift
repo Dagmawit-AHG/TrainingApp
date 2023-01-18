@@ -5,12 +5,9 @@
 //  Created by Dagmawit Alemayehu on 08/12/2022.
 //
 
-import Foundation
-import iOSDropDown
 import FirebaseAuth
+import iOSDropDown
 import UIKit
-
-// #import "iOSDropDown/iOSDropDown.swift>";
 
 class HomeViewController: UIViewController {
     
@@ -22,7 +19,7 @@ class HomeViewController: UIViewController {
     @IBOutlet private var oneWayTripView: UIView!
     @IBOutlet private var fromPickerView: UIPickerView!
     @IBOutlet private var optionsSegment: UISegmentedControl!
-    @IBOutlet var settingsButton: UIImageView!
+    @IBOutlet private var settingsButton: UIImageView!
     
     private var selectedCity: String?
     private var listOfCities = ["Frankfurt","Addis Ababa","Heathrow","Wroclow","Hong Kong","New Delhi","Frankfurt","Addis Ababa","Heathrow","Wroclow","Hong Kong","New Delhi"]
@@ -37,13 +34,10 @@ class HomeViewController: UIViewController {
         setupPickerView()
         dismissPickerView()
         checkIfUserIsLoggedIn()
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(HomeViewController.imageTapped(gesture:)))
-        settingsButton.addGestureRecognizer(tapGesture)
-        settingsButton.isUserInteractionEnabled = true
+        setupTapGestureForViews()
     }
     
-    //MARK: - API
+    // MARK: - API
     
     private func checkIfUserIsLoggedIn() {
         if Auth.auth().currentUser == nil {
@@ -73,7 +67,6 @@ class HomeViewController: UIViewController {
         }
     }
     
-    
     @IBAction private func settingsClicked(_ sender: UITapGestureRecognizer) {
         performSegue(withIdentifier: "showSettingsPage", sender: self)
     }
@@ -92,6 +85,12 @@ class HomeViewController: UIViewController {
     private func configureUI() {
         optionsSegment.addUnderlineForSelectedSegment()
         optionsSegment.setFontSize()
+    }
+    
+    private func setupTapGestureForViews() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(HomeViewController.imageTapped(gesture:)))
+        settingsButton.addGestureRecognizer(tapGesture)
+        settingsButton.isUserInteractionEnabled = true
     }
     
     private func setupPickerView() {
@@ -118,7 +117,7 @@ class HomeViewController: UIViewController {
     }
     
     @objc
-    private func imageTapped(gesture: UIGestureRecognizer){
+    private func imageTapped(gesture: UIGestureRecognizer) {
         if(gesture.view as? UIImageView) != nil {
             print("Image Tapped")
             performSegue(withIdentifier: "showSettingsPage", sender: self)
@@ -151,6 +150,6 @@ extension HomeViewController: UIPickerViewDataSource {
 
 extension HomeViewController: UITextFieldDelegate {
     //    func textFieldDidBeginEditing(_ textField: UITextField) {
-    //        <#code#>
+    //
     //    }
 }

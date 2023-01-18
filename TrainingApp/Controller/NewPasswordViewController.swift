@@ -5,10 +5,9 @@
 //  Created by Dagmawit Alemayehu on 16/01/2023.
 //
 
-import Foundation
 import UIKit
 
-class NewPasswordViewController: UIViewController {
+final class NewPasswordViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -31,6 +30,7 @@ class NewPasswordViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func setPasswordPressed(_ sender: UIButton) {
+        
     }
     
     // MARK: - Helpers

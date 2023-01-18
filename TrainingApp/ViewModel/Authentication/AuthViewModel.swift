@@ -5,8 +5,8 @@
 //  Created by Dagmawit Alemayehu on 29/11/2022.
 //
 
-import Foundation
 import FirebaseAuth
+import RswiftResources
 import UIKit
 
 protocol FormViewModel {
