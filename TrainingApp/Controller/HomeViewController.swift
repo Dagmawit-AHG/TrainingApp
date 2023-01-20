@@ -14,7 +14,7 @@ class HomeViewController: UIViewController {
     // MARK: - Properties
     
     @IBOutlet private var fromTextField: UITextField!
-    @IBOutlet private var fromDropDown: DropDown!
+//    @IBOutlet private var fromDropDown: DropDown!
     @IBOutlet private var roundTripView: UIView!
     @IBOutlet private var oneWayTripView: UIView!
     @IBOutlet private var fromPickerView: UIPickerView!

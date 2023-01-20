@@ -6,7 +6,6 @@
 //
 
 import FirebaseAuth
-import RswiftResources
 import UIKit
 
 protocol FormViewModel {
@@ -29,11 +28,11 @@ struct LoginViewModel: AuthenticationViewModel {
     }
     
     var buttonBackgroundColor: UIColor {
-        return formIsValid ? UIColor(red: 0.0, green: 0.6, blue: 1.0, alpha: 1.0) : UIColor(red: 0.0, green: 0.5, blue: 1.0, alpha: 0.5)
+        return formIsValid ? R.color.enabledButton()! : R.color.disabledButton()!
     }
     
     var buttonTitleColor: UIColor {
-        return formIsValid ? .white : UIColor(white: 1, alpha: 0.67)
+        return formIsValid ? .white : R.color.disabledTitleColor()!
     }
 }
 
@@ -48,11 +47,11 @@ struct RegistrationViewModel: AuthenticationViewModel {
     }
     
     var buttonBackgroundColor: UIColor {
-        return formIsValid ? UIColor(red: 0.0, green: 0.6, blue: 1.0, alpha: 1.0) : UIColor(red: 0.0, green: 0.5, blue: 1.0, alpha: 0.5)
+        return formIsValid ? R.color.enabledButton()! : R.color.disabledButton()!
     }
     
     var buttonTitleColor: UIColor {
-        return formIsValid ? .white : UIColor(white: 1, alpha: 0.67)
+        return formIsValid ? .white : R.color.disabledTitleColor()!
     }
 }
 
@@ -64,11 +63,11 @@ struct ForgotPasswordViewModel: AuthenticationViewModel {
     }
     
     var buttonBackgroundColor: UIColor {
-        return formIsValid ? UIColor(red: 0.0, green: 0.6, blue: 1.0, alpha: 1.0) : UIColor(red: 0.0, green: 0.5, blue: 1.0, alpha: 0.5)
+        return formIsValid ? R.color.enabledButton()! : R.color.disabledButton()!
     }
     
     var buttonTitleColor: UIColor {
-        return formIsValid ? .white : UIColor(white: 1, alpha: 0.67)
+        return formIsValid ? .white : R.color.disabledTitleColor()!
     }
 }
 
@@ -84,11 +83,11 @@ struct CodeViewModel: AuthenticationViewModel {
     }
     
     var buttonBackgroundColor: UIColor {
-        return formIsValid ? UIColor(red: 0.0, green: 0.6, blue: 1.0, alpha: 1.0) : UIColor(red: 0.0, green: 0.5, blue: 1.0, alpha: 0.5)
+        return formIsValid ? R.color.enabledButton()! : R.color.disabledButton()!
     }
     
     var buttonTitleColor: UIColor {
-        return formIsValid ? .white : UIColor(white: 1, alpha: 0.67)
+        return formIsValid ? .white : R.color.disabledTitleColor()!
     }
 }
 
@@ -101,10 +100,10 @@ struct NewPasswordViewModel: AuthenticationViewModel {
     }
     
     var buttonBackgroundColor: UIColor {
-        return formIsValid ? UIColor(red: 0.0, green: 0.6, blue: 1.0, alpha: 1.0) : UIColor(red: 0.0, green: 0.5, blue: 1.0, alpha: 0.5)
+        return formIsValid ? R.color.enabledButton()! : R.color.disabledButton()!
     }
     
     var buttonTitleColor: UIColor {
-        return formIsValid ? .white : UIColor(white: 1, alpha: 0.67)
+        return formIsValid ? .white : R.color.disabledTitleColor()!
     }
 }

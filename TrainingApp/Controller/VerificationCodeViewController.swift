@@ -106,12 +106,12 @@ final class VerificationCodeViewController: UIViewController, UITextFieldDelegat
     }
     
     private func textFieldSetup() {
-        let borderColor = UIColor( red: 0.0, green: 0.6, blue: 1.0, alpha: 1.0 )
-        firstDigitTextField.layer.borderColor = borderColor.cgColor
-        secondDigitTextField.layer.borderColor = borderColor.cgColor
-        thirdDigitTextField.layer.borderColor = borderColor.cgColor
-        fourthDigitTextField.layer.borderColor = borderColor.cgColor
-        fifthDigitTextField.layer.borderColor = borderColor.cgColor
+        let borderColor = R.color.borderColorBlue()
+        firstDigitTextField.layer.borderColor = borderColor?.cgColor
+        secondDigitTextField.layer.borderColor = borderColor?.cgColor
+        thirdDigitTextField.layer.borderColor = borderColor?.cgColor
+        fourthDigitTextField.layer.borderColor = borderColor?.cgColor
+        fifthDigitTextField.layer.borderColor = borderColor?.cgColor
         
         firstDigitTextField.layer.borderWidth = 1
         secondDigitTextField.layer.borderWidth = 1

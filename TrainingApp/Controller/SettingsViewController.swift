@@ -39,7 +39,7 @@ final class SettingsViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction private func darkModeTogglePressed(_ sender: UIButton) {
-        if darkModeToggleButton.currentImage == UIImage(named: "button") {
+        if darkModeToggleButton.currentImage == R.image.button() {
             darkModeIsOn()
         }
         else {
@@ -48,7 +48,7 @@ final class SettingsViewController: UIViewController {
     }
     
     @IBAction private func notificationsTogglePressed(_ sender: UIButton) {
-        if notificationsToggleButton.currentImage == UIImage(named: "button") {
+        if notificationsToggleButton.currentImage == R.image.button() {
             notificationIsOn()
         }
         else {
@@ -57,7 +57,7 @@ final class SettingsViewController: UIViewController {
     }
     
     @IBAction private func flightUpdatesTogglePressed(_ sender: UIButton) {
-        if flightUpdatesToggle.currentImage == UIImage(named: "button") {
+        if flightUpdatesToggle.currentImage == R.image.button() {
             flightUpdatesIsOn()
         }
         else {
@@ -66,7 +66,7 @@ final class SettingsViewController: UIViewController {
     }
     
     @IBAction private func executiveProgramTogglePressed(_ sender: UIButton) {
-        if executiveProgramToggle.currentImage == UIImage(named: "button") {
+        if executiveProgramToggle.currentImage == R.image.button(){
             executiveProgramIsOn()
         }
         else {
@@ -75,7 +75,7 @@ final class SettingsViewController: UIViewController {
     }
     
     @IBAction private func discountDealsTogglePressed(_ sender: UIButton) {
-        if discountDealsToggle.currentImage == UIImage(named: "button") {
+        if discountDealsToggle.currentImage == R.image.button() {
             discountIsOn()
         }
         else {
@@ -150,26 +150,26 @@ final class SettingsViewController: UIViewController {
     }
     
     private func darkModeIsOn() {
-        darkModeToggleButton.setImage(UIImage(named: "button_on"), for: .normal)
+        darkModeToggleButton.setImage(R.image.button_on(), for: .normal)
         overrideUserInterfaceStyle = .dark
-        languageRectangle.image = UIImage(named: "Rectangle_white")
-        darkModeRectangle.image = UIImage(named: "Rectangle_white")
-        notificationsRectangle.image = UIImage(named: "Rectangle_white")
+        languageRectangle.image = R.image.rectangle_white()
+        darkModeRectangle.image = R.image.rectangle_white()
+        notificationsRectangle.image = R.image.rectangle_white()
     }
     
     private func darkModeIsOff() {
-        darkModeToggleButton.setImage(UIImage(named: "button"), for: .normal)
+        darkModeToggleButton.setImage(R.image.button(), for: .normal)
         self.overrideUserInterfaceStyle = .light
-        languageRectangle.image = UIImage(named: "Rectangle")
-        darkModeRectangle.image = UIImage(named: "Rectangle")
-        notificationsRectangle.image = UIImage(named: "Rectangle")
+        languageRectangle.image = R.image.rectangle()
+        darkModeRectangle.image = R.image.rectangle()
+        notificationsRectangle.image = R.image.rectangle()
     }
     
     private func notificationIsOn() {
-        notificationsToggleButton.setImage(UIImage(named: "button_on"), for: .normal)
+        notificationsToggleButton.setImage(R.image.button_on(), for: .normal)
         notificationsRectangle.isHidden = true
         bigRectangle.isHidden = false
-        bigRectangle.image = UIImage(named: "Rectangle_big")
+        bigRectangle.image = R.image.rectangle_big()
         flightUpdatesLabel.isHidden = false
         flightUpdatesToggle.isHidden = false
         executiveProgramLabel.isHidden = false
@@ -179,7 +179,7 @@ final class SettingsViewController: UIViewController {
     }
     
     private func notificationIsOff() {
-        notificationsToggleButton.setImage(UIImage(named: "button"), for: .normal)
+        notificationsToggleButton.setImage(R.image.button(), for: .normal)
         notificationsRectangle.isHidden = false
         bigRectangle.isHidden = true
         flightUpdatesLabel.isHidden = true
@@ -191,26 +191,26 @@ final class SettingsViewController: UIViewController {
     }
     
     private func flightUpdatesIsOn() {
-        flightUpdatesToggle.setImage(UIImage(named: "button_on"), for: .normal)
+        flightUpdatesToggle.setImage(R.image.button_on(), for: .normal)
     }
     
     private func flightUpdatesIsOff() {
-        flightUpdatesToggle.setImage(UIImage(named: "button"), for: .normal)
+        flightUpdatesToggle.setImage(R.image.button(), for: .normal)
     }
     
     private func executiveProgramIsOn() {
-        executiveProgramToggle.setImage(UIImage(named: "button_on"), for: .normal)
+        executiveProgramToggle.setImage(R.image.button_on(), for: .normal)
     }
     
     private func executiveProgramIsOff() {
-        executiveProgramToggle.setImage(UIImage(named: "button"), for: .normal)
+        executiveProgramToggle.setImage(R.image.button(), for: .normal)
     }
     
     private func discountIsOn() {
-        discountDealsToggle.setImage(UIImage(named: "button_on"), for: .normal)
+        discountDealsToggle.setImage(R.image.button_on(), for: .normal)
     }
     
     private func discountIsOff() {
-        discountDealsToggle.setImage(UIImage(named: "button"), for: .normal)
+        discountDealsToggle.setImage(R.image.button(), for: .normal)
     }
 }

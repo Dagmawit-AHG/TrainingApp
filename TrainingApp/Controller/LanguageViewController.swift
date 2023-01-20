@@ -38,7 +38,6 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
         languagesTableView.dataSource = self
         languagesTableView.delegate = self
         
-        configureUI()
         setupTapGestureForViews()
         
     }
@@ -55,7 +54,7 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        languagesTableView.backgroundView = UIImageView(image: UIImage(named: "Rectangle_all"))
+        languagesTableView.backgroundView = UIImageView(image: R.image.rectangle_all())
         return languages.count
     }
     
@@ -65,7 +64,7 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
             return UITableViewCell()
         }
         else {
-            languagesTableView.backgroundView = UIImageView(image: UIImage(named: "Rectangle_all"))
+            languagesTableView.backgroundView = UIImageView(image: R.image.rectangle_all())
             let cell = tableView.dequeueReusableCell(withIdentifier: "LanguageCell", for: indexPath)
             cell.textLabel?.text = Array(languages.keys)[indexPath.row]
             cell.textLabel?.font.withSize(18.0)
@@ -85,13 +84,9 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
     
     // MARK: - Helpers
     
-    private func configureUI() {
-        
-    }
-    
     private func setupTapGestureForViews() {
         languagesTableView.backgroundColor = UIColor(red: 139, green: 201, blue: 255, alpha: 0.2)
-        languagesTableView.backgroundView = UIImageView(image: UIImage(named: "Rectangle_all"))
+        languagesTableView.backgroundView = UIImageView(image: R.image.rectangle_all())
         
         let backTapGesture = UITapGestureRecognizer(target: self, action: #selector(LanguageViewController.backImageTapped(gesture:)))
         backButton.addGestureRecognizer(backTapGesture)
