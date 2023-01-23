@@ -40,7 +40,6 @@ final class VerificationCodeViewController: UIViewController, UITextFieldDelegat
     // MARK: - Actions
     
     @IBAction private func confirmPressed(_ sender: UIButton) {
-//        let verificationCode = firstDigitTextField.text + secondDigitTextField.text
         performSegue(withIdentifier: R.string.localizable.goToNewPassword(), sender: self)
     }
     
