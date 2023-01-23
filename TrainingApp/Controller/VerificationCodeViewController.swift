@@ -40,7 +40,11 @@ final class VerificationCodeViewController: UIViewController, UITextFieldDelegat
     // MARK: - Actions
     
     @IBAction private func confirmPressed(_ sender: UIButton) {
-        performSegue(withIdentifier: R.string.localizable.goToNewPassword(), sender: self)
+        let verificationCode = viewModel.firstDigit! +
+                                viewModel.secondDigit! +
+                                viewModel.thirdDigit! +
+                                viewModel.fourthDigit! +
+                                viewModel.fifthDigit!
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

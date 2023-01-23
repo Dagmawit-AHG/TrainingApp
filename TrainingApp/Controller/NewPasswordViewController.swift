@@ -25,6 +25,7 @@ final class NewPasswordViewController: UIViewController {
         self.hideKeyboard()
         configureUI()
         configureNotificationObservers()
+        setupTapGestureForViews()
     }
     
     // MARK: - Actions
@@ -41,6 +42,13 @@ final class NewPasswordViewController: UIViewController {
             destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
             present(destinationVC, animated: true, completion: nil)
         }
+        else if segue.identifier == R.string.localizable.backToVerficationSegue() {
+            guard let destinationVC = segue.destination as? VerificationCodeViewController else { return }
+            
+            destinationVC.modalPresentationStyle = .fullScreen
+            destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
+            present(destinationVC, animated: true, completion: nil)
+        }
     }
     
     // MARK: - Helpers
@@ -49,6 +57,12 @@ final class NewPasswordViewController: UIViewController {
         newPasswordTextField.setBorder()
         confirmPasswordTextField.setBorder()
         setPasswordButton.buttonSetupForNewPassword()
+    }
+    
+    private func setupTapGestureForViews() {
+        let backTapGesture = UITapGestureRecognizer(target: self, action: #selector(NewPasswordViewController.backImageTapped(gesture:)))
+        backButton.addGestureRecognizer(backTapGesture)
+        backButton.isUserInteractionEnabled = true
     }
     
     private func configureNotificationObservers() {
@@ -66,6 +80,13 @@ final class NewPasswordViewController: UIViewController {
             viewModel.confirmPassword = sender.text
         }
         updateForm()
+    }
+    
+    @objc
+    private func backImageTapped(gesture: UIGestureRecognizer) {
+        if(gesture.view as? UIImageView) != nil {
+            performSegue(withIdentifier: R.string.localizable.backToVerficationSegue(), sender: self)
+        }
     }
     
     private func checkPasswords() {

@@ -20,11 +20,14 @@
 "goToNewPassword" = "goToNewPassword";
 "goBackToForgotPass" = "goBackToForgotPass";
 "goToLoginAfterNewPass" = "goToLoginAfterNewPass";
+"backToVerficationSegue" = "backToVerficationSegue";
 "LanguageCell" = "LanguageCell";
 "Couldn'tSignin" = "Couldn't Sign in";
 "Couldn'tSignup" = "Couldn't Sign up";
 "Error" = "Error";
 "Success" = "Success";
+"Wrong Code" = "Wrong Code";
+"Please try again" = "Please try again";
 "A reset email has been sent to" = "A reset email has been sent to ";
 "email" = "email";
 "OK" = "OK";

@@ -962,6 +962,7 @@
                         <outlet property="confirmPasswordTextField" destination="t4T-Qa-xPO" id="zuM-fR-2JB"/>
                         <outlet property="newPasswordTextField" destination="2tp-JY-TBq" id="sno-G1-45Y"/>
                         <outlet property="setPasswordButton" destination="s7h-LE-MLo" id="TR8-ff-ZcE"/>
+                        <segue destination="JW5-u9-kn5" kind="show" identifier="backToVerficationSegue" id="Iql-mO-Lao"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uP4-zK-hUd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2093,6 +2094,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="LKU-gm-OMG"/>
         <segue reference="lYr-2l-ymr"/>
+        <segue reference="Iql-mO-Lao"/>
         <segue reference="15S-AC-FuK"/>
         <segue reference="4Xv-Xf-5kp"/>
         <segue reference="VOB-g0-ysn"/>

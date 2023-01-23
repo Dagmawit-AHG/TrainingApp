@@ -67,7 +67,7 @@ struct _R {
     }
 
 
-    /// This `_R.string.localizable` struct is generated, and contains static references to 39 localization keys.
+    /// This `_R.string.localizable` struct is generated, and contains static references to 42 localization keys.
     struct localizable {
       let source: RswiftResources.StringResource.Source
 
@@ -232,6 +232,13 @@ struct _R {
       /// Locales: en
       var oK: RswiftResources.StringResource { .init(key: "OK", tableName: "Localizable", source: source, developmentValue: "OK", comment: nil) }
 
+      /// en translation: Please try again
+      ///
+      /// Key: Please try again
+      ///
+      /// Locales: en
+      var pleaseTryAgain: RswiftResources.StringResource { .init(key: "Please try again", tableName: "Localizable", source: source, developmentValue: "Please try again", comment: nil) }
+
       /// en translation: Success
       ///
       /// Key: Success
@@ -245,6 +252,13 @@ struct _R {
       ///
       /// Locales: en
       var wroclow: RswiftResources.StringResource { .init(key: "Wroclow", tableName: "Localizable", source: source, developmentValue: "Wroclow", comment: nil) }
+
+      /// en translation: Wrong Code
+      ///
+      /// Key: Wrong Code
+      ///
+      /// Locales: en
+      var wrongCode: RswiftResources.StringResource { .init(key: "Wrong Code", tableName: "Localizable", source: source, developmentValue: "Wrong Code", comment: nil) }
 
       /// en translation: backToHomepageSegue
       ///
@@ -266,6 +280,13 @@ struct _R {
       ///
       /// Locales: en
       var backToSettingsSegue: RswiftResources.StringResource { .init(key: "backToSettingsSegue", tableName: "Localizable", source: source, developmentValue: "backToSettingsSegue", comment: nil) }
+
+      /// en translation: backToVerficationSegue
+      ///
+      /// Key: backToVerficationSegue
+      ///
+      /// Locales: en
+      var backToVerficationSegue: RswiftResources.StringResource { .init(key: "backToVerficationSegue", tableName: "Localizable", source: source, developmentValue: "backToVerficationSegue", comment: nil) }
 
       /// en translation: email
       ///
@@ -516,8 +537,11 @@ struct _R {
       var showForgotPasswordPage: RswiftResources.SegueIdentifier<UIKit.UIStoryboardSegue, LoginViewController, ForgotPasswordViewController> { .init(identifier: "showForgotPasswordPage") }
     }
 
-    /// This struct is generated for `NewPasswordViewController`, and contains static references to 1 segues.
+    /// This struct is generated for `NewPasswordViewController`, and contains static references to 2 segues.
     struct newPasswordViewController {
+
+      /// Segue identifier `backToVerficationSegue`.
+      var backToVerficationSegue: RswiftResources.SegueIdentifier<UIKit.UIStoryboardSegue, NewPasswordViewController, VerificationCodeViewController> { .init(identifier: "backToVerficationSegue") }
 
       /// Segue identifier `goToLoginAfterNewPass`.
       var goToLoginAfterNewPass: RswiftResources.SegueIdentifier<UIKit.UIStoryboardSegue, NewPasswordViewController, LoginViewController> { .init(identifier: "goToLoginAfterNewPass") }

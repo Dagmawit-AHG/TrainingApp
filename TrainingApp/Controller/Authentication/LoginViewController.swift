@@ -18,7 +18,7 @@ final class LoginViewController: UIViewController {
     
     @IBOutlet private var emailTextField: UITextField!
     @IBOutlet private var passwordTextField: UITextField!
-    @IBOutlet var forgotPasswordButton: UIButton!
+    @IBOutlet private var forgotPasswordButton: UIButton!
     @IBOutlet private var signInButton: UIButton!
     
     // MARK: - Lifecycle
