@@ -30,7 +30,17 @@ final class NewPasswordViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func setPasswordPressed(_ sender: UIButton) {
-        
+        performSegue(withIdentifier: R.string.localizable.goToLoginAfterNewPass(), sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == R.string.localizable.goToLoginAfterNewPass() {
+            guard let destinationVC = segue.destination as? LoginViewController else { return }
+            
+            destinationVC.modalPresentationStyle = .fullScreen
+            destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
+            present(destinationVC, animated: true, completion: nil)
+        }
     }
     
     // MARK: - Helpers

@@ -18,34 +18,24 @@ final class LoginViewController: UIViewController {
     
     @IBOutlet private var emailTextField: UITextField!
     @IBOutlet private var passwordTextField: UITextField!
-    @IBOutlet private var forgotPasswordLabel: UILabel!
+    @IBOutlet var forgotPasswordButton: UIButton!
     @IBOutlet private var signInButton: UIButton!
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.navigationController?.navigationBar.backgroundColor = .clear
         self.hideKeyboard()
         configureUI()
         configureNotificationObservers()
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.forgotPasswordTapped(gesture:)))
-        forgotPasswordLabel.addGestureRecognizer(tapGesture)
-        forgotPasswordLabel.isUserInteractionEnabled = true
     }
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        self.navigationController?.navigationBar.backgroundColor = .clear
-//
-//        self.navigationController?.setNavigationBarHidden(false, animated: true)
-//    }
     
     // MARK: - Actions
     
     @IBAction private func createAccountPressed(_ sender: UIButton) {
-        performSegue(withIdentifier: "showCreateAccountPage", sender: self)
+        performSegue(withIdentifier: R.string.localizable.showCreateAccountPage(), sender: self)
     }
     
     @IBAction private func signInButtonPressed(_ sender: UIButton) {
@@ -53,30 +43,37 @@ final class LoginViewController: UIViewController {
 
         AuthService.signInUser(withEmail: email, password: password, completion: { [ weak self ] error in
             if error != nil {
-                let alert = UIAlertController(title: "Couldn't Sign in", message: error?.localizedDescription, preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                let alert = UIAlertController(title: R.string.localizable.couldnTSignin(), message: error?.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: R.string.localizable.oK(), style: UIAlertAction.Style.default, handler: nil))
                 self?.present(alert, animated: true, completion: nil)
             }
-            self?.performSegue(withIdentifier: "HomeViewController", sender: self)
+            self?.performSegue(withIdentifier: R.string.localizable.homeViewController(), sender: self)
         })
     }
     
+    @IBAction func forgotPasswordPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: R.string.localizable.showForgotPasswordPage(), sender: self)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showCreateAccountPage" {
+        if segue.identifier == R.string.localizable.showCreateAccountPage() {
             guard let destinationVC = segue.destination as? RegistrationViewController else { return }
+            
             destinationVC.modalPresentationStyle = .fullScreen
             destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
             present(destinationVC, animated: true, completion: nil)
         }
-        else if segue.identifier == "HomeViewController" {
+        else if segue.identifier == R.string.localizable.homeViewController() {
             guard let destinationVC = segue.destination as? HomeViewController else { return }
+            
             destinationVC.modalPresentationStyle = .fullScreen
             destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
             destinationVC.navigationController?.navigationBar.backgroundColor = .clear
             present(destinationVC, animated: true, completion: nil)
         }
-        else if segue.identifier == "showForgotPasswordPage" {
+        else if segue.identifier == R.string.localizable.showForgotPasswordPage() {
             guard let destinationVC = segue.destination as? ForgotPasswordViewController else { return }
+            
             destinationVC.modalPresentationStyle = .fullScreen
             destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
             destinationVC.navigationController?.navigationBar.backgroundColor = .clear
@@ -107,13 +104,6 @@ final class LoginViewController: UIViewController {
             viewModel.password = sender.text
         }
         updateForm()
-    }
-    
-    @objc
-    private func forgotPasswordTapped(gesture: UIGestureRecognizer) {
-        if(gesture.view as? UILabel) != nil {
-            performSegue(withIdentifier: "showForgotPasswordPage", sender: self)
-        }
     }
 }
 

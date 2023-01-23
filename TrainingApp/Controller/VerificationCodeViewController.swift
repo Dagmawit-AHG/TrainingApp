@@ -40,18 +40,21 @@ final class VerificationCodeViewController: UIViewController, UITextFieldDelegat
     // MARK: - Actions
     
     @IBAction private func confirmPressed(_ sender: UIButton) {
-        performSegue(withIdentifier: "goToNewPassword", sender: self)
+//        let verificationCode = firstDigitTextField.text + secondDigitTextField.text
+        performSegue(withIdentifier: R.string.localizable.goToNewPassword(), sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goBackToForgotPass" {
+        if segue.identifier == R.string.localizable.goBackToForgotPass() {
             guard let destinationVC = segue.destination as? ForgotPasswordViewController else { return }
+            
             destinationVC.modalPresentationStyle = .fullScreen
             destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
             present(destinationVC, animated: true, completion: nil)
         }
-        else if segue.identifier == "goToNewPassword" {
+        else if segue.identifier == R.string.localizable.goToNewPassword() {
             guard let destinationVC = segue.destination as? NewPasswordViewController else { return }
+            
             destinationVC.modalPresentationStyle = .fullScreen
             destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
             present(destinationVC, animated: true, completion: nil)
@@ -151,7 +154,7 @@ final class VerificationCodeViewController: UIViewController, UITextFieldDelegat
     @objc
     private func backImageTapped(gesture: UIGestureRecognizer) {
         if(gesture.view as? UIImageView) != nil {
-            performSegue(withIdentifier: "goBackToForgotPass", sender: self)
+            performSegue(withIdentifier: R.string.localizable.goBackToForgotPass(), sender: self)
         }
     }
 }

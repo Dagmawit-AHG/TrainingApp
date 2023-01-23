@@ -64,8 +64,6 @@ extension UIButton {
         self.setAttributedTitle(title, for: .normal)
         self.isEnabled = false
         self.backgroundColor = UIColor(red: 0.0, green: 0.5, blue: 1.0, alpha: 0.5)
-//        self.tintColor = UIColor(red: 0.0, green: 0.6, blue: 1.0, alpha: 1.0)
-//        self.setTitleColor(UIColor.white, for: .normal)
     }
     
     func buttonSetupForRegistration() {
@@ -73,8 +71,6 @@ extension UIButton {
         self.setAttributedTitle(title, for: .normal)
         self.isEnabled = false
         self.backgroundColor = UIColor(red: 0.0, green: 0.5, blue: 1.0, alpha: 0.5)
-//        self.tintColor = UIColor(red: 0.0, green: 0.6, blue: 1.0, alpha: 1.0)
-//        self.setTitleColor(UIColor.white, for: .normal)
     }
     
     func buttonSetupForConfirm() {
@@ -170,6 +166,7 @@ extension UISegmentedControl {
     
     func changeUnderlinePosition() {
             guard let underline = self.viewWithTag(1) else {return}
+        
             let underlineFinalXPosition = (self.bounds.width / CGFloat(self.numberOfSegments)) * CGFloat(selectedSegmentIndex)
             UIView.animate(withDuration: 0.1, animations: {
                 underline.frame.origin.x = underlineFinalXPosition
@@ -275,7 +272,9 @@ extension UIView {
     
     func fillSuperview() {
         translatesAutoresizingMaskIntoConstraints = false
+        
         guard let view = superview else { return }
+        
         anchor(top: view.topAnchor, left: view.leftAnchor,
                bottom: view.bottomAnchor, right: view.rightAnchor)
     }

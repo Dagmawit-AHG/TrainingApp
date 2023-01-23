@@ -32,29 +32,31 @@ final class ForgotPasswordViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction private func confirmButtonPressed(_ sender: UIButton) {
-        Auth.auth().sendPasswordReset(withEmail: emailTextField.text ?? "") { (error) in
+        Auth.auth().sendPasswordReset(withEmail: emailTextField.text ?? R.string.localizable.empty()) { [weak self] error in
             if let error = error {
-                let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
+                let alert = UIAlertController(title: R.string.localizable.error(), message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: R.string.localizable.oK(), style: UIAlertAction.Style.default, handler: nil))
+                self?.present(alert, animated: true, completion: nil)
                 return
             }
-            let alert = UIAlertController(title: "Success", message: "A reset email has been sent to \(self.emailTextField.text ?? "email")", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-            self.performSegue(withIdentifier: "goToCodeSegue", sender: self)
+            let alert = UIAlertController(title: R.string.localizable.success(), message: R.string.localizable.aResetEmailHasBeenSentTo() + (self?.emailTextField.text ?? R.string.localizable.email()), preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: R.string.localizable.oK(), style: UIAlertAction.Style.default, handler: nil))
+            self?.present(alert, animated: true, completion: nil)
+            self?.performSegue(withIdentifier: R.string.localizable.goToCodeSegue(), sender: self)
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToCodeSegue" {
+        if segue.identifier == R.string.localizable.goToCodeSegue() {
             guard let destinationVC = segue.destination as? VerificationCodeViewController else { return }
+            
             destinationVC.modalPresentationStyle = .fullScreen
             destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
             present(destinationVC, animated: true, completion: nil)
         }
-        else if segue.identifier == "backToLoginSegue" {
+        else if segue.identifier == R.string.localizable.backToLoginSegue() {
             guard let destinationVC = segue.destination as? LoginViewController else { return }
+            
             destinationVC.modalPresentationStyle = .fullScreen
             destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
             present(destinationVC, animated: true, completion: nil)
@@ -80,7 +82,7 @@ final class ForgotPasswordViewController: UIViewController {
     @objc
     private func backImageTapped(gesture: UIGestureRecognizer) {
         if(gesture.view as? UIImageView) != nil {
-            performSegue(withIdentifier: "backToLoginSegue", sender: self)
+            performSegue(withIdentifier: R.string.localizable.backToLoginSegue(), sender: self)
         }
     }
     

@@ -67,9 +67,282 @@ struct _R {
     }
 
 
-    /// This `_R.string.localizable` struct is generated, and contains static references to 0 localization keys.
+    /// This `_R.string.localizable` struct is generated, and contains static references to 39 localization keys.
     struct localizable {
       let source: RswiftResources.StringResource.Source
+
+      /// en translation: A reset email has been sent to 
+      ///
+      /// Key: A reset email has been sent to
+      ///
+      /// Locales: en
+      var aResetEmailHasBeenSentTo: RswiftResources.StringResource { .init(key: "A reset email has been sent to", tableName: "Localizable", source: source, developmentValue: "A reset email has been sent to ", comment: nil) }
+
+      /// en translation: Addis Ababa
+      ///
+      /// Key: Addis Ababa
+      ///
+      /// Locales: en
+      var addisAbaba: RswiftResources.StringResource { .init(key: "Addis Ababa", tableName: "Localizable", source: source, developmentValue: "Addis Ababa", comment: nil) }
+
+      /// en translation: Couldn't Sign in
+      ///
+      /// Key: Couldn'tSignin
+      ///
+      /// Locales: en
+      var couldnTSignin: RswiftResources.StringResource { .init(key: "Couldn'tSignin", tableName: "Localizable", source: source, developmentValue: "Couldn't Sign in", comment: nil) }
+
+      /// en translation: Couldn't Sign up
+      ///
+      /// Key: Couldn'tSignup
+      ///
+      /// Locales: en
+      var couldnTSignup: RswiftResources.StringResource { .init(key: "Couldn'tSignup", tableName: "Localizable", source: source, developmentValue: "Couldn't Sign up", comment: nil) }
+
+      /// en translation: Danish
+      ///
+      /// Key: Danish
+      ///
+      /// Locales: en
+      var danish: RswiftResources.StringResource { .init(key: "Danish", tableName: "Localizable", source: source, developmentValue: "Danish", comment: nil) }
+
+      /// en translation: Dansk
+      ///
+      /// Key: Dansk
+      ///
+      /// Locales: en
+      var dansk: RswiftResources.StringResource { .init(key: "Dansk", tableName: "Localizable", source: source, developmentValue: "Dansk", comment: nil) }
+
+      /// en translation: Done
+      ///
+      /// Key: Done
+      ///
+      /// Locales: en
+      var done: RswiftResources.StringResource { .init(key: "Done", tableName: "Localizable", source: source, developmentValue: "Done", comment: nil) }
+
+      /// en translation: Dutch
+      ///
+      /// Key: Dutch
+      ///
+      /// Locales: en
+      var dutch: RswiftResources.StringResource { .init(key: "Dutch", tableName: "Localizable", source: source, developmentValue: "Dutch", comment: nil) }
+
+      /// en translation: 
+      ///
+      /// Key: Empty
+      ///
+      /// Locales: en
+      var empty: RswiftResources.StringResource { .init(key: "Empty", tableName: "Localizable", source: source, developmentValue: "", comment: nil) }
+
+      /// en translation: English(Australia)
+      ///
+      /// Key: English(Australia)
+      ///
+      /// Locales: en
+      var englishAustralia: RswiftResources.StringResource { .init(key: "English(Australia)", tableName: "Localizable", source: source, developmentValue: "English(Australia)", comment: nil) }
+
+      /// en translation: English(Canada)
+      ///
+      /// Key: English(Canada)
+      ///
+      /// Locales: en
+      var englishCanada: RswiftResources.StringResource { .init(key: "English(Canada)", tableName: "Localizable", source: source, developmentValue: "English(Canada)", comment: nil) }
+
+      /// en translation: English(United States)
+      ///
+      /// Key: English(United States)
+      ///
+      /// Locales: en
+      var englishUnitedStates: RswiftResources.StringResource { .init(key: "English(United States)", tableName: "Localizable", source: source, developmentValue: "English(United States)", comment: nil) }
+
+      /// en translation: Error
+      ///
+      /// Key: Error
+      ///
+      /// Locales: en
+      var error: RswiftResources.StringResource { .init(key: "Error", tableName: "Localizable", source: source, developmentValue: "Error", comment: nil) }
+
+      /// en translation: Frankfurt
+      ///
+      /// Key: Frankfurt
+      ///
+      /// Locales: en
+      var frankfurt: RswiftResources.StringResource { .init(key: "Frankfurt", tableName: "Localizable", source: source, developmentValue: "Frankfurt", comment: nil) }
+
+      /// en translation: Heathrow
+      ///
+      /// Key: Heathrow
+      ///
+      /// Locales: en
+      var heathrow: RswiftResources.StringResource { .init(key: "Heathrow", tableName: "Localizable", source: source, developmentValue: "Heathrow", comment: nil) }
+
+      /// en translation: HomeViewController
+      ///
+      /// Key: HomeViewController
+      ///
+      /// Locales: en
+      var homeViewController: RswiftResources.StringResource { .init(key: "HomeViewController", tableName: "Localizable", source: source, developmentValue: "HomeViewController", comment: nil) }
+
+      /// en translation: Hong Kong
+      ///
+      /// Key: Hong Kong
+      ///
+      /// Locales: en
+      var hongKong: RswiftResources.StringResource { .init(key: "Hong Kong", tableName: "Localizable", source: source, developmentValue: "Hong Kong", comment: nil) }
+
+      /// en translation: Italian
+      ///
+      /// Key: Italian
+      ///
+      /// Locales: en
+      var italian: RswiftResources.StringResource { .init(key: "Italian", tableName: "Localizable", source: source, developmentValue: "Italian", comment: nil) }
+
+      /// en translation: Italy
+      ///
+      /// Key: Italy
+      ///
+      /// Locales: en
+      var italy: RswiftResources.StringResource { .init(key: "Italy", tableName: "Localizable", source: source, developmentValue: "Italy", comment: nil) }
+
+      /// en translation: LanguageCell
+      ///
+      /// Key: LanguageCell
+      ///
+      /// Locales: en
+      var languageCell: RswiftResources.StringResource { .init(key: "LanguageCell", tableName: "Localizable", source: source, developmentValue: "LanguageCell", comment: nil) }
+
+      /// en translation: Netherlands
+      ///
+      /// Key: Netherlands
+      ///
+      /// Locales: en
+      var netherlands: RswiftResources.StringResource { .init(key: "Netherlands", tableName: "Localizable", source: source, developmentValue: "Netherlands", comment: nil) }
+
+      /// en translation: New Delhi
+      ///
+      /// Key: New Delhi
+      ///
+      /// Locales: en
+      var newDelhi: RswiftResources.StringResource { .init(key: "New Delhi", tableName: "Localizable", source: source, developmentValue: "New Delhi", comment: nil) }
+
+      /// en translation: OK
+      ///
+      /// Key: OK
+      ///
+      /// Locales: en
+      var oK: RswiftResources.StringResource { .init(key: "OK", tableName: "Localizable", source: source, developmentValue: "OK", comment: nil) }
+
+      /// en translation: Success
+      ///
+      /// Key: Success
+      ///
+      /// Locales: en
+      var success: RswiftResources.StringResource { .init(key: "Success", tableName: "Localizable", source: source, developmentValue: "Success", comment: nil) }
+
+      /// en translation: Wroclow
+      ///
+      /// Key: Wroclow
+      ///
+      /// Locales: en
+      var wroclow: RswiftResources.StringResource { .init(key: "Wroclow", tableName: "Localizable", source: source, developmentValue: "Wroclow", comment: nil) }
+
+      /// en translation: backToHomepageSegue
+      ///
+      /// Key: backToHomepageSegue
+      ///
+      /// Locales: en
+      var backToHomepageSegue: RswiftResources.StringResource { .init(key: "backToHomepageSegue", tableName: "Localizable", source: source, developmentValue: "backToHomepageSegue", comment: nil) }
+
+      /// en translation: backToLoginSegue
+      ///
+      /// Key: backToLoginSegue
+      ///
+      /// Locales: en
+      var backToLoginSegue: RswiftResources.StringResource { .init(key: "backToLoginSegue", tableName: "Localizable", source: source, developmentValue: "backToLoginSegue", comment: nil) }
+
+      /// en translation: backToSettingsSegue
+      ///
+      /// Key: backToSettingsSegue
+      ///
+      /// Locales: en
+      var backToSettingsSegue: RswiftResources.StringResource { .init(key: "backToSettingsSegue", tableName: "Localizable", source: source, developmentValue: "backToSettingsSegue", comment: nil) }
+
+      /// en translation: email
+      ///
+      /// Key: email
+      ///
+      /// Locales: en
+      var email: RswiftResources.StringResource { .init(key: "email", tableName: "Localizable", source: source, developmentValue: "email", comment: nil) }
+
+      /// en translation: goBackToForgotPass
+      ///
+      /// Key: goBackToForgotPass
+      ///
+      /// Locales: en
+      var goBackToForgotPass: RswiftResources.StringResource { .init(key: "goBackToForgotPass", tableName: "Localizable", source: source, developmentValue: "goBackToForgotPass", comment: nil) }
+
+      /// en translation: goToCodeSegue
+      ///
+      /// Key: goToCodeSegue
+      ///
+      /// Locales: en
+      var goToCodeSegue: RswiftResources.StringResource { .init(key: "goToCodeSegue", tableName: "Localizable", source: source, developmentValue: "goToCodeSegue", comment: nil) }
+
+      /// en translation: goToLoginAfterNewPass
+      ///
+      /// Key: goToLoginAfterNewPass
+      ///
+      /// Locales: en
+      var goToLoginAfterNewPass: RswiftResources.StringResource { .init(key: "goToLoginAfterNewPass", tableName: "Localizable", source: source, developmentValue: "goToLoginAfterNewPass", comment: nil) }
+
+      /// en translation: goToNewPassword
+      ///
+      /// Key: goToNewPassword
+      ///
+      /// Locales: en
+      var goToNewPassword: RswiftResources.StringResource { .init(key: "goToNewPassword", tableName: "Localizable", source: source, developmentValue: "goToNewPassword", comment: nil) }
+
+      /// en translation: showCreateAccountPage
+      ///
+      /// Key: showCreateAccountPage
+      ///
+      /// Locales: en
+      var showCreateAccountPage: RswiftResources.StringResource { .init(key: "showCreateAccountPage", tableName: "Localizable", source: source, developmentValue: "showCreateAccountPage", comment: nil) }
+
+      /// en translation: showForgotPasswordPage
+      ///
+      /// Key: showForgotPasswordPage
+      ///
+      /// Locales: en
+      var showForgotPasswordPage: RswiftResources.StringResource { .init(key: "showForgotPasswordPage", tableName: "Localizable", source: source, developmentValue: "showForgotPasswordPage", comment: nil) }
+
+      /// en translation: showLanguagesPage
+      ///
+      /// Key: showLanguagesPage
+      ///
+      /// Locales: en
+      var showLanguagesPage: RswiftResources.StringResource { .init(key: "showLanguagesPage", tableName: "Localizable", source: source, developmentValue: "showLanguagesPage", comment: nil) }
+
+      /// en translation: showLoginPage
+      ///
+      /// Key: showLoginPage
+      ///
+      /// Locales: en
+      var showLoginPage: RswiftResources.StringResource { .init(key: "showLoginPage", tableName: "Localizable", source: source, developmentValue: "showLoginPage", comment: nil) }
+
+      /// en translation: showSettingsPage
+      ///
+      /// Key: showSettingsPage
+      ///
+      /// Locales: en
+      var showSettingsPage: RswiftResources.StringResource { .init(key: "showSettingsPage", tableName: "Localizable", source: source, developmentValue: "showSettingsPage", comment: nil) }
+
+      /// en translation: signOutSegue
+      ///
+      /// Key: signOutSegue
+      ///
+      /// Locales: en
+      var signOutSegue: RswiftResources.StringResource { .init(key: "signOutSegue", tableName: "Localizable", source: source, developmentValue: "signOutSegue", comment: nil) }
     }
   }
 

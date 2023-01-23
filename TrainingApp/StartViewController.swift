@@ -27,10 +27,8 @@ class StartViewController: UIViewController {
     
     @IBAction private func signInButtonPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "ShowLoginPageSegue", sender: self)
-//        let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController")
-//        UIApplication.topViewController.present(loginVC, animated: true, completion: nil)
     }
-//
+
     @IBAction private func signUpButtonPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "ShowRegistrationPageSegue", sender: self)
     }
@@ -38,6 +36,7 @@ class StartViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowLoginPageSegue" {
             guard let destinationVC = segue.destination as? LoginViewController else { return }
+            
             destinationVC.modalPresentationStyle = .fullScreen
             destinationVC.navigationController?.isNavigationBarHidden = false
             destinationVC.navigationController?.navigationBar.backgroundColor = .clear
@@ -46,6 +45,7 @@ class StartViewController: UIViewController {
         
         else if segue.identifier == "ShowRegistrationPageSegue" {
             guard let destinationVC = segue.destination as? RegistrationViewController else { return }
+            
             destinationVC.modalPresentationStyle = .fullScreen
             destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
             present(destinationVC, animated: true, completion: nil)

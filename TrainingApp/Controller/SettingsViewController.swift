@@ -86,29 +86,31 @@ final class SettingsViewController: UIViewController {
     @IBAction private func signOutPressed(_ sender: UIButton) {
         do {
             try Auth.auth().signOut()
-            print("DEBUG: Successfully signed out user.")
-            performSegue(withIdentifier: "signOutSegue", sender: self)
+            performSegue(withIdentifier: R.string.localizable.signOutSegue(), sender: self)
         }
         catch let signOutError as NSError {
-            print("Error signing out: \(signOutError.localizedDescription)")
+            print(signOutError.localizedDescription)
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "signOutSegue" {
+        if segue.identifier == R.string.localizable.signOutSegue() {
             guard let destinationVC = segue.destination as? StartViewController else { return }
+            
             destinationVC.modalPresentationStyle = .fullScreen
             destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
             present(destinationVC, animated: true, completion: nil)
         }
-        else if segue.identifier == "backToHomepageSegue" {
+        else if segue.identifier == R.string.localizable.backToHomepageSegue() {
             guard let destinationVC = segue.destination as? HomeViewController else { return }
+            
             destinationVC.modalPresentationStyle = .fullScreen
             destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
             present(destinationVC, animated: true, completion: nil)
         }
-        else if segue.identifier == "showLanguagesPage" {
+        else if segue.identifier == R.string.localizable.showLanguagesPage() {
             guard let destinationVC = segue.destination as? LanguageViewController else { return }
+            
             destinationVC.modalPresentationStyle = .fullScreen
             destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
             present(destinationVC, animated: true, completion: nil)
@@ -130,23 +132,23 @@ final class SettingsViewController: UIViewController {
     @objc
     private func backImageTapped(gesture: UIGestureRecognizer) {
         if(gesture.view as? UIImageView) != nil {
-            performSegue(withIdentifier: "backToHomepageSegue", sender: self)
+            performSegue(withIdentifier: R.string.localizable.backToHomepageSegue(), sender: self)
         }
     }
     
     @objc
     private func LanguagesImageTapped(gesture: UIGestureRecognizer) {
         if(gesture.view as? UIImageView) != nil {
-            performSegue(withIdentifier: "showLanguagesPage", sender: self)
+            performSegue(withIdentifier: R.string.localizable.showLanguagesPage(), sender: self)
         }
     }
     
     private func initialButtonsSetup() {
-        darkModeToggleButton.setTitle("", for: .normal)
-        notificationsToggleButton.setTitle("", for: .normal)
-        flightUpdatesToggle.setTitle("", for: .normal)
-        executiveProgramToggle.setTitle("", for: .normal)
-        discountDealsToggle.setTitle("", for: .normal)
+        darkModeToggleButton.setTitle(R.string.localizable.empty(), for: .normal)
+        notificationsToggleButton.setTitle(R.string.localizable.empty(), for: .normal)
+        flightUpdatesToggle.setTitle(R.string.localizable.empty(), for: .normal)
+        executiveProgramToggle.setTitle(R.string.localizable.empty(), for: .normal)
+        discountDealsToggle.setTitle(R.string.localizable.empty(), for: .normal)
     }
     
     private func darkModeIsOn() {

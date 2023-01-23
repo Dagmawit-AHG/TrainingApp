@@ -14,7 +14,7 @@ class HomeViewController: UIViewController {
     // MARK: - Properties
     
     @IBOutlet private var fromTextField: UITextField!
-//    @IBOutlet private var fromDropDown: DropDown!
+    @IBOutlet private var fromDropDown: DropDown!
     @IBOutlet private var roundTripView: UIView!
     @IBOutlet private var oneWayTripView: UIView!
     @IBOutlet private var fromPickerView: UIPickerView!
@@ -22,7 +22,7 @@ class HomeViewController: UIViewController {
     @IBOutlet private var settingsButton: UIImageView!
     
     private var selectedCity: String?
-    private var listOfCities = ["Frankfurt","Addis Ababa","Heathrow","Wroclow","Hong Kong","New Delhi","Frankfurt","Addis Ababa","Heathrow","Wroclow","Hong Kong","New Delhi"]
+    private var listOfCities = [R.string.localizable.frankfurt(),R.string.localizable.addisAbaba(),R.string.localizable.heathrow(),R.string.localizable.wroclow(),R.string.localizable.hongKong(),R.string.localizable.newDelhi(),R.string.localizable.frankfurt(),R.string.localizable.addisAbaba(),R.string.localizable.heathrow(),R.string.localizable.wroclow(),R.string.localizable.hongKong(),R.string.localizable.newDelhi()]
     
     // MARK: - Lifecycle
     
@@ -68,12 +68,13 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction private func settingsClicked(_ sender: UITapGestureRecognizer) {
-        performSegue(withIdentifier: "showSettingsPage", sender: self)
+        performSegue(withIdentifier: R.string.localizable.showSettingsPage(), sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showSettingsPage" {
+        if segue.identifier == R.string.localizable.showSettingsPage() {
             guard let destinationVC = segue.destination as? SettingsViewController else { return }
+            
             destinationVC.modalPresentationStyle = .fullScreen
             destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
             present(destinationVC, animated: true, completion: nil)
@@ -105,7 +106,7 @@ class HomeViewController: UIViewController {
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         
-        let button = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.dismissAction))
+        let button = UIBarButtonItem(title: R.string.localizable.done(), style: .plain, target: self, action: #selector(self.dismissAction))
         toolbar.setItems([button], animated: true)
         toolbar.isUserInteractionEnabled = true
         self.fromTextField.inputAccessoryView = toolbar
@@ -119,8 +120,7 @@ class HomeViewController: UIViewController {
     @objc
     private func imageTapped(gesture: UIGestureRecognizer) {
         if(gesture.view as? UIImageView) != nil {
-            print("Image Tapped")
-            performSegue(withIdentifier: "showSettingsPage", sender: self)
+            performSegue(withIdentifier: R.string.localizable.showSettingsPage(), sender: self)
         }
     }
 }
@@ -149,7 +149,5 @@ extension HomeViewController: UIPickerViewDataSource {
 }
 
 extension HomeViewController: UITextFieldDelegate {
-    //    func textFieldDidBeginEditing(_ textField: UITextField) {
-    //
-    //    }
+
 }

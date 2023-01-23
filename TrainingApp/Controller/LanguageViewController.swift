@@ -11,14 +11,12 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
     
     // MARK: - Properties
     
-    var languages: [String: String] = ["Dansk": "Danish",
-                                       "Netherlands": "Dutch",
-                                       "English(Canada)": "English(Canada)",
-                                       "English(Australia)": "English(Australia)",
-                                       "English(United States)": "English(United States)",
-                                       "Italy": "Italian"]
-    
-    var lang: [String] = ["Dansk", "Netherlands", "English(Canada)", "English(Australia)", "English(United States)", "Italy"]
+    var languages: [String: String] = [R.string.localizable.dansk(): R.string.localizable.danish(),
+                                       R.string.localizable.netherlands(): R.string.localizable.dutch(),
+                                       R.string.localizable.englishCanada(): R.string.localizable.englishCanada(),
+                                       R.string.localizable.englishAustralia(): R.string.localizable.englishAustralia(),
+                                       R.string.localizable.englishUnitedStates(): R.string.localizable.englishUnitedStates(),
+                                       R.string.localizable.italy(): R.string.localizable.italian()]
     
     @IBOutlet private var backButton: UIImageView!
     @IBOutlet private var settingsButton: UIImageView!
@@ -45,8 +43,9 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
     // MARK: - Actions
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "backToSettingsSegue" {
+        if segue.identifier == R.string.localizable.backToSettingsSegue() {
             guard let destinationVC = segue.destination as? SettingsViewController else { return }
+            
             destinationVC.modalPresentationStyle = .fullScreen
             destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
             present(destinationVC, animated: true, completion: nil)
@@ -65,7 +64,7 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
         }
         else {
             languagesTableView.backgroundView = UIImageView(image: R.image.rectangle_all())
-            let cell = tableView.dequeueReusableCell(withIdentifier: "LanguageCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: R.string.localizable.languageCell(), for: indexPath)
             cell.textLabel?.text = Array(languages.keys)[indexPath.row]
             cell.textLabel?.font.withSize(18.0)
             print(Array(languages.keys)[indexPath.row])
@@ -112,14 +111,14 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
     @objc
     private func backImageTapped(gesture: UIGestureRecognizer) {
         if(gesture.view as? UIImageView) != nil {
-            performSegue(withIdentifier: "backToSettingsSegue", sender: self)
+            performSegue(withIdentifier: R.string.localizable.backToSettingsSegue(), sender: self)
         }
     }
     
     @objc
     private func settingsImageTapped(gesture: UIGestureRecognizer) {
         if(gesture.view as? UIImageView) != nil {
-            performSegue(withIdentifier: "backToSettingsSegue", sender: self)
+            performSegue(withIdentifier: R.string.localizable.backToSettingsSegue(), sender: self)
         }
     }
     
