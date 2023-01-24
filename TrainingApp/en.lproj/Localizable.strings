@@ -1,0 +1,51 @@
+/* 
+  Localizable.strings
+  TrainingApp
+
+  Created by Dagmawit Alemayehu on 20/01/2023.
+  
+*/
+
+"showCreateAccountPage" = "showCreateAccountPage";
+"showForgotPasswordPage" = "showForgotPasswordPage";
+"HomeViewController" = "HomeViewController";
+"showLoginPage" = "showLoginPage";
+"showSettingsPage" = "showSettingsPage";
+"signOutSegue" = "signOutSegue";
+"backToHomepageSegue" = "backToHomepageSegue";
+"showLanguagesPage" = "showLanguagesPage";
+"backToSettingsSegue" = "backToSettingsSegue";
+"goToCodeSegue" = "goToCodeSegue";
+"backToLoginSegue" = "backToLoginSegue";
+"goToNewPassword" = "goToNewPassword";
+"goBackToForgotPass" = "goBackToForgotPass";
+"goToLoginAfterNewPass" = "goToLoginAfterNewPass";
+"backToVerficationSegue" = "backToVerficationSegue";
+"LanguageCell" = "LanguageCell";
+"Couldn'tSignin" = "Couldn't Sign in";
+"Couldn'tSignup" = "Couldn't Sign up";
+"Error" = "Error";
+"Success" = "Success";
+"Wrong Code" = "Wrong Code";
+"Please try again" = "Please try again";
+"A reset email has been sent to" = "A reset email has been sent to ";
+"email" = "email";
+"OK" = "OK";
+"Done" = "Done";
+"Empty" = "";
+"Dansk" = "Dansk";
+"Danish" = "Danish";
+"Netherlands" = "Netherlands";
+"Dutch" = "Dutch";
+"English(Canada)" = "English(Canada)";
+"English(Australia)" = "English(Australia)";
+"English(United States)" = "English(United States)";
+"Italy" = "Italy";
+"Italian" = "Italian";
+"Frankfurt" = "Frankfurt";
+"Addis Ababa" = "Addis Ababa";
+"Heathrow" = "Heathrow";
+"Wroclow" = "Wroclow";
+"Hong Kong" = "Hong Kong";
+"New Delhi" = "New Delhi";
+

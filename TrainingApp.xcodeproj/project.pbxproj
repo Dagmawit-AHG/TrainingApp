@@ -25,8 +25,14 @@
 		C110A06A2947312E0066535D /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A0692947312E0066535D /* AuthService.swift */; };
 		C110A06C2949AE5D0066535D /* iOSDropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C110A06B2949AE5D0066535D /* iOSDropDown.framework */; };
 		C111177729547557003EDE37 /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = C111177629547557003EDE37 /* Airport.swift */; };
+		C1CB93A0297AB5130077CBA9 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CB939F297AB5130077CBA9 /* R.generated.swift */; };
+		C1CB93A3297AC4730077CBA9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C1CB93A5297AC4730077CBA9 /* Localizable.strings */; };
 		C1FA944D29640B4700D072C3 /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FA944C29640B4700D072C3 /* Field.swift */; };
 		C1FA944F296440EE00D072C3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FA944E296440EE00D072C3 /* SettingsViewController.swift */; };
+		C1FA9451296808DB00D072C3 /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FA9450296808DA00D072C3 /* LanguageViewController.swift */; };
+		C1FF9B52296EDCE300D5C67D /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FF9B51296EDCE300D5C67D /* ForgotPasswordViewController.swift */; };
+		C1FF9B5429700F1C00D5C67D /* VerificationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FF9B5329700F1B00D5C67D /* VerificationCodeViewController.swift */; };
+		C1FF9B562975754100D5C67D /* NewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FF9B552975754100D5C67D /* NewPasswordViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,8 +57,14 @@
 		C110A0692947312E0066535D /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		C110A06B2949AE5D0066535D /* iOSDropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = iOSDropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C111177629547557003EDE37 /* Airport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Airport.swift; sourceTree = "<group>"; };
+		C1CB939F297AB5130077CBA9 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		C1CB93A4297AC4730077CBA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C1FA944C29640B4700D072C3 /* Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
 		C1FA944E296440EE00D072C3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		C1FA9450296808DA00D072C3 /* LanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };
+		C1FF9B51296EDCE300D5C67D /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		C1FF9B5329700F1B00D5C67D /* VerificationCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCodeViewController.swift; sourceTree = "<group>"; };
+		C1FF9B552975754100D5C67D /* NewPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordViewController.swift; sourceTree = "<group>"; };
 		CD7DD6E09B9A3BD7063F773A /* Pods-TrainingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainingApp.release.xcconfig"; path = "Target Support Files/Pods-TrainingApp/Pods-TrainingApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,6 +111,7 @@
 		C110A034293604FF0066535D /* TrainingApp */ = {
 			isa = PBXGroup;
 			children = (
+				C1CB939F297AB5130077CBA9 /* R.generated.swift */,
 				C110A04E293605250066535D /* Model */,
 				C110A04D293605220066535D /* View */,
 				C110A04C2936051F0066535D /* ViewModel */,
@@ -113,6 +126,7 @@
 				C110A040293605020066535D /* LaunchScreen.storyboard */,
 				C110A043293605020066535D /* Info.plist */,
 				C110A0652941FAE30066535D /* GoogleService-Info.plist */,
+				C1CB93A5297AC4730077CBA9 /* Localizable.strings */,
 			);
 			path = TrainingApp;
 			sourceTree = "<group>";
@@ -139,6 +153,10 @@
 				C110A0542936298A0066535D /* Authentication */,
 				C110A06729420C440066535D /* HomeViewController.swift */,
 				C1FA944E296440EE00D072C3 /* SettingsViewController.swift */,
+				C1FA9450296808DA00D072C3 /* LanguageViewController.swift */,
+				C1FF9B51296EDCE300D5C67D /* ForgotPasswordViewController.swift */,
+				C1FF9B5329700F1B00D5C67D /* VerificationCodeViewController.swift */,
+				C1FF9B552975754100D5C67D /* NewPasswordViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -203,6 +221,7 @@
 			buildConfigurationList = C110A046293605020066535D /* Build configuration list for PBXNativeTarget "TrainingApp" */;
 			buildPhases = (
 				7C7CFAEA12C8F2FA65074AC7 /* [CP] Check Pods Manifest.lock */,
+				C1CB939E297AB2030077CBA9 /* ShellScript */,
 				C110A02E293604FF0066535D /* Sources */,
 				C110A02F293604FF0066535D /* Frameworks */,
 				C110A030293604FF0066535D /* Resources */,
@@ -214,6 +233,8 @@
 			dependencies = (
 			);
 			name = TrainingApp;
+			packageProductDependencies = (
+			);
 			productName = TrainingApp;
 			productReference = C110A032293604FF0066535D /* TrainingApp.app */;
 			productType = "com.apple.product-type.application";
@@ -242,6 +263,8 @@
 				Base,
 			);
 			mainGroup = C110A029293604FF0066535D;
+			packageReferences = (
+			);
 			productRefGroup = C110A033293604FF0066535D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -256,6 +279,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1CB93A3297AC4730077CBA9 /* Localizable.strings in Resources */,
 				C110A042293605020066535D /* LaunchScreen.storyboard in Resources */,
 				C110A0662941FAE30066535D /* GoogleService-Info.plist in Resources */,
 				C110A03F293605020066535D /* Assets.xcassets in Resources */,
@@ -322,6 +346,25 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint --config \"$SRCROOT/.swiftlint.yml\"\nelse\n    echo \"Warning: SwiftLint is not installed, download from https://github.com.realm/SwiftLint\"\nfi\n";
 		};
+		C1CB939E297AB2030077CBA9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -329,11 +372,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1FF9B52296EDCE300D5C67D /* ForgotPasswordViewController.swift in Sources */,
 				C111177729547557003EDE37 /* Airport.swift in Sources */,
 				C110A053293615610066535D /* AuthViewModel.swift in Sources */,
 				C110A03A293604FF0066535D /* StartViewController.swift in Sources */,
 				C110A036293604FF0066535D /* AppDelegate.swift in Sources */,
+				C1FF9B5429700F1C00D5C67D /* VerificationCodeViewController.swift in Sources */,
+				C1CB93A0297AB5130077CBA9 /* R.generated.swift in Sources */,
 				C110A038293604FF0066535D /* SceneDelegate.swift in Sources */,
+				C1FA9451296808DB00D072C3 /* LanguageViewController.swift in Sources */,
+				C1FF9B562975754100D5C67D /* NewPasswordViewController.swift in Sources */,
 				C110A05E2938A89F0066535D /* CustomTextField.swift in Sources */,
 				C110A06A2947312E0066535D /* AuthService.swift in Sources */,
 				C1FA944D29640B4700D072C3 /* Field.swift in Sources */,
@@ -363,6 +411,14 @@
 				C110A041293605020066535D /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		C1CB93A5297AC4730077CBA9 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C1CB93A4297AC4730077CBA9 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

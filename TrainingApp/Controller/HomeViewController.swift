@@ -5,11 +5,9 @@
 //  Created by Dagmawit Alemayehu on 08/12/2022.
 //
 
-import Foundation
+import FirebaseAuth
 import iOSDropDown
 import UIKit
-
-// #import "iOSDropDown/iOSDropDown.swift>";
 
 class HomeViewController: UIViewController {
     
@@ -21,10 +19,10 @@ class HomeViewController: UIViewController {
     @IBOutlet private var oneWayTripView: UIView!
     @IBOutlet private var fromPickerView: UIPickerView!
     @IBOutlet private var optionsSegment: UISegmentedControl!
-    @IBOutlet var settingsButton: UIImageView!
+    @IBOutlet private var settingsButton: UIImageView!
     
     private var selectedCity: String?
-    private var listOfCities = ["Frankfurt","Addis Ababa","Heathrow","Wroclow","Hong Kong","New Delhi","Frankfurt","Addis Ababa","Heathrow","Wroclow","Hong Kong","New Delhi"]
+    private var listOfCities = [R.string.localizable.frankfurt(),R.string.localizable.addisAbaba(),R.string.localizable.heathrow(),R.string.localizable.wroclow(),R.string.localizable.hongKong(),R.string.localizable.newDelhi(),R.string.localizable.frankfurt(),R.string.localizable.addisAbaba(),R.string.localizable.heathrow(),R.string.localizable.wroclow(),R.string.localizable.hongKong(),R.string.localizable.newDelhi()]
     
     // MARK: - Lifecycle
     
@@ -35,11 +33,21 @@ class HomeViewController: UIViewController {
         configureUI()
         setupPickerView()
         dismissPickerView()
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(HomeViewController.imageTapped(gesture:)))
-        
-        settingsButton.addGestureRecognizer(tapGesture)
-        settingsButton.isUserInteractionEnabled = true
+        checkIfUserIsLoggedIn()
+        setupTapGestureForViews()
+    }
+    
+    // MARK: - API
+    
+    private func checkIfUserIsLoggedIn() {
+        if Auth.auth().currentUser == nil {
+            DispatchQueue.main.async {
+                let controller = LoginViewController()
+                let nav = UINavigationController(rootViewController: controller)
+                nav.modalPresentationStyle = .fullScreen
+                self.present(nav, animated: true, completion: nil)
+            }
+        }
     }
     
     // MARK: - Actions
@@ -59,14 +67,14 @@ class HomeViewController: UIViewController {
         }
     }
     
-    
-    @IBAction func settingsClicked(_ sender: UITapGestureRecognizer) {
-        performSegue(withIdentifier: "showSettingsPage", sender: self)
+    @IBAction private func settingsClicked(_ sender: UITapGestureRecognizer) {
+        performSegue(withIdentifier: R.string.localizable.showSettingsPage(), sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showSettingsPage" {
+        if segue.identifier == R.string.localizable.showSettingsPage() {
             guard let destinationVC = segue.destination as? SettingsViewController else { return }
+            
             destinationVC.modalPresentationStyle = .fullScreen
             destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
             present(destinationVC, animated: true, completion: nil)
@@ -78,6 +86,12 @@ class HomeViewController: UIViewController {
     private func configureUI() {
         optionsSegment.addUnderlineForSelectedSegment()
         optionsSegment.setFontSize()
+    }
+    
+    private func setupTapGestureForViews() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(HomeViewController.imageTapped(gesture:)))
+        settingsButton.addGestureRecognizer(tapGesture)
+        settingsButton.isUserInteractionEnabled = true
     }
     
     private func setupPickerView() {
@@ -92,7 +106,7 @@ class HomeViewController: UIViewController {
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         
-        let button = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.dismissAction))
+        let button = UIBarButtonItem(title: R.string.localizable.done(), style: .plain, target: self, action: #selector(self.dismissAction))
         toolbar.setItems([button], animated: true)
         toolbar.isUserInteractionEnabled = true
         self.fromTextField.inputAccessoryView = toolbar
@@ -104,10 +118,9 @@ class HomeViewController: UIViewController {
     }
     
     @objc
-    private func imageTapped(gesture: UIGestureRecognizer){
+    private func imageTapped(gesture: UIGestureRecognizer) {
         if(gesture.view as? UIImageView) != nil {
-            print("Image Tapped")
-            performSegue(withIdentifier: "showSettingsPage", sender: self)
+            performSegue(withIdentifier: R.string.localizable.showSettingsPage(), sender: self)
         }
     }
 }
@@ -136,7 +149,5 @@ extension HomeViewController: UIPickerViewDataSource {
 }
 
 extension HomeViewController: UITextFieldDelegate {
-    //    func textFieldDidBeginEditing(_ textField: UITextField) {
-    //        <#code#>
-    //    }
+
 }

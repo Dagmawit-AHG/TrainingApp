@@ -64,8 +64,6 @@ extension UIButton {
         self.setAttributedTitle(title, for: .normal)
         self.isEnabled = false
         self.backgroundColor = UIColor(red: 0.0, green: 0.5, blue: 1.0, alpha: 0.5)
-//        self.tintColor = UIColor(red: 0.0, green: 0.6, blue: 1.0, alpha: 1.0)
-//        self.setTitleColor(UIColor.white, for: .normal)
     }
     
     func buttonSetupForRegistration() {
@@ -73,18 +71,48 @@ extension UIButton {
         self.setAttributedTitle(title, for: .normal)
         self.isEnabled = false
         self.backgroundColor = UIColor(red: 0.0, green: 0.5, blue: 1.0, alpha: 0.5)
-//        self.tintColor = UIColor(red: 0.0, green: 0.6, blue: 1.0, alpha: 1.0)
-//        self.setTitleColor(UIColor.white, for: .normal)
+    }
+    
+    func buttonSetupForConfirm() {
+        let title = NSAttributedString(string: "Confirm", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        self.setAttributedTitle(title, for: .normal)
+        self.isEnabled = false
+        self.backgroundColor = UIColor(red: 0.0, green: 0.5, blue: 1.0, alpha: 0.5)
+    }
+    
+    func buttonSetupForNewPassword() {
+        let title = NSAttributedString(string: "Set Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        self.setAttributedTitle(title, for: .normal)
+        self.isEnabled = false
+        self.backgroundColor = UIColor(red: 0.0, green: 0.5, blue: 1.0, alpha: 0.5)
     }
 }
 
 extension UITextField {
     func setBorder() {
         let bottomLine = CALayer()
-
         bottomLine.frame = CGRect(x: 0, y: self.frame.height - 2, width: self.frame.width, height: 2)
-        
         bottomLine.backgroundColor = UIColor.systemGray4.cgColor
+        
+        self.borderStyle = .none
+        
+        self.layer.addSublayer(bottomLine)
+    }
+    
+    func setRedBorder() {
+        let bottomLine = CALayer()
+        bottomLine.frame = CGRect(x: 0, y: self.frame.height - 2, width: self.frame.width, height: 2)
+        bottomLine.backgroundColor = UIColor.systemRed.cgColor
+        
+        self.borderStyle = .none
+        
+        self.layer.addSublayer(bottomLine)
+    }
+    
+    func setGreenBorder() {
+        let bottomLine = CALayer()
+        bottomLine.frame = CGRect(x: 0, y: self.frame.height - 2, width: self.frame.width, height: 2)
+        bottomLine.backgroundColor = UIColor.systemGreen.cgColor
         
         self.borderStyle = .none
         
@@ -138,6 +166,7 @@ extension UISegmentedControl {
     
     func changeUnderlinePosition() {
             guard let underline = self.viewWithTag(1) else {return}
+        
             let underlineFinalXPosition = (self.bounds.width / CGFloat(self.numberOfSegments)) * CGFloat(selectedSegmentIndex)
             UIView.animate(withDuration: 0.1, animations: {
                 underline.frame.origin.x = underlineFinalXPosition
@@ -157,16 +186,18 @@ extension UISegmentedControl {
 }
 
 extension UIView {
-    func anchor(top: NSLayoutYAxisAnchor? = nil,
-                left: NSLayoutXAxisAnchor? = nil,
-                bottom: NSLayoutYAxisAnchor? = nil,
-                right: NSLayoutXAxisAnchor? = nil,
-                paddingTop: CGFloat = 0,
-                paddingLeft: CGFloat = 0,
-                paddingBottom: CGFloat = 0,
-                paddingRight: CGFloat = 0,
-                width: CGFloat? = nil,
-                height: CGFloat? = nil) {
+    func anchor(
+        top: NSLayoutYAxisAnchor? = nil,
+        left: NSLayoutXAxisAnchor? = nil,
+        bottom: NSLayoutYAxisAnchor? = nil,
+        right: NSLayoutXAxisAnchor? = nil,
+        paddingTop: CGFloat = 0,
+        paddingLeft: CGFloat = 0,
+        paddingBottom: CGFloat = 0,
+        paddingRight: CGFloat = 0,
+        width: CGFloat? = nil,
+        height: CGFloat? = nil
+        ) {
         
         translatesAutoresizingMaskIntoConstraints = false
         
@@ -210,8 +241,10 @@ extension UIView {
         }
     }
     
-    func centerY(inView view: UIView, leftAnchor: NSLayoutXAxisAnchor? = nil,
-         paddingLeft: CGFloat = 0, constant: CGFloat = 0) {
+    func centerY(
+        inView view: UIView, leftAnchor: NSLayoutXAxisAnchor? = nil,
+        paddingLeft: CGFloat = 0, constant: CGFloat = 0
+        ) {
         
         translatesAutoresizingMaskIntoConstraints = false
         centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: constant).isActive = true
@@ -239,7 +272,9 @@ extension UIView {
     
     func fillSuperview() {
         translatesAutoresizingMaskIntoConstraints = false
+        
         guard let view = superview else { return }
+        
         anchor(top: view.topAnchor, left: view.leftAnchor,
                bottom: view.bottomAnchor, right: view.rightAnchor)
     }
