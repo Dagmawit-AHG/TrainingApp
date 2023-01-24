@@ -1,0 +1,255 @@
+
+/* Class = "UIButton"; configuration.title = "Create Account"; ObjectID = "0hJ-ps-IrS"; */
+"0hJ-ps-IrS.configuration.title" = "Create Account";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "0hJ-ps-IrS"; */
+"0hJ-ps-IrS.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "English"; ObjectID = "0mw-0B-Mm9"; */
+"0mw-0B-Mm9.text" = "Polish";
+
+/* Class = "UILabel"; text = "Enter your email, we will send you 5 digits verification code."; ObjectID = "1WW-Ya-MxR"; */
+"1WW-Ya-MxR.text" = "Enter your email, we will send you 5 digits verification code.";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "2EQ-Nh-pMO"; */
+"2EQ-Nh-pMO.normalTitle" = "Button";
+
+/* Class = "UITextField"; placeholder = "New Password"; ObjectID = "2tp-JY-TBq"; */
+"2tp-JY-TBq.placeholder" = "New Password";
+
+/* Class = "UILabel"; text = "Set New Password"; ObjectID = "2zN-Ks-oGZ"; */
+"2zN-Ks-oGZ.text" = "Set New Password";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "2zy-NH-LAf"; */
+"2zy-NH-LAf.normalTitle" = "Button";
+
+/* Class = "UINavigationItem"; title = "Log In"; ObjectID = "3PF-IP-IzG"; */
+"3PF-IP-IzG.title" = "Log In";
+
+/* Class = "UILabel"; text = "Forgot Password"; ObjectID = "48d-fB-6da"; */
+"48d-fB-6da.text" = "Forgot Password";
+
+/* Class = "UITextField"; placeholder = "Select Origin"; ObjectID = "5s3-tf-eVB"; */
+"5s3-tf-eVB.placeholder" = "Select Origin";
+
+/* Class = "UILabel"; text = "From"; ObjectID = "6OC-rX-3vv"; */
+"6OC-rX-3vv.text" = "From";
+
+/* Class = "UINavigationItem"; title = "Search Flights"; ObjectID = "6Yi-u9-DLQ"; */
+"6Yi-u9-DLQ.title" = "Search Flights";
+
+/* Class = "UILabel"; text = "English(UK)"; ObjectID = "6wU-hb-B8h"; */
+"6wU-hb-B8h.text" = "English(UK)";
+
+/* Class = "UIButton"; configuration.title = "Confirm"; ObjectID = "8Hs-pe-fXr"; */
+"8Hs-pe-fXr.configuration.title" = "Confirm";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "8Hs-pe-fXr"; */
+"8Hs-pe-fXr.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Forgot Password"; ObjectID = "8LZ-BB-zll"; */
+"8LZ-BB-zll.text" = "Forgot Password";
+
+/* Class = "UILabel"; text = "Already have an account?"; ObjectID = "AKe-e2-38Y"; */
+"AKe-e2-38Y.text" = "Already have an account?";
+
+/* Class = "UILabel"; text = "Hello"; ObjectID = "AXs-uJ-9pL"; */
+"AXs-uJ-9pL.text" = "Hello";
+
+/* Class = "UISegmentedControl"; BYr-oR-bE0.segmentTitles[0] = "Round Trip"; ObjectID = "BYr-oR-bE0"; */
+"BYr-oR-bE0.segmentTitles[0]" = "Round Trip";
+
+/* Class = "UISegmentedControl"; BYr-oR-bE0.segmentTitles[1] = "One Way"; ObjectID = "BYr-oR-bE0"; */
+"BYr-oR-bE0.segmentTitles[1]" = "One Way";
+
+/* Class = "UILabel"; text = "App will use the first language that it supports from Language & Region settings. You can select a different language for App to use if you prefer."; ObjectID = "Cez-CC-89r"; */
+"Cez-CC-89r.text" = "App will use the first language that it supports from Language & Region settings. You can select a different language for App to use if you prefer.";
+
+/* Class = "UIButton"; configuration.title = "Sign In"; ObjectID = "DxA-jq-WEX"; */
+"DxA-jq-WEX.configuration.title" = "Sign In";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "DxA-jq-WEX"; */
+"DxA-jq-WEX.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "English(UK)"; ObjectID = "EL9-Gr-M7P"; */
+"EL9-Gr-M7P.text" = "English(UK)";
+
+/* Class = "UILabel"; text = "Language"; ObjectID = "FC1-gs-lJ8"; */
+"FC1-gs-lJ8.text" = "Language";
+
+/* Class = "UIButton"; configuration.title = "Create account"; ObjectID = "FEY-y3-asz"; */
+"FEY-y3-asz.configuration.title" = "Create account";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "FEY-y3-asz"; */
+"FEY-y3-asz.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "GvR-Ej-pws"; */
+"GvR-Ej-pws.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Suggested Languages"; ObjectID = "Gyj-g3-oqR"; */
+"Gyj-g3-oqR.text" = "Suggested Languages";
+
+/* Class = "UILabel"; text = "Executive program"; ObjectID = "I9u-Xe-UOP"; */
+"I9u-Xe-UOP.text" = "Executive program";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "Ihn-Kw-Ono"; */
+"Ihn-Kw-Ono.placeholder" = "Password";
+
+/* Class = "UITextField"; text = "123456"; ObjectID = "Ihn-Kw-Ono"; */
+"Ihn-Kw-Ono.text" = "123456";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "JVj-i8-LqL"; */
+"JVj-i8-LqL.placeholder" = "Password";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "KZj-0E-4b1"; */
+"KZj-0E-4b1.normalTitle" = "Button";
+
+/* Class = "UITextField"; placeholder = "Select Origin"; ObjectID = "L7V-hR-Gj3"; */
+"L7V-hR-Gj3.placeholder" = "Select Origin";
+
+/* Class = "UILabel"; text = "Other Languages"; ObjectID = "MVv-RN-iOD"; */
+"MVv-RN-iOD.text" = "Other Languages";
+
+/* Class = "UILabel"; text = "Return date"; ObjectID = "NFW-jQ-xkz"; */
+"NFW-jQ-xkz.text" = "Return date";
+
+/* Class = "UILabel"; text = "Flight updates"; ObjectID = "RFj-Os-NY8"; */
+"RFj-Os-NY8.text" = "Flight updates";
+
+/* Class = "UILabel"; text = "Settings"; ObjectID = "SZ4-j4-xon"; */
+"SZ4-j4-xon.text" = "Settings";
+
+/* Class = "UILabel"; text = "Departure date"; ObjectID = "Thd-Pb-vr0"; */
+"Thd-Pb-vr0.text" = "Departure date";
+
+/* Class = "UIButton"; configuration.title = "Confirm"; ObjectID = "VSe-Sf-feT"; */
+"VSe-Sf-feT.configuration.title" = "Confirm";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "VSe-Sf-feT"; */
+"VSe-Sf-feT.normalTitle" = "Button";
+
+/* Class = "UITextField"; placeholder = "Select Destination"; ObjectID = "Xxe-SI-rTx"; */
+"Xxe-SI-rTx.placeholder" = "Select Destination";
+
+/* Class = "UILabel"; text = "Enter the code we sent you and we will process your account"; ObjectID = "XzO-c0-faj"; */
+"XzO-c0-faj.text" = "Enter the code we sent you and we will process your account";
+
+/* Class = "UIButton"; configuration.title = "Sign In"; ObjectID = "c27-k3-JGh"; */
+"c27-k3-JGh.configuration.title" = "Sign In";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "c27-k3-JGh"; */
+"c27-k3-JGh.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "English(US)"; ObjectID = "c3D-2h-z4D"; */
+"c3D-2h-z4D.text" = "English(US)";
+
+/* Class = "UITextField"; placeholder = "Phone Number"; ObjectID = "cAU-PP-WOZ"; */
+"cAU-PP-WOZ.placeholder" = "Phone Number";
+
+/* Class = "UILabel"; text = "Default"; ObjectID = "cyB-7F-xIK"; */
+"cyB-7F-xIK.text" = "Default";
+
+/* Class = "UIButton"; configuration.title = "Search Flight"; ObjectID = "dVN-mI-SoM"; */
+"dVN-mI-SoM.configuration.title" = "Search Flight";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "dVN-mI-SoM"; */
+"dVN-mI-SoM.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Dark Mode"; ObjectID = "eDl-Hv-rDv"; */
+"eDl-Hv-rDv.text" = "Dark Mode";
+
+/* Class = "UILabel"; text = "English(UK)"; ObjectID = "f2U-rf-ZgW"; */
+"f2U-rf-ZgW.text" = "English(UK)";
+
+/* Class = "UILabel"; text = "Don't have an account?"; ObjectID = "f4W-nl-lIT"; */
+"f4W-nl-lIT.text" = "Don't have an account?";
+
+/* Class = "UINavigationItem"; title = "Start"; ObjectID = "fDY-24-xaA"; */
+"fDY-24-xaA.title" = "Start";
+
+/* Class = "UITextField"; placeholder = "Email Address"; ObjectID = "fOk-TS-Hdw"; */
+"fOk-TS-Hdw.placeholder" = "Email Address";
+
+/* Class = "UILabel"; text = "Departure Date"; ObjectID = "hdw-H8-Dna"; */
+"hdw-H8-Dna.text" = "Departure Date";
+
+/* Class = "UITextField"; placeholder = "Email Address"; ObjectID = "ihW-pq-F9k"; */
+"ihW-pq-F9k.placeholder" = "Email Address";
+
+/* Class = "UITextField"; text = "d@g.com"; ObjectID = "ihW-pq-F9k"; */
+"ihW-pq-F9k.text" = "d@g.com";
+
+/* Class = "UIButton"; configuration.title = "Sign In"; ObjectID = "kBe-he-lfP"; */
+"kBe-he-lfP.configuration.title" = "Sign In";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "kBe-he-lfP"; */
+"kBe-he-lfP.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Discount & deals"; ObjectID = "kEB-To-sM3"; */
+"kEB-To-sM3.text" = "Discount & deals";
+
+/* Class = "UITextField"; placeholder = "Email Address"; ObjectID = "kJE-Eg-9Rr"; */
+"kJE-Eg-9Rr.placeholder" = "Email Address";
+
+/* Class = "UILabel"; text = "Tell us about yourself"; ObjectID = "l2f-7h-old"; */
+"l2f-7h-old.text" = "Tell us about yourself";
+
+/* Class = "UIButton"; configuration.title = "Sign Up"; ObjectID = "lKX-4B-Ero"; */
+"lKX-4B-Ero.configuration.title" = "Sign Up";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "lKX-4B-Ero"; */
+"lKX-4B-Ero.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "From"; ObjectID = "li8-YN-Wbh"; */
+"li8-YN-Wbh.text" = "From";
+
+/* Class = "UIButton"; configuration.title = "Sign out"; ObjectID = "oZo-qf-BsD"; */
+"oZo-qf-BsD.configuration.title" = "Sign out";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "oZo-qf-BsD"; */
+"oZo-qf-BsD.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "English"; ObjectID = "r5O-EX-F8D"; */
+"r5O-EX-F8D.text" = "Polish";
+
+/* Class = "UIButton"; configuration.title = "Set Password"; ObjectID = "s7h-LE-MLo"; */
+"s7h-LE-MLo.configuration.title" = "Set Password";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "s7h-LE-MLo"; */
+"s7h-LE-MLo.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "To"; ObjectID = "sr9-Ll-Quv"; */
+"sr9-Ll-Quv.text" = "To";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "syA-21-iSE"; */
+"syA-21-iSE.normalTitle" = "Button";
+
+/* Class = "UITextField"; placeholder = "Confirm New Password"; ObjectID = "t4T-Qa-xPO"; */
+"t4T-Qa-xPO.placeholder" = "Confirm New Password";
+
+/* Class = "UILabel"; text = "Language"; ObjectID = "tbw-j1-LSt"; */
+"tbw-j1-LSt.text" = "Language";
+
+/* Class = "UIButton"; configuration.title = "Forgot password?"; ObjectID = "vV4-rk-ggg"; */
+"vV4-rk-ggg.configuration.title" = "Forgot password?";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "vV4-rk-ggg"; */
+"vV4-rk-ggg.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "To"; ObjectID = "w3m-eh-RFf"; */
+"w3m-eh-RFf.text" = "To";
+
+/* Class = "UILabel"; text = "Notifications"; ObjectID = "wjK-Sy-kc5"; */
+"wjK-Sy-kc5.text" = "Notifications";
+
+/* Class = "UITextField"; placeholder = "Full Name"; ObjectID = "wox-jd-aG5"; */
+"wox-jd-aG5.placeholder" = "Full Name";
+
+/* Class = "UILabel"; text = "Welcome back!"; ObjectID = "ys0-Kh-Jzb"; */
+"ys0-Kh-Jzb.text" = "Welcome back!";
+
+/* Class = "UILabel"; text = "Plan your next travel"; ObjectID = "z7d-T6-2GL"; */
+"z7d-T6-2GL.text" = "Plan your next travel";
+
+/* Class = "UITextField"; placeholder = "Select Destination"; ObjectID = "zgA-Eo-CwD"; */
+"zgA-Eo-CwD.placeholder" = "Select Destination";

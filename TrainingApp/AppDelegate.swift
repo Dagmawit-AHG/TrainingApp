@@ -19,6 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         RunLoop.current.run(until: NSDate(timeIntervalSinceNow: 5) as Date)
         
+        if UserDefaults.standard.object(forKey: "Language") != nil && UserDefaults.standard.object(forKey: "Language") as! String == "pl" {
+            UserDefaults.standard.set("pl",forKey: "Language")
+        }
+        else {
+            UserDefaults.standard.set("en", forKey: "Language")
+        }
         return true
     }
 

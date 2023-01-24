@@ -19,13 +19,17 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
                                        R.string.localizable.italy(): R.string.localizable.italian()]
     
     @IBOutlet private var backButton: UIImageView!
+    @IBOutlet private var languageLabel: UILabel!
     @IBOutlet private var settingsButton: UIImageView!
+    @IBOutlet private var suggestedLangLabel: UILabel!
     @IBOutlet private var englishUSLabel: UILabel!
-    @IBOutlet private var englishLabel: UILabel!
+    @IBOutlet private var polishLabel: UILabel!
     @IBOutlet private var englishUKLabel: UILabel!
     @IBOutlet private var englishUSCheck: UIImageView!
     @IBOutlet private var englishCheck: UIImageView!
     @IBOutlet private var englishUKCheck: UIImageView!
+    @IBOutlet private var longTextLabel: UILabel!
+    @IBOutlet private var otherLangLabel: UILabel!
     @IBOutlet private var languagesTableView: UITableView!
     
     // MARK: - Lifecycle
@@ -37,7 +41,6 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
         languagesTableView.delegate = self
         
         setupTapGestureForViews()
-        
     }
     
     // MARK: - Actions
@@ -99,9 +102,9 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
         englishUSLabel.addGestureRecognizer(englishUSTapGesture)
         englishUSLabel.isUserInteractionEnabled = true
         
-        let englishTapGesture = UITapGestureRecognizer(target: self, action: #selector(LanguageViewController.englishTapped(gesture:)))
-        englishLabel.addGestureRecognizer(englishTapGesture)
-        englishLabel.isUserInteractionEnabled = true
+        let polishTapGesture = UITapGestureRecognizer(target: self, action: #selector(LanguageViewController.polishTapped(gesture:)))
+        polishLabel.addGestureRecognizer(polishTapGesture)
+        polishLabel.isUserInteractionEnabled = true
         
         let englishUKTapGesture = UITapGestureRecognizer(target: self, action: #selector(LanguageViewController.englishUKTapped(gesture:)))
         englishUKLabel.addGestureRecognizer(englishUKTapGesture)
@@ -128,15 +131,25 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
             englishUSCheck.isHidden = false
             englishCheck.isHidden = true
             englishUKCheck.isHidden = true
+            languageLabel.text = R.string.localizable.language().localizableString("en")
+            suggestedLangLabel.text = R.string.localizable.suggestedLanguages().localizableString("en")
+            englishUSLabel.text = R.string.localizable.englishUS().localizableString("en")
+            polishLabel.text = R.string.localizable.polish().localizableString("en")
+            englishUKLabel.text = R.string.localizable.englishUK().localizableString("en")
         }
     }
     
     @objc
-    private func englishTapped(gesture: UIGestureRecognizer) {
+    private func polishTapped(gesture: UIGestureRecognizer) {
         if(gesture.view as? UILabel) != nil {
             englishUSCheck.isHidden = true
             englishCheck.isHidden = false
             englishUKCheck.isHidden = true
+            languageLabel.text = R.string.localizable.language().localizableString("pl")
+            suggestedLangLabel.text = R.string.localizable.suggestedLanguages().localizableString("pl")
+            englishUSLabel.text = R.string.localizable.englishUS().localizableString("pl")
+            polishLabel.text = R.string.localizable.polish().localizableString("pl")
+            englishUKLabel.text = R.string.localizable.englishUK().localizableString("pl")
         }
     }
     
@@ -146,6 +159,11 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
             englishUSCheck.isHidden = true
             englishCheck.isHidden = true
             englishUKCheck.isHidden = false
+            languageLabel.text = R.string.localizable.language().localizableString("en")
+            suggestedLangLabel.text = R.string.localizable.suggestedLanguages().localizableString("en")
+            englishUSLabel.text = R.string.localizable.englishUS().localizableString("en")
+            polishLabel.text = R.string.localizable.polish().localizableString("en")
+            englishUKLabel.text = R.string.localizable.englishUK().localizableString("en")
         }
     }
 }

@@ -1827,9 +1827,9 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="English(US)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3D-2h-z4D">
-                                                <rect key="frame" x="68" y="102" width="186" height="22"/>
+                                                <rect key="frame" x="68" y="102" width="222" height="22"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="186" id="1Q4-we-Hg2"/>
+                                                    <constraint firstAttribute="width" constant="222" id="1Q4-we-Hg2"/>
                                                     <constraint firstAttribute="height" constant="22" id="yjf-NA-4tX"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
@@ -1861,7 +1861,7 @@
                                                     <constraint firstAttribute="width" constant="320" id="cKJ-J9-JXE"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="English" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r5O-EX-F8D">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Polish" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r5O-EX-F8D" userLabel="Polish Label">
                                                 <rect key="frame" x="68" y="159" width="186" height="22"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="186" id="jUD-wS-8Qx"/>
@@ -1871,7 +1871,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="English" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mw-0B-Mm9">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Polish" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mw-0B-Mm9">
                                                 <rect key="frame" x="68" y="181" width="198" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="198" id="1BQ-VR-GOI"/>
@@ -2042,13 +2042,17 @@
                     <connections>
                         <outlet property="backButton" destination="Cel-KJ-H38" id="Ol3-BU-1Bc"/>
                         <outlet property="englishCheck" destination="vFa-Qy-Zay" id="cjH-C8-o6f"/>
-                        <outlet property="englishLabel" destination="r5O-EX-F8D" id="hn3-Kq-n4J"/>
                         <outlet property="englishUKCheck" destination="kG4-Xt-ZD5" id="vkd-i1-7ah"/>
                         <outlet property="englishUKLabel" destination="EL9-Gr-M7P" id="DKz-t4-1bV"/>
                         <outlet property="englishUSCheck" destination="xLs-wE-fuv" id="3rF-LN-9Jv"/>
                         <outlet property="englishUSLabel" destination="c3D-2h-z4D" id="d4A-vu-oaU"/>
+                        <outlet property="languageLabel" destination="FC1-gs-lJ8" id="QV5-i4-dll"/>
                         <outlet property="languagesTableView" destination="k6s-ah-e8U" id="P6e-Wy-dzh"/>
+                        <outlet property="longTextLabel" destination="Cez-CC-89r" id="EvG-Dj-U9i"/>
+                        <outlet property="otherLangLabel" destination="MVv-RN-iOD" id="15Y-0M-7Fn"/>
+                        <outlet property="polishLabel" destination="r5O-EX-F8D" id="7mI-5g-R4O"/>
                         <outlet property="settingsButton" destination="3rQ-uK-Grh" id="fY1-sh-yta"/>
+                        <outlet property="suggestedLangLabel" destination="Gyj-g3-oqR" id="tim-Jn-i6q"/>
                         <segue destination="QP6-EM-ed8" kind="show" identifier="backToSettingsSegue" destinationCreationSelector="backToSettingsSegue" id="yuc-sx-u29"/>
                     </connections>
                 </viewController>
@@ -2092,7 +2096,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="LKU-gm-OMG"/>
+        <segue reference="yuc-sx-u29"/>
         <segue reference="lYr-2l-ymr"/>
         <segue reference="Iql-mO-Lao"/>
         <segue reference="15S-AC-FuK"/>

@@ -5,13 +5,12 @@
   Created by Dagmawit Alemayehu on 20/01/2023.
   
 */
-
-"Language" = "Language";
-"Suggested Languages" = "Suggested Languages";
-"English(US)" = "English(US)";
-"Default" = "Default";
-"Polish" = "Polish";
-"English(UK)" = "English(UK)";
+"Language" = "Język";
+"Suggested Languages" = "Zasugerował Języki";
+"English(US)" = "Angielski(Amerykański)";
+"Default" = "Domyślna";
+"Polish" = "Polski";
+"English(UK)" = "Angielski(Brytyjski)";
 "showCreateAccountPage" = "showCreateAccountPage";
 "showForgotPasswordPage" = "showForgotPasswordPage";
 "HomeViewController" = "HomeViewController";
