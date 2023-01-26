@@ -153,7 +153,7 @@ final class SettingsViewController: UIViewController {
     
     private func darkModeIsOn() {
         darkModeToggleButton.setImage(R.image.button_on(), for: .normal)
-        overrideUserInterfaceStyle = .dark
+        UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .dark
         languageRectangle.image = R.image.rectangle_white()
         darkModeRectangle.image = R.image.rectangle_white()
         notificationsRectangle.image = R.image.rectangle_white()
@@ -161,7 +161,7 @@ final class SettingsViewController: UIViewController {
     
     private func darkModeIsOff() {
         darkModeToggleButton.setImage(R.image.button(), for: .normal)
-        self.overrideUserInterfaceStyle = .light
+        UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .light
         languageRectangle.image = R.image.rectangle()
         darkModeRectangle.image = R.image.rectangle()
         notificationsRectangle.image = R.image.rectangle()

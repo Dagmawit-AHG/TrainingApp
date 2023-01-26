@@ -80,7 +80,7 @@ struct _R {
       let source: RswiftResources.StringResource.Source
     }
 
-    /// This `_R.string.localizable` struct is generated, and contains static references to 48 localization keys.
+    /// This `_R.string.localizable` struct is generated, and contains static references to 50 localization keys.
     struct localizable {
       let source: RswiftResources.StringResource.Source
 
@@ -97,6 +97,13 @@ struct _R {
       ///
       /// Locales: en, pl
       var addisAbaba: RswiftResources.StringResource { .init(key: "Addis Ababa", tableName: "Localizable", source: source, developmentValue: "Addis Ababa", comment: nil) }
+
+      /// en translation: App will use the first language that it supports from Language & Region settings. You can select a different language for App to use if you prefer.
+      ///
+      /// Key: App will use
+      ///
+      /// Locales: en, pl
+      var appWillUse: RswiftResources.StringResource { .init(key: "App will use", tableName: "Localizable", source: source, developmentValue: "App will use the first language that it supports from Language & Region settings. You can select a different language for App to use if you prefer.", comment: nil) }
 
       /// en translation: Couldn't Sign in
       ///
@@ -272,6 +279,13 @@ struct _R {
       ///
       /// Locales: en, pl
       var oK: RswiftResources.StringResource { .init(key: "OK", tableName: "Localizable", source: source, developmentValue: "OK", comment: nil) }
+
+      /// en translation: Other Languages
+      ///
+      /// Key: Other Languages
+      ///
+      /// Locales: en, pl
+      var otherLanguages: RswiftResources.StringResource { .init(key: "Other Languages", tableName: "Localizable", source: source, developmentValue: "Other Languages", comment: nil) }
 
       /// en translation: Please try again
       ///
@@ -782,12 +796,12 @@ struct _R {
       /// Locales: pl, en
       var dVNMISoMConfigurationTitle: RswiftResources.StringResource { .init(key: "dVN-mI-SoM.configuration.title", tableName: "Main", source: source, developmentValue: "Search Flight", comment: nil) }
 
-      /// en translation: Button
+      /// en translation: Search Flight
       ///
       /// Key: dVN-mI-SoM.normalTitle
       ///
       /// Locales: pl, en
-      var dVNMISoMNormalTitle: RswiftResources.StringResource { .init(key: "dVN-mI-SoM.normalTitle", tableName: "Main", source: source, developmentValue: "Button", comment: nil) }
+      var dVNMISoMNormalTitle: RswiftResources.StringResource { .init(key: "dVN-mI-SoM.normalTitle", tableName: "Main", source: source, developmentValue: "Search Flight", comment: nil) }
 
       /// en translation: Dark Mode
       ///

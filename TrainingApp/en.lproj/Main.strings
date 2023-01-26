@@ -153,7 +153,7 @@
 "dVN-mI-SoM.configuration.title" = "Search Flight";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "dVN-mI-SoM"; */
-"dVN-mI-SoM.normalTitle" = "Button";
+"dVN-mI-SoM.normalTitle" = "Search Flight";
 
 /* Class = "UILabel"; text = "Dark Mode"; ObjectID = "eDl-Hv-rDv"; */
 "eDl-Hv-rDv.text" = "Dark Mode";

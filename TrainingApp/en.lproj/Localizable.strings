@@ -12,6 +12,8 @@
 "Default" = "Default";
 "Polish" = "Polish";
 "English(UK)" = "English(UK)";
+"App will use" = "App will use the first language that it supports from Language & Region settings. You can select a different language for App to use if you prefer.";
+"Other Languages" = "Other Languages";
 "showCreateAccountPage" = "showCreateAccountPage";
 "showForgotPasswordPage" = "showForgotPasswordPage";
 "HomeViewController" = "HomeViewController";

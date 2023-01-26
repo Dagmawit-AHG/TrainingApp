@@ -131,11 +131,15 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
             englishUSCheck.isHidden = false
             englishCheck.isHidden = true
             englishUKCheck.isHidden = true
+            Bundle.setLanguage("en")
+            UserDefaults.standard.set("en",forKey: "Language")
             languageLabel.text = R.string.localizable.language().localizableString("en")
             suggestedLangLabel.text = R.string.localizable.suggestedLanguages().localizableString("en")
             englishUSLabel.text = R.string.localizable.englishUS().localizableString("en")
             polishLabel.text = R.string.localizable.polish().localizableString("en")
             englishUKLabel.text = R.string.localizable.englishUK().localizableString("en")
+            longTextLabel.text = R.string.localizable.appWillUse().localizableString("en")
+            otherLangLabel.text = R.string.localizable.otherLanguages().localizableString("en")
         }
     }
     
@@ -145,11 +149,15 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
             englishUSCheck.isHidden = true
             englishCheck.isHidden = false
             englishUKCheck.isHidden = true
+            Bundle.setLanguage("pl")
+            UserDefaults.standard.set("pl",forKey: "Language")
             languageLabel.text = R.string.localizable.language().localizableString("pl")
             suggestedLangLabel.text = R.string.localizable.suggestedLanguages().localizableString("pl")
             englishUSLabel.text = R.string.localizable.englishUS().localizableString("pl")
             polishLabel.text = R.string.localizable.polish().localizableString("pl")
             englishUKLabel.text = R.string.localizable.englishUK().localizableString("pl")
+            longTextLabel.text = R.string.localizable.appWillUse().localizableString("pl")
+            otherLangLabel.text = R.string.localizable.otherLanguages().localizableString("pl")
         }
     }
     
@@ -159,11 +167,15 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
             englishUSCheck.isHidden = true
             englishCheck.isHidden = true
             englishUKCheck.isHidden = false
+            Bundle.setLanguage("en")
+            UserDefaults.standard.set("en",forKey: "Language")
             languageLabel.text = R.string.localizable.language().localizableString("en")
             suggestedLangLabel.text = R.string.localizable.suggestedLanguages().localizableString("en")
             englishUSLabel.text = R.string.localizable.englishUS().localizableString("en")
             polishLabel.text = R.string.localizable.polish().localizableString("en")
             englishUKLabel.text = R.string.localizable.englishUK().localizableString("en")
+            longTextLabel.text = R.string.localizable.appWillUse().localizableString("en")
+            otherLangLabel.text = R.string.localizable.otherLanguages().localizableString("en")
         }
     }
 }
