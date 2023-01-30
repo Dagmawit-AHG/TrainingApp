@@ -13,13 +13,19 @@ class HomeViewController: UIViewController {
     
     // MARK: - Properties
     
+    @IBOutlet private var fromTextFieldRound: UITextField!
+    @IBOutlet private var toTextFieldRound: UITextField!
     @IBOutlet private var fromTextField: UITextField!
+    @IBOutlet private var fromTextFieldOne: UITextField!
+    @IBOutlet private var toTextField: UITextField!
     @IBOutlet private var fromDropDown: DropDown!
     @IBOutlet private var roundTripView: UIView!
     @IBOutlet private var oneWayTripView: UIView!
     @IBOutlet private var fromPickerView: UIPickerView!
     @IBOutlet private var optionsSegment: UISegmentedControl!
     @IBOutlet private var settingsButton: UIImageView!
+    @IBOutlet private var departureTextField: UITextField!
+    @IBOutlet private var returnTextField: UITextField!
     
     private var selectedCity: String?
     private var listOfCities = [R.string.localizable.frankfurt(),R.string.localizable.addisAbaba(),R.string.localizable.heathrow(),R.string.localizable.wroclow(),R.string.localizable.hongKong(),R.string.localizable.newDelhi(),R.string.localizable.frankfurt(),R.string.localizable.addisAbaba(),R.string.localizable.heathrow(),R.string.localizable.wroclow(),R.string.localizable.hongKong(),R.string.localizable.newDelhi()]
@@ -31,6 +37,7 @@ class HomeViewController: UIViewController {
         
         self.hideKeyboard()
         configureUI()
+        textFieldSetup()
         setupPickerView()
         dismissPickerView()
         checkIfUserIsLoggedIn()
@@ -86,6 +93,23 @@ class HomeViewController: UIViewController {
     private func configureUI() {
         optionsSegment.addUnderlineForSelectedSegment()
         optionsSegment.setFontSize()
+    }
+    
+    private func textFieldSetup() {
+        let borderColor = R.color.borderColorBlue()
+        fromTextFieldRound.layer.borderColor = borderColor?.cgColor
+        toTextFieldRound.layer.borderColor = borderColor?.cgColor
+        fromTextFieldOne.layer.borderColor = borderColor?.cgColor
+        toTextField.layer.borderColor = borderColor?.cgColor
+        departureTextField.layer.borderColor = borderColor?.cgColor
+        returnTextField.layer.borderColor = borderColor?.cgColor
+        
+        fromTextFieldRound.layer.borderWidth = 1
+        toTextFieldRound.layer.borderWidth = 1
+        fromTextFieldOne.layer.borderWidth = 1
+        toTextField.layer.borderWidth = 1
+        departureTextField.layer.borderWidth = 1
+        returnTextField.layer.borderWidth = 1
     }
     
     private func setupTapGestureForViews() {

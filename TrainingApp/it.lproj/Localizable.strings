@@ -1,0 +1,59 @@
+/* 
+  Localizable.strings
+  TrainingApp
+
+  Created by Dagmawit Alemayehu on 20/01/2023.
+  
+*/
+
+"Language" = "Lingua";
+"Suggested Languages" = "Lingue Suggerite";
+"English(US)" = "Inglese(Stati Uniti)";
+"Default" = "Predefinito";
+"Polish" = "Polacco";
+"English(UK)" = "Inglese(Regno Unito)";
+"App will use" = "L'app utilizzerà la prima lingua supportata dalle impostazioni Lingua e area geografica. Se preferisci, puoi selezionare una lingua diversa per l'app da utilizzare.";
+"Other Languages" = "Altre Lingue";
+"showCreateAccountPage" = "showCreateAccountPage";
+"showForgotPasswordPage" = "showForgotPasswordPage";
+"HomeViewController" = "HomeViewController";
+"showLoginPage" = "showLoginPage";
+"showSettingsPage" = "showSettingsPage";
+"signOutSegue" = "signOutSegue";
+"backToHomepageSegue" = "backToHomepageSegue";
+"showLanguagesPage" = "showLanguagesPage";
+"backToSettingsSegue" = "backToSettingsSegue";
+"goToCodeSegue" = "goToCodeSegue";
+"backToLoginSegue" = "backToLoginSegue";
+"goToNewPassword" = "goToNewPassword";
+"goBackToForgotPass" = "goBackToForgotPass";
+"goToLoginAfterNewPass" = "goToLoginAfterNewPass";
+"backToVerficationSegue" = "backToVerficationSegue";
+"LanguageCell" = "LanguageCell";
+"Couldn'tSignin" = "Couldn't Sign in";
+"Couldn'tSignup" = "Couldn't Sign up";
+"Error" = "Error";
+"Success" = "Success";
+"Wrong Code" = "Wrong Code";
+"Please try again" = "Please try again";
+"A reset email has been sent to" = "A reset email has been sent to ";
+"email" = "email";
+"OK" = "OK";
+"Done" = "Fatto";
+"Empty" = "";
+"Dansk" = "Danese";
+"Danish" = "Danese";
+"Netherlands" = "Olanda";
+"Dutch" = "Olandese";
+"English(Canada)" = "Inglese(Canada)";
+"English(Australia)" = "Inglese(Australia)";
+"English(United States)" = "Inglese(Stati Uniti)";
+"Italy" = "Italia";
+"Italian" = "Italiano";
+"Frankfurt" = "Francoforte";
+"Addis Ababa" = "Addis Abeba";
+"Heathrow" = "Heathrow";
+"Wroclaw" = "Breslavia";
+"Hong Kong" = "Hong Kong";
+"New Delhi" = "New Delhi";
+

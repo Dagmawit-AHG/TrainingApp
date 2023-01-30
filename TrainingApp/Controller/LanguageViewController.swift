@@ -82,6 +82,16 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
             }
         }
         tableView.deselectRow(at: indexPath, animated: true)
+        let currentCell = tableView.cellForRow(at: indexPath)
+        let language = currentCell?.textLabel?.text
+        switch language {
+        case R.string.localizable.italy():
+            Bundle.setLanguage("it")
+            UserDefaults.standard.set("it",forKey: "Language")
+        default:
+            Bundle.setLanguage("en")
+            UserDefaults.standard.set("en",forKey: "Language")
+        }
     }
     
     // MARK: - Helpers
