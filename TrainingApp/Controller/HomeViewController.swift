@@ -9,7 +9,7 @@ import FirebaseAuth
 import iOSDropDown
 import UIKit
 
-class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -26,6 +26,7 @@ class HomeViewController: UIViewController {
     @IBOutlet private var settingsButton: UIImageView!
     @IBOutlet private var departureTextField: UITextField!
     @IBOutlet private var returnTextField: UITextField!
+    @IBOutlet private var departureTextFieldOne: UITextField!
     
     private var selectedCity: String?
     private var listOfCities = [R.string.localizable.frankfurt(),R.string.localizable.addisAbaba(),R.string.localizable.heathrow(),R.string.localizable.wroclow(),R.string.localizable.hongKong(),R.string.localizable.newDelhi(),R.string.localizable.frankfurt(),R.string.localizable.addisAbaba(),R.string.localizable.heathrow(),R.string.localizable.wroclow(),R.string.localizable.hongKong(),R.string.localizable.newDelhi()]
@@ -103,6 +104,7 @@ class HomeViewController: UIViewController {
         toTextField.layer.borderColor = borderColor?.cgColor
         departureTextField.layer.borderColor = borderColor?.cgColor
         returnTextField.layer.borderColor = borderColor?.cgColor
+        departureTextFieldOne.layer.borderColor = borderColor?.cgColor
         
         fromTextFieldRound.layer.borderWidth = 1
         toTextFieldRound.layer.borderWidth = 1
@@ -110,6 +112,7 @@ class HomeViewController: UIViewController {
         toTextField.layer.borderWidth = 1
         departureTextField.layer.borderWidth = 1
         returnTextField.layer.borderWidth = 1
+        departureTextFieldOne.layer.borderWidth = 1
     }
     
     private func setupTapGestureForViews() {

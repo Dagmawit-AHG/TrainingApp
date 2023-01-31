@@ -8,7 +8,7 @@
 import FirebaseAuth
 import UIKit
 
-class RegistrationViewController: UIViewController {
+final class RegistrationViewController: UIViewController {
 
     // MARK: - Properties
     
