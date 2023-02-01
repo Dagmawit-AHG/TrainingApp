@@ -184,7 +184,13 @@ extension UISegmentedControl {
             return image!
         }
 }
-
+extension UISwitch {
+    func setOnValueChangeListener(onValueChanged :@escaping () -> Void) {
+        self.addAction(UIAction(){ action in
+            onValueChanged()
+        }, for: .valueChanged)
+    }
+}
 extension UIView {
     func anchor(
         top: NSLayoutYAxisAnchor? = nil,

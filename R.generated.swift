@@ -14,6 +14,7 @@ struct _R {
   let bundle: Foundation.Bundle
 
   let segue = segue()
+  let id = id()
   let reuseIdentifier = reuseIdentifier()
 
   var string: string { .init(bundle: bundle, preferredLanguages: nil, locale: nil) }
@@ -1260,6 +1261,18 @@ struct _R {
     }
   }
 
+  /// This `_R.id` struct is generated, and contains static references to 1 accessibility identifiers.
+  struct id {
+    let main = main()
+
+    /// This `_R.id.main` struct is generated, and contains static references to 1 accessibility identifiers.
+    struct main {
+
+      /// Accessibility identifier `darkMode`.
+      let darkMode = "darkMode"
+    }
+  }
+
   /// This `_R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
   struct reuseIdentifier {
 
@@ -1328,7 +1341,6 @@ struct _R {
         if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "arrow.backward.to.line") == nil { throw RswiftResources.ValidationError("[R.swift] System image named 'arrow.backward.to.line' is used in storyboard 'Main', but couldn't be loaded.") } }
         if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "arrow.left") == nil { throw RswiftResources.ValidationError("[R.swift] System image named 'arrow.left' is used in storyboard 'Main', but couldn't be loaded.") } }
         if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "bell") == nil { throw RswiftResources.ValidationError("[R.swift] System image named 'bell' is used in storyboard 'Main', but couldn't be loaded.") } }
-        if UIKit.UIImage(named: "button", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'button' is used in storyboard 'Main', but couldn't be loaded.") }
         if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "calendar") == nil { throw RswiftResources.ValidationError("[R.swift] System image named 'calendar' is used in storyboard 'Main', but couldn't be loaded.") } }
         if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "checkmark") == nil { throw RswiftResources.ValidationError("[R.swift] System image named 'checkmark' is used in storyboard 'Main', but couldn't be loaded.") } }
         if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "gearshape") == nil { throw RswiftResources.ValidationError("[R.swift] System image named 'gearshape' is used in storyboard 'Main', but couldn't be loaded.") } }

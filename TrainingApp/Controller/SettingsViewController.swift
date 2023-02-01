@@ -14,8 +14,8 @@ final class SettingsViewController: UIViewController {
     
     @IBOutlet private var backButton: UIImageView!
     @IBOutlet private var languagesButton: UIImageView!
-    @IBOutlet private var darkModeToggleButton: UIButton!
-    @IBOutlet private var notificationsToggleButton: UIButton!
+    @IBOutlet private var darkModeSwitch: UISwitch!
+    @IBOutlet private var notificationsSwitch: UISwitch!
     @IBOutlet private var languageRectangle: UIImageView!
     @IBOutlet private var darkModeRectangle: UIImageView!
     @IBOutlet private var notificationsRectangle: UIImageView!
@@ -23,65 +23,36 @@ final class SettingsViewController: UIViewController {
     @IBOutlet private var flightUpdatesLabel: UILabel!
     @IBOutlet private var executiveProgramLabel: UILabel!
     @IBOutlet private var discountDealsLabel: UILabel!
-    @IBOutlet private var flightUpdatesToggle: UIButton!
-    @IBOutlet private var executiveProgramToggle: UIButton!
-    @IBOutlet private var discountDealsToggle: UIButton!
+    @IBOutlet private var flightUpdatesSwitch: UISwitch!
+    @IBOutlet private var executiveProgramSwitch: UISwitch!
+    @IBOutlet private var discountDealsSwitch: UISwitch!
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initialButtonsSetup()
         setupTapGestureForViews()
+        
+        darkModeSwitch.setOnValueChangeListener {
+            if self.darkModeSwitch.isOn {
+                self.darkModeIsOn()
+            }
+            else {
+                self.darkModeIsOff()
+            }
+        }
+        notificationsSwitch.setOnValueChangeListener {
+            if self.notificationsSwitch.isOn {
+                self.notificationIsOn()
+            }
+            else {
+                self.notificationIsOff()
+            }
+        }
     }
     
     // MARK: - Actions
-    
-    @IBAction private func darkModeTogglePressed(_ sender: UIButton) {
-        if darkModeToggleButton.currentImage == R.image.button() {
-            darkModeIsOn()
-        }
-        else {
-            darkModeIsOff()
-        }
-    }
-    
-    @IBAction private func notificationsTogglePressed(_ sender: UIButton) {
-        if notificationsToggleButton.currentImage == R.image.button() {
-            notificationIsOn()
-        }
-        else {
-            notificationIsOff()
-        }
-    }
-    
-    @IBAction private func flightUpdatesTogglePressed(_ sender: UIButton) {
-        if flightUpdatesToggle.currentImage == R.image.button() {
-            flightUpdatesIsOn()
-        }
-        else {
-            flightUpdatesIsOff()
-        }
-    }
-    
-    @IBAction private func executiveProgramTogglePressed(_ sender: UIButton) {
-        if executiveProgramToggle.currentImage == R.image.button(){
-            executiveProgramIsOn()
-        }
-        else {
-            executiveProgramIsOff()
-        }
-    }
-    
-    @IBAction private func discountDealsTogglePressed(_ sender: UIButton) {
-        if discountDealsToggle.currentImage == R.image.button() {
-            discountIsOn()
-        }
-        else {
-            discountIsOff()
-        }
-    }
     
     @IBAction private func signOutPressed(_ sender: UIButton) {
         do {
@@ -143,16 +114,7 @@ final class SettingsViewController: UIViewController {
         }
     }
     
-    private func initialButtonsSetup() {
-        darkModeToggleButton.setTitle(R.string.localizable.empty(), for: .normal)
-        notificationsToggleButton.setTitle(R.string.localizable.empty(), for: .normal)
-        flightUpdatesToggle.setTitle(R.string.localizable.empty(), for: .normal)
-        executiveProgramToggle.setTitle(R.string.localizable.empty(), for: .normal)
-        discountDealsToggle.setTitle(R.string.localizable.empty(), for: .normal)
-    }
-    
     private func darkModeIsOn() {
-        darkModeToggleButton.setImage(R.image.button_on(), for: .normal)
         UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .dark
         languageRectangle.image = R.image.rectangle_white()
         darkModeRectangle.image = R.image.rectangle_white()
@@ -160,7 +122,6 @@ final class SettingsViewController: UIViewController {
     }
     
     private func darkModeIsOff() {
-        darkModeToggleButton.setImage(R.image.button(), for: .normal)
         UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .light
         languageRectangle.image = R.image.rectangle()
         darkModeRectangle.image = R.image.rectangle()
@@ -168,51 +129,25 @@ final class SettingsViewController: UIViewController {
     }
     
     private func notificationIsOn() {
-        notificationsToggleButton.setImage(R.image.button_on(), for: .normal)
         notificationsRectangle.isHidden = true
         bigRectangle.isHidden = false
         bigRectangle.image = R.image.rectangle_big()
         flightUpdatesLabel.isHidden = false
-        flightUpdatesToggle.isHidden = false
+        flightUpdatesSwitch.isHidden = false
         executiveProgramLabel.isHidden = false
-        executiveProgramToggle.isHidden = false
+        executiveProgramSwitch.isHidden = false
         discountDealsLabel.isHidden = false
-        discountDealsToggle.isHidden = false
+        discountDealsSwitch.isHidden = false
     }
     
     private func notificationIsOff() {
-        notificationsToggleButton.setImage(R.image.button(), for: .normal)
         notificationsRectangle.isHidden = false
         bigRectangle.isHidden = true
         flightUpdatesLabel.isHidden = true
-        flightUpdatesToggle.isHidden = true
+        flightUpdatesSwitch.isHidden = true
         executiveProgramLabel.isHidden = true
-        executiveProgramToggle.isHidden = true
+        executiveProgramSwitch.isHidden = true
         discountDealsLabel.isHidden = true
-        discountDealsToggle.isHidden = true
-    }
-    
-    private func flightUpdatesIsOn() {
-        flightUpdatesToggle.setImage(R.image.button_on(), for: .normal)
-    }
-    
-    private func flightUpdatesIsOff() {
-        flightUpdatesToggle.setImage(R.image.button(), for: .normal)
-    }
-    
-    private func executiveProgramIsOn() {
-        executiveProgramToggle.setImage(R.image.button_on(), for: .normal)
-    }
-    
-    private func executiveProgramIsOff() {
-        executiveProgramToggle.setImage(R.image.button(), for: .normal)
-    }
-    
-    private func discountIsOn() {
-        discountDealsToggle.setImage(R.image.button_on(), for: .normal)
-    }
-    
-    private func discountIsOff() {
-        discountDealsToggle.setImage(R.image.button(), for: .normal)
+        discountDealsSwitch.isHidden = true
     }
 }
