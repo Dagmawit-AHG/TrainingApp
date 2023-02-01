@@ -41,6 +41,7 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
         languagesTableView.delegate = self
         
         setupTapGestureForViews()
+        configureUI()
     }
     
     // MARK: - Actions
@@ -183,6 +184,10 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
         let englishUKTapGesture = UITapGestureRecognizer(target: self, action: #selector(LanguageViewController.englishUKTapped(gesture:)))
         englishUKLabel.addGestureRecognizer(englishUKTapGesture)
         englishUKLabel.isUserInteractionEnabled = true
+    }
+    
+    private func configureUI() {
+        languagesTableView.backgroundColor = R.color.tableView_background()
     }
     
     @objc

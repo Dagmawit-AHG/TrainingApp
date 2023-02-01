@@ -1036,7 +1036,7 @@ struct _R {
     }
   }
 
-  /// This `_R.color` struct is generated, and contains static references to 7 colors.
+  /// This `_R.color` struct is generated, and contains static references to 8 colors.
   struct color {
     let bundle: Foundation.Bundle
 
@@ -1060,6 +1060,9 @@ struct _R {
 
     /// Color `formTextFieldColor`.
     var formTextFieldColor: RswiftResources.ColorResource { .init(name: "formTextFieldColor", path: [], bundle: bundle) }
+
+    /// Color `tableView_background`.
+    var tableView_background: RswiftResources.ColorResource { .init(name: "tableView_background", path: [], bundle: bundle) }
   }
 
   /// This `_R.image` struct is generated, and contains static references to 12 images.
