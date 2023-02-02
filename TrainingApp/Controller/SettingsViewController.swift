@@ -33,7 +33,7 @@ final class SettingsViewController: UIViewController {
         super.viewDidLoad()
         
         setupTapGestureForViews()
-        
+
         darkModeSwitch.setOnValueChangeListener {
             if self.darkModeSwitch.isOn {
                 self.darkModeIsOn()
