@@ -18,8 +18,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: scene)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        var rootVC = UIViewController()
+        if(UserDefaults.standard.bool(forKey: R.string.localizable.isuserloggediN()) == true) {
+            rootVC = storyboard.instantiateViewController(withIdentifier: "HomeViewController")
+        }
+        else {
+            rootVC = storyboard.instantiateViewController(withIdentifier: "StartViewController")
+        }
         
-        let rootVC = storyboard.instantiateViewController(withIdentifier: "StartViewController")
 //        let navController = UINavigationController(rootViewController: rootVC)
 //        navController.navigationBar.backgroundColor = .clear
         self.window?.rootViewController = rootVC

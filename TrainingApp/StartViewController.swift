@@ -12,13 +12,13 @@ class StartViewController: UIViewController {
     // MARK: - Properties
     
     @IBOutlet private var signInButton: UIButton!
-    
     @IBOutlet private var signUpButton: UIButton!
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.navigationController?.navigationBar.isHidden = false
         configureUI()
     }

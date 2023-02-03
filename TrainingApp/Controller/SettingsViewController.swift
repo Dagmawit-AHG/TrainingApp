@@ -140,6 +140,7 @@ final class SettingsViewController: UIViewController {
     @IBAction private func signOutPressed(_ sender: UIButton) {
         do {
             try Auth.auth().signOut()
+            self.userDefaults.set(false, forKey: R.string.localizable.isuserloggediN())
             performSegue(withIdentifier: R.string.localizable.signOutSegue(), sender: self)
         }
         catch let signOutError as NSError {
