@@ -81,7 +81,7 @@ struct _R {
       let source: RswiftResources.StringResource.Source
     }
 
-    /// This `_R.string.localizable` struct is generated, and contains static references to 50 localization keys.
+    /// This `_R.string.localizable` struct is generated, and contains static references to 70 localization keys.
     struct localizable {
       let source: RswiftResources.StringResource.Source
 
@@ -358,12 +358,82 @@ struct _R {
       /// Locales: en, pl
       var backToVerficationSegue: RswiftResources.StringResource { .init(key: "backToVerficationSegue", tableName: "Localizable", source: source, developmentValue: "backToVerficationSegue", comment: nil) }
 
+      /// en translation: darkTheme
+      ///
+      /// Key: darkTheme
+      ///
+      /// Locales: en, pl
+      var darkTheme: RswiftResources.StringResource { .init(key: "darkTheme", tableName: "Localizable", source: source, developmentValue: "darkTheme", comment: nil) }
+
+      /// en translation: discountKey
+      ///
+      /// Key: discountKey
+      ///
+      /// Locales: en, pl
+      var discountKey: RswiftResources.StringResource { .init(key: "discountKey", tableName: "Localizable", source: source, developmentValue: "discountKey", comment: nil) }
+
+      /// en translation: discountOff
+      ///
+      /// Key: discountOff
+      ///
+      /// Locales: en, pl
+      var discountOff: RswiftResources.StringResource { .init(key: "discountOff", tableName: "Localizable", source: source, developmentValue: "discountOff", comment: nil) }
+
+      /// en translation: discountOn
+      ///
+      /// Key: discountOn
+      ///
+      /// Locales: en, pl
+      var discountOn: RswiftResources.StringResource { .init(key: "discountOn", tableName: "Localizable", source: source, developmentValue: "discountOn", comment: nil) }
+
       /// en translation: email
       ///
       /// Key: email
       ///
       /// Locales: en, pl
       var email: RswiftResources.StringResource { .init(key: "email", tableName: "Localizable", source: source, developmentValue: "email", comment: nil) }
+
+      /// en translation: executiveKey
+      ///
+      /// Key: executiveKey
+      ///
+      /// Locales: en, pl
+      var executiveKey: RswiftResources.StringResource { .init(key: "executiveKey", tableName: "Localizable", source: source, developmentValue: "executiveKey", comment: nil) }
+
+      /// en translation: executiveOff
+      ///
+      /// Key: executiveOff
+      ///
+      /// Locales: en, pl
+      var executiveOff: RswiftResources.StringResource { .init(key: "executiveOff", tableName: "Localizable", source: source, developmentValue: "executiveOff", comment: nil) }
+
+      /// en translation: executiveOn
+      ///
+      /// Key: executiveOn
+      ///
+      /// Locales: en, pl
+      var executiveOn: RswiftResources.StringResource { .init(key: "executiveOn", tableName: "Localizable", source: source, developmentValue: "executiveOn", comment: nil) }
+
+      /// en translation: flightKey
+      ///
+      /// Key: flightKey
+      ///
+      /// Locales: en, pl
+      var flightKey: RswiftResources.StringResource { .init(key: "flightKey", tableName: "Localizable", source: source, developmentValue: "flightKey", comment: nil) }
+
+      /// en translation: flightOff
+      ///
+      /// Key: flightOff
+      ///
+      /// Locales: en, pl
+      var flightOff: RswiftResources.StringResource { .init(key: "flightOff", tableName: "Localizable", source: source, developmentValue: "flightOff", comment: nil) }
+
+      /// en translation: flightOn
+      ///
+      /// Key: flightOn
+      ///
+      /// Locales: en, pl
+      var flightOn: RswiftResources.StringResource { .init(key: "flightOn", tableName: "Localizable", source: source, developmentValue: "flightOn", comment: nil) }
 
       /// en translation: goBackToForgotPass
       ///
@@ -392,6 +462,69 @@ struct _R {
       ///
       /// Locales: en, pl
       var goToNewPassword: RswiftResources.StringResource { .init(key: "goToNewPassword", tableName: "Localizable", source: source, developmentValue: "goToNewPassword", comment: nil) }
+
+      /// en translation: lightTheme
+      ///
+      /// Key: lightTheme
+      ///
+      /// Locales: en, pl
+      var lightTheme: RswiftResources.StringResource { .init(key: "lightTheme", tableName: "Localizable", source: source, developmentValue: "lightTheme", comment: nil) }
+
+      /// en translation: notfnKey
+      ///
+      /// Key: notfnKey
+      ///
+      /// Locales: en, pl
+      var notfnKey: RswiftResources.StringResource { .init(key: "notfnKey", tableName: "Localizable", source: source, developmentValue: "notfnKey", comment: nil) }
+
+      /// en translation: notfnOff
+      ///
+      /// Key: notfnOff
+      ///
+      /// Locales: en, pl
+      var notfnOff: RswiftResources.StringResource { .init(key: "notfnOff", tableName: "Localizable", source: source, developmentValue: "notfnOff", comment: nil) }
+
+      /// en translation: notfnOn
+      ///
+      /// Key: notfnOn
+      ///
+      /// Locales: en, pl
+      var notfnOn: RswiftResources.StringResource { .init(key: "notfnOn", tableName: "Localizable", source: source, developmentValue: "notfnOn", comment: nil) }
+
+      /// en translation: onOffKeyDiscount
+      ///
+      /// Key: onOffKeyDiscount
+      ///
+      /// Locales: en, pl
+      var onOffKeyDiscount: RswiftResources.StringResource { .init(key: "onOffKeyDiscount", tableName: "Localizable", source: source, developmentValue: "onOffKeyDiscount", comment: nil) }
+
+      /// en translation: onOffKeyExecutive
+      ///
+      /// Key: onOffKeyExecutive
+      ///
+      /// Locales: en, pl
+      var onOffKeyExecutive: RswiftResources.StringResource { .init(key: "onOffKeyExecutive", tableName: "Localizable", source: source, developmentValue: "onOffKeyExecutive", comment: nil) }
+
+      /// en translation: onOffKeyFlight
+      ///
+      /// Key: onOffKeyFlight
+      ///
+      /// Locales: en, pl
+      var onOffKeyFlight: RswiftResources.StringResource { .init(key: "onOffKeyFlight", tableName: "Localizable", source: source, developmentValue: "onOffKeyFlight", comment: nil) }
+
+      /// en translation: onOffKeyNotfn
+      ///
+      /// Key: onOffKeyNotfn
+      ///
+      /// Locales: en, pl
+      var onOffKeyNotfn: RswiftResources.StringResource { .init(key: "onOffKeyNotfn", tableName: "Localizable", source: source, developmentValue: "onOffKeyNotfn", comment: nil) }
+
+      /// en translation: onOffKeyTheme
+      ///
+      /// Key: onOffKeyTheme
+      ///
+      /// Locales: en, pl
+      var onOffKeyTheme: RswiftResources.StringResource { .init(key: "onOffKeyTheme", tableName: "Localizable", source: source, developmentValue: "onOffKeyTheme", comment: nil) }
 
       /// en translation: showCreateAccountPage
       ///
@@ -434,6 +567,13 @@ struct _R {
       ///
       /// Locales: en, pl
       var signOutSegue: RswiftResources.StringResource { .init(key: "signOutSegue", tableName: "Localizable", source: source, developmentValue: "signOutSegue", comment: nil) }
+
+      /// en translation: themeKey
+      ///
+      /// Key: themeKey
+      ///
+      /// Locales: en, pl
+      var themeKey: RswiftResources.StringResource { .init(key: "themeKey", tableName: "Localizable", source: source, developmentValue: "themeKey", comment: nil) }
     }
 
     /// This `_R.string.main` struct is generated, and contains static references to 85 localization keys.
@@ -601,12 +741,12 @@ struct _R {
       /// Locales: pl, en
       var dxAJqWEXConfigurationTitle: RswiftResources.StringResource { .init(key: "DxA-jq-WEX.configuration.title", tableName: "Main", source: source, developmentValue: "Sign In", comment: nil) }
 
-      /// en translation: Button
+      /// en translation: Sign In
       ///
       /// Key: DxA-jq-WEX.normalTitle
       ///
       /// Locales: pl, en
-      var dxAJqWEXNormalTitle: RswiftResources.StringResource { .init(key: "DxA-jq-WEX.normalTitle", tableName: "Main", source: source, developmentValue: "Button", comment: nil) }
+      var dxAJqWEXNormalTitle: RswiftResources.StringResource { .init(key: "DxA-jq-WEX.normalTitle", tableName: "Main", source: source, developmentValue: "Sign In", comment: nil) }
 
       /// en translation: English(UK)
       ///
@@ -902,12 +1042,12 @@ struct _R {
       /// Locales: pl, en
       var lKX4BEroConfigurationTitle: RswiftResources.StringResource { .init(key: "lKX-4B-Ero.configuration.title", tableName: "Main", source: source, developmentValue: "Sign Up", comment: nil) }
 
-      /// en translation: Button
+      /// en translation: Sign Up
       ///
       /// Key: lKX-4B-Ero.normalTitle
       ///
       /// Locales: pl, en
-      var lKX4BEroNormalTitle: RswiftResources.StringResource { .init(key: "lKX-4B-Ero.normalTitle", tableName: "Main", source: source, developmentValue: "Button", comment: nil) }
+      var lKX4BEroNormalTitle: RswiftResources.StringResource { .init(key: "lKX-4B-Ero.normalTitle", tableName: "Main", source: source, developmentValue: "Sign Up", comment: nil) }
 
       /// en translation: From
       ///

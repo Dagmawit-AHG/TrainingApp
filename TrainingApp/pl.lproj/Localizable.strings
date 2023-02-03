@@ -55,4 +55,23 @@
 "Wroclow" = "Wroclow";
 "Hong Kong" = "Hong Kong";
 "New Delhi" = "New Delhi";
-
+"onOffKeyTheme" = "onOffKeyTheme";
+"themeKey" = "themeKey";
+"darkTheme" = "darkTheme";
+"lightTheme" = "lightTheme";
+"onOffKeyNotfn" = "onOffKeyNotfn";
+"notfnKey" = "notfnKey";
+"notfnOn" = "notfnOn";
+"notfnOff" = "notfnOff";
+"onOffKeyFlight" = "onOffKeyFlight";
+"flightKey" = "flightKey";
+"flightOn" = "flightOn";
+"flightOff" = "flightOff";
+"onOffKeyExecutive" = "onOffKeyExecutive";
+"executiveKey" = "executiveKey";
+"executiveOn" = "executiveOn";
+"executiveOff" = "executiveOff";
+"onOffKeyDiscount" = "onOffKeyDiscount";
+"discountKey" = "discountKey";
+"discountOn" = "discountOn";
+"discountOff" = "discountOff";

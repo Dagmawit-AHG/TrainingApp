@@ -3,6 +3,16 @@
     {
       "filename" : "Rectangle 12.png",
       "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "Rectangle 12 (1).png",
+      "idiom" : "universal"
     }
   ],
   "info" : {

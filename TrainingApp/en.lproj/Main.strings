@@ -69,7 +69,7 @@
 "DxA-jq-WEX.configuration.title" = "Sign In";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "DxA-jq-WEX"; */
-"DxA-jq-WEX.normalTitle" = "Button";
+"DxA-jq-WEX.normalTitle" = "Sign In";
 
 /* Class = "UILabel"; text = "English(UK)"; ObjectID = "EL9-Gr-M7P"; */
 "EL9-Gr-M7P.text" = "English(UK)";
@@ -198,7 +198,7 @@
 "lKX-4B-Ero.configuration.title" = "Sign Up";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "lKX-4B-Ero"; */
-"lKX-4B-Ero.normalTitle" = "Button";
+"lKX-4B-Ero.normalTitle" = "Sign Up";
 
 /* Class = "UILabel"; text = "From"; ObjectID = "li8-YN-Wbh"; */
 "li8-YN-Wbh.text" = "From";

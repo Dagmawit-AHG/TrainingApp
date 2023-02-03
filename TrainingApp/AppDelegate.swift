@@ -18,10 +18,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         RunLoop.current.run(until: NSDate(timeIntervalSinceNow: 5) as Date)
+
+        if UserDefaults.standard.object(forKey: R.string.localizable.themeKey()) as! String == R.string.localizable.lightTheme() {
+            UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .light
+        }
+        else if UserDefaults.standard.object(forKey: R.string.localizable.themeKey()) as! String == R.string.localizable.darkTheme() {
+            UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .dark
+        }
         
-        let targetLang = UserDefaults.standard.object(forKey: "Language") as? String
-        if UserDefaults.standard.object(forKey: "Language") != nil && UserDefaults.standard.object(forKey: "Language") as! String == "pl" {
-            UserDefaults.standard.set("pl",forKey: "Language")
+        if UserDefaults.standard.object(forKey: R.string.localizable.language()) != nil && UserDefaults.standard.object(forKey: R.string.localizable.language()) as! String == "pl" {
+            UserDefaults.standard.set("pl",forKey: R.string.localizable.language())
 //            Bundle.setLanguage((targetLang != nil) ? targetLang! : "en")
         }
 //        else if UserDefaults.standard.object(forKey: "Language") != nil && UserDefaults.standard.object(forKey: "Language") as! String == "en" {
