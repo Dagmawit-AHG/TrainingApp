@@ -236,7 +236,7 @@ struct _R {
       ///
       /// Key: ISUSERLOGGEDIN
       ///
-      /// Locales: en
+      /// Locales: en, pl
       var isuserloggediN: RswiftResources.StringResource { .init(key: "ISUSERLOGGEDIN", tableName: "Localizable", source: source, developmentValue: "ISUSERLOGGEDIN", comment: nil) }
 
       /// en translation: Italian

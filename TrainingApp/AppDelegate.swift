@@ -18,12 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         RunLoop.current.run(until: NSDate(timeIntervalSinceNow: 5) as Date)
-
-        if UserDefaults.standard.object(forKey: R.string.localizable.themeKey()) as! String == R.string.localizable.lightTheme() {
-            UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .light
-        }
-        else if UserDefaults.standard.object(forKey: R.string.localizable.themeKey()) as! String == R.string.localizable.darkTheme() {
-            UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .dark
+        
+        if let THEME_KEY = UserDefaults.standard.object(forKey: R.string.localizable.themeKey()) as? String {
+            if THEME_KEY == R.string.localizable.lightTheme() {
+                UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .light
+            }
+            else if THEME_KEY == R.string.localizable.darkTheme() {
+                UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .dark
+            }
         }
         
         if UserDefaults.standard.object(forKey: R.string.localizable.language()) != nil && UserDefaults.standard.object(forKey: R.string.localizable.language()) as! String == "pl" {
