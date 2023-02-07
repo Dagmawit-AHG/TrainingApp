@@ -11,7 +11,7 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
     
     // MARK: - Properties
     
-    var languages: [String: String] = [R.string.localizable.dansk(): R.string.localizable.danish(),
+    var languages: KeyValuePairs = [R.string.localizable.dansk(): R.string.localizable.danish(),
                                        R.string.localizable.netherlands(): R.string.localizable.dutch(),
                                        R.string.localizable.englishCanada(): R.string.localizable.englishCanada(),
                                        R.string.localizable.englishAustralia(): R.string.localizable.englishAustralia(),
@@ -32,6 +32,10 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet private var otherLangLabel: UILabel!
     @IBOutlet private var languagesTableView: UITableView!
     
+    let userDefaults = UserDefaults.standard
+    
+    private let LAST_SELECTION_KEY = R.string.localizable.lastSelection()
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -42,6 +46,9 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
         
         setupTapGestureForViews()
         configureUI()
+
+        let selectedLanguage = userDefaults.integer(forKey: LAST_SELECTION_KEY)
+        checkLanguage(language: languages[selectedLanguage].key)
     }
     
     // MARK: - Actions
@@ -57,114 +64,48 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        languagesTableView.backgroundView = UIImageView(image: R.image.rectangle_all())
+        languagesTableView.backgroundColor = R.color.tableView_background()
         return languages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell:UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: R.string.localizable.languageCell(), for: indexPath)
+        cell = UITableViewCell(style: .subtitle, reuseIdentifier: R.string.localizable.languageCell())
+        let checkmark = userDefaults.integer(forKey: LAST_SELECTION_KEY)
+        if checkmark == indexPath.row {
+            cell?.accessoryType = .checkmark
+        }
+        else {
+            cell?.accessoryType = .none
+        }
         
         if indexPath.row > languages.count - 1 {
             return UITableViewCell()
         }
-        else {
-            languagesTableView.backgroundView = UIImageView(image: R.image.rectangle_all())
-            let cell = tableView.dequeueReusableCell(withIdentifier: R.string.localizable.languageCell(), for: indexPath)
-            cell.textLabel?.text = Array(languages.keys)[indexPath.row]
-            cell.textLabel?.font.withSize(18.0)
-            print(Array(languages.keys)[indexPath.row])
-            return cell
-        }
+        cell?.textLabel?.text = languages[indexPath.row].key
+        cell?.detailTextLabel?.text = languages[indexPath.row].value
+        cell?.textLabel?.font.withSize(18.0)
+        print(languages[indexPath.row].key)
+        
+        return cell!
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         for row in 0..<tableView.numberOfRows(inSection: indexPath.section) {
             if let cell = tableView.cellForRow(at: IndexPath(row: row, section: indexPath.section)) {
                 cell.accessoryType = row == indexPath.row ? .checkmark : .none
+                userDefaults.set(indexPath.row, forKey: LAST_SELECTION_KEY)
             }
         }
-        tableView.deselectRow(at: indexPath, animated: true)
         let currentCell = tableView.cellForRow(at: indexPath)
         let language = currentCell?.textLabel?.text
-        switch language {
-        case R.string.localizable.englishAustralia():
-            Bundle.setLanguage("en")
-            UserDefaults.standard.set("en", forKey: "Language")
-            languageLabel.text = R.string.localizable.language().localizableString("en")
-            suggestedLangLabel.text = R.string.localizable.suggestedLanguages().localizableString("en")
-            englishUSLabel.text = R.string.localizable.englishUS().localizableString("en")
-            polishLabel.text = R.string.localizable.polish().localizableString("en")
-            englishUKLabel.text = R.string.localizable.englishUK().localizableString("en")
-            longTextLabel.text = R.string.localizable.appWillUse().localizableString("en")
-            otherLangLabel.text = R.string.localizable.otherLanguages().localizableString("en")
-        case R.string.localizable.netherlands():
-            Bundle.setLanguage("nl")
-            UserDefaults.standard.set("nl", forKey: "Language")
-            languageLabel.text = R.string.localizable.language().localizableString("nl")
-            suggestedLangLabel.text = R.string.localizable.suggestedLanguages().localizableString("nl")
-            englishUSLabel.text = R.string.localizable.englishUS().localizableString("nl")
-            polishLabel.text = R.string.localizable.polish().localizableString("nl")
-            englishUKLabel.text = R.string.localizable.englishUK().localizableString("nl")
-            longTextLabel.text = R.string.localizable.appWillUse().localizableString("nl")
-            otherLangLabel.text = R.string.localizable.otherLanguages().localizableString("nl")
-        case R.string.localizable.englishCanada():
-            Bundle.setLanguage("en")
-            UserDefaults.standard.set("en", forKey: "Language")
-            languageLabel.text = R.string.localizable.language().localizableString("en")
-            suggestedLangLabel.text = R.string.localizable.suggestedLanguages().localizableString("en")
-            englishUSLabel.text = R.string.localizable.englishUS().localizableString("en")
-            polishLabel.text = R.string.localizable.polish().localizableString("en")
-            englishUKLabel.text = R.string.localizable.englishUK().localizableString("en")
-            longTextLabel.text = R.string.localizable.appWillUse().localizableString("en")
-            otherLangLabel.text = R.string.localizable.otherLanguages().localizableString("en")
-        case R.string.localizable.italy():
-            Bundle.setLanguage("it")
-            UserDefaults.standard.set("it",forKey: "Language")
-            languageLabel.text = R.string.localizable.language().localizableString("it")
-            suggestedLangLabel.text = R.string.localizable.suggestedLanguages().localizableString("it")
-            englishUSLabel.text = R.string.localizable.englishUS().localizableString("it")
-            polishLabel.text = R.string.localizable.polish().localizableString("it")
-            englishUKLabel.text = R.string.localizable.englishUK().localizableString("it")
-            longTextLabel.text = R.string.localizable.appWillUse().localizableString("it")
-            otherLangLabel.text = R.string.localizable.otherLanguages().localizableString("it")
-        case R.string.localizable.englishUnitedStates():
-            Bundle.setLanguage("en")
-            UserDefaults.standard.set("en", forKey: "Language")
-            languageLabel.text = R.string.localizable.language().localizableString("en")
-            suggestedLangLabel.text = R.string.localizable.suggestedLanguages().localizableString("en")
-            englishUSLabel.text = R.string.localizable.englishUS().localizableString("en")
-            polishLabel.text = R.string.localizable.polish().localizableString("en")
-            englishUKLabel.text = R.string.localizable.englishUK().localizableString("en")
-            longTextLabel.text = R.string.localizable.appWillUse().localizableString("en")
-            otherLangLabel.text = R.string.localizable.otherLanguages().localizableString("en")
-        case R.string.localizable.dansk():
-            Bundle.setLanguage("da")
-            UserDefaults.standard.set("da", forKey: "Language")
-            languageLabel.text = R.string.localizable.language().localizableString("da")
-            suggestedLangLabel.text = R.string.localizable.suggestedLanguages().localizableString("da")
-            englishUSLabel.text = R.string.localizable.englishUS().localizableString("da")
-            polishLabel.text = R.string.localizable.polish().localizableString("da")
-            englishUKLabel.text = R.string.localizable.englishUK().localizableString("da")
-            longTextLabel.text = R.string.localizable.appWillUse().localizableString("da")
-            otherLangLabel.text = R.string.localizable.otherLanguages().localizableString("da")
-        default:
-            Bundle.setLanguage("en")
-            UserDefaults.standard.set("en",forKey: "Language")
-            languageLabel.text = R.string.localizable.language().localizableString("en")
-            suggestedLangLabel.text = R.string.localizable.suggestedLanguages().localizableString("en")
-            englishUSLabel.text = R.string.localizable.englishUS().localizableString("en")
-            polishLabel.text = R.string.localizable.polish().localizableString("en")
-            englishUKLabel.text = R.string.localizable.englishUK().localizableString("en")
-            longTextLabel.text = R.string.localizable.appWillUse().localizableString("en")
-            otherLangLabel.text = R.string.localizable.otherLanguages().localizableString("en")
-        }
+        
+        checkLanguage(language: language!)
     }
     
     // MARK: - Helpers
     
     private func setupTapGestureForViews() {
-        languagesTableView.backgroundColor = UIColor(red: 139, green: 201, blue: 255, alpha: 0.2)
-        languagesTableView.backgroundView = UIImageView(image: R.image.rectangle_all())
-        
         let backTapGesture = UITapGestureRecognizer(target: self, action: #selector(LanguageViewController.backImageTapped(gesture:)))
         backButton.addGestureRecognizer(backTapGesture)
         backButton.isUserInteractionEnabled = true
@@ -188,6 +129,82 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
     
     private func configureUI() {
         languagesTableView.backgroundColor = R.color.tableView_background()
+    }
+    
+    private func checkLanguage(language: String) {
+        
+        switch language {
+        case R.string.localizable.englishAustralia():
+            Bundle.setLanguage("en")
+            UserDefaults.standard.set("en", forKey: R.string.localizable.language())
+            languageLabel.text = R.string.localizable.language().localizableString("en")
+            suggestedLangLabel.text = R.string.localizable.suggestedLanguages().localizableString("en")
+            englishUSLabel.text = R.string.localizable.englishUS().localizableString("en")
+            polishLabel.text = R.string.localizable.polish().localizableString("en")
+            englishUKLabel.text = R.string.localizable.englishUK().localizableString("en")
+            longTextLabel.text = R.string.localizable.appWillUse().localizableString("en")
+            otherLangLabel.text = R.string.localizable.otherLanguages().localizableString("en")
+        case R.string.localizable.netherlands():
+            Bundle.setLanguage("nl")
+            UserDefaults.standard.set("nl", forKey: R.string.localizable.language())
+            languageLabel.text = R.string.localizable.language().localizableString("nl")
+            suggestedLangLabel.text = R.string.localizable.suggestedLanguages().localizableString("nl")
+            englishUSLabel.text = R.string.localizable.englishUS().localizableString("nl")
+            polishLabel.text = R.string.localizable.polish().localizableString("nl")
+            englishUKLabel.text = R.string.localizable.englishUK().localizableString("nl")
+            longTextLabel.text = R.string.localizable.appWillUse().localizableString("nl")
+            otherLangLabel.text = R.string.localizable.otherLanguages().localizableString("nl")
+        case R.string.localizable.englishCanada():
+            Bundle.setLanguage("en")
+            UserDefaults.standard.set("en", forKey: R.string.localizable.language())
+            languageLabel.text = R.string.localizable.language().localizableString("en")
+            suggestedLangLabel.text = R.string.localizable.suggestedLanguages().localizableString("en")
+            englishUSLabel.text = R.string.localizable.englishUS().localizableString("en")
+            polishLabel.text = R.string.localizable.polish().localizableString("en")
+            englishUKLabel.text = R.string.localizable.englishUK().localizableString("en")
+            longTextLabel.text = R.string.localizable.appWillUse().localizableString("en")
+            otherLangLabel.text = R.string.localizable.otherLanguages().localizableString("en")
+        case R.string.localizable.italy():
+            Bundle.setLanguage("it")
+            UserDefaults.standard.set("it",forKey: R.string.localizable.language())
+            languageLabel.text = R.string.localizable.language().localizableString("it")
+            suggestedLangLabel.text = R.string.localizable.suggestedLanguages().localizableString("it")
+            englishUSLabel.text = R.string.localizable.englishUS().localizableString("it")
+            polishLabel.text = R.string.localizable.polish().localizableString("it")
+            englishUKLabel.text = R.string.localizable.englishUK().localizableString("it")
+            longTextLabel.text = R.string.localizable.appWillUse().localizableString("it")
+            otherLangLabel.text = R.string.localizable.otherLanguages().localizableString("it")
+        case R.string.localizable.englishUnitedStates():
+            Bundle.setLanguage("en")
+            UserDefaults.standard.set("en", forKey: R.string.localizable.language())
+            languageLabel.text = R.string.localizable.language().localizableString("en")
+            suggestedLangLabel.text = R.string.localizable.suggestedLanguages().localizableString("en")
+            englishUSLabel.text = R.string.localizable.englishUS().localizableString("en")
+            polishLabel.text = R.string.localizable.polish().localizableString("en")
+            englishUKLabel.text = R.string.localizable.englishUK().localizableString("en")
+            longTextLabel.text = R.string.localizable.appWillUse().localizableString("en")
+            otherLangLabel.text = R.string.localizable.otherLanguages().localizableString("en")
+        case R.string.localizable.dansk():
+            Bundle.setLanguage("da")
+            UserDefaults.standard.set("da", forKey: R.string.localizable.language())
+            languageLabel.text = R.string.localizable.language().localizableString("da")
+            suggestedLangLabel.text = R.string.localizable.suggestedLanguages().localizableString("da")
+            englishUSLabel.text = R.string.localizable.englishUS().localizableString("da")
+            polishLabel.text = R.string.localizable.polish().localizableString("da")
+            englishUKLabel.text = R.string.localizable.englishUK().localizableString("da")
+            longTextLabel.text = R.string.localizable.appWillUse().localizableString("da")
+            otherLangLabel.text = R.string.localizable.otherLanguages().localizableString("da")
+        default:
+            Bundle.setLanguage("en")
+            UserDefaults.standard.set("en",forKey: R.string.localizable.language())
+            languageLabel.text = R.string.localizable.language().localizableString("en")
+            suggestedLangLabel.text = R.string.localizable.suggestedLanguages().localizableString("en")
+            englishUSLabel.text = R.string.localizable.englishUS().localizableString("en")
+            polishLabel.text = R.string.localizable.polish().localizableString("en")
+            englishUKLabel.text = R.string.localizable.englishUK().localizableString("en")
+            longTextLabel.text = R.string.localizable.appWillUse().localizableString("en")
+            otherLangLabel.text = R.string.localizable.otherLanguages().localizableString("en")
+        }
     }
     
     @objc
@@ -258,3 +275,4 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
         }
     }
 }
+

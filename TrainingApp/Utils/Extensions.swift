@@ -310,3 +310,13 @@ class PrivateBundle: Bundle {
                 (super.localizedString(forKey: key, value: value, table: tableName))
     }
 }
+
+extension UITableView {
+    func deselectAllRows(animated: Bool) {
+        guard let selectedRows = indexPathsForSelectedRows else { return }
+        print(selectedRows)
+        for indexPath in selectedRows {
+            deselectRow(at: indexPath, animated: animated)
+        }
+    }
+}
