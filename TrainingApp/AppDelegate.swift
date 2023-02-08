@@ -18,19 +18,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         RunLoop.current.run(until: NSDate(timeIntervalSinceNow: 5) as Date)
+        let userDefaults = UserDefaults.standard
+        let targetLang = userDefaults.string(forKey: "Language")
+        print(userDefaults.object(forKey: "Language")!)
         
-        let targetLang = UserDefaults.standard.object(forKey: "Language") as? String
-        if UserDefaults.standard.object(forKey: "Language") != nil && UserDefaults.standard.object(forKey: "Language") as! String == "pl" {
-            UserDefaults.standard.set("pl",forKey: "Language")
-//            Bundle.setLanguage((targetLang != nil) ? targetLang! : "en")
+        if let language = userDefaults.string(forKey: "Language") {
+            print(language)
+            UserDefaults.standard.set(language,forKey: "Language")
+            Bundle.setLanguage(language)
         }
-//        else if UserDefaults.standard.object(forKey: "Language") != nil && UserDefaults.standard.object(forKey: "Language") as! String == "en" {
-//            UserDefaults.standard.set("en", forKey: "Language")
-//            Bundle.setLanguage((targetLang != nil) ? targetLang! : "en")
-//        }
-        else {
-            UserDefaults.standard.set("en", forKey: "Language")
-        }
+        
         return true
     }
 

@@ -27,12 +27,10 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="dKD-um-K6t"/>
                                 </constraints>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Sign In">
-                                    <backgroundConfiguration key="background">
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </backgroundConfiguration>
+                                <buttonConfiguration key="configuration" style="filled" title="Sign In">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
                                 </buttonConfiguration>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -106,7 +104,7 @@
                                 <rect key="frame" x="0.0" y="147" width="414" height="695"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MBd-Uy-zhI" userLabel="White View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="729"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="764"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tell us about yourself" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l2f-7h-old">
                                                 <rect key="frame" x="62.5" y="83" width="289" height="24"/>
@@ -2171,12 +2169,12 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="yuc-sx-u29"/>
-        <segue reference="H0T-d5-FXl"/>
+        <segue reference="LKU-gm-OMG"/>
+        <segue reference="lYr-2l-ymr"/>
         <segue reference="Iql-mO-Lao"/>
-        <segue reference="P6S-Wk-KcG"/>
-        <segue reference="YCx-gs-OcS"/>
-        <segue reference="VOB-g0-ysn"/>
+        <segue reference="15S-AC-FuK"/>
+        <segue reference="2Xq-gO-2dj"/>
+        <segue reference="MA3-YK-tnE"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Line1" width="341" height="1"/>

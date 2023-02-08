@@ -80,7 +80,7 @@ struct _R {
       let source: RswiftResources.StringResource.Source
     }
 
-    /// This `_R.string.localizable` struct is generated, and contains static references to 51 localization keys.
+    /// This `_R.string.localizable` struct is generated, and contains static references to 53 localization keys.
     struct localizable {
       let source: RswiftResources.StringResource.Source
 
@@ -300,6 +300,20 @@ struct _R {
       ///
       /// Locales: en, pl, it, nl, da
       var polish: RswiftResources.StringResource { .init(key: "Polish", tableName: "Localizable", source: source, developmentValue: "Polish", comment: nil) }
+
+      /// en translation: Sign In
+      ///
+      /// Key: Sign In
+      ///
+      /// Locales: en, pl, nl
+      var signIn: RswiftResources.StringResource { .init(key: "Sign In", tableName: "Localizable", source: source, developmentValue: "Sign In", comment: nil) }
+
+      /// en translation: Sign Up
+      ///
+      /// Key: Sign Up
+      ///
+      /// Locales: en
+      var signUp: RswiftResources.StringResource { .init(key: "Sign Up", tableName: "Localizable", source: source, developmentValue: "Sign Up", comment: nil) }
 
       /// en translation: Success
       ///
@@ -635,12 +649,12 @@ struct _R {
       /// Locales: pl, en, it, nl, da
       var feyy3AszConfigurationTitle: RswiftResources.StringResource { .init(key: "FEY-y3-asz.configuration.title", tableName: "Main", source: source, developmentValue: "Create account", comment: nil) }
 
-      /// en translation: Button
+      /// en translation: Create account
       ///
       /// Key: FEY-y3-asz.normalTitle
       ///
       /// Locales: pl, en, it, nl, da
-      var feyy3AszNormalTitle: RswiftResources.StringResource { .init(key: "FEY-y3-asz.normalTitle", tableName: "Main", source: source, developmentValue: "Button", comment: nil) }
+      var feyy3AszNormalTitle: RswiftResources.StringResource { .init(key: "FEY-y3-asz.normalTitle", tableName: "Main", source: source, developmentValue: "Create account", comment: nil) }
 
       /// en translation: Button
       ///
@@ -768,12 +782,12 @@ struct _R {
       /// Locales: pl, en, it, nl, da
       var c27K3JGhConfigurationTitle: RswiftResources.StringResource { .init(key: "c27-k3-JGh.configuration.title", tableName: "Main", source: source, developmentValue: "Sign In", comment: nil) }
 
-      /// en translation: Button
+      /// en translation: Sign In
       ///
       /// Key: c27-k3-JGh.normalTitle
       ///
       /// Locales: pl, en, it, nl, da
-      var c27K3JGhNormalTitle: RswiftResources.StringResource { .init(key: "c27-k3-JGh.normalTitle", tableName: "Main", source: source, developmentValue: "Button", comment: nil) }
+      var c27K3JGhNormalTitle: RswiftResources.StringResource { .init(key: "c27-k3-JGh.normalTitle", tableName: "Main", source: source, developmentValue: "Sign In", comment: nil) }
 
       /// en translation: English(US)
       ///
@@ -873,12 +887,12 @@ struct _R {
       /// Locales: pl, en, it, nl, da
       var kBeHeLfPConfigurationTitle: RswiftResources.StringResource { .init(key: "kBe-he-lfP.configuration.title", tableName: "Main", source: source, developmentValue: "Sign In", comment: nil) }
 
-      /// en translation: Button
+      /// en translation: Sign In
       ///
       /// Key: kBe-he-lfP.normalTitle
       ///
       /// Locales: pl, en, it, nl, da
-      var kBeHeLfPNormalTitle: RswiftResources.StringResource { .init(key: "kBe-he-lfP.normalTitle", tableName: "Main", source: source, developmentValue: "Button", comment: nil) }
+      var kBeHeLfPNormalTitle: RswiftResources.StringResource { .init(key: "kBe-he-lfP.normalTitle", tableName: "Main", source: source, developmentValue: "Sign In", comment: nil) }
 
       /// en translation: Discount & deals
       ///

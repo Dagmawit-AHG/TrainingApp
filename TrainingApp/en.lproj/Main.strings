@@ -81,7 +81,7 @@
 "FEY-y3-asz.configuration.title" = "Create account";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "FEY-y3-asz"; */
-"FEY-y3-asz.normalTitle" = "Button";
+"FEY-y3-asz.normalTitle" = "Create account";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "GvR-Ej-pws"; */
 "GvR-Ej-pws.normalTitle" = "Button";
@@ -138,7 +138,7 @@
 "c27-k3-JGh.configuration.title" = "Sign In";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "c27-k3-JGh"; */
-"c27-k3-JGh.normalTitle" = "Button";
+"c27-k3-JGh.normalTitle" = "Sign In";
 
 /* Class = "UILabel"; text = "English(US)"; ObjectID = "c3D-2h-z4D"; */
 "c3D-2h-z4D.text" = "English(US)";
@@ -183,7 +183,7 @@
 "kBe-he-lfP.configuration.title" = "Sign In";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "kBe-he-lfP"; */
-"kBe-he-lfP.normalTitle" = "Button";
+"kBe-he-lfP.normalTitle" = "Sign In";
 
 /* Class = "UILabel"; text = "Discount & deals"; ObjectID = "kEB-To-sM3"; */
 "kEB-To-sM3.text" = "Discount & deals";

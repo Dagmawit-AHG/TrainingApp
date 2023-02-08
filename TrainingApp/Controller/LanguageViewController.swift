@@ -87,6 +87,10 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
         cell?.textLabel?.font.withSize(18.0)
         print(languages[indexPath.row].key)
         
+        if cell?.textLabel?.text == "nl" {
+            Bundle.setLanguage("nl")
+            UserDefaults.standard.set("nl", forKey: R.string.localizable.language())
+        }
         return cell!
     }
 
@@ -101,6 +105,10 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
         let language = currentCell?.textLabel?.text
         
         checkLanguage(language: language!)
+        tableView.deselectRow(at: indexPath, animated: true)
+        englishUSCheck.isHidden = true
+        englishCheck.isHidden = true
+        englishUKCheck.isHidden = true
     }
     
     // MARK: - Helpers
@@ -129,6 +137,9 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
     
     private func configureUI() {
         languagesTableView.backgroundColor = R.color.tableView_background()
+        englishUSCheck.isHidden = false
+        englishCheck.isHidden = true
+        englishUKCheck.isHidden = true
     }
     
     private func checkLanguage(language: String) {
@@ -136,7 +147,7 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
         switch language {
         case R.string.localizable.englishAustralia():
             Bundle.setLanguage("en")
-            UserDefaults.standard.set("en", forKey: R.string.localizable.language())
+            UserDefaults.standard.set("en", forKey: "Language")
             languageLabel.text = R.string.localizable.language().localizableString("en")
             suggestedLangLabel.text = R.string.localizable.suggestedLanguages().localizableString("en")
             englishUSLabel.text = R.string.localizable.englishUS().localizableString("en")
@@ -146,7 +157,7 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
             otherLangLabel.text = R.string.localizable.otherLanguages().localizableString("en")
         case R.string.localizable.netherlands():
             Bundle.setLanguage("nl")
-            UserDefaults.standard.set("nl", forKey: R.string.localizable.language())
+            UserDefaults.standard.set("nl", forKey: "Language")
             languageLabel.text = R.string.localizable.language().localizableString("nl")
             suggestedLangLabel.text = R.string.localizable.suggestedLanguages().localizableString("nl")
             englishUSLabel.text = R.string.localizable.englishUS().localizableString("nl")
@@ -156,7 +167,7 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
             otherLangLabel.text = R.string.localizable.otherLanguages().localizableString("nl")
         case R.string.localizable.englishCanada():
             Bundle.setLanguage("en")
-            UserDefaults.standard.set("en", forKey: R.string.localizable.language())
+            UserDefaults.standard.set("en", forKey: "Language")
             languageLabel.text = R.string.localizable.language().localizableString("en")
             suggestedLangLabel.text = R.string.localizable.suggestedLanguages().localizableString("en")
             englishUSLabel.text = R.string.localizable.englishUS().localizableString("en")
@@ -166,7 +177,7 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
             otherLangLabel.text = R.string.localizable.otherLanguages().localizableString("en")
         case R.string.localizable.italy():
             Bundle.setLanguage("it")
-            UserDefaults.standard.set("it",forKey: R.string.localizable.language())
+            UserDefaults.standard.set("it",forKey: "Language")
             languageLabel.text = R.string.localizable.language().localizableString("it")
             suggestedLangLabel.text = R.string.localizable.suggestedLanguages().localizableString("it")
             englishUSLabel.text = R.string.localizable.englishUS().localizableString("it")
@@ -176,7 +187,7 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
             otherLangLabel.text = R.string.localizable.otherLanguages().localizableString("it")
         case R.string.localizable.englishUnitedStates():
             Bundle.setLanguage("en")
-            UserDefaults.standard.set("en", forKey: R.string.localizable.language())
+            UserDefaults.standard.set("en", forKey: "Language")
             languageLabel.text = R.string.localizable.language().localizableString("en")
             suggestedLangLabel.text = R.string.localizable.suggestedLanguages().localizableString("en")
             englishUSLabel.text = R.string.localizable.englishUS().localizableString("en")
@@ -186,7 +197,7 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
             otherLangLabel.text = R.string.localizable.otherLanguages().localizableString("en")
         case R.string.localizable.dansk():
             Bundle.setLanguage("da")
-            UserDefaults.standard.set("da", forKey: R.string.localizable.language())
+            UserDefaults.standard.set("da", forKey: "Language")
             languageLabel.text = R.string.localizable.language().localizableString("da")
             suggestedLangLabel.text = R.string.localizable.suggestedLanguages().localizableString("da")
             englishUSLabel.text = R.string.localizable.englishUS().localizableString("da")
@@ -196,7 +207,7 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
             otherLangLabel.text = R.string.localizable.otherLanguages().localizableString("da")
         default:
             Bundle.setLanguage("en")
-            UserDefaults.standard.set("en",forKey: R.string.localizable.language())
+            UserDefaults.standard.set("en",forKey: "Language")
             languageLabel.text = R.string.localizable.language().localizableString("en")
             suggestedLangLabel.text = R.string.localizable.suggestedLanguages().localizableString("en")
             englishUSLabel.text = R.string.localizable.englishUS().localizableString("en")

@@ -78,10 +78,10 @@
 "FC1-gs-lJ8.text" = "Taal";
 
 /* Class = "UIButton"; configuration.title = "Create account"; ObjectID = "FEY-y3-asz"; */
-"FEY-y3-asz.configuration.title" = "Create account";
+"FEY-y3-asz.configuration.title" = "Account aanmaken";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "FEY-y3-asz"; */
-"FEY-y3-asz.normalTitle" = "Button";
+"FEY-y3-asz.normalTitle" = "Account aanmaken";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "GvR-Ej-pws"; */
 "GvR-Ej-pws.normalTitle" = "Button";

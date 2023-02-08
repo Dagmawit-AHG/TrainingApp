@@ -12,15 +12,20 @@ class StartViewController: UIViewController {
     // MARK: - Properties
     
     @IBOutlet private var signInButton: UIButton!
-    
     @IBOutlet private var signUpButton: UIButton!
     
+    let userDefaults = UserDefaults.standard
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
         configureUI()
+        
+        if let language = userDefaults.string(forKey: "Language") {
+            UserDefaults.standard.set(language,forKey: "Language")
+            Bundle.setLanguage(language)
+        }
     }
     
     // MARK: - Actions
@@ -55,6 +60,7 @@ class StartViewController: UIViewController {
     // MARK: - Helpers
     
     func configureUI() {
+        signInButton.setTitle(R.string.localizable.signIn(), for: .normal)
         signInButton.layer.cornerRadius = 5
         signInButton.layer.borderWidth = 1
         signInButton.layer.borderColor = UIColor(red: 0.56, green: 0.8, blue: 1.0, alpha: 1.0).cgColor
