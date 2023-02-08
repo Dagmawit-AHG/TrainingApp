@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if let language = userDefaults.string(forKey: "Language") {
             print(language)
-            UserDefaults.standard.set(language,forKey: "Language")
+            UserDefaults.standard.set(language, forKey: "Language")
             Bundle.setLanguage(language)
         }
         

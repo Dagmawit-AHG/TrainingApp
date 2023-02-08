@@ -23,7 +23,7 @@ class StartViewController: UIViewController {
         configureUI()
         
         if let language = userDefaults.string(forKey: "Language") {
-            UserDefaults.standard.set(language,forKey: "Language")
+            UserDefaults.standard.set(language, forKey: "Language")
             Bundle.setLanguage(language)
         }
     }

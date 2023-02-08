@@ -241,10 +241,7 @@ extension UIView {
         }
     }
     
-    func centerY(
-        inView view: UIView, leftAnchor: NSLayoutXAxisAnchor? = nil,
-        paddingLeft: CGFloat = 0, constant: CGFloat = 0
-        ) {
+    func centerY(inView view: UIView, leftAnchor: NSLayoutXAxisAnchor? = nil, paddingLeft: CGFloat = 0, constant: CGFloat = 0) {
         
         translatesAutoresizingMaskIntoConstraints = false
         centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: constant).isActive = true
@@ -282,7 +279,7 @@ extension UIView {
 
 extension String {
     func localizableString(_ name: String) -> String {
-        let path =  Bundle.main.path(forResource: name, ofType: "lproj")
+        let path = Bundle.main.path(forResource: name, ofType: "lproj")
         let bundle = Bundle(path: path!)
         return NSLocalizedString(self, tableName: nil, bundle: bundle!, value: "", comment: "")
     }
@@ -292,7 +289,7 @@ extension Bundle {
     class func setLanguage(_ language: String) {
         var onceToken: Int = 0
         
-        if (onceToken == 0) {
+        if onceToken == 0 {
             object_setClass(Bundle.main, PrivateBundle.self)
         }
         onceToken = 1

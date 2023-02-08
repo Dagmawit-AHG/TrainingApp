@@ -66,7 +66,7 @@ final class SettingsViewController: UIViewController {
     }
     
     @IBAction private func executiveProgramTogglePressed(_ sender: UIButton) {
-        if executiveProgramToggle.currentImage == R.image.button(){
+        if executiveProgramToggle.currentImage == R.image.button() {
             executiveProgramIsOn()
         }
         else {

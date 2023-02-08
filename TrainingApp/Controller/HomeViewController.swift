@@ -29,7 +29,7 @@ final class HomeViewController: UIViewController {
     @IBOutlet private var departureTextFieldOne: UITextField!
     
     private var selectedCity: String?
-    private var listOfCities = [R.string.localizable.frankfurt(),R.string.localizable.addisAbaba(),R.string.localizable.heathrow(),R.string.localizable.wroclow(),R.string.localizable.hongKong(),R.string.localizable.newDelhi(),R.string.localizable.frankfurt(),R.string.localizable.addisAbaba(),R.string.localizable.heathrow(),R.string.localizable.wroclow(),R.string.localizable.hongKong(),R.string.localizable.newDelhi()]
+    private var listOfCities = [R.string.localizable.frankfurt(), R.string.localizable.addisAbaba(), R.string.localizable.heathrow(), R.string.localizable.wroclow(), R.string.localizable.hongKong(), R.string.localizable.newDelhi(), R.string.localizable.frankfurt(), R.string.localizable.addisAbaba(), R.string.localizable.heathrow(), R.string.localizable.wroclow(), R.string.localizable.hongKong(), R.string.localizable.newDelhi()]
     
     // MARK: - Lifecycle
     
@@ -176,5 +176,4 @@ extension HomeViewController: UIPickerViewDataSource {
 }
 
 extension HomeViewController: UITextFieldDelegate {
-
 }
