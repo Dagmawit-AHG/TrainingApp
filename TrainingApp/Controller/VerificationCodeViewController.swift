@@ -80,19 +80,14 @@ final class VerificationCodeViewController: UIViewController, UITextFieldDelegat
             switch textfield {
             case firstDigitTextField:
                 secondDigitTextField.becomeFirstResponder()
-                break
             case secondDigitTextField:
                 thirdDigitTextField.becomeFirstResponder()
-                break
             case thirdDigitTextField:
                 fourthDigitTextField.becomeFirstResponder()
-                break
             case fourthDigitTextField:
                 fifthDigitTextField.becomeFirstResponder()
-                break
             case fifthDigitTextField:
                 fifthDigitTextField.resignFirstResponder()
-                break
             default:
                 break
             }
