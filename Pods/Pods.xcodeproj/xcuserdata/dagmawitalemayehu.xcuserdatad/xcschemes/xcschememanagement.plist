@@ -123,6 +123,11 @@
 			<key>orderHint</key>
 			<integer>23</integer>
 		</dict>
+		<key>R.swift.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>24</integer>
+		</dict>
 		<key>abseil.xcscheme</key>
 		<dict>
 			<key>isShown</key>
