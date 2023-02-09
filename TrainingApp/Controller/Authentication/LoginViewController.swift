@@ -116,3 +116,12 @@ extension LoginViewController: FormViewModel {
         signInButton.isEnabled = viewModel.formIsValid
     }
 }
+
+// MARK: ForgotPasswordViewControllerDelegate
+
+extension LoginViewController: ForgotPasswordViewControllerDelegate {
+    
+    func viewControllerDidSendResetPasswordLink(_ viewController: ForgotPasswordViewController?) {
+        showMessage(withTitle: "Success", message: "We sent a link to your email to reset your password.")
+    }
+}

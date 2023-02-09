@@ -15,13 +15,10 @@ final class HomeViewController: UIViewController {
     
     @IBOutlet private var fromTextFieldRound: UITextField!
     @IBOutlet private var toTextFieldRound: UITextField!
-    @IBOutlet private var fromTextField: UITextField!
     @IBOutlet private var fromTextFieldOne: UITextField!
     @IBOutlet private var toTextField: UITextField!
-    @IBOutlet private var fromDropDown: DropDown!
     @IBOutlet private var roundTripView: UIView!
     @IBOutlet private var oneWayTripView: UIView!
-    @IBOutlet private var fromPickerView: UIPickerView!
     @IBOutlet private var optionsSegment: UISegmentedControl!
     @IBOutlet private var settingsButton: UIImageView!
     @IBOutlet private var departureTextField: UITextField!
@@ -39,7 +36,9 @@ final class HomeViewController: UIViewController {
         self.hideKeyboard()
         configureUI()
         textFieldSetup()
-        setupPickerView()
+        setupPickerViewForFromRound()
+        setupPickerViewForFromOne()
+        setupPickerViewForTo()
         dismissPickerView()
         checkIfUserIsLoggedIn()
         setupTapGestureForViews()
@@ -121,14 +120,28 @@ final class HomeViewController: UIViewController {
         settingsButton.isUserInteractionEnabled = true
     }
     
-    private func setupPickerView() {
+    private func setupPickerViewForFromRound() {
         let pickerView = UIPickerView()
         pickerView.delegate = self
         pickerView.dataSource = self
         pickerView.layer.position = .init(x: 33, y: 102)
-        self.fromTextField.inputView = pickerView
-    }
+        self.fromTextFieldRound.inputView = pickerView    }
     
+    private func setupPickerViewForFromOne() {
+        let pickerView = UIPickerView()
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        pickerView.layer.position = .init(x: 33, y: 102)
+        self.fromTextFieldOne.inputView = pickerView
+    }
+    private func setupPickerViewForTo() {
+        let pickerView = UIPickerView()
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        pickerView.layer.position = .init(x: 33, y: 102)
+        self.toTextFieldRound.inputView = pickerView
+        self.toTextField.inputView = pickerView
+    }
     private func dismissPickerView() {
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
@@ -136,7 +149,10 @@ final class HomeViewController: UIViewController {
         let button = UIBarButtonItem(title: R.string.localizable.done(), style: .plain, target: self, action: #selector(self.dismissAction))
         toolbar.setItems([button], animated: true)
         toolbar.isUserInteractionEnabled = true
-        self.fromTextField.inputAccessoryView = toolbar
+        self.fromTextFieldRound.inputAccessoryView = toolbar
+        self.fromTextFieldOne.inputAccessoryView = toolbar
+        self.toTextFieldRound.inputAccessoryView = toolbar
+        self.toTextField.inputAccessoryView = toolbar
     }
     
     @objc
@@ -171,9 +187,15 @@ extension HomeViewController: UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.selectedCity = self.listOfCities[row]
-        self.fromTextField.text = self.selectedCity
+        self.fromTextFieldRound.text = self.selectedCity
+        self.fromTextFieldOne.text = self.selectedCity
+        self.toTextFieldRound.text = self.selectedCity
+        self.toTextField.text = self.selectedCity
     }
 }
 
 extension HomeViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        pickerView
+    }
 }

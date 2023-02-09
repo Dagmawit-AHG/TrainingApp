@@ -7,6 +7,7 @@ target 'TrainingApp' do
 
   # Pods for TrainingApp
   
+  pod 'Firebase'
   pod 'FirebaseCore'
   pod 'FirebaseDatabase'
   pod 'FirebaseAuth'

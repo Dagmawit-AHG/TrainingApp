@@ -6,7 +6,9 @@
 //
 
 import FirebaseAuth
+import Firebase
 import FirebaseFirestore
+import FirebaseAuthInterop
 import UIKit
 
 struct AuthCredentials {

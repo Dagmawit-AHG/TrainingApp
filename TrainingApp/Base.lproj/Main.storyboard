@@ -104,7 +104,7 @@
                                 <rect key="frame" x="0.0" y="147" width="414" height="695"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MBd-Uy-zhI" userLabel="White View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="764"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="729"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tell us about yourself" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l2f-7h-old">
                                                 <rect key="frame" x="62.5" y="83" width="289" height="24"/>
@@ -1439,8 +1439,6 @@
                     <connections>
                         <outlet property="departureTextField" destination="Tk3-Jq-vrb" id="63D-5U-bG3"/>
                         <outlet property="departureTextFieldOne" destination="x0Z-R7-1iW" id="14H-yM-f0B"/>
-                        <outlet property="fromDropDown" destination="L7V-hR-Gj3" id="35L-sb-QpK"/>
-                        <outlet property="fromTextField" destination="L7V-hR-Gj3" id="pu6-gz-aXm"/>
                         <outlet property="fromTextFieldOne" destination="5s3-tf-eVB" id="uEe-lS-8hW"/>
                         <outlet property="fromTextFieldRound" destination="L7V-hR-Gj3" id="VgJ-IV-gd0"/>
                         <outlet property="oneWayTripView" destination="uGu-gU-bEQ" id="MNb-Gm-q2P"/>
