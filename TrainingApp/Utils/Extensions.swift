@@ -140,7 +140,7 @@ extension UISegmentedControl {
         self.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
     }
     func removeBorders() {
-        let backgroundImage = UIImage.getColoredRectImageWith(color: UIColor.white.cgColor, andSize: self.bounds.size)
+        let backgroundImage = UIImage.getColoredRectImageWith(color: UIColor.systemBackground.cgColor, andSize: self.bounds.size)
                 self.setBackgroundImage(backgroundImage, for: .normal, barMetrics: .default)
                 self.setBackgroundImage(backgroundImage, for: .selected, barMetrics: .default)
                 self.setBackgroundImage(backgroundImage, for: .highlighted, barMetrics: .default)

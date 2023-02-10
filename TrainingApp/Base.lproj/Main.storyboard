@@ -1019,7 +1019,7 @@
                                         <subviews>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="BYr-oR-bE0">
                                                 <rect key="frame" x="37.5" y="40" width="339" height="32"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="339" id="R4L-hh-ETd"/>
                                                 </constraints>
@@ -1027,6 +1027,7 @@
                                                     <segment title="Round Trip"/>
                                                     <segment title="One Way"/>
                                                 </segments>
+                                                <color key="tintColor" systemColor="systemBackgroundColor"/>
                                                 <color key="selectedSegmentTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
                                                     <action selector="segmentedControlDidChange:" destination="yz8-FX-B3Q" eventType="valueChanged" id="Xsp-Nf-nSt"/>
@@ -1066,7 +1067,8 @@
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="airplane.departure" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Rha-06-Xdc">
                                                         <rect key="frame" x="328" y="54.5" width="30" height="27"/>
-                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="tintColor" systemColor="labelColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="Lrn-QL-CTJ"/>
                                                             <constraint firstAttribute="width" constant="30" id="kJp-Fk-tUr"/>
@@ -1078,6 +1080,7 @@
                                                             <constraint firstAttribute="height" constant="98" id="baX-rz-LAP"/>
                                                             <constraint firstAttribute="width" constant="340" id="ecd-cT-WgO"/>
                                                         </constraints>
+                                                        <color key="textColor" red="0.0" green="0.58823529409999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                         <userDefinedRuntimeAttributes>
@@ -1098,8 +1101,8 @@
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="airplane.arrival" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="vxx-aH-t77">
                                                         <rect key="frame" x="328" y="193" width="30" height="27"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="tintColor" systemColor="labelColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="27.5" id="ACQ-qD-m1O"/>
                                                             <constraint firstAttribute="width" constant="30" id="OcC-Jb-7Yn"/>
@@ -1159,9 +1162,9 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Return date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFW-jQ-xkz">
-                                                        <rect key="frame" x="249" y="299" width="89" height="21"/>
+                                                        <rect key="frame" x="249" y="299" width="110" height="21"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="89" id="0BU-Ke-sEY"/>
+                                                            <constraint firstAttribute="width" constant="110" id="0BU-Ke-sEY"/>
                                                             <constraint firstAttribute="height" constant="21" id="Tbc-2h-8xw"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1325,7 +1328,7 @@
                                                     </datePicker>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="zue-zc-KSi">
                                                         <rect key="frame" x="144" y="387" width="25" height="22.5"/>
-                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="tintColor" name="Color"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="25" id="7ys-0V-VMj"/>
                                                             <constraint firstAttribute="height" constant="25" id="EtY-yl-gPo"/>

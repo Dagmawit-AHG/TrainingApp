@@ -25,8 +25,11 @@ final class HomeViewController: UIViewController {
     @IBOutlet private var returnTextField: UITextField!
     @IBOutlet private var departureTextFieldOne: UITextField!
     
+    private var citiesArray = [UITextField]()
+    private let pickerView = ToolbarPickerView()
+    
     private var selectedCity: String?
-    private var listOfCities = [R.string.localizable.frankfurt(), R.string.localizable.addisAbaba(), R.string.localizable.heathrow(), R.string.localizable.wroclow(), R.string.localizable.hongKong(), R.string.localizable.newDelhi(), R.string.localizable.frankfurt(), R.string.localizable.addisAbaba(), R.string.localizable.heathrow(), R.string.localizable.wroclow(), R.string.localizable.hongKong(), R.string.localizable.newDelhi()]
+    private var listOfCities = [R.string.localizable.frankfurt(), R.string.localizable.addisAbaba(), R.string.localizable.heathrow(), R.string.localizable.wroclaw(), R.string.localizable.hongKong(), R.string.localizable.newDelhi(), R.string.localizable.frankfurt(), R.string.localizable.addisAbaba(), R.string.localizable.heathrow(), R.string.localizable.wroclaw(), R.string.localizable.hongKong(), R.string.localizable.newDelhi()]
     
     // MARK: - Lifecycle
     
@@ -36,9 +39,8 @@ final class HomeViewController: UIViewController {
         self.hideKeyboard()
         configureUI()
         textFieldSetup()
-        setupPickerViewForFromRound()
-        setupPickerViewForFromOne()
-        setupPickerViewForTo()
+        setupDelegatesForTextFields()
+        setupDelegateForPickerView()
         dismissPickerView()
         checkIfUserIsLoggedIn()
         setupTapGestureForViews()
@@ -120,28 +122,23 @@ final class HomeViewController: UIViewController {
         settingsButton.isUserInteractionEnabled = true
     }
     
-    private func setupPickerViewForFromRound() {
-        let pickerView = UIPickerView()
-        pickerView.delegate = self
-        pickerView.dataSource = self
-        pickerView.layer.position = .init(x: 33, y: 102)
-        self.fromTextFieldRound.inputView = pickerView    }
+    private func setupDelegatesForTextFields() {
+        citiesArray += [fromTextFieldRound, toTextFieldRound, fromTextFieldOne, toTextField]
+        
+        for city in citiesArray {
+            city.delegate = self
+            city.inputView = pickerView
+            city.inputAccessoryView = pickerView.toolbar
+        }
+    }
     
-    private func setupPickerViewForFromOne() {
-        let pickerView = UIPickerView()
+    private func setupDelegateForPickerView() {
         pickerView.delegate = self
         pickerView.dataSource = self
+        pickerView.toolbarDelegate = self
         pickerView.layer.position = .init(x: 33, y: 102)
-        self.fromTextFieldOne.inputView = pickerView
     }
-    private func setupPickerViewForTo() {
-        let pickerView = UIPickerView()
-        pickerView.delegate = self
-        pickerView.dataSource = self
-        pickerView.layer.position = .init(x: 33, y: 102)
-        self.toTextFieldRound.inputView = pickerView
-        self.toTextField.inputView = pickerView
-    }
+    
     private func dismissPickerView() {
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
@@ -186,16 +183,29 @@ extension HomeViewController: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.selectedCity = self.listOfCities[row]
-        self.fromTextFieldRound.text = self.selectedCity
-        self.fromTextFieldOne.text = self.selectedCity
-        self.toTextFieldRound.text = self.selectedCity
-        self.toTextField.text = self.selectedCity
+        
+        for city in citiesArray {
+            if city.isFirstResponder {
+                city.text = self.listOfCities[row]
+            }
+        }
     }
 }
 
 extension HomeViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        pickerView
+        self.pickerView.reloadAllComponents()
     }
+}
+
+extension HomeViewController: ToolbarPickerViewDelegate {
+    func didTapDone() {
+        self.view.endEditing(true)
+    }
+    
+    func didTapCancel() {
+        self.view.endEditing(true)
+    }
+    
+    
 }

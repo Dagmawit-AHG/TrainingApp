@@ -329,12 +329,12 @@ struct _R {
       /// Locales: en, pl, it, nl, da
       var suggestedLanguages: RswiftResources.StringResource { .init(key: "Suggested Languages", tableName: "Localizable", source: source, developmentValue: "Suggested Languages", comment: nil) }
 
-      /// en translation: Wroclow
+      /// en translation: Wroclaw
       ///
-      /// Key: Wroclow
+      /// Key: Wroclaw
       ///
-      /// Locales: en, pl, nl, da
-      var wroclow: RswiftResources.StringResource { .init(key: "Wroclow", tableName: "Localizable", source: source, developmentValue: "Wroclow", comment: nil) }
+      /// Locales: en, pl, it, nl, da
+      var wroclaw: RswiftResources.StringResource { .init(key: "Wroclaw", tableName: "Localizable", source: source, developmentValue: "Wroclaw", comment: nil) }
 
       /// en translation: Wrong Code
       ///
