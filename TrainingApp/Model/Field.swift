@@ -17,7 +17,7 @@ struct Field: Codable {
     var city_code: String?
     var city_name: String?
     var state_code: String?
-    var coordinates: [Float]
+    var coordinates: [String:Float]
     var index_strings: [String]?
     var weight: Int
     var cases: String?

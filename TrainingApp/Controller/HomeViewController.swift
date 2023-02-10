@@ -29,7 +29,10 @@ final class HomeViewController: UIViewController {
     private let pickerView = ToolbarPickerView()
     
     private var selectedCity: String?
-    private var listOfCities = [R.string.localizable.frankfurt(), R.string.localizable.addisAbaba(), R.string.localizable.heathrow(), R.string.localizable.wroclaw(), R.string.localizable.hongKong(), R.string.localizable.newDelhi(), R.string.localizable.frankfurt(), R.string.localizable.addisAbaba(), R.string.localizable.heathrow(), R.string.localizable.wroclaw(), R.string.localizable.hongKong(), R.string.localizable.newDelhi()]
+    
+    private var cities: [String] = []
+    
+    private let url = "https://autocomplete.travelpayouts.com/places2?locale=en&term=v#"
     
     // MARK: - Lifecycle
     
@@ -44,6 +47,8 @@ final class HomeViewController: UIViewController {
         dismissPickerView()
         checkIfUserIsLoggedIn()
         setupTapGestureForViews()
+        
+        getData(from: url)
     }
     
     // MARK: - API
@@ -58,6 +63,35 @@ final class HomeViewController: UIViewController {
             }
         }
     }
+    
+    private func getData(from url: String) {
+            let task = URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: { data, response, error in
+                
+                guard let data = data, error == nil else {
+                    print("Something went wrong")
+                    return
+                }
+                //Have data
+                var result: [Field]?
+                do {
+                    result = try JSONDecoder().decode([Field].self, from: data)
+                    print(result!)
+                }
+                catch {
+                    print(String(describing: error))
+                }
+                
+                guard let json = result else {
+                    return
+                }
+                
+                for i in json {
+                    self.cities.append(i.name)
+                }
+                print(self.cities)
+            })
+            task.resume()
+        }
     
     // MARK: - Actions
     
@@ -175,18 +209,18 @@ extension HomeViewController: UIPickerViewDelegate {
 
 extension HomeViewController: UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return self.listOfCities.count
+        return self.cities.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return self.listOfCities[row]
+        return self.cities[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         for city in citiesArray {
             if city.isFirstResponder {
-                city.text = self.listOfCities[row]
+                city.text = self.cities[row]
             }
         }
     }

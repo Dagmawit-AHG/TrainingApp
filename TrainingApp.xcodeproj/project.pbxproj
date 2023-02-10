@@ -24,7 +24,6 @@
 		C110A06829420C440066535D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A06729420C440066535D /* HomeViewController.swift */; };
 		C110A06A2947312E0066535D /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A0692947312E0066535D /* AuthService.swift */; };
 		C110A06C2949AE5D0066535D /* iOSDropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C110A06B2949AE5D0066535D /* iOSDropDown.framework */; };
-		C111177729547557003EDE37 /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = C111177629547557003EDE37 /* Airport.swift */; };
 		C1CB93A0297AB5130077CBA9 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CB939F297AB5130077CBA9 /* R.generated.swift */; };
 		C1CB93A3297AC4730077CBA9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C1CB93A5297AC4730077CBA9 /* Localizable.strings */; };
 		C1EBE57329963DDB007D291B /* ToolbarPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EBE57229963DDB007D291B /* ToolbarPickerView.swift */; };
@@ -57,7 +56,6 @@
 		C110A06729420C440066535D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C110A0692947312E0066535D /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		C110A06B2949AE5D0066535D /* iOSDropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = iOSDropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C111177629547557003EDE37 /* Airport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Airport.swift; sourceTree = "<group>"; };
 		C1CB939F297AB5130077CBA9 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		C1CB93A4297AC4730077CBA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C1CB93A6297FE16E0077CBA9 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Main.strings; sourceTree = "<group>"; };
@@ -197,7 +195,6 @@
 			isa = PBXGroup;
 			children = (
 				C110A05B29364E260066535D /* User.swift */,
-				C111177629547557003EDE37 /* Airport.swift */,
 				C1FA944C29640B4700D072C3 /* Field.swift */,
 			);
 			path = Model;
@@ -393,7 +390,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1FF9B52296EDCE300D5C67D /* ForgotPasswordViewController.swift in Sources */,
-				C111177729547557003EDE37 /* Airport.swift in Sources */,
 				C110A053293615610066535D /* AuthViewModel.swift in Sources */,
 				C110A03A293604FF0066535D /* StartViewController.swift in Sources */,
 				C110A036293604FF0066535D /* AppDelegate.swift in Sources */,
