@@ -28,14 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        if UserDefaults.standard.object(forKey: R.string.localizable.language()) != nil && UserDefaults.standard.object(forKey: R.string.localizable.language()) as! String == "pl" {
-            UserDefaults.standard.set("pl",forKey: R.string.localizable.language())
-//            Bundle.setLanguage((targetLang != nil) ? targetLang! : "en")
+        if UserDefaults.standard.object(forKey: "Language") != nil && UserDefaults.standard.object(forKey: "Language") as! String == "pl" {
+            UserDefaults.standard.set("pl",forKey: "Language")
         }
-//        else if UserDefaults.standard.object(forKey: "Language") != nil && UserDefaults.standard.object(forKey: "Language") as! String == "en" {
-//            UserDefaults.standard.set("en", forKey: "Language")
-//            Bundle.setLanguage((targetLang != nil) ? targetLang! : "en")
-//        }
         else {
             UserDefaults.standard.set("en", forKey: "Language")
         }
