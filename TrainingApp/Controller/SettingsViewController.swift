@@ -60,13 +60,62 @@ final class SettingsViewController: UIViewController {
         super.viewDidLoad()
         
         setupTapGestureForViews()
+        setupSwitchListeners()
         checkThemeSwitchState()
         checkNotificationSwitchState()
-        print(FLIGHT_KEY)
-        print(EXECUTIVE_KEY)
         updateTheme()
         updateNotifications()
-
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if self.darkModeSwitch.isOn {
+            self.darkModeIsOn()
+        }
+        else {
+            self.darkModeIsOff()
+        }
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction private func signOutPressed(_ sender: UIButton) {
+        do {
+            try Auth.auth().signOut()
+            self.userDefaults.set(false, forKey: R.string.localizable.userStatus())
+            performSegue(withIdentifier: R.string.localizable.signOutSegue(), sender: self)
+        }
+        catch let signOutError as NSError {
+            print(signOutError.localizedDescription)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == R.string.localizable.signOutSegue() {
+            guard let destinationVC = segue.destination as? StartViewController else { return }
+            
+            destinationVC.modalPresentationStyle = .fullScreen
+            destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
+            present(destinationVC, animated: true, completion: nil)
+        }
+        else if segue.identifier == R.string.localizable.backToHomepageSegue() {
+            guard let destinationVC = segue.destination as? HomeViewController else { return }
+            
+            destinationVC.modalPresentationStyle = .fullScreen
+            destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
+            present(destinationVC, animated: true, completion: nil)
+        }
+        else if segue.identifier == R.string.localizable.showLanguagesPage() {
+            guard let destinationVC = segue.destination as? LanguageViewController else { return }
+            
+            destinationVC.modalPresentationStyle = .fullScreen
+            destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
+            present(destinationVC, animated: true, completion: nil)
+        }
+    }
+    
+    // MARK: - Helpers
+    
+    private func setupSwitchListeners() {
         darkModeSwitch.setOnValueChangeListener {
             if self.darkModeSwitch.isOn {
                 self.userDefaults.set(true, forKey: self.ON_OFF_KEY_THEME)
@@ -123,63 +172,13 @@ final class SettingsViewController: UIViewController {
                 self.userDefaults.set(self.DISCOUNT_OFF, forKey: self.DISCOUNT_KEY)
             }
         }
-        
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        if self.darkModeSwitch.isOn {
-            self.darkModeIsOn()
-        }
-        else {
-            self.darkModeIsOff()
-        }
-    }
-    
-    // MARK: - Actions
-    
-    @IBAction private func signOutPressed(_ sender: UIButton) {
-        do {
-            try Auth.auth().signOut()
-            self.userDefaults.set(false, forKey: R.string.localizable.isuserloggediN())
-            performSegue(withIdentifier: R.string.localizable.signOutSegue(), sender: self)
-        }
-        catch let signOutError as NSError {
-            print(signOutError.localizedDescription)
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == R.string.localizable.signOutSegue() {
-            guard let destinationVC = segue.destination as? StartViewController else { return }
-            
-            destinationVC.modalPresentationStyle = .fullScreen
-            destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
-            present(destinationVC, animated: true, completion: nil)
-        }
-        else if segue.identifier == R.string.localizable.backToHomepageSegue() {
-            guard let destinationVC = segue.destination as? HomeViewController else { return }
-            
-            destinationVC.modalPresentationStyle = .fullScreen
-            destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
-            present(destinationVC, animated: true, completion: nil)
-        }
-        else if segue.identifier == R.string.localizable.showLanguagesPage() {
-            guard let destinationVC = segue.destination as? LanguageViewController else { return }
-            
-            destinationVC.modalPresentationStyle = .fullScreen
-            destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
-            present(destinationVC, animated: true, completion: nil)
-        }
-    }
-    
-    // MARK: - Helpers
     
     private func checkThemeSwitchState() {
         if(userDefaults.bool(forKey: ON_OFF_KEY_THEME)) {
             darkModeSwitch.setOn(true, animated: false)
             self.userDefaults.set(self.DARK_THEME, forKey: self.THEME_KEY)
-        }
-        else {
+        } else {
             darkModeSwitch.setOn(false, animated: true)
             self.userDefaults.set(self.LIGHT_THEME, forKey: self.THEME_KEY)
         }
@@ -192,8 +191,7 @@ final class SettingsViewController: UIViewController {
             checkFlightSwitchState()
             checkExecutiveSwitchState()
             checkDiscountSwitchState()
-        }
-        else {
+        } else {
             notificationsSwitch.setOn(false, animated: false)
             self.userDefaults.set(self.NOTIFICATION_OFF, forKey: self.NOTIFICATION_KEY)
             checkFlightSwitchState()
@@ -206,8 +204,7 @@ final class SettingsViewController: UIViewController {
         if(userDefaults.bool(forKey: ON_OFF_KEY_FLIGHT)) {
             flightUpdatesSwitch.setOn(true, animated: false)
             self.userDefaults.set(self.FLIGHT_ON, forKey: self.FLIGHT_KEY)
-        }
-        else {
+        } else {
             flightUpdatesSwitch.setOn(false, animated: false)
             self.userDefaults.set(self.FLIGHT_OFF, forKey: self.FLIGHT_KEY)
         }
@@ -217,8 +214,7 @@ final class SettingsViewController: UIViewController {
         if(userDefaults.bool(forKey: ON_OFF_KEY_EXECUTIVE)) {
             executiveProgramSwitch.setOn(true, animated: false)
             self.userDefaults.set(self.EXECUTIVE_ON, forKey: EXECUTIVE_KEY)
-        }
-        else {
+        } else {
             executiveProgramSwitch.setOn(false, animated: false)
             self.userDefaults.set(self.EXECUTIVE_OFF, forKey: EXECUTIVE_KEY)
         }
@@ -228,8 +224,7 @@ final class SettingsViewController: UIViewController {
         if(userDefaults.bool(forKey: ON_OFF_KEY_DISCOUNT)) {
             discountDealsSwitch.setOn(true, animated: false)
             self.userDefaults.set(self.DISCOUNT_ON, forKey: DISCOUNT_KEY)
-        }
-        else {
+        } else {
             discountDealsSwitch.setOn(false, animated: false)
             self.userDefaults.set(self.DISCOUNT_OFF, forKey: DISCOUNT_KEY)
         }
@@ -239,8 +234,7 @@ final class SettingsViewController: UIViewController {
         let theme = userDefaults.string(forKey: THEME_KEY)
         if (theme == LIGHT_THEME) {
             darkModeIsOff()
-        }
-        else if (theme == DARK_THEME) {
+        } else if (theme == DARK_THEME) {
             darkModeIsOn()
         }
     }
@@ -249,8 +243,7 @@ final class SettingsViewController: UIViewController {
         let notifications = userDefaults.string(forKey: NOTIFICATION_KEY)
         if (notifications == NOTIFICATION_ON) {
             notificationIsOn()
-        }
-        else if (notifications == NOTIFICATION_OFF) {
+        } else if (notifications == NOTIFICATION_OFF) {
             notificationIsOff()
         }
     }
@@ -295,24 +288,23 @@ final class SettingsViewController: UIViewController {
     
     private func notificationIsOn() {
         notificationsRectangle.isHidden = true
-        bigRectangle.isHidden = false
         bigRectangle.image = R.image.rectangle_big()
-        flightUpdatesLabel.isHidden = false
-        flightUpdatesSwitch.isHidden = false
-        executiveProgramLabel.isHidden = false
-        executiveProgramSwitch.isHidden = false
-        discountDealsLabel.isHidden = false
-        discountDealsSwitch.isHidden = false
+        setupShowingLabels(isHidden: false)
     }
     
     private func notificationIsOff() {
         notificationsRectangle.isHidden = false
-        bigRectangle.isHidden = true
-        flightUpdatesLabel.isHidden = true
-        flightUpdatesSwitch.isHidden = true
-        executiveProgramLabel.isHidden = true
-        executiveProgramSwitch.isHidden = true
-        discountDealsLabel.isHidden = true
-        discountDealsSwitch.isHidden = true
+        setupShowingLabels(isHidden: true)
     }
+    
+    private func setupShowingLabels(isHidden: Bool) {
+        flightUpdatesLabel.isHidden = isHidden
+        flightUpdatesSwitch.isHidden = isHidden
+        executiveProgramLabel.isHidden = isHidden
+        executiveProgramSwitch.isHidden = isHidden
+        discountDealsLabel.isHidden = isHidden
+        discountDealsSwitch.isHidden = isHidden
+        bigRectangle.isHidden = isHidden
+    }
+    
 }

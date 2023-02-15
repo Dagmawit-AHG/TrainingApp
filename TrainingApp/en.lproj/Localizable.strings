@@ -76,4 +76,4 @@
 "discountKey" = "discountKey";
 "discountOn" = "discountOn";
 "discountOff" = "discountOff";
-"ISUSERLOGGEDIN" = "ISUSERLOGGEDIN";
+"userStatus" = "ISUSERLOGGEDIN";

@@ -232,13 +232,6 @@ struct _R {
       /// Locales: en, pl
       var hongKong: RswiftResources.StringResource { .init(key: "Hong Kong", tableName: "Localizable", source: source, developmentValue: "Hong Kong", comment: nil) }
 
-      /// en translation: ISUSERLOGGEDIN
-      ///
-      /// Key: ISUSERLOGGEDIN
-      ///
-      /// Locales: en, pl
-      var isuserloggediN: RswiftResources.StringResource { .init(key: "ISUSERLOGGEDIN", tableName: "Localizable", source: source, developmentValue: "ISUSERLOGGEDIN", comment: nil) }
-
       /// en translation: Italian
       ///
       /// Key: Italian
@@ -581,6 +574,13 @@ struct _R {
       ///
       /// Locales: en, pl
       var themeKey: RswiftResources.StringResource { .init(key: "themeKey", tableName: "Localizable", source: source, developmentValue: "themeKey", comment: nil) }
+
+      /// en translation: ISUSERLOGGEDIN
+      ///
+      /// Key: userStatus
+      ///
+      /// Locales: en, pl
+      var userStatus: RswiftResources.StringResource { .init(key: "userStatus", tableName: "Localizable", source: source, developmentValue: "ISUSERLOGGEDIN", comment: nil) }
     }
 
     /// This `_R.string.main` struct is generated, and contains static references to 85 localization keys.
