@@ -19,9 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        let rootVC = storyboard.instantiateViewController(withIdentifier: "HomeViewController")
-//        let navController = UINavigationController(rootViewController: rootVC)
-//        navController.navigationBar.backgroundColor = .clear
+        let rootVC = storyboard.instantiateViewController(withIdentifier: "StartViewController")
         self.window?.rootViewController = rootVC
         window?.makeKeyAndVisible()
     }

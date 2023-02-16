@@ -57,3 +57,5 @@
 "Hong Kong" = "Hong Kong";
 "New Delhi" = "New Delhi";
 "lastSelection" = "lastSelection";
+"suggestedLanguageKey" = "suggestedLanguageKey";
+"selectedTableKey" = "selectedTableKey";

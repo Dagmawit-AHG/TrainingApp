@@ -19,11 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         RunLoop.current.run(until: NSDate(timeIntervalSinceNow: 5) as Date)
         let userDefaults = UserDefaults.standard
-        let targetLang = userDefaults.string(forKey: "Language")
-        print(userDefaults.object(forKey: "Language")!)
-        
         if let language = userDefaults.string(forKey: "Language") {
-            print(language)
             UserDefaults.standard.set(language, forKey: "Language")
             Bundle.setLanguage(language)
         }
