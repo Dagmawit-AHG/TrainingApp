@@ -1420,11 +1420,14 @@ struct _R {
     }
   }
 
-  /// This `_R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
+  /// This `_R.reuseIdentifier` struct is generated, and contains static references to 2 reuse identifiers.
   struct reuseIdentifier {
 
     /// Reuse identifier `LanguageCell`.
     let languageCell: RswiftResources.ReuseIdentifier<UIKit.UITableViewCell> = .init(identifier: "LanguageCell")
+
+    /// Reuse identifier `SuggestedCell`.
+    let suggestedCell: RswiftResources.ReuseIdentifier<UIKit.UITableViewCell> = .init(identifier: "SuggestedCell")
   }
 
   /// This `_R.storyboard` struct is generated, and contains static references to 2 storyboards.

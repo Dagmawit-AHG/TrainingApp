@@ -11,6 +11,10 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
     
     // MARK: - Properties
     
+    var suggestedLanguages: [String: String] =          [R.string.localizable.englishUS(): R.string.localizable.default(),
+        R.string.localizable.polish(): R.string.localizable.polish(),
+        R.string.localizable.englishUK(): R.string.localizable.englishUK()]
+    
     var languages: [String: String] = [R.string.localizable.dansk(): R.string.localizable.danish(),
                                        R.string.localizable.netherlands(): R.string.localizable.dutch(),
                                        R.string.localizable.englishCanada(): R.string.localizable.englishCanada(),
@@ -30,6 +34,7 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet private var englishUKCheck: UIImageView!
     @IBOutlet private var longTextLabel: UILabel!
     @IBOutlet private var otherLangLabel: UILabel!
+    @IBOutlet private var suggestedLanguagesTableView: UITableView!
     @IBOutlet private var languagesTableView: UITableView!
     
     // MARK: - Lifecycle
@@ -56,8 +61,8 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        languagesTableView.backgroundView = UIImageView(image: R.image.rectangle_all())
-        return languages.count
+            languagesTableView.backgroundView = UIImageView(image: R.image.rectangle_all())
+            return languages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -66,22 +71,23 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
             return UITableViewCell()
         }
         else {
-            languagesTableView.backgroundView = UIImageView(image: R.image.rectangle_all())
-            let cell = tableView.dequeueReusableCell(withIdentifier: R.string.localizable.languageCell(), for: indexPath)
-            cell.textLabel?.text = Array(languages.keys)[indexPath.row]
-            cell.textLabel?.font.withSize(18.0)
-            print(Array(languages.keys)[indexPath.row])
+            var cell = UITableViewCell()
+                languagesTableView.backgroundView = UIImageView(image: R.image.rectangle_all())
+                cell = tableView.dequeueReusableCell(withIdentifier: R.string.localizable.languageCell(), for: indexPath)
+                cell.textLabel?.text = Array(languages.keys)[indexPath.row]
+                cell.textLabel?.font.withSize(18.0)
+                print(Array(languages.keys)[indexPath.row])
             return cell
         }
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        for row in 0..<tableView.numberOfRows(inSection: indexPath.section) {
-            if let cell = tableView.cellForRow(at: IndexPath(row: row, section: indexPath.section)) {
-                cell.accessoryType = row == indexPath.row ? .checkmark : .none
+            for row in 0..<tableView.numberOfRows(inSection: indexPath.section) {
+                if let cell = tableView.cellForRow(at: IndexPath(row: row, section: indexPath.section)) {
+                    cell.accessoryType = row == indexPath.row ? .checkmark : .none
+                }
             }
-        }
-        tableView.deselectRow(at: indexPath, animated: true)
+            tableView.deselectRow(at: indexPath, animated: true)
     }
     
     // MARK: - Helpers
