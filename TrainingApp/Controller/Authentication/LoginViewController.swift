@@ -13,6 +13,7 @@ final class LoginViewController: UIViewController {
     // MARK: - Properties
     
     private var viewModel = LoginViewModel()
+    private let userDefaults = UserDefaults.standard
     
     var isSeguePending = false
     
@@ -47,6 +48,7 @@ final class LoginViewController: UIViewController {
                 alert.addAction(UIAlertAction(title: R.string.localizable.oK(), style: UIAlertAction.Style.default, handler: nil))
                 self?.present(alert, animated: true, completion: nil)
             }
+            self?.userDefaults.set(true, forKey: R.string.localizable.userStatus())
             self?.performSegue(withIdentifier: R.string.localizable.homeViewController(), sender: self)
         })
     }
@@ -84,15 +86,15 @@ final class LoginViewController: UIViewController {
     // MARK: - Helpers
     
     private func configureUI() {
-            emailTextField.setBorder()
-            passwordTextField.setBorder()
-            signInButton.layer.cornerRadius = 5
-            signInButton.buttonSetupForLogin()
+            emailTextField?.setBorder()
+            passwordTextField?.setBorder()
+            signInButton?.layer.cornerRadius = 5
+            signInButton?.buttonSetupForLogin()
     }
     
     private func configureNotificationObservers() {
-        emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
-        passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        emailTextField?.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        passwordTextField?.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
     }
     
     @objc

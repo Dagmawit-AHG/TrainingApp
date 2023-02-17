@@ -80,7 +80,7 @@ struct _R {
       let source: RswiftResources.StringResource.Source
     }
 
-    /// This `_R.string.localizable` struct is generated, and contains static references to 55 localization keys.
+    /// This `_R.string.localizable` struct is generated, and contains static references to 56 localization keys.
     struct localizable {
       let source: RswiftResources.StringResource.Source
 
@@ -468,6 +468,13 @@ struct _R {
       ///
       /// Locales: en, pl, it, nl, da
       var suggestedLanguageKey: RswiftResources.StringResource { .init(key: "suggestedLanguageKey", tableName: "Localizable", source: source, developmentValue: "suggestedLanguageKey", comment: nil) }
+
+      /// en translation: ISUSERLOGGEDIN
+      ///
+      /// Key: userStatus
+      ///
+      /// Locales: en, pl, it, nl, da
+      var userStatus: RswiftResources.StringResource { .init(key: "userStatus", tableName: "Localizable", source: source, developmentValue: "ISUSERLOGGEDIN", comment: nil) }
     }
 
     /// This `_R.string.main` struct is generated, and contains static references to 85 localization keys.

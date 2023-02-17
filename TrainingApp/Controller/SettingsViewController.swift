@@ -12,6 +12,8 @@ final class SettingsViewController: UIViewController {
     
     // MARK: - Properties
     
+    private let userDefaults = UserDefaults.standard
+    
     @IBOutlet private var backButton: UIImageView!
     @IBOutlet private var languagesButton: UIImageView!
     @IBOutlet private var darkModeToggleButton: UIButton!
@@ -86,6 +88,7 @@ final class SettingsViewController: UIViewController {
     @IBAction private func signOutPressed(_ sender: UIButton) {
         do {
             try Auth.auth().signOut()
+            self.userDefaults.set(false, forKey: R.string.localizable.userStatus())
             performSegue(withIdentifier: R.string.localizable.signOutSegue(), sender: self)
         }
         catch let signOutError as NSError {

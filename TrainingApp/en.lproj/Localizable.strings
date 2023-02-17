@@ -61,3 +61,4 @@
 "lastSelection" = "lastSelection";
 "suggestedLanguageKey" = "suggestedLanguageKey";
 "selectedTableKey" = "selectedTableKey";
+"userStatus" = "ISUSERLOGGEDIN";

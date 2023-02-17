@@ -13,6 +13,8 @@ final class HomeViewController: UIViewController {
     
     // MARK: - Properties
     
+    private let userDefaults = UserDefaults.standard
+    
     @IBOutlet private var fromTextFieldRound: UITextField!
     @IBOutlet private var toTextFieldRound: UITextField!
     @IBOutlet private var fromTextFieldOne: UITextField!
@@ -40,6 +42,7 @@ final class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         self.hideKeyboard()
+        checkLanguage()
         configureUI()
         textFieldSetup()
         setupDelegatesForTextFields()
@@ -49,6 +52,12 @@ final class HomeViewController: UIViewController {
         setupTapGestureForViews()
         
         getData(from: url)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        checkLanguage()
     }
     
     // MARK: - API
@@ -126,9 +135,16 @@ final class HomeViewController: UIViewController {
     
     // MARK: - Helpers
     
+    private func checkLanguage() {
+        if let language = userDefaults.string(forKey: "Language") {
+            UserDefaults.standard.set(language, forKey: "Language")
+            Bundle.setLanguage(language)
+        }
+    }
+    
     private func configureUI() {
-        optionsSegment.addUnderlineForSelectedSegment()
-        optionsSegment.setFontSize()
+        optionsSegment?.addUnderlineForSelectedSegment()
+        optionsSegment?.setFontSize()
     }
     
     private func textFieldSetup() {
@@ -152,8 +168,8 @@ final class HomeViewController: UIViewController {
     
     private func setupTapGestureForViews() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(HomeViewController.imageTapped(gesture:)))
-        settingsButton.addGestureRecognizer(tapGesture)
-        settingsButton.isUserInteractionEnabled = true
+        settingsButton?.addGestureRecognizer(tapGesture)
+        settingsButton?.isUserInteractionEnabled = true
     }
     
     private func setupDelegatesForTextFields() {

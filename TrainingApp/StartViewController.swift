@@ -23,8 +23,17 @@ class StartViewController: UIViewController {
         configureUI()
         
         if let language = userDefaults.string(forKey: "Language") {
-            UserDefaults.standard.set(language, forKey: "Language")
             Bundle.setLanguage(language)
+            UserDefaults.standard.set(language, forKey: "Language")
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let language = userDefaults.string(forKey: "Language") {
+            Bundle.setLanguage(language)
+            UserDefaults.standard.set(language, forKey: "Language")
         }
     }
     

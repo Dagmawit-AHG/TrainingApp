@@ -18,8 +18,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: scene)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        var rootVC = UIViewController()
         
-        let rootVC = storyboard.instantiateViewController(withIdentifier: "StartViewController")
+        if UserDefaults.standard.bool(forKey: R.string.localizable.userStatus()) {
+            rootVC = storyboard.instantiateViewController(withIdentifier: "HomeViewController")
+        } else {
+            rootVC = storyboard.instantiateViewController(withIdentifier: "StartViewController")
+        }
         self.window?.rootViewController = rootVC
         window?.makeKeyAndVisible()
     }
