@@ -10,7 +10,7 @@ import UIKit
 final class LanguageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - Properties
-    
+
     var languages: KeyValuePairs = [
         R.string.localizable.dansk(): R.string.localizable.danish(),
         R.string.localizable.netherlands(): R.string.localizable.dutch(),
@@ -18,6 +18,10 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
         R.string.localizable.englishAustralia(): R.string.localizable.englishAustralia(),
         R.string.localizable.englishUnitedStates(): R.string.localizable.englishUnitedStates(),
         R.string.localizable.italy(): R.string.localizable.italian()]
+
+    var suggestedLanguages: [String: String] =          [R.string.localizable.englishUS(): R.string.localizable.default(),
+        R.string.localizable.polish(): R.string.localizable.polish(),
+        R.string.localizable.englishUK(): R.string.localizable.englishUK()]
     
     @IBOutlet private var backButton: UIImageView!
     @IBOutlet private var languageLabel: UILabel!
@@ -31,6 +35,7 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet private var englishUKCheck: UIImageView!
     @IBOutlet private var longTextLabel: UILabel!
     @IBOutlet private var otherLangLabel: UILabel!
+    @IBOutlet private var suggestedLanguagesTableView: UITableView!
     @IBOutlet private var languagesTableView: UITableView!
     
     let userDefaults = UserDefaults.standard

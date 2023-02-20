@@ -28,8 +28,13 @@
             filePath = "TrainingApp/Controller/Authentication/LoginViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
+<<<<<<< HEAD
             startingLineNumber = "27"
             endingLineNumber = "27"
+=======
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+>>>>>>> origin/main
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>

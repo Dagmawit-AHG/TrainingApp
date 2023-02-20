@@ -14,6 +14,7 @@ struct _R {
   let bundle: Foundation.Bundle
 
   let segue = segue()
+  let id = id()
   let reuseIdentifier = reuseIdentifier()
 
   var string: string { .init(bundle: bundle, preferredLanguages: nil, locale: nil) }
@@ -80,7 +81,11 @@ struct _R {
       let source: RswiftResources.StringResource.Source
     }
 
+<<<<<<< HEAD
     /// This `_R.string.localizable` struct is generated, and contains static references to 56 localization keys.
+=======
+    /// This `_R.string.localizable` struct is generated, and contains static references to 71 localization keys.
+>>>>>>> origin/main
     struct localizable {
       let source: RswiftResources.StringResource.Source
 
@@ -371,12 +376,82 @@ struct _R {
       /// Locales: en, pl, it, nl, da
       var backToVerficationSegue: RswiftResources.StringResource { .init(key: "backToVerficationSegue", tableName: "Localizable", source: source, developmentValue: "backToVerficationSegue", comment: nil) }
 
+      /// en translation: darkTheme
+      ///
+      /// Key: darkTheme
+      ///
+      /// Locales: en, pl
+      var darkTheme: RswiftResources.StringResource { .init(key: "darkTheme", tableName: "Localizable", source: source, developmentValue: "darkTheme", comment: nil) }
+
+      /// en translation: discountKey
+      ///
+      /// Key: discountKey
+      ///
+      /// Locales: en, pl
+      var discountKey: RswiftResources.StringResource { .init(key: "discountKey", tableName: "Localizable", source: source, developmentValue: "discountKey", comment: nil) }
+
+      /// en translation: discountOff
+      ///
+      /// Key: discountOff
+      ///
+      /// Locales: en, pl
+      var discountOff: RswiftResources.StringResource { .init(key: "discountOff", tableName: "Localizable", source: source, developmentValue: "discountOff", comment: nil) }
+
+      /// en translation: discountOn
+      ///
+      /// Key: discountOn
+      ///
+      /// Locales: en, pl
+      var discountOn: RswiftResources.StringResource { .init(key: "discountOn", tableName: "Localizable", source: source, developmentValue: "discountOn", comment: nil) }
+
       /// en translation: email
       ///
       /// Key: email
       ///
       /// Locales: en, pl, it, nl, da
       var email: RswiftResources.StringResource { .init(key: "email", tableName: "Localizable", source: source, developmentValue: "email", comment: nil) }
+
+      /// en translation: executiveKey
+      ///
+      /// Key: executiveKey
+      ///
+      /// Locales: en, pl
+      var executiveKey: RswiftResources.StringResource { .init(key: "executiveKey", tableName: "Localizable", source: source, developmentValue: "executiveKey", comment: nil) }
+
+      /// en translation: executiveOff
+      ///
+      /// Key: executiveOff
+      ///
+      /// Locales: en, pl
+      var executiveOff: RswiftResources.StringResource { .init(key: "executiveOff", tableName: "Localizable", source: source, developmentValue: "executiveOff", comment: nil) }
+
+      /// en translation: executiveOn
+      ///
+      /// Key: executiveOn
+      ///
+      /// Locales: en, pl
+      var executiveOn: RswiftResources.StringResource { .init(key: "executiveOn", tableName: "Localizable", source: source, developmentValue: "executiveOn", comment: nil) }
+
+      /// en translation: flightKey
+      ///
+      /// Key: flightKey
+      ///
+      /// Locales: en, pl
+      var flightKey: RswiftResources.StringResource { .init(key: "flightKey", tableName: "Localizable", source: source, developmentValue: "flightKey", comment: nil) }
+
+      /// en translation: flightOff
+      ///
+      /// Key: flightOff
+      ///
+      /// Locales: en, pl
+      var flightOff: RswiftResources.StringResource { .init(key: "flightOff", tableName: "Localizable", source: source, developmentValue: "flightOff", comment: nil) }
+
+      /// en translation: flightOn
+      ///
+      /// Key: flightOn
+      ///
+      /// Locales: en, pl
+      var flightOn: RswiftResources.StringResource { .init(key: "flightOn", tableName: "Localizable", source: source, developmentValue: "flightOn", comment: nil) }
 
       /// en translation: goBackToForgotPass
       ///
@@ -406,6 +481,7 @@ struct _R {
       /// Locales: en, pl, it, nl, da
       var goToNewPassword: RswiftResources.StringResource { .init(key: "goToNewPassword", tableName: "Localizable", source: source, developmentValue: "goToNewPassword", comment: nil) }
 
+<<<<<<< HEAD
       /// en translation: lastSelection
       ///
       /// Key: lastSelection
@@ -419,6 +495,70 @@ struct _R {
       ///
       /// Locales: en, pl, it, nl, da
       var selectedTableKey: RswiftResources.StringResource { .init(key: "selectedTableKey", tableName: "Localizable", source: source, developmentValue: "selectedTableKey", comment: nil) }
+=======
+      /// en translation: lightTheme
+      ///
+      /// Key: lightTheme
+      ///
+      /// Locales: en, pl
+      var lightTheme: RswiftResources.StringResource { .init(key: "lightTheme", tableName: "Localizable", source: source, developmentValue: "lightTheme", comment: nil) }
+
+      /// en translation: notfnKey
+      ///
+      /// Key: notfnKey
+      ///
+      /// Locales: en, pl
+      var notfnKey: RswiftResources.StringResource { .init(key: "notfnKey", tableName: "Localizable", source: source, developmentValue: "notfnKey", comment: nil) }
+
+      /// en translation: notfnOff
+      ///
+      /// Key: notfnOff
+      ///
+      /// Locales: en, pl
+      var notfnOff: RswiftResources.StringResource { .init(key: "notfnOff", tableName: "Localizable", source: source, developmentValue: "notfnOff", comment: nil) }
+
+      /// en translation: notfnOn
+      ///
+      /// Key: notfnOn
+      ///
+      /// Locales: en, pl
+      var notfnOn: RswiftResources.StringResource { .init(key: "notfnOn", tableName: "Localizable", source: source, developmentValue: "notfnOn", comment: nil) }
+
+      /// en translation: onOffKeyDiscount
+      ///
+      /// Key: onOffKeyDiscount
+      ///
+      /// Locales: en, pl
+      var onOffKeyDiscount: RswiftResources.StringResource { .init(key: "onOffKeyDiscount", tableName: "Localizable", source: source, developmentValue: "onOffKeyDiscount", comment: nil) }
+
+      /// en translation: onOffKeyExecutive
+      ///
+      /// Key: onOffKeyExecutive
+      ///
+      /// Locales: en, pl
+      var onOffKeyExecutive: RswiftResources.StringResource { .init(key: "onOffKeyExecutive", tableName: "Localizable", source: source, developmentValue: "onOffKeyExecutive", comment: nil) }
+
+      /// en translation: onOffKeyFlight
+      ///
+      /// Key: onOffKeyFlight
+      ///
+      /// Locales: en, pl
+      var onOffKeyFlight: RswiftResources.StringResource { .init(key: "onOffKeyFlight", tableName: "Localizable", source: source, developmentValue: "onOffKeyFlight", comment: nil) }
+
+      /// en translation: onOffKeyNotfn
+      ///
+      /// Key: onOffKeyNotfn
+      ///
+      /// Locales: en, pl
+      var onOffKeyNotfn: RswiftResources.StringResource { .init(key: "onOffKeyNotfn", tableName: "Localizable", source: source, developmentValue: "onOffKeyNotfn", comment: nil) }
+
+      /// en translation: onOffKeyTheme
+      ///
+      /// Key: onOffKeyTheme
+      ///
+      /// Locales: en, pl
+      var onOffKeyTheme: RswiftResources.StringResource { .init(key: "onOffKeyTheme", tableName: "Localizable", source: source, developmentValue: "onOffKeyTheme", comment: nil) }
+>>>>>>> origin/main
 
       /// en translation: showCreateAccountPage
       ///
@@ -462,18 +602,31 @@ struct _R {
       /// Locales: en, pl, it, nl, da
       var signOutSegue: RswiftResources.StringResource { .init(key: "signOutSegue", tableName: "Localizable", source: source, developmentValue: "signOutSegue", comment: nil) }
 
+<<<<<<< HEAD
       /// en translation: suggestedLanguageKey
       ///
       /// Key: suggestedLanguageKey
       ///
       /// Locales: en, pl, it, nl, da
       var suggestedLanguageKey: RswiftResources.StringResource { .init(key: "suggestedLanguageKey", tableName: "Localizable", source: source, developmentValue: "suggestedLanguageKey", comment: nil) }
+=======
+      /// en translation: themeKey
+      ///
+      /// Key: themeKey
+      ///
+      /// Locales: en, pl
+      var themeKey: RswiftResources.StringResource { .init(key: "themeKey", tableName: "Localizable", source: source, developmentValue: "themeKey", comment: nil) }
+>>>>>>> origin/main
 
       /// en translation: ISUSERLOGGEDIN
       ///
       /// Key: userStatus
       ///
+<<<<<<< HEAD
       /// Locales: en, pl, it, nl, da
+=======
+      /// Locales: en, pl
+>>>>>>> origin/main
       var userStatus: RswiftResources.StringResource { .init(key: "userStatus", tableName: "Localizable", source: source, developmentValue: "ISUSERLOGGEDIN", comment: nil) }
     }
 
@@ -646,7 +799,11 @@ struct _R {
       ///
       /// Key: DxA-jq-WEX.normalTitle
       ///
+<<<<<<< HEAD
       /// Locales: pl, en, it, nl, da
+=======
+      /// Locales: pl, en
+>>>>>>> origin/main
       var dxAJqWEXNormalTitle: RswiftResources.StringResource { .init(key: "DxA-jq-WEX.normalTitle", tableName: "Main", source: source, developmentValue: "Sign In", comment: nil) }
 
       /// en translation: English(UK)
@@ -947,7 +1104,11 @@ struct _R {
       ///
       /// Key: lKX-4B-Ero.normalTitle
       ///
+<<<<<<< HEAD
       /// Locales: pl, en, it, nl, da
+=======
+      /// Locales: pl, en
+>>>>>>> origin/main
       var lKX4BEroNormalTitle: RswiftResources.StringResource { .init(key: "lKX-4B-Ero.normalTitle", tableName: "Main", source: source, developmentValue: "Sign Up", comment: nil) }
 
       /// en translation: From
@@ -1311,11 +1472,26 @@ struct _R {
     }
   }
 
-  /// This `_R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
+  /// This `_R.id` struct is generated, and contains static references to 1 accessibility identifiers.
+  struct id {
+    let main = main()
+
+    /// This `_R.id.main` struct is generated, and contains static references to 1 accessibility identifiers.
+    struct main {
+
+      /// Accessibility identifier `darkMode`.
+      let darkMode = "darkMode"
+    }
+  }
+
+  /// This `_R.reuseIdentifier` struct is generated, and contains static references to 2 reuse identifiers.
   struct reuseIdentifier {
 
     /// Reuse identifier `LanguageCell`.
     let languageCell: RswiftResources.ReuseIdentifier<UIKit.UITableViewCell> = .init(identifier: "LanguageCell")
+
+    /// Reuse identifier `SuggestedCell`.
+    let suggestedCell: RswiftResources.ReuseIdentifier<UIKit.UITableViewCell> = .init(identifier: "SuggestedCell")
   }
 
   /// This `_R.storyboard` struct is generated, and contains static references to 2 storyboards.
@@ -1379,7 +1555,6 @@ struct _R {
         if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "arrow.backward.to.line") == nil { throw RswiftResources.ValidationError("[R.swift] System image named 'arrow.backward.to.line' is used in storyboard 'Main', but couldn't be loaded.") } }
         if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "arrow.left") == nil { throw RswiftResources.ValidationError("[R.swift] System image named 'arrow.left' is used in storyboard 'Main', but couldn't be loaded.") } }
         if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "bell") == nil { throw RswiftResources.ValidationError("[R.swift] System image named 'bell' is used in storyboard 'Main', but couldn't be loaded.") } }
-        if UIKit.UIImage(named: "button", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'button' is used in storyboard 'Main', but couldn't be loaded.") }
         if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "calendar") == nil { throw RswiftResources.ValidationError("[R.swift] System image named 'calendar' is used in storyboard 'Main', but couldn't be loaded.") } }
         if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "checkmark") == nil { throw RswiftResources.ValidationError("[R.swift] System image named 'checkmark' is used in storyboard 'Main', but couldn't be loaded.") } }
         if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "gearshape") == nil { throw RswiftResources.ValidationError("[R.swift] System image named 'gearshape' is used in storyboard 'Main', but couldn't be loaded.") } }
