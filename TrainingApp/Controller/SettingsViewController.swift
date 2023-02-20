@@ -70,8 +70,7 @@ final class SettingsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         if self.darkModeSwitch.isOn {
             self.darkModeIsOn()
-        }
-        else {
+        } else {
             self.darkModeIsOff()
         }
     }
@@ -96,15 +95,13 @@ final class SettingsViewController: UIViewController {
             destinationVC.modalPresentationStyle = .fullScreen
             destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
             present(destinationVC, animated: true, completion: nil)
-        }
-        else if segue.identifier == R.string.localizable.backToHomepageSegue() {
+        } else if segue.identifier == R.string.localizable.backToHomepageSegue() {
             guard let destinationVC = segue.destination as? HomeViewController else { return }
             
             destinationVC.modalPresentationStyle = .fullScreen
             destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
             present(destinationVC, animated: true, completion: nil)
-        }
-        else if segue.identifier == R.string.localizable.showLanguagesPage() {
+        } else if segue.identifier == R.string.localizable.showLanguagesPage() {
             guard let destinationVC = segue.destination as? LanguageViewController else { return }
             
             destinationVC.modalPresentationStyle = .fullScreen

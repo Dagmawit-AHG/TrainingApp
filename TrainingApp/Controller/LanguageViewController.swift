@@ -76,7 +76,6 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
                 cell = tableView.dequeueReusableCell(withIdentifier: R.string.localizable.languageCell(), for: indexPath)
                 cell.textLabel?.text = Array(languages.keys)[indexPath.row]
                 cell.textLabel?.font.withSize(18.0)
-                print(Array(languages.keys)[indexPath.row])
             return cell
         }
     }
