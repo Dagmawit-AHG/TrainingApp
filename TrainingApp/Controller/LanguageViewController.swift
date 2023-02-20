@@ -11,6 +11,10 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
     
     // MARK: - Properties
     
+    var suggestedLanguages: [String: String] =          [R.string.localizable.englishUS(): R.string.localizable.default(),
+        R.string.localizable.polish(): R.string.localizable.polish(),
+        R.string.localizable.englishUK(): R.string.localizable.englishUK()]
+    
     var languages: [String: String] = [R.string.localizable.dansk(): R.string.localizable.danish(),
                                        R.string.localizable.netherlands(): R.string.localizable.dutch(),
                                        R.string.localizable.englishCanada(): R.string.localizable.englishCanada(),
@@ -19,13 +23,18 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
                                        R.string.localizable.italy(): R.string.localizable.italian()]
     
     @IBOutlet private var backButton: UIImageView!
+    @IBOutlet private var languageLabel: UILabel!
     @IBOutlet private var settingsButton: UIImageView!
+    @IBOutlet private var suggestedLangLabel: UILabel!
     @IBOutlet private var englishUSLabel: UILabel!
-    @IBOutlet private var englishLabel: UILabel!
+    @IBOutlet private var polishLabel: UILabel!
     @IBOutlet private var englishUKLabel: UILabel!
     @IBOutlet private var englishUSCheck: UIImageView!
     @IBOutlet private var englishCheck: UIImageView!
     @IBOutlet private var englishUKCheck: UIImageView!
+    @IBOutlet private var longTextLabel: UILabel!
+    @IBOutlet private var otherLangLabel: UILabel!
+    @IBOutlet private var suggestedLanguagesTableView: UITableView!
     @IBOutlet private var languagesTableView: UITableView!
     
     // MARK: - Lifecycle
@@ -37,7 +46,6 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
         languagesTableView.delegate = self
         
         setupTapGestureForViews()
-        
     }
     
     // MARK: - Actions
@@ -53,8 +61,8 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        languagesTableView.backgroundView = UIImageView(image: R.image.rectangle_all())
-        return languages.count
+            languagesTableView.backgroundView = UIImageView(image: R.image.rectangle_all())
+            return languages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -63,22 +71,22 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
             return UITableViewCell()
         }
         else {
-            languagesTableView.backgroundView = UIImageView(image: R.image.rectangle_all())
-            let cell = tableView.dequeueReusableCell(withIdentifier: R.string.localizable.languageCell(), for: indexPath)
-            cell.textLabel?.text = Array(languages.keys)[indexPath.row]
-            cell.textLabel?.font.withSize(18.0)
-            print(Array(languages.keys)[indexPath.row])
+            var cell = UITableViewCell()
+                languagesTableView.backgroundView = UIImageView(image: R.image.rectangle_all())
+                cell = tableView.dequeueReusableCell(withIdentifier: R.string.localizable.languageCell(), for: indexPath)
+                cell.textLabel?.text = Array(languages.keys)[indexPath.row]
+                cell.textLabel?.font.withSize(18.0)
             return cell
         }
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        for row in 0..<tableView.numberOfRows(inSection: indexPath.section) {
-            if let cell = tableView.cellForRow(at: IndexPath(row: row, section: indexPath.section)) {
-                cell.accessoryType = row == indexPath.row ? .checkmark : .none
+            for row in 0..<tableView.numberOfRows(inSection: indexPath.section) {
+                if let cell = tableView.cellForRow(at: IndexPath(row: row, section: indexPath.section)) {
+                    cell.accessoryType = row == indexPath.row ? .checkmark : .none
+                }
             }
-        }
-        tableView.deselectRow(at: indexPath, animated: true)
+            tableView.deselectRow(at: indexPath, animated: true)
     }
     
     // MARK: - Helpers
@@ -99,9 +107,9 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
         englishUSLabel.addGestureRecognizer(englishUSTapGesture)
         englishUSLabel.isUserInteractionEnabled = true
         
-        let englishTapGesture = UITapGestureRecognizer(target: self, action: #selector(LanguageViewController.englishTapped(gesture:)))
-        englishLabel.addGestureRecognizer(englishTapGesture)
-        englishLabel.isUserInteractionEnabled = true
+        let polishTapGesture = UITapGestureRecognizer(target: self, action: #selector(LanguageViewController.polishTapped(gesture:)))
+        polishLabel.addGestureRecognizer(polishTapGesture)
+        polishLabel.isUserInteractionEnabled = true
         
         let englishUKTapGesture = UITapGestureRecognizer(target: self, action: #selector(LanguageViewController.englishUKTapped(gesture:)))
         englishUKLabel.addGestureRecognizer(englishUKTapGesture)
@@ -128,15 +136,33 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
             englishUSCheck.isHidden = false
             englishCheck.isHidden = true
             englishUKCheck.isHidden = true
+            Bundle.setLanguage("en")
+            UserDefaults.standard.set("en",forKey: "Language")
+            languageLabel.text = R.string.localizable.language().localizableString("en")
+            suggestedLangLabel.text = R.string.localizable.suggestedLanguages().localizableString("en")
+            englishUSLabel.text = R.string.localizable.englishUS().localizableString("en")
+            polishLabel.text = R.string.localizable.polish().localizableString("en")
+            englishUKLabel.text = R.string.localizable.englishUK().localizableString("en")
+            longTextLabel.text = R.string.localizable.appWillUse().localizableString("en")
+            otherLangLabel.text = R.string.localizable.otherLanguages().localizableString("en")
         }
     }
     
     @objc
-    private func englishTapped(gesture: UIGestureRecognizer) {
+    private func polishTapped(gesture: UIGestureRecognizer) {
         if(gesture.view as? UILabel) != nil {
             englishUSCheck.isHidden = true
             englishCheck.isHidden = false
             englishUKCheck.isHidden = true
+            Bundle.setLanguage("pl")
+            UserDefaults.standard.set("pl",forKey: "Language")
+            languageLabel.text = R.string.localizable.language().localizableString("pl")
+            suggestedLangLabel.text = R.string.localizable.suggestedLanguages().localizableString("pl")
+            englishUSLabel.text = R.string.localizable.englishUS().localizableString("pl")
+            polishLabel.text = R.string.localizable.polish().localizableString("pl")
+            englishUKLabel.text = R.string.localizable.englishUK().localizableString("pl")
+            longTextLabel.text = R.string.localizable.appWillUse().localizableString("pl")
+            otherLangLabel.text = R.string.localizable.otherLanguages().localizableString("pl")
         }
     }
     
@@ -146,6 +172,15 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
             englishUSCheck.isHidden = true
             englishCheck.isHidden = true
             englishUKCheck.isHidden = false
+            Bundle.setLanguage("en")
+            UserDefaults.standard.set("en",forKey: "Language")
+            languageLabel.text = R.string.localizable.language().localizableString("en")
+            suggestedLangLabel.text = R.string.localizable.suggestedLanguages().localizableString("en")
+            englishUSLabel.text = R.string.localizable.englishUS().localizableString("en")
+            polishLabel.text = R.string.localizable.polish().localizableString("en")
+            englishUKLabel.text = R.string.localizable.englishUK().localizableString("en")
+            longTextLabel.text = R.string.localizable.appWillUse().localizableString("en")
+            otherLangLabel.text = R.string.localizable.otherLanguages().localizableString("en")
         }
     }
 }

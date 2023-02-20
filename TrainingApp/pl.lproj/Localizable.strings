@@ -5,15 +5,14 @@
   Created by Dagmawit Alemayehu on 20/01/2023.
   
 */
-
-"Language" = "Language";
-"Suggested Languages" = "Suggested Languages";
-"English(US)" = "English(US)";
-"Default" = "Default";
-"Polish" = "Polish";
-"English(UK)" = "English(UK)";
-"App will use" = "App will use the first language that it supports from Language & Region settings. You can select a different language for App to use if you prefer.";
-"Other Languages" = "Other Languages";
+"Language" = "Język";
+"Suggested Languages" = "Zasugerował Języki";
+"English(US)" = "Angielski(Amerykański)";
+"Default" = "Domyślna";
+"Polish" = "Polski";
+"English(UK)" = "Angielski(Brytyjski)";
+"App will use" = "Aplikacja użyje pierwszego obsługiwanego języka w ustawieniach języka i regionu. Jeśli wolisz, możesz wybrać inny język aplikacji.";
+"Other Languages" = "Inne języki";
 "showCreateAccountPage" = "showCreateAccountPage";
 "showForgotPasswordPage" = "showForgotPasswordPage";
 "HomeViewController" = "HomeViewController";

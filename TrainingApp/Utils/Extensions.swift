@@ -184,7 +184,13 @@ extension UISegmentedControl {
             return image!
         }
 }
-
+extension UISwitch {
+    func setOnValueChangeListener(onValueChanged :@escaping () -> Void) {
+        self.addAction(UIAction(){ action in
+            onValueChanged()
+        }, for: .valueChanged)
+    }
+}
 extension UIView {
     func anchor(
         top: NSLayoutYAxisAnchor? = nil,
@@ -277,5 +283,36 @@ extension UIView {
         
         anchor(top: view.topAnchor, left: view.leftAnchor,
                bottom: view.bottomAnchor, right: view.rightAnchor)
+    }
+}
+
+extension String {
+    func localizableString(_ name: String) -> String {
+        let path =  Bundle.main.path(forResource: name, ofType: "lproj")
+        let bundle = Bundle(path: path!)
+        return NSLocalizedString(self, tableName: nil, bundle: bundle!, value: "", comment: "")
+    }
+}
+
+extension Bundle {
+    class func setLanguage(_ language: String) {
+        var onceToken: Int = 0
+        
+        if (onceToken == 0) {
+            object_setClass(Bundle.main, PrivateBundle.self)
+        }
+        onceToken = 1
+        objc_setAssociatedObject(Bundle.main, &associatedLanguageBundle, (language != nil) ? Bundle(path: Bundle.main.path(forResource: language, ofType: "lproj") ?? "") : nil, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+    }
+}
+
+private var associatedLanguageBundle: Character = "0"
+
+class PrivateBundle: Bundle {
+    override func localizedString(forKey key: String, value: String?, table tableName: String?) -> String {
+        let bundle: Bundle? = objc_getAssociatedObject(self, &associatedLanguageBundle) as? Bundle
+        return (bundle != nil) ?
+                (bundle!.localizedString(forKey: key, value: value, table: tableName)) :
+                (super.localizedString(forKey: key, value: value, table: tableName))
     }
 }

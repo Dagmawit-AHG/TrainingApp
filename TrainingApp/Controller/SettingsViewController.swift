@@ -14,8 +14,8 @@ final class SettingsViewController: UIViewController {
     
     @IBOutlet private var backButton: UIImageView!
     @IBOutlet private var languagesButton: UIImageView!
-    @IBOutlet private var darkModeToggleButton: UIButton!
-    @IBOutlet private var notificationsToggleButton: UIButton!
+    @IBOutlet private var darkModeSwitch: UISwitch!
+    @IBOutlet private var notificationsSwitch: UISwitch!
     @IBOutlet private var languageRectangle: UIImageView!
     @IBOutlet private var darkModeRectangle: UIImageView!
     @IBOutlet private var notificationsRectangle: UIImageView!
@@ -23,69 +23,64 @@ final class SettingsViewController: UIViewController {
     @IBOutlet private var flightUpdatesLabel: UILabel!
     @IBOutlet private var executiveProgramLabel: UILabel!
     @IBOutlet private var discountDealsLabel: UILabel!
-    @IBOutlet private var flightUpdatesToggle: UIButton!
-    @IBOutlet private var executiveProgramToggle: UIButton!
-    @IBOutlet private var discountDealsToggle: UIButton!
+    @IBOutlet private var flightUpdatesSwitch: UISwitch!
+    @IBOutlet private var executiveProgramSwitch: UISwitch!
+    @IBOutlet private var discountDealsSwitch: UISwitch!
+    
+    let userDefaults = UserDefaults.standard
+    
+    let ON_OFF_KEY_THEME = R.string.localizable.onOffKeyTheme()
+    let THEME_KEY = R.string.localizable.themeKey()
+    let DARK_THEME = R.string.localizable.darkTheme()
+    let LIGHT_THEME = R.string.localizable.lightTheme()
+    
+    let ON_OFF_KEY_NOTIFICATION = R.string.localizable.onOffKeyNotfn()
+    let NOTIFICATION_KEY = R.string.localizable.notfnKey()
+    let NOTIFICATION_ON = R.string.localizable.notfnOn()
+    let NOTIFICATION_OFF = R.string.localizable.notfnOff()
+    
+    let ON_OFF_KEY_FLIGHT = R.string.localizable.onOffKeyFlight()
+    let FLIGHT_KEY = R.string.localizable.flightKey()
+    let FLIGHT_ON = R.string.localizable.flightOn()
+    let FLIGHT_OFF = R.string.localizable.flightOff()
+    
+    let ON_OFF_KEY_EXECUTIVE = R.string.localizable.onOffKeyExecutive()
+    let EXECUTIVE_KEY = R.string.localizable.executiveKey()
+    let EXECUTIVE_ON = R.string.localizable.executiveOn()
+    let EXECUTIVE_OFF = R.string.localizable.executiveOff()
+    
+    let ON_OFF_KEY_DISCOUNT = R.string.localizable.onOffKeyDiscount()
+    let DISCOUNT_KEY = R.string.localizable.discountKey()
+    let DISCOUNT_ON = R.string.localizable.discountOn()
+    let DISCOUNT_OFF = R.string.localizable.discountOff()
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initialButtonsSetup()
         setupTapGestureForViews()
+        setupSwitchListeners()
+        checkThemeSwitchState()
+        checkNotificationSwitchState()
+        updateTheme()
+        updateNotifications()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if self.darkModeSwitch.isOn {
+            self.darkModeIsOn()
+        } else {
+            self.darkModeIsOff()
+        }
     }
     
     // MARK: - Actions
     
-    @IBAction private func darkModeTogglePressed(_ sender: UIButton) {
-        if darkModeToggleButton.currentImage == R.image.button() {
-            darkModeIsOn()
-        }
-        else {
-            darkModeIsOff()
-        }
-    }
-    
-    @IBAction private func notificationsTogglePressed(_ sender: UIButton) {
-        if notificationsToggleButton.currentImage == R.image.button() {
-            notificationIsOn()
-        }
-        else {
-            notificationIsOff()
-        }
-    }
-    
-    @IBAction private func flightUpdatesTogglePressed(_ sender: UIButton) {
-        if flightUpdatesToggle.currentImage == R.image.button() {
-            flightUpdatesIsOn()
-        }
-        else {
-            flightUpdatesIsOff()
-        }
-    }
-    
-    @IBAction private func executiveProgramTogglePressed(_ sender: UIButton) {
-        if executiveProgramToggle.currentImage == R.image.button(){
-            executiveProgramIsOn()
-        }
-        else {
-            executiveProgramIsOff()
-        }
-    }
-    
-    @IBAction private func discountDealsTogglePressed(_ sender: UIButton) {
-        if discountDealsToggle.currentImage == R.image.button() {
-            discountIsOn()
-        }
-        else {
-            discountIsOff()
-        }
-    }
-    
     @IBAction private func signOutPressed(_ sender: UIButton) {
         do {
             try Auth.auth().signOut()
+            self.userDefaults.set(false, forKey: R.string.localizable.userStatus())
             performSegue(withIdentifier: R.string.localizable.signOutSegue(), sender: self)
         }
         catch let signOutError as NSError {
@@ -100,15 +95,13 @@ final class SettingsViewController: UIViewController {
             destinationVC.modalPresentationStyle = .fullScreen
             destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
             present(destinationVC, animated: true, completion: nil)
-        }
-        else if segue.identifier == R.string.localizable.backToHomepageSegue() {
+        } else if segue.identifier == R.string.localizable.backToHomepageSegue() {
             guard let destinationVC = segue.destination as? HomeViewController else { return }
             
             destinationVC.modalPresentationStyle = .fullScreen
             destinationVC.navigationController?.setNavigationBarHidden(false, animated: true)
             present(destinationVC, animated: true, completion: nil)
-        }
-        else if segue.identifier == R.string.localizable.showLanguagesPage() {
+        } else if segue.identifier == R.string.localizable.showLanguagesPage() {
             guard let destinationVC = segue.destination as? LanguageViewController else { return }
             
             destinationVC.modalPresentationStyle = .fullScreen
@@ -118,6 +111,139 @@ final class SettingsViewController: UIViewController {
     }
     
     // MARK: - Helpers
+    
+    private func setupSwitchListeners() {
+        darkModeSwitch.setOnValueChangeListener {
+            if self.darkModeSwitch.isOn {
+                self.userDefaults.set(true, forKey: self.ON_OFF_KEY_THEME)
+                self.userDefaults.set(self.DARK_THEME, forKey: self.THEME_KEY)
+            }
+            else {
+                self.userDefaults.set(false, forKey: self.ON_OFF_KEY_THEME)
+                self.userDefaults.set(self.LIGHT_THEME, forKey: self.THEME_KEY)
+            }
+            self.updateTheme()
+        }
+        
+        notificationsSwitch.setOnValueChangeListener {
+            if self.notificationsSwitch.isOn {
+                self.userDefaults.set(true, forKey: self.ON_OFF_KEY_NOTIFICATION)
+                self.userDefaults.set(self.NOTIFICATION_ON, forKey: self.NOTIFICATION_KEY)
+            }
+            else {
+                self.userDefaults.set(false, forKey: self.ON_OFF_KEY_NOTIFICATION)
+                self.userDefaults.set(self.NOTIFICATION_OFF, forKey: self.NOTIFICATION_KEY)
+            }
+            self.updateNotifications()
+        }
+        
+        flightUpdatesSwitch.setOnValueChangeListener {
+            if self.flightUpdatesSwitch.isOn {
+                self.userDefaults.set(true, forKey: self.ON_OFF_KEY_FLIGHT)
+                self.userDefaults.set(self.FLIGHT_ON, forKey: self.FLIGHT_KEY)
+            }
+            else {
+                self.userDefaults.set(false, forKey: self.ON_OFF_KEY_FLIGHT)
+                self.userDefaults.set(self.FLIGHT_OFF, forKey: self.FLIGHT_KEY)
+            }
+        }
+        
+        executiveProgramSwitch.setOnValueChangeListener {
+            if self.executiveProgramSwitch.isOn {
+                self.userDefaults.set(true, forKey: self.ON_OFF_KEY_EXECUTIVE)
+                self.userDefaults.set(self.EXECUTIVE_ON, forKey: self.EXECUTIVE_KEY)
+            }
+            else {
+                self.userDefaults.set(false, forKey: self.ON_OFF_KEY_EXECUTIVE)
+                self.userDefaults.set(self.EXECUTIVE_OFF, forKey: self.EXECUTIVE_KEY)
+            }
+        }
+        
+        discountDealsSwitch.setOnValueChangeListener {
+            if self.discountDealsSwitch.isOn {
+                self.userDefaults.set(true, forKey: self.ON_OFF_KEY_DISCOUNT)
+                self.userDefaults.set(self.DISCOUNT_ON, forKey: self.DISCOUNT_KEY)
+            }
+            else {
+                self.userDefaults.set(false, forKey: self.ON_OFF_KEY_DISCOUNT)
+                self.userDefaults.set(self.DISCOUNT_OFF, forKey: self.DISCOUNT_KEY)
+            }
+        }
+    }
+    
+    private func checkThemeSwitchState() {
+        if(userDefaults.bool(forKey: ON_OFF_KEY_THEME)) {
+            darkModeSwitch.setOn(true, animated: false)
+            self.userDefaults.set(self.DARK_THEME, forKey: self.THEME_KEY)
+        } else {
+            darkModeSwitch.setOn(false, animated: true)
+            self.userDefaults.set(self.LIGHT_THEME, forKey: self.THEME_KEY)
+        }
+    }
+    
+    private func checkNotificationSwitchState() {
+        if(userDefaults.bool(forKey: ON_OFF_KEY_NOTIFICATION)) {
+            notificationsSwitch.setOn(true, animated: false)
+            self.userDefaults.set(self.NOTIFICATION_ON, forKey: self.NOTIFICATION_KEY)
+            checkFlightSwitchState()
+            checkExecutiveSwitchState()
+            checkDiscountSwitchState()
+        } else {
+            notificationsSwitch.setOn(false, animated: false)
+            self.userDefaults.set(self.NOTIFICATION_OFF, forKey: self.NOTIFICATION_KEY)
+            checkFlightSwitchState()
+            checkExecutiveSwitchState()
+            checkDiscountSwitchState()
+        }
+    }
+    
+    private func checkFlightSwitchState() {
+        if(userDefaults.bool(forKey: ON_OFF_KEY_FLIGHT)) {
+            flightUpdatesSwitch.setOn(true, animated: false)
+            self.userDefaults.set(self.FLIGHT_ON, forKey: self.FLIGHT_KEY)
+        } else {
+            flightUpdatesSwitch.setOn(false, animated: false)
+            self.userDefaults.set(self.FLIGHT_OFF, forKey: self.FLIGHT_KEY)
+        }
+    }
+    
+    private func checkExecutiveSwitchState() {
+        if(userDefaults.bool(forKey: ON_OFF_KEY_EXECUTIVE)) {
+            executiveProgramSwitch.setOn(true, animated: false)
+            self.userDefaults.set(self.EXECUTIVE_ON, forKey: EXECUTIVE_KEY)
+        } else {
+            executiveProgramSwitch.setOn(false, animated: false)
+            self.userDefaults.set(self.EXECUTIVE_OFF, forKey: EXECUTIVE_KEY)
+        }
+    }
+    
+    private func checkDiscountSwitchState() {
+        if(userDefaults.bool(forKey: ON_OFF_KEY_DISCOUNT)) {
+            discountDealsSwitch.setOn(true, animated: false)
+            self.userDefaults.set(self.DISCOUNT_ON, forKey: DISCOUNT_KEY)
+        } else {
+            discountDealsSwitch.setOn(false, animated: false)
+            self.userDefaults.set(self.DISCOUNT_OFF, forKey: DISCOUNT_KEY)
+        }
+    }
+    
+    private func updateTheme() {
+        let theme = userDefaults.string(forKey: THEME_KEY)
+        if (theme == LIGHT_THEME) {
+            darkModeIsOff()
+        } else if (theme == DARK_THEME) {
+            darkModeIsOn()
+        }
+    }
+    
+    private func updateNotifications() {
+        let notifications = userDefaults.string(forKey: NOTIFICATION_KEY)
+        if (notifications == NOTIFICATION_ON) {
+            notificationIsOn()
+        } else if (notifications == NOTIFICATION_OFF) {
+            notificationIsOff()
+        }
+    }
     
     private func setupTapGestureForViews() {
         let backTapGesture = UITapGestureRecognizer(target: self, action: #selector(SettingsViewController.backImageTapped(gesture:)))
@@ -143,76 +269,39 @@ final class SettingsViewController: UIViewController {
         }
     }
     
-    private func initialButtonsSetup() {
-        darkModeToggleButton.setTitle(R.string.localizable.empty(), for: .normal)
-        notificationsToggleButton.setTitle(R.string.localizable.empty(), for: .normal)
-        flightUpdatesToggle.setTitle(R.string.localizable.empty(), for: .normal)
-        executiveProgramToggle.setTitle(R.string.localizable.empty(), for: .normal)
-        discountDealsToggle.setTitle(R.string.localizable.empty(), for: .normal)
-    }
-    
     private func darkModeIsOn() {
-        darkModeToggleButton.setImage(R.image.button_on(), for: .normal)
-        overrideUserInterfaceStyle = .dark
+        UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .dark
         languageRectangle.image = R.image.rectangle_white()
         darkModeRectangle.image = R.image.rectangle_white()
         notificationsRectangle.image = R.image.rectangle_white()
     }
     
     private func darkModeIsOff() {
-        darkModeToggleButton.setImage(R.image.button(), for: .normal)
-        self.overrideUserInterfaceStyle = .light
+        UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .light
         languageRectangle.image = R.image.rectangle()
         darkModeRectangle.image = R.image.rectangle()
         notificationsRectangle.image = R.image.rectangle()
     }
     
     private func notificationIsOn() {
-        notificationsToggleButton.setImage(R.image.button_on(), for: .normal)
         notificationsRectangle.isHidden = true
-        bigRectangle.isHidden = false
         bigRectangle.image = R.image.rectangle_big()
-        flightUpdatesLabel.isHidden = false
-        flightUpdatesToggle.isHidden = false
-        executiveProgramLabel.isHidden = false
-        executiveProgramToggle.isHidden = false
-        discountDealsLabel.isHidden = false
-        discountDealsToggle.isHidden = false
+        setupShowingLabels(isHidden: false)
     }
     
     private func notificationIsOff() {
-        notificationsToggleButton.setImage(R.image.button(), for: .normal)
         notificationsRectangle.isHidden = false
-        bigRectangle.isHidden = true
-        flightUpdatesLabel.isHidden = true
-        flightUpdatesToggle.isHidden = true
-        executiveProgramLabel.isHidden = true
-        executiveProgramToggle.isHidden = true
-        discountDealsLabel.isHidden = true
-        discountDealsToggle.isHidden = true
+        setupShowingLabels(isHidden: true)
     }
     
-    private func flightUpdatesIsOn() {
-        flightUpdatesToggle.setImage(R.image.button_on(), for: .normal)
+    private func setupShowingLabels(isHidden: Bool) {
+        flightUpdatesLabel.isHidden = isHidden
+        flightUpdatesSwitch.isHidden = isHidden
+        executiveProgramLabel.isHidden = isHidden
+        executiveProgramSwitch.isHidden = isHidden
+        discountDealsLabel.isHidden = isHidden
+        discountDealsSwitch.isHidden = isHidden
+        bigRectangle.isHidden = isHidden
     }
     
-    private func flightUpdatesIsOff() {
-        flightUpdatesToggle.setImage(R.image.button(), for: .normal)
-    }
-    
-    private func executiveProgramIsOn() {
-        executiveProgramToggle.setImage(R.image.button_on(), for: .normal)
-    }
-    
-    private func executiveProgramIsOff() {
-        executiveProgramToggle.setImage(R.image.button(), for: .normal)
-    }
-    
-    private func discountIsOn() {
-        discountDealsToggle.setImage(R.image.button_on(), for: .normal)
-    }
-    
-    private func discountIsOff() {
-        discountDealsToggle.setImage(R.image.button(), for: .normal)
-    }
 }

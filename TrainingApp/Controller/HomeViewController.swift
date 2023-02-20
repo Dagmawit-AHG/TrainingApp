@@ -84,14 +84,14 @@ class HomeViewController: UIViewController {
     // MARK: - Helpers
     
     private func configureUI() {
-        optionsSegment.addUnderlineForSelectedSegment()
-        optionsSegment.setFontSize()
+        optionsSegment?.addUnderlineForSelectedSegment()
+        optionsSegment?.setFontSize()
     }
     
     private func setupTapGestureForViews() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(HomeViewController.imageTapped(gesture:)))
-        settingsButton.addGestureRecognizer(tapGesture)
-        settingsButton.isUserInteractionEnabled = true
+        settingsButton?.addGestureRecognizer(tapGesture)
+        settingsButton?.isUserInteractionEnabled = true
     }
     
     private func setupPickerView() {
@@ -99,7 +99,7 @@ class HomeViewController: UIViewController {
         pickerView.delegate = self
         pickerView.dataSource = self
         pickerView.layer.position = .init(x: 33, y: 102)
-        self.fromTextField.inputView = pickerView
+        self.fromTextField?.inputView = pickerView
     }
     
     private func dismissPickerView() {
@@ -109,7 +109,7 @@ class HomeViewController: UIViewController {
         let button = UIBarButtonItem(title: R.string.localizable.done(), style: .plain, target: self, action: #selector(self.dismissAction))
         toolbar.setItems([button], animated: true)
         toolbar.isUserInteractionEnabled = true
-        self.fromTextField.inputAccessoryView = toolbar
+        self.fromTextField?.inputAccessoryView = toolbar
     }
     
     @objc
