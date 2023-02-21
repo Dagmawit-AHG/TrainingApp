@@ -81,11 +81,7 @@ struct _R {
       let source: RswiftResources.StringResource.Source
     }
 
-<<<<<<< HEAD
-    /// This `_R.string.localizable` struct is generated, and contains static references to 56 localization keys.
-=======
-    /// This `_R.string.localizable` struct is generated, and contains static references to 71 localization keys.
->>>>>>> origin/main
+    /// This `_R.string.localizable` struct is generated, and contains static references to 76 localization keys.
     struct localizable {
       let source: RswiftResources.StringResource.Source
 
@@ -481,7 +477,6 @@ struct _R {
       /// Locales: en, pl, it, nl, da
       var goToNewPassword: RswiftResources.StringResource { .init(key: "goToNewPassword", tableName: "Localizable", source: source, developmentValue: "goToNewPassword", comment: nil) }
 
-<<<<<<< HEAD
       /// en translation: lastSelection
       ///
       /// Key: lastSelection
@@ -489,13 +484,6 @@ struct _R {
       /// Locales: en, pl, it, nl, da
       var lastSelection: RswiftResources.StringResource { .init(key: "lastSelection", tableName: "Localizable", source: source, developmentValue: "lastSelection", comment: nil) }
 
-      /// en translation: selectedTableKey
-      ///
-      /// Key: selectedTableKey
-      ///
-      /// Locales: en, pl, it, nl, da
-      var selectedTableKey: RswiftResources.StringResource { .init(key: "selectedTableKey", tableName: "Localizable", source: source, developmentValue: "selectedTableKey", comment: nil) }
-=======
       /// en translation: lightTheme
       ///
       /// Key: lightTheme
@@ -558,7 +546,13 @@ struct _R {
       ///
       /// Locales: en, pl
       var onOffKeyTheme: RswiftResources.StringResource { .init(key: "onOffKeyTheme", tableName: "Localizable", source: source, developmentValue: "onOffKeyTheme", comment: nil) }
->>>>>>> origin/main
+
+      /// en translation: selectedTableKey
+      ///
+      /// Key: selectedTableKey
+      ///
+      /// Locales: en, pl, it, nl, da
+      var selectedTableKey: RswiftResources.StringResource { .init(key: "selectedTableKey", tableName: "Localizable", source: source, developmentValue: "selectedTableKey", comment: nil) }
 
       /// en translation: showCreateAccountPage
       ///
@@ -602,31 +596,25 @@ struct _R {
       /// Locales: en, pl, it, nl, da
       var signOutSegue: RswiftResources.StringResource { .init(key: "signOutSegue", tableName: "Localizable", source: source, developmentValue: "signOutSegue", comment: nil) }
 
-<<<<<<< HEAD
       /// en translation: suggestedLanguageKey
       ///
       /// Key: suggestedLanguageKey
       ///
       /// Locales: en, pl, it, nl, da
       var suggestedLanguageKey: RswiftResources.StringResource { .init(key: "suggestedLanguageKey", tableName: "Localizable", source: source, developmentValue: "suggestedLanguageKey", comment: nil) }
-=======
+
       /// en translation: themeKey
       ///
       /// Key: themeKey
       ///
       /// Locales: en, pl
       var themeKey: RswiftResources.StringResource { .init(key: "themeKey", tableName: "Localizable", source: source, developmentValue: "themeKey", comment: nil) }
->>>>>>> origin/main
 
       /// en translation: ISUSERLOGGEDIN
       ///
       /// Key: userStatus
       ///
-<<<<<<< HEAD
       /// Locales: en, pl, it, nl, da
-=======
-      /// Locales: en, pl
->>>>>>> origin/main
       var userStatus: RswiftResources.StringResource { .init(key: "userStatus", tableName: "Localizable", source: source, developmentValue: "ISUSERLOGGEDIN", comment: nil) }
     }
 
@@ -799,11 +787,7 @@ struct _R {
       ///
       /// Key: DxA-jq-WEX.normalTitle
       ///
-<<<<<<< HEAD
       /// Locales: pl, en, it, nl, da
-=======
-      /// Locales: pl, en
->>>>>>> origin/main
       var dxAJqWEXNormalTitle: RswiftResources.StringResource { .init(key: "DxA-jq-WEX.normalTitle", tableName: "Main", source: source, developmentValue: "Sign In", comment: nil) }
 
       /// en translation: English(UK)
@@ -1104,11 +1088,7 @@ struct _R {
       ///
       /// Key: lKX-4B-Ero.normalTitle
       ///
-<<<<<<< HEAD
       /// Locales: pl, en, it, nl, da
-=======
-      /// Locales: pl, en
->>>>>>> origin/main
       var lKX4BEroNormalTitle: RswiftResources.StringResource { .init(key: "lKX-4B-Ero.normalTitle", tableName: "Main", source: source, developmentValue: "Sign Up", comment: nil) }
 
       /// en translation: From

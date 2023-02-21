@@ -26,11 +26,8 @@
 		C110A06C2949AE5D0066535D /* iOSDropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C110A06B2949AE5D0066535D /* iOSDropDown.framework */; };
 		C1CB93A0297AB5130077CBA9 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CB939F297AB5130077CBA9 /* R.generated.swift */; };
 		C1CB93A3297AC4730077CBA9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C1CB93A5297AC4730077CBA9 /* Localizable.strings */; };
-<<<<<<< HEAD
 		C1EBE57329963DDB007D291B /* ToolbarPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EBE57229963DDB007D291B /* ToolbarPickerView.swift */; };
-=======
 		C1EBE575299CB224007D291B /* AppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EBE574299CB224007D291B /* AppHelper.swift */; };
->>>>>>> origin/main
 		C1FA944D29640B4700D072C3 /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FA944C29640B4700D072C3 /* Field.swift */; };
 		C1FA944F296440EE00D072C3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FA944E296440EE00D072C3 /* SettingsViewController.swift */; };
 		C1FA9451296808DB00D072C3 /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FA9450296808DA00D072C3 /* LanguageViewController.swift */; };
@@ -66,7 +63,6 @@
 		C1CB93A7297FE16F0077CBA9 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C1CB93A8297FE16F0077CBA9 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C1CB93AC297FF5040077CBA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
-<<<<<<< HEAD
 		C1CB93CF2987EB990077CBA9 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Main.strings; sourceTree = "<group>"; };
 		C1CB93D02987EB990077CBA9 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C1CB93D12987EB990077CBA9 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -77,9 +73,7 @@
 		C1EBE56E2989220B007D291B /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C1EBE56F2989220C007D291B /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C1EBE57229963DDB007D291B /* ToolbarPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarPickerView.swift; sourceTree = "<group>"; };
-=======
 		C1EBE574299CB224007D291B /* AppHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppHelper.swift; sourceTree = "<group>"; };
->>>>>>> origin/main
 		C1FA944C29640B4700D072C3 /* Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
 		C1FA944E296440EE00D072C3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C1FA9450296808DA00D072C3 /* LanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };

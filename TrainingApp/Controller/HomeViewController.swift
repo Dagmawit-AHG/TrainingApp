@@ -13,6 +13,7 @@ final class HomeViewController: UIViewController {
     
     // MARK: - Properties
     
+    private var viewModel = HomeViewModel()
     private let userDefaults = UserDefaults.standard
     
     @IBOutlet private var fromTextFieldRound: UITextField!
@@ -26,6 +27,8 @@ final class HomeViewController: UIViewController {
     @IBOutlet private var departureTextField: UITextField!
     @IBOutlet private var returnTextField: UITextField!
     @IBOutlet private var departureTextFieldOne: UITextField!
+    @IBOutlet private var searchFlightButton: UIButton!
+    @IBOutlet private var spinner: UIActivityIndicatorView!
     
     private var citiesArray = [UITextField]()
     private let pickerView = ToolbarPickerView()
@@ -123,6 +126,17 @@ final class HomeViewController: UIViewController {
         performSegue(withIdentifier: R.string.localizable.showSettingsPage(), sender: self)
     }
     
+    @IBAction func searchFlightClicked(_ sender: UIButton) {
+        activateSpinner()
+        RunLoop.current.run(until: NSDate(timeIntervalSinceNow: 5) as Date)
+        spinner.stopAnimating()
+        spinner.isHidden = true
+        
+        let alert = UIAlertController(title: R.string.localizable.success(), message: "Flight Info", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: R.string.localizable.oK(), style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == R.string.localizable.showSettingsPage() {
             guard let destinationVC = segue.destination as? SettingsViewController else { return }
@@ -145,6 +159,7 @@ final class HomeViewController: UIViewController {
     private func configureUI() {
         optionsSegment?.addUnderlineForSelectedSegment()
         optionsSegment?.setFontSize()
+        spinner.isHidden = true
     }
     
     private func textFieldSetup() {
@@ -164,6 +179,26 @@ final class HomeViewController: UIViewController {
         departureTextField.layer.borderWidth = 1
         returnTextField.layer.borderWidth = 1
         departureTextFieldOne.layer.borderWidth = 1
+    }
+    
+    private func configureNotificationObservers() {
+        fromTextFieldRound.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        toTextFieldRound.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        fromTextFieldOne.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        toTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+    }
+    
+    @objc
+    private func textDidChange(sender: UITextField) {
+        if sender == fromTextFieldRound {
+            viewModel.fromTextField = sender.text
+        } else if sender == toTextFieldRound {
+            viewModel.toTextField = sender.text
+        } else if sender == fromTextFieldOne {
+            viewModel.fromTextField = sender.text
+        } else {
+            viewModel.toTextField = sender.text
+        }
     }
     
     private func setupTapGestureForViews() {
@@ -187,6 +222,11 @@ final class HomeViewController: UIViewController {
         pickerView.dataSource = self
         pickerView.toolbarDelegate = self
         pickerView.layer.position = .init(x: 33, y: 102)
+    }
+    
+    private func activateSpinner() {
+        spinner.isHidden = false
+        spinner.startAnimating()
     }
     
     private func dismissPickerView() {
@@ -216,6 +256,14 @@ final class HomeViewController: UIViewController {
 }
 
 // MARK: - Extension
+
+extension HomeViewController: FormViewModel {
+    func updateForm() {
+        searchFlightButton.backgroundColor = viewModel.buttonBackgroundColor
+        searchFlightButton.setTitleColor(viewModel.buttonTitleColor, for: .normal)
+        searchFlightButton.isEnabled = viewModel.formIsValid
+    }
+}
 
 extension HomeViewController: UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

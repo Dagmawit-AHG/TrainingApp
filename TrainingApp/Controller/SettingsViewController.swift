@@ -29,8 +29,6 @@ final class SettingsViewController: UIViewController {
     @IBOutlet private var executiveProgramSwitch: UISwitch!
     @IBOutlet private var discountDealsSwitch: UISwitch!
     
-    let userDefaults = UserDefaults.standard
-    
     let ON_OFF_KEY_THEME = R.string.localizable.onOffKeyTheme()
     let THEME_KEY = R.string.localizable.themeKey()
     let DARK_THEME = R.string.localizable.darkTheme()
@@ -74,33 +72,6 @@ final class SettingsViewController: UIViewController {
             self.darkModeIsOn()
         } else {
             self.darkModeIsOff()
-        }
-    }
-    
-    @IBAction private func flightUpdatesTogglePressed(_ sender: UIButton) {
-        if flightUpdatesToggle.currentImage == R.image.button() {
-            flightUpdatesIsOn()
-        }
-        else {
-            flightUpdatesIsOff()
-        }
-    }
-    
-    @IBAction private func executiveProgramTogglePressed(_ sender: UIButton) {
-        if executiveProgramToggle.currentImage == R.image.button() {
-            executiveProgramIsOn()
-        }
-        else {
-            executiveProgramIsOff()
-        }
-    }
-    
-    @IBAction private func discountDealsTogglePressed(_ sender: UIButton) {
-        if discountDealsToggle.currentImage == R.image.button() {
-            discountIsOn()
-        }
-        else {
-            discountIsOff()
         }
     }
 

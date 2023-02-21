@@ -11,7 +11,7 @@ final class VerificationCodeViewController: UIViewController, UITextFieldDelegat
     
     // MARK: - Properties
     
-    private var viewModel = CodeViewModel()
+    private var viewModel = VerificationCodeViewModel()
     
     @IBOutlet private var backButton: UIImageView!
     @IBOutlet private var firstDigitTextField: UITextField!
