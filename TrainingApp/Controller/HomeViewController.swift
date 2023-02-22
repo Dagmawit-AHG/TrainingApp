@@ -16,6 +16,15 @@ final class HomeViewController: UIViewController {
     private var viewModel = HomeViewModel()
     private let userDefaults = UserDefaults.standard
     
+    @IBOutlet private var helloLabel: UILabel!
+    @IBOutlet private var planLabel: UILabel!
+    @IBOutlet private var fromLabelRound: UILabel!
+    @IBOutlet private var toLabelRound: UILabel!
+    @IBOutlet private var departureLabel: UILabel!
+    @IBOutlet private var returnLabelRound: UILabel!
+    @IBOutlet private var fromLabelOne: UILabel!
+    @IBOutlet private var toLabelOne: UILabel!
+    @IBOutlet private var departureLabelOne: UILabel!
     @IBOutlet private var fromTextFieldRound: UITextField!
     @IBOutlet private var toTextFieldRound: UITextField!
     @IBOutlet private var fromTextFieldOne: UITextField!
@@ -48,6 +57,7 @@ final class HomeViewController: UIViewController {
         checkLanguage()
         configureUI()
         textFieldSetup()
+        configureNotificationObservers()
         setupDelegatesForTextFields()
         setupDelegateForPickerView()
         dismissPickerView()
@@ -157,8 +167,18 @@ final class HomeViewController: UIViewController {
     }
     
     private func configureUI() {
+        helloLabel.labelSetupForHello()
+        planLabel.labelSetupForPlan()
+        fromLabelRound.labelSetupForFrom()
+        fromLabelOne.labelSetupForFrom()
+        toLabelRound.labelSetupForTo()
+        toLabelOne.labelSetupForTo()
+        departureLabel.labelSetupForDeparture()
+        returnLabelRound.labelSetupForReturn()
+        departureLabelOne.labelSetupForDeparture()
         optionsSegment?.addUnderlineForSelectedSegment()
         optionsSegment?.setFontSize()
+        searchFlightButton.buttonSetupForSearchFlight()
         spinner.isHidden = true
     }
     
@@ -182,10 +202,10 @@ final class HomeViewController: UIViewController {
     }
     
     private func configureNotificationObservers() {
-        fromTextFieldRound.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
-        toTextFieldRound.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
-        fromTextFieldOne.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
-        toTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        fromTextFieldRound.addTarget(self, action: #selector(textDidChange), for: .allEvents)
+        toTextFieldRound.addTarget(self, action: #selector(textDidChange), for: .allEvents)
+        fromTextFieldOne.addTarget(self, action: #selector(textDidChange), for: .allEvents)
+        toTextField.addTarget(self, action: #selector(textDidChange), for: .allEvents)
     }
     
     @objc
@@ -199,6 +219,7 @@ final class HomeViewController: UIViewController {
         } else {
             viewModel.toTextField = sender.text
         }
+        updateForm()
     }
     
     private func setupTapGestureForViews() {

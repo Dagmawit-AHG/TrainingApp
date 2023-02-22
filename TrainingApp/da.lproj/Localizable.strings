@@ -6,6 +6,12 @@
   
 */
 
+"Sign In" = "Log ind";
+"Sign Up" = "Tilmelde";
+"Create Account" = "Opret konto";
+"Confirm" = "Bekræfte";
+"Set Password" = "Indstil adgangskode";
+"Forgot password?" = "Glemt kodeord?";
 "Language" = "Sprog";
 "Suggested Languages" = "Foreslåede sprog";
 "English(US)" = "Engelsk(US)";
@@ -60,3 +66,10 @@
 "suggestedLanguageKey" = "suggestedLanguageKey";
 "selectedTableKey" = "selectedTableKey";
 "userStatus" = "ISUSERLOGGEDIN";
+"SearchFlights" = "Søg efter fly";
+"From" = "Fra";
+"To" = "Til";
+"Hello" = "Hej";
+"Plan" = "Planlæg din næste rejse";
+"Departure Date" = "Afgangsdato";
+"Return Date" = "Retur dato";

@@ -7,6 +7,11 @@
 */
 
 "Sign In" = "Aanmelden";
+"Sign Up" = "Tilmelde";
+"Create Account" = "Account aanmaken";
+"Confirm" = "Bevestigen";
+"Set Password" = "Stel een wachtwoord in";
+"Forgot password?" = "Wachtwoord vergeten?";
 "Language" = "Taal";
 "Suggested Languages" = "Voorgestelde talen";
 "English(US)" = "Amerikaans Engels";
@@ -61,3 +66,10 @@
 "suggestedLanguageKey" = "suggestedLanguageKey";
 "selectedTableKey" = "selectedTableKey";
 "userStatus" = "ISUSERLOGGEDIN";
+"SearchFlights" = "Zoek vluchten";
+"From" = "Van";
+"To" = "Naar";
+"Hello" = "Hallo";
+"Plan" = "Plan uw volgende reis";
+"Departure Date" = "Vertrekdatum";
+"Return Date" = "Retourdatum";

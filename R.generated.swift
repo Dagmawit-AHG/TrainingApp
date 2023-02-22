@@ -81,7 +81,7 @@ struct _R {
       let source: RswiftResources.StringResource.Source
     }
 
-    /// This `_R.string.localizable` struct is generated, and contains static references to 76 localization keys.
+    /// This `_R.string.localizable` struct is generated, and contains static references to 87 localization keys.
     struct localizable {
       let source: RswiftResources.StringResource.Source
 
@@ -106,6 +106,13 @@ struct _R {
       /// Locales: en, pl, it, nl, da
       var appWillUse: RswiftResources.StringResource { .init(key: "App will use", tableName: "Localizable", source: source, developmentValue: "App will use the first language that it supports from Language & Region settings. You can select a different language for App to use if you prefer.", comment: nil) }
 
+      /// en translation: Confirm
+      ///
+      /// Key: Confirm
+      ///
+      /// Locales: en, pl, it, nl, da
+      var confirm: RswiftResources.StringResource { .init(key: "Confirm", tableName: "Localizable", source: source, developmentValue: "Confirm", comment: nil) }
+
       /// en translation: Couldn't Sign in
       ///
       /// Key: Couldn'tSignin
@@ -119,6 +126,13 @@ struct _R {
       ///
       /// Locales: en, pl, it, nl, da
       var couldnTSignup: RswiftResources.StringResource { .init(key: "Couldn'tSignup", tableName: "Localizable", source: source, developmentValue: "Couldn't Sign up", comment: nil) }
+
+      /// en translation: Create Account
+      ///
+      /// Key: Create Account
+      ///
+      /// Locales: en, pl, it, nl, da
+      var createAccount: RswiftResources.StringResource { .init(key: "Create Account", tableName: "Localizable", source: source, developmentValue: "Create Account", comment: nil) }
 
       /// en translation: Danish
       ///
@@ -140,6 +154,13 @@ struct _R {
       ///
       /// Locales: en, pl, it, nl, da
       var `default`: RswiftResources.StringResource { .init(key: "Default", tableName: "Localizable", source: source, developmentValue: "Default", comment: nil) }
+
+      /// en translation: Departure date
+      ///
+      /// Key: Departure Date
+      ///
+      /// Locales: en, pl, it, nl, da
+      var departureDate: RswiftResources.StringResource { .init(key: "Departure Date", tableName: "Localizable", source: source, developmentValue: "Departure date", comment: nil) }
 
       /// en translation: Done
       ///
@@ -204,6 +225,13 @@ struct _R {
       /// Locales: en, pl, it, nl, da
       var error: RswiftResources.StringResource { .init(key: "Error", tableName: "Localizable", source: source, developmentValue: "Error", comment: nil) }
 
+      /// en translation: Forgot password?
+      ///
+      /// Key: Forgot password?
+      ///
+      /// Locales: en, pl, it, nl, da
+      var forgotPassword: RswiftResources.StringResource { .init(key: "Forgot password?", tableName: "Localizable", source: source, developmentValue: "Forgot password?", comment: nil) }
+
       /// en translation: Frankfurt
       ///
       /// Key: Frankfurt
@@ -211,12 +239,26 @@ struct _R {
       /// Locales: en, pl, it, nl, da
       var frankfurt: RswiftResources.StringResource { .init(key: "Frankfurt", tableName: "Localizable", source: source, developmentValue: "Frankfurt", comment: nil) }
 
+      /// en translation: From
+      ///
+      /// Key: From
+      ///
+      /// Locales: en, pl, it, nl, da
+      var from: RswiftResources.StringResource { .init(key: "From", tableName: "Localizable", source: source, developmentValue: "From", comment: nil) }
+
       /// en translation: Heathrow
       ///
       /// Key: Heathrow
       ///
       /// Locales: en, pl, it, nl, da
       var heathrow: RswiftResources.StringResource { .init(key: "Heathrow", tableName: "Localizable", source: source, developmentValue: "Heathrow", comment: nil) }
+
+      /// en translation: Hello
+      ///
+      /// Key: Hello
+      ///
+      /// Locales: en, pl, it, nl, da
+      var hello: RswiftResources.StringResource { .init(key: "Hello", tableName: "Localizable", source: source, developmentValue: "Hello", comment: nil) }
 
       /// en translation: HomeViewController
       ///
@@ -288,6 +330,13 @@ struct _R {
       /// Locales: en, pl, it, nl, da
       var otherLanguages: RswiftResources.StringResource { .init(key: "Other Languages", tableName: "Localizable", source: source, developmentValue: "Other Languages", comment: nil) }
 
+      /// en translation: Plan your next travel
+      ///
+      /// Key: Plan
+      ///
+      /// Locales: en, pl, it, nl, da
+      var plan: RswiftResources.StringResource { .init(key: "Plan", tableName: "Localizable", source: source, developmentValue: "Plan your next travel", comment: nil) }
+
       /// en translation: Please try again
       ///
       /// Key: Please try again
@@ -302,18 +351,39 @@ struct _R {
       /// Locales: en, pl, it, nl, da
       var polish: RswiftResources.StringResource { .init(key: "Polish", tableName: "Localizable", source: source, developmentValue: "Polish", comment: nil) }
 
+      /// en translation: Return date
+      ///
+      /// Key: Return Date
+      ///
+      /// Locales: en, pl, it, nl, da
+      var returnDate: RswiftResources.StringResource { .init(key: "Return Date", tableName: "Localizable", source: source, developmentValue: "Return date", comment: nil) }
+
+      /// en translation: Search Flights
+      ///
+      /// Key: SearchFlights
+      ///
+      /// Locales: en, pl, it, nl, da
+      var searchFlights: RswiftResources.StringResource { .init(key: "SearchFlights", tableName: "Localizable", source: source, developmentValue: "Search Flights", comment: nil) }
+
+      /// en translation: Set Password
+      ///
+      /// Key: Set Password
+      ///
+      /// Locales: en, pl, it, nl, da
+      var setPassword: RswiftResources.StringResource { .init(key: "Set Password", tableName: "Localizable", source: source, developmentValue: "Set Password", comment: nil) }
+
       /// en translation: Sign In
       ///
       /// Key: Sign In
       ///
-      /// Locales: en, pl, nl
+      /// Locales: en, pl, it, nl, da
       var signIn: RswiftResources.StringResource { .init(key: "Sign In", tableName: "Localizable", source: source, developmentValue: "Sign In", comment: nil) }
 
       /// en translation: Sign Up
       ///
       /// Key: Sign Up
       ///
-      /// Locales: en
+      /// Locales: en, pl, it, nl, da
       var signUp: RswiftResources.StringResource { .init(key: "Sign Up", tableName: "Localizable", source: source, developmentValue: "Sign Up", comment: nil) }
 
       /// en translation: Success
@@ -329,6 +399,13 @@ struct _R {
       ///
       /// Locales: en, pl, it, nl, da
       var suggestedLanguages: RswiftResources.StringResource { .init(key: "Suggested Languages", tableName: "Localizable", source: source, developmentValue: "Suggested Languages", comment: nil) }
+
+      /// en translation: To
+      ///
+      /// Key: To
+      ///
+      /// Locales: en, pl, it, nl, da
+      var to: RswiftResources.StringResource { .init(key: "To", tableName: "Localizable", source: source, developmentValue: "To", comment: nil) }
 
       /// en translation: Wroclaw
       ///
@@ -1542,6 +1619,7 @@ struct _R {
         if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "moon") == nil { throw RswiftResources.ValidationError("[R.swift] System image named 'moon' is used in storyboard 'Main', but couldn't be loaded.") } }
         if UIKit.UIImage(named: "tabler-icon-message-language", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'tabler-icon-message-language' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIColor(named: "Color", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Color named 'Color' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIColor(named: "EnabledButton", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Color named 'EnabledButton' is used in storyboard 'Main', but couldn't be loaded.") }
         if forgotPasswordViewController() == nil { throw RswiftResources.ValidationError("[R.swift] ViewController with identifier 'forgotPasswordViewController' could not be loaded from storyboard 'Main' as 'ForgotPasswordViewController'.") }
         if homeViewController() == nil { throw RswiftResources.ValidationError("[R.swift] ViewController with identifier 'homeViewController' could not be loaded from storyboard 'Main' as 'HomeViewController'.") }
         if languageViewController() == nil { throw RswiftResources.ValidationError("[R.swift] ViewController with identifier 'languageViewController' could not be loaded from storyboard 'Main' as 'LanguageViewController'.") }

@@ -59,32 +59,87 @@ extension UIButton {
         setAttributedTitle(attributedTitle, for: .normal)
     }
     
+    func buttonSetupForSignIn() {
+        let title = NSAttributedString(string: R.string.localizable.signIn(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
+        self.setAttributedTitle(title, for: .normal)
+        self.layer.cornerRadius = 5
+        self.layer.borderWidth = 1
+        self.layer.borderColor = UIColor(red: 0.56, green: 0.8, blue: 1.0, alpha: 1.0).cgColor
+    }
+    
+    func buttonSetupForSignUp() {
+        let title = NSAttributedString(string: R.string.localizable.signUp(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
+        self.setAttributedTitle(title, for: .normal)
+//        self.layer.cornerRadius = 5
+//        self.layer.borderWidth = 1
+//        self.layer.borderColor = UIColor(red: 0.56, green: 0.8, blue: 1.0, alpha: 1.0).cgColor
+    }
+    
     func buttonSetupForLogin() {
-        let title = NSAttributedString(string: "Sign In", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        let title = NSAttributedString(string: R.string.localizable.signIn(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         self.setAttributedTitle(title, for: .normal)
         self.isEnabled = false
         self.backgroundColor = UIColor(red: 0.0, green: 0.5, blue: 1.0, alpha: 0.5)
     }
     
     func buttonSetupForRegistration() {
-        let title = NSAttributedString(string: "Create Account", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        let title = NSAttributedString(string: R.string.localizable.createAccount(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         self.setAttributedTitle(title, for: .normal)
         self.isEnabled = false
         self.backgroundColor = UIColor(red: 0.0, green: 0.5, blue: 1.0, alpha: 0.5)
     }
     
     func buttonSetupForConfirm() {
-        let title = NSAttributedString(string: "Confirm", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        let title = NSAttributedString(string: R.string.localizable.confirm(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         self.setAttributedTitle(title, for: .normal)
         self.isEnabled = false
         self.backgroundColor = UIColor(red: 0.0, green: 0.5, blue: 1.0, alpha: 0.5)
     }
     
     func buttonSetupForNewPassword() {
-        let title = NSAttributedString(string: "Set Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        let title = NSAttributedString(string: R.string.localizable.setPassword(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         self.setAttributedTitle(title, for: .normal)
         self.isEnabled = false
         self.backgroundColor = UIColor(red: 0.0, green: 0.5, blue: 1.0, alpha: 0.5)
+    }
+    
+    func buttonSetupForSearchFlight() {
+        let title = NSAttributedString(string: R.string.localizable.searchFlights(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        self.setAttributedTitle(title, for: .normal)
+        self.isEnabled = false
+        self.backgroundColor = UIColor(red: 0.0, green: 0.5, blue: 1.0, alpha: 0.5)
+    }
+}
+
+extension UILabel {
+    func labelSetupForHello() {
+        let title = NSAttributedString(string: R.string.localizable.hello(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
+        self.attributedText = title
+    }
+    
+    func labelSetupForPlan() {
+        let title = NSAttributedString(string: R.string.localizable.plan(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
+        self.attributedText = title
+    }
+    
+    func labelSetupForFrom() {
+        let title = NSAttributedString(string: R.string.localizable.from(), attributes: [NSAttributedString.Key.foregroundColor: R.color.color()!])
+        self.attributedText = title
+    }
+    
+    func labelSetupForTo() {
+        let title = NSAttributedString(string: R.string.localizable.to(), attributes: [NSAttributedString.Key.foregroundColor: R.color.color()!])
+        self.attributedText = title
+    }
+    
+    func labelSetupForDeparture() {
+        let title = NSAttributedString(string: R.string.localizable.departureDate(), attributes: [NSAttributedString.Key.foregroundColor: R.color.color()!])
+        self.attributedText = title
+    }
+    
+    func labelSetupForReturn() {
+        let title = NSAttributedString(string: R.string.localizable.returnDate(), attributes: [NSAttributedString.Key.foregroundColor: R.color.color()!])
+        self.attributedText = title
     }
 }
 
@@ -145,8 +200,8 @@ extension UISegmentedControl {
                 self.setBackgroundImage(backgroundImage, for: .selected, barMetrics: .default)
                 self.setBackgroundImage(backgroundImage, for: .highlighted, barMetrics: .default)
 
-                let deviderImage = UIImage.getColoredRectImageWith(color: UIColor.clear.cgColor, andSize: CGSize(width: 1.0, height: self.bounds.size.height))
-                self.setDividerImage(deviderImage, forLeftSegmentState: .selected, rightSegmentState: .normal, barMetrics: .default)
+                let dividerImage = UIImage.getColoredRectImageWith(color: UIColor.clear.cgColor, andSize: CGSize(width: 1.0, height: self.bounds.size.height))
+                self.setDividerImage(dividerImage, forLeftSegmentState: .selected, rightSegmentState: .normal, barMetrics: .default)
         self.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.gray], for: .normal)
         self.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(red: 67 / 255, green: 129 / 255, blue: 244 / 255, alpha: 1.0)], for: .selected)
     }

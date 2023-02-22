@@ -6,6 +6,12 @@
   
 */
 
+"Sign In" = "Registrazione";
+"Sign Up" = "Iscrizione";
+"Create Account" = "Creare un account";
+"Confirm" = "Confermare";
+"Set Password" = "Impostare la password";
+"Forgot password?" = "Ha dimenticato la password?";
 "Language" = "Lingua";
 "Suggested Languages" = "Lingue Suggerite";
 "English(US)" = "Inglese(Stati Uniti)";
@@ -60,3 +66,10 @@
 "suggestedLanguageKey" = "suggestedLanguageKey";
 "selectedTableKey" = "selectedTableKey";
 "userStatus" = "ISUSERLOGGEDIN";
+"SearchFlights" = "Cerca voli";
+"From" = "Da";
+"To" = "A";
+"Hello" = "Ciao";
+"Plan" = "Pianifica il tuo prossimo viaggio";
+"Departure Date" = "Data di partenza";
+"Return Date" = "Data di ritorno";

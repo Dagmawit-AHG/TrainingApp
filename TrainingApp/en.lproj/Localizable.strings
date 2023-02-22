@@ -8,6 +8,10 @@
 
 "Sign In" = "Sign In";
 "Sign Up" = "Sign Up";
+"Create Account" = "Create Account";
+"Confirm" = "Confirm";
+"Set Password" = "Set Password";
+"Forgot password?" = "Forgot password?";
 "Language" = "Language";
 "Suggested Languages" = "Suggested Languages";
 "English(US)" = "English(US)";
@@ -82,3 +86,10 @@
 "discountOn" = "discountOn";
 "discountOff" = "discountOff";
 "userStatus" = "ISUSERLOGGEDIN";
+"SearchFlights" = "Search Flights";
+"From" = "From";
+"To" = "To";
+"Hello" = "Hello";
+"Plan" = "Plan your next travel";
+"Departure Date" = "Departure date";
+"Return Date" = "Return date";

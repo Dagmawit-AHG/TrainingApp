@@ -70,10 +70,10 @@ class StartViewController: UIViewController {
     // MARK: - Helpers
     
     func configureUI() {
-        signInButton.setTitle(R.string.localizable.signIn(), for: .normal)
-        signInButton.layer.cornerRadius = 5
-        signInButton.layer.borderWidth = 1
-        signInButton.layer.borderColor = UIColor(red: 0.56, green: 0.8, blue: 1.0, alpha: 1.0).cgColor
+        signInButton.buttonSetupForSignIn()
+        signUpButton.buttonSetupForSignUp()
+        let signUpTitle = NSAttributedString(string: R.string.localizable.signUp(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        signUpButton.setAttributedTitle(signUpTitle, for: .normal)
         signUpButton.layer.cornerRadius = 5
     }
 }

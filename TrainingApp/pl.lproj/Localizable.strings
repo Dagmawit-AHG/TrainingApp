@@ -6,7 +6,6 @@
   
 */
 
-"Sign In" = "Zalogować Się";
 "Language" = "Język";
 "Suggested Languages" = "Zasugerował Języki";
 "English(US)" = "Angielski(Amerykański)";
@@ -81,3 +80,16 @@
 "discountOn" = "discountOn";
 "discountOff" = "discountOff";
 "userStatus" = "ISUSERLOGGEDIN";
+"Sign In" = "Zalogować Się";
+"Sign Up" = "Zapisać Się";
+"Create Account" = "Utwórz konto";
+"Confirm" = "Potwierdzać";
+"Set Password" = "Ustaw hasło";
+"Forgot password?" = "Zapomniałeś hasła?";
+"SearchFlights" = "Wyszukaj loty";
+"From" = "Z";
+"To" = "Do";
+"Hello" = "Cześć";
+"Plan" = "Zaplanuj kolejną podróż";
+"Departure Date" = "Data odjazdu";
+"Return Date" = "Data powrotu";
