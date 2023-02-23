@@ -28,6 +28,7 @@ final class SettingsViewController: UIViewController {
     @IBOutlet private var flightUpdatesSwitch: UISwitch!
     @IBOutlet private var executiveProgramSwitch: UISwitch!
     @IBOutlet private var discountDealsSwitch: UISwitch!
+    @IBOutlet private var signoutButton: UIButton!
     
     let ON_OFF_KEY_THEME = R.string.localizable.onOffKeyTheme()
     let THEME_KEY = R.string.localizable.themeKey()
@@ -58,6 +59,9 @@ final class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        checkLanguage()
+        configureUI()
         
         setupTapGestureForViews()
         setupSwitchListeners()
@@ -111,6 +115,18 @@ final class SettingsViewController: UIViewController {
     }
     
     // MARK: - Helpers
+    
+    private func checkLanguage() {
+        if let language = userDefaults.string(forKey: "Language") {
+            UserDefaults.standard.set(language, forKey: "Language")
+            Bundle.setLanguage(language)
+        }
+    }
+    
+    private func configureUI() {
+        let signoutTitle = NSAttributedString(string: R.string.localizable.signOut(), attributes: [NSAttributedString.Key.foregroundColor: R.color.borderColorBlue()!])
+        signoutButton.setAttributedTitle(signoutTitle, for: .normal)
+    }
     
     private func setupSwitchListeners() {
         darkModeSwitch.setOnValueChangeListener {

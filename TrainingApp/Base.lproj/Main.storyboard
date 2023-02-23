@@ -1853,6 +1853,7 @@
                         <outlet property="languagesButton" destination="QGY-ph-YcM" id="Cmn-ki-MJW"/>
                         <outlet property="notificationsRectangle" destination="06R-Dq-HZo" id="E94-ua-JBw"/>
                         <outlet property="notificationsSwitch" destination="2My-W3-ZmU" id="iaH-Nc-NdE"/>
+                        <outlet property="signoutButton" destination="oZo-qf-BsD" id="Tff-PR-6cz"/>
                         <segue destination="yz8-FX-B3Q" kind="show" identifier="backToHomepageSegue" destinationCreationSelector="backToHomepageSegue" id="H0T-d5-FXl"/>
                         <segue destination="HwC-xT-RAi" kind="show" identifier="showLanguagesPage" id="IcS-h5-dsW"/>
                     </connections>
@@ -2162,9 +2163,11 @@
                     <navigationItem key="navigationItem" id="zyj-e1-4Um"/>
                     <connections>
                         <outlet property="backButton" destination="Cel-KJ-H38" id="Ol3-BU-1Bc"/>
+                        <outlet property="defaultLabel" destination="cyB-7F-xIK" id="NaD-8O-Dnf"/>
                         <outlet property="englishCheck" destination="vFa-Qy-Zay" id="cjH-C8-o6f"/>
                         <outlet property="englishUKCheck" destination="kG4-Xt-ZD5" id="vkd-i1-7ah"/>
                         <outlet property="englishUKLabel" destination="EL9-Gr-M7P" id="DKz-t4-1bV"/>
+                        <outlet property="englishUKSmallLabel" destination="f2U-rf-ZgW" id="87l-cJ-Cd0"/>
                         <outlet property="englishUSCheck" destination="xLs-wE-fuv" id="3rF-LN-9Jv"/>
                         <outlet property="englishUSLabel" destination="c3D-2h-z4D" id="d4A-vu-oaU"/>
                         <outlet property="languageLabel" destination="FC1-gs-lJ8" id="QV5-i4-dll"/>
@@ -2172,6 +2175,7 @@
                         <outlet property="longTextLabel" destination="Cez-CC-89r" id="EvG-Dj-U9i"/>
                         <outlet property="otherLangLabel" destination="MVv-RN-iOD" id="15Y-0M-7Fn"/>
                         <outlet property="polishLabel" destination="r5O-EX-F8D" id="7mI-5g-R4O"/>
+                        <outlet property="polishSmallLabel" destination="0mw-0B-Mm9" id="Lt4-af-MGf"/>
                         <outlet property="settingsButton" destination="3rQ-uK-Grh" id="fY1-sh-yta"/>
                         <outlet property="suggestedLangLabel" destination="Gyj-g3-oqR" id="tim-Jn-i6q"/>
                         <outlet property="suggestedLanguagesTableView" destination="WWS-gW-Rbb" id="32E-gT-oFz"/>
@@ -2218,8 +2222,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="LKU-gm-OMG"/>
-        <segue reference="lYr-2l-ymr"/>
+        <segue reference="IcS-h5-dsW"/>
+        <segue reference="yuc-sx-u29"/>
+        <segue reference="H0T-d5-FXl"/>
         <segue reference="wze-S2-MUt"/>
         <segue reference="15S-AC-FuK"/>
         <segue reference="2Xq-gO-2dj"/>

@@ -70,9 +70,6 @@ extension UIButton {
     func buttonSetupForSignUp() {
         let title = NSAttributedString(string: R.string.localizable.signUp(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
         self.setAttributedTitle(title, for: .normal)
-//        self.layer.cornerRadius = 5
-//        self.layer.borderWidth = 1
-//        self.layer.borderColor = UIColor(red: 0.56, green: 0.8, blue: 1.0, alpha: 1.0).cgColor
     }
     
     func buttonSetupForLogin() {
@@ -139,6 +136,91 @@ extension UILabel {
     
     func labelSetupForReturn() {
         let title = NSAttributedString(string: R.string.localizable.returnDate(), attributes: [NSAttributedString.Key.foregroundColor: R.color.color()!])
+        self.attributedText = title
+    }
+    
+    func labelSetupForLanguage() {
+        let title = NSAttributedString(string: R.string.localizable.language(), attributes: [NSAttributedString.Key.foregroundColor: R.color.color()!])
+        self.attributedText = title
+    }
+    
+    func labelSetupForSuggested() {
+        let title = NSAttributedString(string: R.string.localizable.suggestedLanguages(), attributes: [NSAttributedString.Key.foregroundColor: R.color.color()!])
+        self.attributedText = title
+    }
+    
+    func labelSetupForEnglishUS() {
+        let title = NSAttributedString(string: R.string.localizable.englishUS(), attributes: [NSAttributedString.Key.foregroundColor: R.color.color()!])
+        self.attributedText = title
+    }
+    
+    func labelSetupForDefault() {
+        let title = NSAttributedString(string: R.string.localizable.default(), attributes: [NSAttributedString.Key.foregroundColor: R.color.color()!])
+        self.attributedText = title
+    }
+    
+    func labelSetupForPolish() {
+        let title = NSAttributedString(string: R.string.localizable.polish(), attributes: [NSAttributedString.Key.foregroundColor: R.color.color()!])
+        self.attributedText = title
+    }
+    
+    func labelSetupForEnglishUK() {
+        let title = NSAttributedString(string: R.string.localizable.englishUK(), attributes: [NSAttributedString.Key.foregroundColor: R.color.color()!])
+        self.attributedText = title
+    }
+    
+    func labelSetupForLongText() {
+        let title = NSAttributedString(string: R.string.localizable.appWillUse(), attributes: [NSAttributedString.Key.foregroundColor: R.color.color()!])
+        self.attributedText = title
+    }
+    
+    func labelSetupForOtherLang() {
+        let title = NSAttributedString(string: R.string.localizable.otherLanguages(), attributes: [NSAttributedString.Key.foregroundColor: R.color.color()!])
+        self.attributedText = title
+    }
+    
+    func labelSetupForDansk() {
+        let title = NSAttributedString(string: R.string.localizable.dansk(), attributes: [NSAttributedString.Key.foregroundColor: R.color.color()!])
+        self.attributedText = title
+    }
+    
+    func labelSetupForDanish() {
+        let title = NSAttributedString(string: R.string.localizable.danish(), attributes: [NSAttributedString.Key.foregroundColor: R.color.color()!])
+        self.attributedText = title
+    }
+    
+    func labelSetupForNetherlands() {
+        let title = NSAttributedString(string: R.string.localizable.netherlands(), attributes: [NSAttributedString.Key.foregroundColor: R.color.color()!])
+        self.attributedText = title
+    }
+    
+    func labelSetupForDutch() {
+        let title = NSAttributedString(string: R.string.localizable.dutch(), attributes: [NSAttributedString.Key.foregroundColor: R.color.color()!])
+        self.attributedText = title
+    }
+    
+    func labelSetupForEnglishCanada() {
+        let title = NSAttributedString(string: R.string.localizable.englishCanada(), attributes: [NSAttributedString.Key.foregroundColor: R.color.color()!])
+        self.attributedText = title
+    }
+    
+    func labelSetupForEnglishAustralia() {
+        let title = NSAttributedString(string: R.string.localizable.englishAustralia(), attributes: [NSAttributedString.Key.foregroundColor: R.color.color()!])
+        self.attributedText = title
+    }
+    
+    func labelSetupForEnglishUnitedStates() {
+        let title = NSAttributedString(string: R.string.localizable.englishUnitedStates(), attributes: [NSAttributedString.Key.foregroundColor: R.color.color()!])
+        self.attributedText = title
+    }
+    
+    func labelSetupForEnglishItaly() {
+        let title = NSAttributedString(string: R.string.localizable.italy(), attributes: [NSAttributedString.Key.foregroundColor: R.color.color()!])
+        self.attributedText = title
+    }
+    
+    func labelSetupForItalian() {
+        let title = NSAttributedString(string: R.string.localizable.italian(), attributes: [NSAttributedString.Key.foregroundColor: R.color.color()!])
         self.attributedText = title
     }
 }

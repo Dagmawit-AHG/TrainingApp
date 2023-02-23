@@ -12,12 +12,14 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
     // MARK: - Properties
 
     var languages: KeyValuePairs = [
-        R.string.localizable.dansk(): R.string.localizable.danish(),
-        R.string.localizable.netherlands(): R.string.localizable.dutch(),
-        R.string.localizable.englishCanada(): R.string.localizable.englishCanada(),
-        R.string.localizable.englishAustralia(): R.string.localizable.englishAustralia(),
-        R.string.localizable.englishUnitedStates(): R.string.localizable.englishUnitedStates(),
-        R.string.localizable.italy(): R.string.localizable.italian()]
+        NSAttributedString(string: R.string.localizable.dansk()) : NSAttributedString(string: R.string.localizable.danish()),
+        NSAttributedString(string: R.string.localizable.netherlands()) : NSAttributedString(string: R.string.localizable.dutch()),
+        NSAttributedString(string: R.string.localizable.englishCanada()) : NSAttributedString(string: R.string.localizable.englishCanada()),
+        NSAttributedString(string: R.string.localizable.englishAustralia()) : NSAttributedString(string: R.string.localizable.englishAustralia()),
+        NSAttributedString(string: R.string.localizable.englishUnitedStates()) : NSAttributedString(string: R.string.localizable.englishUnitedStates()),
+        NSAttributedString(string: R.string.localizable.italy()) : NSAttributedString(string: R.string.localizable.italian())]
+    
+    var lang: KeyValuePairs = [R.string.localizable.netherlands() : R.string.localizable.dutch()]
 
     var suggestedLanguages: [String: String] =          [R.string.localizable.englishUS(): R.string.localizable.default(),
         R.string.localizable.polish(): R.string.localizable.polish(),
@@ -28,8 +30,11 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet private var settingsButton: UIImageView!
     @IBOutlet private var suggestedLangLabel: UILabel!
     @IBOutlet private var englishUSLabel: UILabel!
+    @IBOutlet private var defaultLabel: UILabel!
     @IBOutlet private var polishLabel: UILabel!
+    @IBOutlet private var polishSmallLabel: UILabel!
     @IBOutlet private var englishUKLabel: UILabel!
+    @IBOutlet private var englishUKSmallLabel: UILabel!
     @IBOutlet private var englishUSCheck: UIImageView!
     @IBOutlet private var englishCheck: UIImageView!
     @IBOutlet private var englishUKCheck: UIImageView!
@@ -49,10 +54,19 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupTapGestureForViews()
+        checkLanguage()
+        configureUI()
+        
         languagesTableView.dataSource = self
         languagesTableView.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        setupTapGestureForViews()
+        checkLanguage()
+        checkLabels()
         configureUI()
     }
     
@@ -74,6 +88,8 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        checkLanguage()
+        
         var cell: UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: R.string.localizable.languageCell(), for: indexPath)
         cell = UITableViewCell(style: .subtitle, reuseIdentifier: R.string.localizable.languageCell())
         let checkmark = userDefaults.integer(forKey: LAST_SELECTION_KEY)
@@ -96,10 +112,13 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
         if indexPath.row > languages.count - 1 {
             return UITableViewCell()
         }
-        cell?.textLabel?.text = languages[indexPath.row].key
-        cell?.detailTextLabel?.text = languages[indexPath.row].value
-        cell?.textLabel?.font.withSize(18.0)
         
+        let label = (languages[indexPath.row].key).string
+        let detail = (languages[indexPath.row].value).string
+//        cell?.textLabel?.attributedText = label
+        cell?.textLabel?.text = label
+        cell?.detailTextLabel?.text = detail
+        cell?.textLabel?.font.withSize(18.0)
         return cell!
     }
 
@@ -112,6 +131,7 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
                 userDefaults.set("OtherLanguages", forKey: SELECTED_TABLE_KEY)
             }
         }
+        
         let currentCell = tableView.cellForRow(at: indexPath)
         let language = currentCell?.textLabel?.text
         
@@ -123,6 +143,13 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     // MARK: - Helpers
+    
+    private func checkLanguage() {
+        if let language = userDefaults.string(forKey: "Language") {
+            UserDefaults.standard.set(language, forKey: "Language")
+            Bundle.setLanguage(language)
+        }
+    }
     
     private func setupTapGestureForViews() {
         let backTapGesture = UITapGestureRecognizer(target: self, action: #selector(LanguageViewController.backImageTapped(gesture:)))
@@ -145,9 +172,11 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
         englishUKLabel.addGestureRecognizer(englishUKTapGesture)
         englishUKLabel.isUserInteractionEnabled = true
     }
-    
+
     private func configureUI() {
+        checkLanguage()
         languagesTableView.backgroundColor = R.color.tableView_background()
+        
         if let selectedTable = userDefaults.string(forKey: SELECTED_TABLE_KEY) {
             if selectedTable == "SuggestedLanguages" {
                 let suggestedLanguage = userDefaults.integer(forKey: SUGGESTED_LANGUAGE_KEY)
@@ -155,9 +184,22 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
             }
             else {
                 let selectedLanguage = userDefaults.integer(forKey: LAST_SELECTION_KEY)
-                checkLanguage(language: languages[selectedLanguage].key)
+                checkLanguage(language: (languages[selectedLanguage].key).string)
             }
         }
+    }
+    
+    private func checkLabels() {
+        languageLabel.labelSetupForLanguage()
+        suggestedLangLabel.labelSetupForSuggested()
+        englishUSLabel.labelSetupForEnglishUS()
+        polishLabel.labelSetupForPolish()
+        englishUKLabel.labelSetupForEnglishUK()
+        longTextLabel.labelSetupForLongText()
+        otherLangLabel.labelSetupForOtherLang()
+        defaultLabel.labelSetupForDefault()
+        polishSmallLabel.labelSetupForPolish()
+        englishUKSmallLabel.labelSetupForEnglishUK()
     }
     
     private func checkSuggestedLanguage(index: Int) {
@@ -168,18 +210,21 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
             englishUSCheck.isHidden = false
             englishCheck.isHidden = true
             englishUKCheck.isHidden = true
+            checkLabels()
         case 1:
             Bundle.setLanguage("pl")
             UserDefaults.standard.set("pl", forKey: "Language")
             englishUSCheck.isHidden = true
             englishCheck.isHidden = false
             englishUKCheck.isHidden = true
+            checkLabels()
         case 2:
             Bundle.setLanguage("en")
             UserDefaults.standard.set("en", forKey: "Language")
             englishUSCheck.isHidden = true
             englishCheck.isHidden = true
             englishUKCheck.isHidden = false
+            checkLabels()
         default:
             Bundle.setLanguage("en")
             UserDefaults.standard.set("en", forKey: "Language")
@@ -190,29 +235,35 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     private func checkLanguage(language: String) {
-        
         switch language {
             case R.string.localizable.dansk():
                 Bundle.setLanguage("da")
                 UserDefaults.standard.set("da", forKey: "Language")
+                checkLabels()
             case R.string.localizable.netherlands():
                 Bundle.setLanguage("nl")
                 UserDefaults.standard.set("nl", forKey: "Language")
+                checkLabels()
             case R.string.localizable.englishCanada():
                 Bundle.setLanguage("en")
                 UserDefaults.standard.set("en", forKey: "Language")
+                checkLabels()
             case R.string.localizable.englishAustralia():
                 Bundle.setLanguage("en")
                 UserDefaults.standard.set("en", forKey: "Language")
+                checkLabels()
             case R.string.localizable.englishUnitedStates():
                 Bundle.setLanguage("en")
                 UserDefaults.standard.set("en", forKey: "Language")
+                checkLabels()
             case R.string.localizable.italy():
                 Bundle.setLanguage("it")
                 UserDefaults.standard.set("it", forKey: "Language")
+                checkLabels()
             default:
                 Bundle.setLanguage("en")
                 UserDefaults.standard.set("en", forKey: "Language")
+                checkLabels()
         }
     }
     
@@ -241,6 +292,7 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
             userDefaults.set("SuggestedLanguages", forKey: SELECTED_TABLE_KEY)
             userDefaults.set(0, forKey: SUGGESTED_LANGUAGE_KEY)
             userDefaults.set(nil, forKey: LAST_SELECTION_KEY)
+            checkLabels()
         }
     }
     
@@ -255,6 +307,7 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
             userDefaults.set("SuggestedLanguages", forKey: SELECTED_TABLE_KEY)
             userDefaults.set(1, forKey: SUGGESTED_LANGUAGE_KEY)
             userDefaults.set(nil, forKey: LAST_SELECTION_KEY)
+            checkLabels()
         }
     }
     
@@ -269,6 +322,7 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
             userDefaults.set("SuggestedLanguages", forKey: SELECTED_TABLE_KEY)
             userDefaults.set(2, forKey: SUGGESTED_LANGUAGE_KEY)
             userDefaults.set(nil, forKey: LAST_SELECTION_KEY)
+            checkLabels()
         }
     }
 }

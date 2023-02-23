@@ -21,21 +21,14 @@ class StartViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationController?.navigationBar.isHidden = false
+        checkLanguage()
         configureUI()
-        
-        if let language = userDefaults.string(forKey: "Language") {
-            Bundle.setLanguage(language)
-            UserDefaults.standard.set(language, forKey: "Language")
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if let language = userDefaults.string(forKey: "Language") {
-            Bundle.setLanguage(language)
-            UserDefaults.standard.set(language, forKey: "Language")
-        }
+        checkLanguage()
     }
     
     // MARK: - Actions
@@ -68,8 +61,14 @@ class StartViewController: UIViewController {
     }
     
     // MARK: - Helpers
+    private func checkLanguage() {
+        if let language = userDefaults.string(forKey: "Language") {
+            Bundle.setLanguage(language)
+            UserDefaults.standard.set(language, forKey: "Language")
+        }
+    }
     
-    func configureUI() {
+    private func configureUI() {
         signInButton.buttonSetupForSignIn()
         signUpButton.buttonSetupForSignUp()
         let signUpTitle = NSAttributedString(string: R.string.localizable.signUp(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
