@@ -5,10 +5,10 @@
 //  Created by Dagmawit Alemayehu on 12/12/2022.
 //
 
+import FirebaseAuthInterop
 import FirebaseAuth
 import Firebase
 import FirebaseFirestore
-import FirebaseAuthInterop
 import UIKit
 
 struct AuthCredentials {

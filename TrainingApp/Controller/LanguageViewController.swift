@@ -11,11 +11,14 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
     
     // MARK: - Properties
     
-    var languages: KeyValuePairs = [NSAttributedString(string: R.string.localizable.empty()) : NSAttributedString(string: R.string.localizable.empty())]
+    var languages: KeyValuePairs = [
+        NSAttributedString(string: R.string.localizable.empty()): NSAttributedString(string: R.string.localizable.empty())
+    ]
     
-    var suggestedLanguages: [String: String] =          [R.string.localizable.englishUS(): R.string.localizable.default(),
+    var suggestedLanguages: [String: String] = [ R.string.localizable.englishUS(): R.string.localizable.default(),
         R.string.localizable.polish(): R.string.localizable.polish(),
-        R.string.localizable.englishUK(): R.string.localizable.englishUK()]
+        R.string.localizable.englishUK(): R.string.localizable.englishUK()
+    ]
     
     @IBOutlet private var backButton: UIImageView!
     @IBOutlet private var languageLabel: UILabel!
@@ -151,12 +154,12 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
         checkLanguage()
         
         languages = [
-            NSAttributedString(string: R.string.localizable.dansk()) : NSAttributedString(string: R.string.localizable.danish()),
-            NSAttributedString(string: R.string.localizable.netherlands()) : NSAttributedString(string: R.string.localizable.dutch()),
-            NSAttributedString(string: R.string.localizable.englishCanada()) : NSAttributedString(string: R.string.localizable.englishCanada()),
-            NSAttributedString(string: R.string.localizable.englishAustralia()) : NSAttributedString(string: R.string.localizable.englishAustralia()),
-            NSAttributedString(string: R.string.localizable.englishUnitedStates()) : NSAttributedString(string: R.string.localizable.englishUnitedStates()),
-            NSAttributedString(string: R.string.localizable.italy()) : NSAttributedString(string: R.string.localizable.italian())]
+            NSAttributedString(string: R.string.localizable.dansk()): NSAttributedString(string: R.string.localizable.danish()),
+            NSAttributedString(string: R.string.localizable.netherlands()): NSAttributedString(string: R.string.localizable.dutch()),
+            NSAttributedString(string: R.string.localizable.englishCanada()): NSAttributedString(string: R.string.localizable.englishCanada()),
+            NSAttributedString(string: R.string.localizable.englishAustralia()): NSAttributedString(string: R.string.localizable.englishAustralia()),
+            NSAttributedString(string: R.string.localizable.englishUnitedStates()): NSAttributedString(string: R.string.localizable.englishUnitedStates()),
+            NSAttributedString(string: R.string.localizable.italy()): NSAttributedString(string: R.string.localizable.italian())]
     }
     
     private func setupTapGestureForViews() {
@@ -246,48 +249,48 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
     
     private func checkLanguage(language: String) {
         switch language {
-            case R.string.localizable.dansk():
-                Bundle.setLanguage("da")
-                UserDefaults.standard.set("da", forKey: "Language")
-                checkLabels()
-                initializeArray()
-                languagesTableView.reloadData()
-            case R.string.localizable.netherlands():
-                Bundle.setLanguage("nl")
-                UserDefaults.standard.set("nl", forKey: "Language")
-                checkLabels()
-                initializeArray()
-                languagesTableView.reloadData()
-            case R.string.localizable.englishCanada():
-                Bundle.setLanguage("en")
-                UserDefaults.standard.set("en", forKey: "Language")
-                checkLabels()
-                initializeArray()
-                languagesTableView.reloadData()
-            case R.string.localizable.englishAustralia():
-                Bundle.setLanguage("en")
-                UserDefaults.standard.set("en", forKey: "Language")
-                checkLabels()
-                initializeArray()
-                languagesTableView.reloadData()
-            case R.string.localizable.englishUnitedStates():
-                Bundle.setLanguage("en")
-                UserDefaults.standard.set("en", forKey: "Language")
-                checkLabels()
-                initializeArray()
-                languagesTableView.reloadData()
-            case R.string.localizable.italy():
-                Bundle.setLanguage("it")
-                UserDefaults.standard.set("it", forKey: "Language")
-                checkLabels()
-                initializeArray()
-                languagesTableView.reloadData()
-            default:
-                Bundle.setLanguage("en")
-                UserDefaults.standard.set("en", forKey: "Language")
-                checkLabels()
-                initializeArray()
-                languagesTableView.reloadData()
+        case R.string.localizable.dansk():
+            Bundle.setLanguage("da")
+            UserDefaults.standard.set("da", forKey: "Language")
+            checkLabels()
+            initializeArray()
+            languagesTableView.reloadData()
+        case R.string.localizable.netherlands():
+            Bundle.setLanguage("nl")
+            UserDefaults.standard.set("nl", forKey: "Language")
+            checkLabels()
+            initializeArray()
+            languagesTableView.reloadData()
+        case R.string.localizable.englishCanada():
+            Bundle.setLanguage("en")
+            UserDefaults.standard.set("en", forKey: "Language")
+            checkLabels()
+            initializeArray()
+            languagesTableView.reloadData()
+        case R.string.localizable.englishAustralia():
+            Bundle.setLanguage("en")
+            UserDefaults.standard.set("en", forKey: "Language")
+            checkLabels()
+            initializeArray()
+            languagesTableView.reloadData()
+        case R.string.localizable.englishUnitedStates():
+            Bundle.setLanguage("en")
+            UserDefaults.standard.set("en", forKey: "Language")
+            checkLabels()
+            initializeArray()
+            languagesTableView.reloadData()
+        case R.string.localizable.italy():
+            Bundle.setLanguage("it")
+            UserDefaults.standard.set("it", forKey: "Language")
+            checkLabels()
+            initializeArray()
+            languagesTableView.reloadData()
+        default:
+            Bundle.setLanguage("en")
+            UserDefaults.standard.set("en", forKey: "Language")
+            checkLabels()
+            initializeArray()
+            languagesTableView.reloadData()
         }
     }
     

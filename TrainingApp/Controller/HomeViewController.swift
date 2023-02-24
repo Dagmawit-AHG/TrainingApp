@@ -93,7 +93,7 @@ final class HomeViewController: UIViewController {
                     print("Something went wrong")
                     return
                 }
-                //Have data
+                
                 var result: [Field]?
                 do {
                     result = try JSONDecoder().decode([Field].self, from: data)
@@ -332,6 +332,4 @@ extension HomeViewController: ToolbarPickerViewDelegate {
     func didTapCancel() {
         self.view.endEditing(true)
     }
-    
-    
 }

@@ -46,7 +46,6 @@ final class ForgotPasswordViewController: UIViewController {
             
             self?.delegate?.viewControllerDidSendResetPasswordLink(self)
             
-            
             let alert = UIAlertController(title: R.string.localizable.success(), message: R.string.localizable.aResetEmailHasBeenSentTo() + (self?.emailTextField.text ?? R.string.localizable.email()), preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: R.string.localizable.oK(), style: UIAlertAction.Style.default, handler: nil))
             self?.present(alert, animated: true, completion: nil)

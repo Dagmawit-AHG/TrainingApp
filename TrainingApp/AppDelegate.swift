@@ -32,7 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .dark
             }
         }
-        
         }
         
         return true

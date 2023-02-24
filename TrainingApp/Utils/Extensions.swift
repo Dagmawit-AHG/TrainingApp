@@ -322,8 +322,8 @@ extension UISegmentedControl {
         }
 }
 extension UISwitch {
-    func setOnValueChangeListener(onValueChanged :@escaping () -> Void) {
-        self.addAction(UIAction(){ action in
+    func setOnValueChangeListener(onValueChanged: @escaping () -> Void) {
+        self.addAction(UIAction() { action in
             onValueChanged()
         }, for: .valueChanged)
     }
