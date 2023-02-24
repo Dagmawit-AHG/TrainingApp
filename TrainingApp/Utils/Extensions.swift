@@ -150,22 +150,22 @@ extension UILabel {
     }
     
     func labelSetupForEnglishUS() {
-        let title = NSAttributedString(string: R.string.localizable.englishUS(), attributes: [NSAttributedString.Key.foregroundColor: R.color.color()!])
+        let title = NSAttributedString(string: R.string.localizable.englishUS(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
         self.attributedText = title
     }
     
     func labelSetupForDefault() {
-        let title = NSAttributedString(string: R.string.localizable.default(), attributes: [NSAttributedString.Key.foregroundColor: R.color.color()!])
+        let title = NSAttributedString(string: R.string.localizable.default(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
         self.attributedText = title
     }
     
     func labelSetupForPolish() {
-        let title = NSAttributedString(string: R.string.localizable.polish(), attributes: [NSAttributedString.Key.foregroundColor: R.color.color()!])
+        let title = NSAttributedString(string: R.string.localizable.polish(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
         self.attributedText = title
     }
     
     func labelSetupForEnglishUK() {
-        let title = NSAttributedString(string: R.string.localizable.englishUK(), attributes: [NSAttributedString.Key.foregroundColor: R.color.color()!])
+        let title = NSAttributedString(string: R.string.localizable.englishUK(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
         self.attributedText = title
     }
     

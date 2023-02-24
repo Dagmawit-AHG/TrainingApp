@@ -46,7 +46,7 @@ final class HomeViewController: UIViewController {
     
     private var cities: [String] = []
     
-    private let url = "https://autocomplete.travelpayouts.com/places2?locale=en&term=v#"
+    private let url = "https://autocomplete.travelpayouts.com/places2?locale=en&term=a#"
     
     // MARK: - Lifecycle
     
@@ -178,6 +178,13 @@ final class HomeViewController: UIViewController {
         departureLabelOne.labelSetupForDeparture()
         optionsSegment?.addUnderlineForSelectedSegment()
         optionsSegment?.setFontSize()
+        
+        let roundTitle = NSAttributedString(string: R.string.localizable.roundTrip(), attributes: [NSAttributedString.Key.foregroundColor: R.color.color()!])
+        let onewayTitle = NSAttributedString(string: R.string.localizable.oneWay(), attributes: [NSAttributedString.Key.foregroundColor: R.color.color()!])
+        
+        optionsSegment.setTitle(roundTitle.string, forSegmentAt: 0)
+        optionsSegment.setTitle(onewayTitle.string, forSegmentAt: 1)
+        
         searchFlightButton.buttonSetupForSearchFlight()
         spinner.isHidden = true
     }
