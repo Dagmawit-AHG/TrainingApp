@@ -40,11 +40,11 @@ final class VerificationCodeViewController: UIViewController, UITextFieldDelegat
     // MARK: - Actions
     
     @IBAction private func confirmPressed(_ sender: UIButton) {
-        let verificationCode = viewModel.firstDigit! +
-                                viewModel.secondDigit! +
-                                viewModel.thirdDigit! +
-                                viewModel.fourthDigit! +
-                                viewModel.fifthDigit!
+        let verificationCode = viewModel.firstDigit! + viewModel.secondDigit! + viewModel.thirdDigit! + viewModel.fourthDigit! + viewModel.fifthDigit!
+        
+        let alert = UIAlertController(title: R.string.localizable.success(), message: verificationCode, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: R.string.localizable.oK(), style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

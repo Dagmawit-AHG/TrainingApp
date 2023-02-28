@@ -135,8 +135,7 @@ final class SettingsViewController: UIViewController {
             if self.darkModeSwitch.isOn {
                 self.userDefaults.set(true, forKey: self.ON_OFF_KEY_THEME)
                 self.userDefaults.set(self.DARK_THEME, forKey: self.THEME_KEY)
-            }
-            else {
+            } else {
                 self.userDefaults.set(false, forKey: self.ON_OFF_KEY_THEME)
                 self.userDefaults.set(self.LIGHT_THEME, forKey: self.THEME_KEY)
             }
@@ -147,8 +146,7 @@ final class SettingsViewController: UIViewController {
             if self.notificationsSwitch.isOn {
                 self.userDefaults.set(true, forKey: self.ON_OFF_KEY_NOTIFICATION)
                 self.userDefaults.set(self.NOTIFICATION_ON, forKey: self.NOTIFICATION_KEY)
-            }
-            else {
+            } else {
                 self.userDefaults.set(false, forKey: self.ON_OFF_KEY_NOTIFICATION)
                 self.userDefaults.set(self.NOTIFICATION_OFF, forKey: self.NOTIFICATION_KEY)
             }
@@ -159,8 +157,7 @@ final class SettingsViewController: UIViewController {
             if self.flightUpdatesSwitch.isOn {
                 self.userDefaults.set(true, forKey: self.ON_OFF_KEY_FLIGHT)
                 self.userDefaults.set(self.FLIGHT_ON, forKey: self.FLIGHT_KEY)
-            }
-            else {
+            } else {
                 self.userDefaults.set(false, forKey: self.ON_OFF_KEY_FLIGHT)
                 self.userDefaults.set(self.FLIGHT_OFF, forKey: self.FLIGHT_KEY)
             }
@@ -170,8 +167,7 @@ final class SettingsViewController: UIViewController {
             if self.executiveProgramSwitch.isOn {
                 self.userDefaults.set(true, forKey: self.ON_OFF_KEY_EXECUTIVE)
                 self.userDefaults.set(self.EXECUTIVE_ON, forKey: self.EXECUTIVE_KEY)
-            }
-            else {
+            } else {
                 self.userDefaults.set(false, forKey: self.ON_OFF_KEY_EXECUTIVE)
                 self.userDefaults.set(self.EXECUTIVE_OFF, forKey: self.EXECUTIVE_KEY)
             }
@@ -181,8 +177,7 @@ final class SettingsViewController: UIViewController {
             if self.discountDealsSwitch.isOn {
                 self.userDefaults.set(true, forKey: self.ON_OFF_KEY_DISCOUNT)
                 self.userDefaults.set(self.DISCOUNT_ON, forKey: self.DISCOUNT_KEY)
-            }
-            else {
+            } else {
                 self.userDefaults.set(false, forKey: self.ON_OFF_KEY_DISCOUNT)
                 self.userDefaults.set(self.DISCOUNT_OFF, forKey: self.DISCOUNT_KEY)
             }

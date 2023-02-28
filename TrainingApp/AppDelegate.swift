@@ -26,12 +26,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Bundle.setLanguage(language)
             
             if let THEME_KEY = UserDefaults.standard.object(forKey: R.string.localizable.themeKey()) as? String {
-            if THEME_KEY == R.string.localizable.lightTheme() {
-                UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .light
-            } else if THEME_KEY == R.string.localizable.darkTheme() {
+                if THEME_KEY == R.string.localizable.lightTheme() {
+                    UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .light
+                } else if THEME_KEY == R.string.localizable.darkTheme() {
                 UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .dark
+                }
             }
-        }
         }
         
         return true

@@ -323,7 +323,7 @@ extension UISegmentedControl {
 }
 extension UISwitch {
     func setOnValueChangeListener(onValueChanged: @escaping () -> Void) {
-        self.addAction(UIAction() { action in
+        self.addAction(UIAction { _ in
             onValueChanged()
         }, for: .valueChanged)
     }
@@ -454,7 +454,7 @@ class PrivateBundle: Bundle {
 extension UITableView {
     func deselectAllRows(animated: Bool) {
         guard let selectedRows = indexPathsForSelectedRows else { return }
-        print(selectedRows)
+        
         for indexPath in selectedRows {
             deselectRow(at: indexPath, animated: animated)
         }

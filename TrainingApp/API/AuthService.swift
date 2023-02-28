@@ -5,9 +5,9 @@
 //  Created by Dagmawit Alemayehu on 12/12/2022.
 //
 
-import FirebaseAuthInterop
-import FirebaseAuth
 import Firebase
+import FirebaseAuth
+import FirebaseAuthInterop
 import FirebaseFirestore
 import UIKit
 

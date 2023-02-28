@@ -69,8 +69,6 @@ final class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        checkLanguage()
     }
     
     // MARK: - API
@@ -87,30 +85,23 @@ final class HomeViewController: UIViewController {
     }
     
     private func getData(from url: String) {
-            let task = URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: { data, response, error in
+        let task = URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: { data, _, error in
                 
-                guard let data = data, error == nil else {
-                    print("Something went wrong")
-                    return
-                }
+                guard let data = data, error == nil else { return }
                 
                 var result: [Field]?
                 do {
                     result = try JSONDecoder().decode([Field].self, from: data)
-                    print(result!)
                 }
                 catch {
                     print(String(describing: error))
                 }
                 
-                guard let json = result else {
-                    return
-                }
+                guard let json = result else { return }
                 
                 for i in json {
-                    self.cities.append(i.name)
+                    self.cities.append(i.code + " : " + i.name)
                 }
-                print(self.cities)
             })
             task.resume()
         }
@@ -142,7 +133,7 @@ final class HomeViewController: UIViewController {
         spinner.stopAnimating()
         spinner.isHidden = true
         
-        let alert = UIAlertController(title: R.string.localizable.success(), message: "Flight Info", preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title: R.string.localizable.success(), message: "Success", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: R.string.localizable.oK(), style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
@@ -217,14 +208,18 @@ final class HomeViewController: UIViewController {
     
     @objc
     private func textDidChange(sender: UITextField) {
-        if sender == fromTextFieldRound {
+        switch sender {
+        case fromTextFieldRound:
             viewModel.fromTextField = sender.text
-        } else if sender == toTextFieldRound {
+        case toTextFieldRound:
             viewModel.toTextField = sender.text
-        } else if sender == fromTextFieldOne {
+        case fromTextFieldOne:
             viewModel.fromTextField = sender.text
-        } else {
+        case toTextField:
             viewModel.toTextField = sender.text
+        default:
+            viewModel.fromTextField = R.string.localizable.empty()
+            viewModel.toTextField = R.string.localizable.empty()
         }
         updateForm()
     }

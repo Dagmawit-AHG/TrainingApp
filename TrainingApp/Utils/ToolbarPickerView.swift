@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol ToolbarPickerViewDelegate: class {
+protocol ToolbarPickerViewDelegate: AnyObject {
     func didTapDone()
     func didTapCancel()
 }
@@ -19,11 +19,13 @@ class ToolbarPickerView: UIPickerView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         self.commonInit()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
         self.commonInit()
     }
     
@@ -44,11 +46,13 @@ class ToolbarPickerView: UIPickerView {
         self.toolbar = toolBar
         }
     
-    @objc func doneTapped() {
+    @objc
+    private func doneTapped() {
             self.toolbarDelegate?.didTapDone()
         }
 
-        @objc func cancelTapped() {
+    @objc
+    private func cancelTapped() {
             self.toolbarDelegate?.didTapCancel()
         }
 }
