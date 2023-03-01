@@ -60,7 +60,6 @@ final class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        checkLanguage()
         configureUI()
         
         setupTapGestureForViews()
@@ -126,6 +125,7 @@ final class SettingsViewController: UIViewController {
     }
     
     private func configureUI() {
+        checkLanguage()
         let signoutTitle = NSAttributedString(string: R.string.localizable.signOut(), attributes: [NSAttributedString.Key.foregroundColor: R.color.borderColorBlue()!])
         signoutButton.setAttributedTitle(signoutTitle, for: .normal)
     }

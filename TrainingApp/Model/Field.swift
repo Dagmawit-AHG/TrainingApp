@@ -5,8 +5,6 @@
 //  Created by Dagmawit Alemayehu on 03/01/2023.
 //
 
-import Foundation
-
 struct Field: Codable {
     var id: String
     var type: String

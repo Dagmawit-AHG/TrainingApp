@@ -50,7 +50,6 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
         super.viewDidLoad()
         
         setupTapGestureForViews()
-        checkLanguage()
         configureUI()
         
         languagesTableView.dataSource = self
@@ -60,8 +59,6 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        checkLanguage()
-        checkLabels()
         configureUI()
     }
     
@@ -150,7 +147,6 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     private func initializeArray() {
-        
         checkLanguage()
         
         languages = [
@@ -185,8 +181,8 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
     }
 
     private func configureUI() {
-        
         checkLanguage()
+        checkLabels()
         initializeArray()
         languagesTableView.backgroundColor = R.color.tableView_background()
         

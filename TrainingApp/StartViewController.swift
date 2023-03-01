@@ -21,7 +21,6 @@ class StartViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationController?.navigationBar.isHidden = false
-        checkLanguage()
         configureUI()
     }
     
@@ -67,6 +66,7 @@ class StartViewController: UIViewController {
     }
     
     private func configureUI() {
+        checkLanguage()
         signInButton.buttonSetupForSignIn()
         signUpButton.buttonSetupForSignUp()
         let signUpTitle = NSAttributedString(string: R.string.localizable.signUp(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])

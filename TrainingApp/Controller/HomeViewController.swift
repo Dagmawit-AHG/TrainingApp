@@ -43,6 +43,8 @@ final class HomeViewController: UIViewController {
     private let pickerView = ToolbarPickerView()
     
     private var selectedCity: String?
+    private var originAirportCode = ""
+    private var destinationAirportCode = ""
     
     private var cities: [String] = []
     
@@ -54,7 +56,6 @@ final class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         self.hideKeyboard()
-        checkLanguage()
         configureUI()
         textFieldSetup()
         configureNotificationObservers()
@@ -105,6 +106,21 @@ final class HomeViewController: UIViewController {
             })
             task.resume()
         }
+    
+    private func searchFlights(from url: String) {
+        let url = URL(string: url)
+        let token = "3PG3AfG91GK9FUwbkhQpIhIXzh2L"
+        var request = URLRequest(url: url!)
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.httpMethod = "GET"
+        
+        URLSession.shared.dataTask(with: request) { (data, response , error) in
+            guard let data = data else { return }
+            print(String(data: data, encoding: .utf8) ?? "Invalid JSON")
+        }.resume()
+    }
     
     // MARK: - Actions
     
@@ -158,6 +174,7 @@ final class HomeViewController: UIViewController {
     }
     
     private func configureUI() {
+        checkLanguage()
         helloLabel.labelSetupForHello()
         planLabel.labelSetupForPlan()
         fromLabelRound.labelSetupForFrom()
