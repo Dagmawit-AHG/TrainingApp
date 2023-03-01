@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         var rootVC = UIViewController()
         if UserDefaults.standard.bool(forKey: R.string.localizable.userStatus()) {
-            rootVC = storyboard.instantiateViewController(withIdentifier: "LanguageViewController")
+            rootVC = storyboard.instantiateViewController(withIdentifier: "HomeViewController")
         } else {
             rootVC = storyboard.instantiateViewController(withIdentifier: "StartViewController")
         }

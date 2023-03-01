@@ -108,9 +108,10 @@ final class HomeViewController: UIViewController {
         }
     
     private func searchFlights(from url: String) {
-        let url = URL(string: url)
+        guard let url = URL(string: url) else { return }
+        
         let token = "3PG3AfG91GK9FUwbkhQpIhIXzh2L"
-        var request = URLRequest(url: url!)
+        var request = URLRequest(url: url)
         request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
@@ -238,6 +239,9 @@ final class HomeViewController: UIViewController {
             viewModel.fromTextField = R.string.localizable.empty()
             viewModel.toTextField = R.string.localizable.empty()
         }
+        let from = viewModel.fromTextField ?? R.string.localizable.empty()
+        let to = viewModel.toTextField ?? R.string.localizable.empty()
+        
         updateForm()
     }
     
