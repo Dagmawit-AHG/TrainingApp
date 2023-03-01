@@ -12,6 +12,8 @@ final class SettingsViewController: UIViewController {
     
     // MARK: - Properties
     
+    private let userDefaults = UserDefaults.standard
+    
     @IBOutlet private var backButton: UIImageView!
     @IBOutlet private var languagesButton: UIImageView!
     @IBOutlet private var darkModeSwitch: UISwitch!
@@ -26,8 +28,7 @@ final class SettingsViewController: UIViewController {
     @IBOutlet private var flightUpdatesSwitch: UISwitch!
     @IBOutlet private var executiveProgramSwitch: UISwitch!
     @IBOutlet private var discountDealsSwitch: UISwitch!
-    
-    let userDefaults = UserDefaults.standard
+    @IBOutlet private var signoutButton: UIButton!
     
     let ON_OFF_KEY_THEME = R.string.localizable.onOffKeyTheme()
     let THEME_KEY = R.string.localizable.themeKey()
@@ -59,6 +60,8 @@ final class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureUI()
+        
         setupTapGestureForViews()
         setupSwitchListeners()
         checkThemeSwitchState()
@@ -68,13 +71,15 @@ final class SettingsViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         if self.darkModeSwitch.isOn {
             self.darkModeIsOn()
         } else {
             self.darkModeIsOff()
         }
     }
-    
+
     // MARK: - Actions
     
     @IBAction private func signOutPressed(_ sender: UIButton) {
@@ -112,13 +117,25 @@ final class SettingsViewController: UIViewController {
     
     // MARK: - Helpers
     
+    private func checkLanguage() {
+        if let language = userDefaults.string(forKey: "Language") {
+            UserDefaults.standard.set(language, forKey: "Language")
+            Bundle.setLanguage(language)
+        }
+    }
+    
+    private func configureUI() {
+        checkLanguage()
+        let signoutTitle = NSAttributedString(string: R.string.localizable.signOut(), attributes: [NSAttributedString.Key.foregroundColor: R.color.borderColorBlue()!])
+        signoutButton.setAttributedTitle(signoutTitle, for: .normal)
+    }
+    
     private func setupSwitchListeners() {
         darkModeSwitch.setOnValueChangeListener {
             if self.darkModeSwitch.isOn {
                 self.userDefaults.set(true, forKey: self.ON_OFF_KEY_THEME)
                 self.userDefaults.set(self.DARK_THEME, forKey: self.THEME_KEY)
-            }
-            else {
+            } else {
                 self.userDefaults.set(false, forKey: self.ON_OFF_KEY_THEME)
                 self.userDefaults.set(self.LIGHT_THEME, forKey: self.THEME_KEY)
             }
@@ -129,8 +146,7 @@ final class SettingsViewController: UIViewController {
             if self.notificationsSwitch.isOn {
                 self.userDefaults.set(true, forKey: self.ON_OFF_KEY_NOTIFICATION)
                 self.userDefaults.set(self.NOTIFICATION_ON, forKey: self.NOTIFICATION_KEY)
-            }
-            else {
+            } else {
                 self.userDefaults.set(false, forKey: self.ON_OFF_KEY_NOTIFICATION)
                 self.userDefaults.set(self.NOTIFICATION_OFF, forKey: self.NOTIFICATION_KEY)
             }
@@ -141,8 +157,7 @@ final class SettingsViewController: UIViewController {
             if self.flightUpdatesSwitch.isOn {
                 self.userDefaults.set(true, forKey: self.ON_OFF_KEY_FLIGHT)
                 self.userDefaults.set(self.FLIGHT_ON, forKey: self.FLIGHT_KEY)
-            }
-            else {
+            } else {
                 self.userDefaults.set(false, forKey: self.ON_OFF_KEY_FLIGHT)
                 self.userDefaults.set(self.FLIGHT_OFF, forKey: self.FLIGHT_KEY)
             }
@@ -152,8 +167,7 @@ final class SettingsViewController: UIViewController {
             if self.executiveProgramSwitch.isOn {
                 self.userDefaults.set(true, forKey: self.ON_OFF_KEY_EXECUTIVE)
                 self.userDefaults.set(self.EXECUTIVE_ON, forKey: self.EXECUTIVE_KEY)
-            }
-            else {
+            } else {
                 self.userDefaults.set(false, forKey: self.ON_OFF_KEY_EXECUTIVE)
                 self.userDefaults.set(self.EXECUTIVE_OFF, forKey: self.EXECUTIVE_KEY)
             }
@@ -163,8 +177,7 @@ final class SettingsViewController: UIViewController {
             if self.discountDealsSwitch.isOn {
                 self.userDefaults.set(true, forKey: self.ON_OFF_KEY_DISCOUNT)
                 self.userDefaults.set(self.DISCOUNT_ON, forKey: self.DISCOUNT_KEY)
-            }
-            else {
+            } else {
                 self.userDefaults.set(false, forKey: self.ON_OFF_KEY_DISCOUNT)
                 self.userDefaults.set(self.DISCOUNT_OFF, forKey: self.DISCOUNT_KEY)
             }
@@ -172,7 +185,7 @@ final class SettingsViewController: UIViewController {
     }
     
     private func checkThemeSwitchState() {
-        if(userDefaults.bool(forKey: ON_OFF_KEY_THEME)) {
+        if userDefaults.bool(forKey: ON_OFF_KEY_THEME) {
             darkModeSwitch.setOn(true, animated: false)
             self.userDefaults.set(self.DARK_THEME, forKey: self.THEME_KEY)
         } else {
@@ -182,7 +195,7 @@ final class SettingsViewController: UIViewController {
     }
     
     private func checkNotificationSwitchState() {
-        if(userDefaults.bool(forKey: ON_OFF_KEY_NOTIFICATION)) {
+        if userDefaults.bool(forKey: ON_OFF_KEY_NOTIFICATION) {
             notificationsSwitch.setOn(true, animated: false)
             self.userDefaults.set(self.NOTIFICATION_ON, forKey: self.NOTIFICATION_KEY)
             checkFlightSwitchState()
@@ -198,7 +211,7 @@ final class SettingsViewController: UIViewController {
     }
     
     private func checkFlightSwitchState() {
-        if(userDefaults.bool(forKey: ON_OFF_KEY_FLIGHT)) {
+        if userDefaults.bool(forKey: ON_OFF_KEY_FLIGHT) {
             flightUpdatesSwitch.setOn(true, animated: false)
             self.userDefaults.set(self.FLIGHT_ON, forKey: self.FLIGHT_KEY)
         } else {
@@ -208,7 +221,7 @@ final class SettingsViewController: UIViewController {
     }
     
     private func checkExecutiveSwitchState() {
-        if(userDefaults.bool(forKey: ON_OFF_KEY_EXECUTIVE)) {
+        if userDefaults.bool(forKey: ON_OFF_KEY_EXECUTIVE) {
             executiveProgramSwitch.setOn(true, animated: false)
             self.userDefaults.set(self.EXECUTIVE_ON, forKey: EXECUTIVE_KEY)
         } else {
@@ -218,7 +231,7 @@ final class SettingsViewController: UIViewController {
     }
     
     private func checkDiscountSwitchState() {
-        if(userDefaults.bool(forKey: ON_OFF_KEY_DISCOUNT)) {
+        if userDefaults.bool(forKey: ON_OFF_KEY_DISCOUNT) {
             discountDealsSwitch.setOn(true, animated: false)
             self.userDefaults.set(self.DISCOUNT_ON, forKey: DISCOUNT_KEY)
         } else {
@@ -229,18 +242,18 @@ final class SettingsViewController: UIViewController {
     
     private func updateTheme() {
         let theme = userDefaults.string(forKey: THEME_KEY)
-        if (theme == LIGHT_THEME) {
+        if theme == LIGHT_THEME {
             darkModeIsOff()
-        } else if (theme == DARK_THEME) {
+        } else if theme == DARK_THEME {
             darkModeIsOn()
         }
     }
     
     private func updateNotifications() {
         let notifications = userDefaults.string(forKey: NOTIFICATION_KEY)
-        if (notifications == NOTIFICATION_ON) {
+        if notifications == NOTIFICATION_ON {
             notificationIsOn()
-        } else if (notifications == NOTIFICATION_OFF) {
+        } else if notifications == NOTIFICATION_OFF {
             notificationIsOff()
         }
     }
@@ -257,7 +270,7 @@ final class SettingsViewController: UIViewController {
     
     @objc
     private func backImageTapped(gesture: UIGestureRecognizer) {
-        if(gesture.view as? UIImageView) != nil {
+        if (gesture.view as? UIImageView) != nil {
             performSegue(withIdentifier: R.string.localizable.backToHomepageSegue(), sender: self)
         }
     }
@@ -303,5 +316,4 @@ final class SettingsViewController: UIViewController {
         discountDealsSwitch.isHidden = isHidden
         bigRectangle.isHidden = isHidden
     }
-    
 }

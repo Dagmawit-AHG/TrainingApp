@@ -11,24 +11,25 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
     
     // MARK: - Properties
     
-    var suggestedLanguages: [String: String] =          [R.string.localizable.englishUS(): R.string.localizable.default(),
-        R.string.localizable.polish(): R.string.localizable.polish(),
-        R.string.localizable.englishUK(): R.string.localizable.englishUK()]
+    var languages: KeyValuePairs = [
+        NSAttributedString(string: R.string.localizable.empty()): NSAttributedString(string: R.string.localizable.empty())
+    ]
     
-    var languages: [String: String] = [R.string.localizable.dansk(): R.string.localizable.danish(),
-                                       R.string.localizable.netherlands(): R.string.localizable.dutch(),
-                                       R.string.localizable.englishCanada(): R.string.localizable.englishCanada(),
-                                       R.string.localizable.englishAustralia(): R.string.localizable.englishAustralia(),
-                                       R.string.localizable.englishUnitedStates(): R.string.localizable.englishUnitedStates(),
-                                       R.string.localizable.italy(): R.string.localizable.italian()]
+    var suggestedLanguages: [String: String] = [ R.string.localizable.englishUS(): R.string.localizable.default(),
+        R.string.localizable.polish(): R.string.localizable.polish(),
+        R.string.localizable.englishUK(): R.string.localizable.englishUK()
+    ]
     
     @IBOutlet private var backButton: UIImageView!
     @IBOutlet private var languageLabel: UILabel!
     @IBOutlet private var settingsButton: UIImageView!
     @IBOutlet private var suggestedLangLabel: UILabel!
     @IBOutlet private var englishUSLabel: UILabel!
+    @IBOutlet private var defaultLabel: UILabel!
     @IBOutlet private var polishLabel: UILabel!
+    @IBOutlet private var polishSmallLabel: UILabel!
     @IBOutlet private var englishUKLabel: UILabel!
+    @IBOutlet private var englishUKSmallLabel: UILabel!
     @IBOutlet private var englishUSCheck: UIImageView!
     @IBOutlet private var englishCheck: UIImageView!
     @IBOutlet private var englishUKCheck: UIImageView!
@@ -37,15 +38,28 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet private var suggestedLanguagesTableView: UITableView!
     @IBOutlet private var languagesTableView: UITableView!
     
+    let userDefaults = UserDefaults.standard
+    
+    private let SUGGESTED_LANGUAGE_KEY = R.string.localizable.suggestedLanguageKey()
+    private let SELECTED_TABLE_KEY = "selectedTableKey"
+    private let LAST_SELECTION_KEY = R.string.localizable.lastSelection()
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupTapGestureForViews()
+        configureUI()
+        
         languagesTableView.dataSource = self
         languagesTableView.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        setupTapGestureForViews()
+        configureUI()
     }
     
     // MARK: - Actions
@@ -61,40 +75,90 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            languagesTableView.backgroundView = UIImageView(image: R.image.rectangle_all())
-            return languages.count
+        languagesTableView.backgroundColor = R.color.tableView_background()
+        return languages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        checkLanguage()
+        
+        var cell: UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: R.string.localizable.languageCell(), for: indexPath)
+        cell = UITableViewCell(style: .subtitle, reuseIdentifier: R.string.localizable.languageCell())
+        let checkmark = userDefaults.integer(forKey: LAST_SELECTION_KEY)
+        let selectedTableKey = userDefaults.string(forKey: SELECTED_TABLE_KEY)
+        
+        if selectedTableKey == "OtherLanguages" {
+            if checkmark == indexPath.row {
+                cell?.accessoryType = .checkmark
+            }
+            else {
+                cell?.accessoryType = .none
+            }
+            englishUSCheck.isHidden = true
+            englishCheck.isHidden = true
+            englishUKCheck.isHidden = true
+        }
+        else {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
         if indexPath.row > languages.count - 1 {
             return UITableViewCell()
         }
-        else {
-            var cell = UITableViewCell()
-                languagesTableView.backgroundView = UIImageView(image: R.image.rectangle_all())
-                cell = tableView.dequeueReusableCell(withIdentifier: R.string.localizable.languageCell(), for: indexPath)
-                cell.textLabel?.text = Array(languages.keys)[indexPath.row]
-                cell.textLabel?.font.withSize(18.0)
-            return cell
-        }
+        
+        let label = (languages[indexPath.row].key).string
+        let detail = (languages[indexPath.row].value).string
+        
+        cell?.textLabel?.text = label
+        cell?.detailTextLabel?.text = detail
+        cell?.textLabel?.font.withSize(18.0)
+        return cell!
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            for row in 0..<tableView.numberOfRows(inSection: indexPath.section) {
-                if let cell = tableView.cellForRow(at: IndexPath(row: row, section: indexPath.section)) {
-                    cell.accessoryType = row == indexPath.row ? .checkmark : .none
-                }
+        for row in 0..<tableView.numberOfRows(inSection: indexPath.section) {
+            if let cell = tableView.cellForRow(at: IndexPath(row: row, section: indexPath.section)) {
+                cell.accessoryType = row == indexPath.row ? .checkmark : .none
+                userDefaults.set(indexPath.row, forKey: LAST_SELECTION_KEY)
+                userDefaults.set(nil, forKey: SUGGESTED_LANGUAGE_KEY)
+                userDefaults.set("OtherLanguages", forKey: SELECTED_TABLE_KEY)
             }
-            tableView.deselectRow(at: indexPath, animated: true)
+        }
+        
+        let currentCell = tableView.cellForRow(at: indexPath)
+        let language = currentCell?.textLabel?.text
+        
+        checkLanguage(language: language!)
+        initializeArray()
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        englishUSCheck.isHidden = true
+        englishCheck.isHidden = true
+        englishUKCheck.isHidden = true
     }
     
     // MARK: - Helpers
     
-    private func setupTapGestureForViews() {
-        languagesTableView.backgroundColor = UIColor(red: 139, green: 201, blue: 255, alpha: 0.2)
-        languagesTableView.backgroundView = UIImageView(image: R.image.rectangle_all())
+    private func checkLanguage() {
+        if let language = userDefaults.string(forKey: "Language") {
+            UserDefaults.standard.set(language, forKey: "Language")
+            Bundle.setLanguage(language)
+        }
+    }
+    
+    private func initializeArray() {
+        checkLanguage()
         
+        languages = [
+            NSAttributedString(string: R.string.localizable.dansk()): NSAttributedString(string: R.string.localizable.danish()),
+            NSAttributedString(string: R.string.localizable.netherlands()): NSAttributedString(string: R.string.localizable.dutch()),
+            NSAttributedString(string: R.string.localizable.englishCanada()): NSAttributedString(string: R.string.localizable.englishCanada()),
+            NSAttributedString(string: R.string.localizable.englishAustralia()): NSAttributedString(string: R.string.localizable.englishAustralia()),
+            NSAttributedString(string: R.string.localizable.englishUnitedStates()): NSAttributedString(string: R.string.localizable.englishUnitedStates()),
+            NSAttributedString(string: R.string.localizable.italy()): NSAttributedString(string: R.string.localizable.italian())]
+    }
+    
+    private func setupTapGestureForViews() {
         let backTapGesture = UITapGestureRecognizer(target: self, action: #selector(LanguageViewController.backImageTapped(gesture:)))
         backButton.addGestureRecognizer(backTapGesture)
         backButton.isUserInteractionEnabled = true
@@ -114,6 +178,116 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
         let englishUKTapGesture = UITapGestureRecognizer(target: self, action: #selector(LanguageViewController.englishUKTapped(gesture:)))
         englishUKLabel.addGestureRecognizer(englishUKTapGesture)
         englishUKLabel.isUserInteractionEnabled = true
+    }
+
+    private func configureUI() {
+        checkLanguage()
+        checkLabels()
+        initializeArray()
+        languagesTableView.backgroundColor = R.color.tableView_background()
+        
+        if let selectedTable = userDefaults.string(forKey: SELECTED_TABLE_KEY) {
+            if selectedTable == "SuggestedLanguages" {
+                let suggestedLanguage = userDefaults.integer(forKey: SUGGESTED_LANGUAGE_KEY)
+                checkSuggestedLanguage(index: suggestedLanguage)
+            }
+            else {
+                let selectedLanguage = userDefaults.integer(forKey: LAST_SELECTION_KEY)
+                checkLanguage(language: (languages[selectedLanguage].key).string)
+            }
+        }
+    }
+    
+    private func checkLabels() {
+        languageLabel.labelSetupForLanguage()
+        suggestedLangLabel.labelSetupForSuggested()
+        englishUSLabel.labelSetupForEnglishUS()
+        polishLabel.labelSetupForPolish()
+        englishUKLabel.labelSetupForEnglishUK()
+        longTextLabel.labelSetupForLongText()
+        otherLangLabel.labelSetupForOtherLang()
+        defaultLabel.labelSetupForDefault()
+        polishSmallLabel.labelSetupForPolish()
+        englishUKSmallLabel.labelSetupForEnglishUK()
+    }
+    
+    private func checkSuggestedLanguage(index: Int) {
+        switch index {
+        case 0:
+            Bundle.setLanguage("en")
+            UserDefaults.standard.set("en", forKey: "Language")
+            englishUSCheck.isHidden = false
+            englishCheck.isHidden = true
+            englishUKCheck.isHidden = true
+            checkLabels()
+        case 1:
+            Bundle.setLanguage("pl")
+            UserDefaults.standard.set("pl", forKey: "Language")
+            englishUSCheck.isHidden = true
+            englishCheck.isHidden = false
+            englishUKCheck.isHidden = true
+            checkLabels()
+        case 2:
+            Bundle.setLanguage("en")
+            UserDefaults.standard.set("en", forKey: "Language")
+            englishUSCheck.isHidden = true
+            englishCheck.isHidden = true
+            englishUKCheck.isHidden = false
+            checkLabels()
+        default:
+            Bundle.setLanguage("en")
+            UserDefaults.standard.set("en", forKey: "Language")
+            englishUSCheck.isHidden = true
+            englishCheck.isHidden = true
+            englishUKCheck.isHidden = true
+        }
+    }
+    
+    private func checkLanguage(language: String) {
+        switch language {
+        case R.string.localizable.dansk():
+            Bundle.setLanguage("da")
+            UserDefaults.standard.set("da", forKey: "Language")
+            checkLabels()
+            initializeArray()
+            languagesTableView.reloadData()
+        case R.string.localizable.netherlands():
+            Bundle.setLanguage("nl")
+            UserDefaults.standard.set("nl", forKey: "Language")
+            checkLabels()
+            initializeArray()
+            languagesTableView.reloadData()
+        case R.string.localizable.englishCanada():
+            Bundle.setLanguage("en")
+            UserDefaults.standard.set("en", forKey: "Language")
+            checkLabels()
+            initializeArray()
+            languagesTableView.reloadData()
+        case R.string.localizable.englishAustralia():
+            Bundle.setLanguage("en")
+            UserDefaults.standard.set("en", forKey: "Language")
+            checkLabels()
+            initializeArray()
+            languagesTableView.reloadData()
+        case R.string.localizable.englishUnitedStates():
+            Bundle.setLanguage("en")
+            UserDefaults.standard.set("en", forKey: "Language")
+            checkLabels()
+            initializeArray()
+            languagesTableView.reloadData()
+        case R.string.localizable.italy():
+            Bundle.setLanguage("it")
+            UserDefaults.standard.set("it", forKey: "Language")
+            checkLabels()
+            initializeArray()
+            languagesTableView.reloadData()
+        default:
+            Bundle.setLanguage("en")
+            UserDefaults.standard.set("en", forKey: "Language")
+            checkLabels()
+            initializeArray()
+            languagesTableView.reloadData()
+        }
     }
     
     @objc
@@ -137,14 +311,13 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
             englishCheck.isHidden = true
             englishUKCheck.isHidden = true
             Bundle.setLanguage("en")
-            UserDefaults.standard.set("en",forKey: "Language")
-            languageLabel.text = R.string.localizable.language().localizableString("en")
-            suggestedLangLabel.text = R.string.localizable.suggestedLanguages().localizableString("en")
-            englishUSLabel.text = R.string.localizable.englishUS().localizableString("en")
-            polishLabel.text = R.string.localizable.polish().localizableString("en")
-            englishUKLabel.text = R.string.localizable.englishUK().localizableString("en")
-            longTextLabel.text = R.string.localizable.appWillUse().localizableString("en")
-            otherLangLabel.text = R.string.localizable.otherLanguages().localizableString("en")
+            UserDefaults.standard.set("en", forKey: "Language")
+            userDefaults.set("SuggestedLanguages", forKey: SELECTED_TABLE_KEY)
+            userDefaults.set(0, forKey: SUGGESTED_LANGUAGE_KEY)
+            userDefaults.set(nil, forKey: LAST_SELECTION_KEY)
+            checkLabels()
+            initializeArray()
+            languagesTableView.reloadData()
         }
     }
     
@@ -155,14 +328,13 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
             englishCheck.isHidden = false
             englishUKCheck.isHidden = true
             Bundle.setLanguage("pl")
-            UserDefaults.standard.set("pl",forKey: "Language")
-            languageLabel.text = R.string.localizable.language().localizableString("pl")
-            suggestedLangLabel.text = R.string.localizable.suggestedLanguages().localizableString("pl")
-            englishUSLabel.text = R.string.localizable.englishUS().localizableString("pl")
-            polishLabel.text = R.string.localizable.polish().localizableString("pl")
-            englishUKLabel.text = R.string.localizable.englishUK().localizableString("pl")
-            longTextLabel.text = R.string.localizable.appWillUse().localizableString("pl")
-            otherLangLabel.text = R.string.localizable.otherLanguages().localizableString("pl")
+            UserDefaults.standard.set("pl", forKey: "Language")
+            userDefaults.set("SuggestedLanguages", forKey: SELECTED_TABLE_KEY)
+            userDefaults.set(1, forKey: SUGGESTED_LANGUAGE_KEY)
+            userDefaults.set(nil, forKey: LAST_SELECTION_KEY)
+            checkLabels()
+            initializeArray()
+            languagesTableView.reloadData()
         }
     }
     
@@ -173,14 +345,13 @@ final class LanguageViewController: UIViewController, UITableViewDataSource, UIT
             englishCheck.isHidden = true
             englishUKCheck.isHidden = false
             Bundle.setLanguage("en")
-            UserDefaults.standard.set("en",forKey: "Language")
-            languageLabel.text = R.string.localizable.language().localizableString("en")
-            suggestedLangLabel.text = R.string.localizable.suggestedLanguages().localizableString("en")
-            englishUSLabel.text = R.string.localizable.englishUS().localizableString("en")
-            polishLabel.text = R.string.localizable.polish().localizableString("en")
-            englishUKLabel.text = R.string.localizable.englishUK().localizableString("en")
-            longTextLabel.text = R.string.localizable.appWillUse().localizableString("en")
-            otherLangLabel.text = R.string.localizable.otherLanguages().localizableString("en")
+            UserDefaults.standard.set("en", forKey: "Language")
+            userDefaults.set("SuggestedLanguages", forKey: SELECTED_TABLE_KEY)
+            userDefaults.set(2, forKey: SUGGESTED_LANGUAGE_KEY)
+            userDefaults.set(nil, forKey: LAST_SELECTION_KEY)
+            checkLabels()
+            initializeArray()
+            languagesTableView.reloadData()
         }
     }
 }

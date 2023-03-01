@@ -6,6 +6,12 @@
   
 */
 
+"Sign In" = "Sign In";
+"Sign Up" = "Sign Up";
+"Create Account" = "Create Account";
+"Confirm" = "Confirm";
+"Set Password" = "Set Password";
+"Forgot password?" = "Forgot password?";
 "Language" = "Language";
 "Suggested Languages" = "Suggested Languages";
 "English(US)" = "English(US)";
@@ -53,9 +59,12 @@
 "Frankfurt" = "Frankfurt";
 "Addis Ababa" = "Addis Ababa";
 "Heathrow" = "Heathrow";
-"Wroclow" = "Wroclow";
+"Wroclaw" = "Wroclaw";
 "Hong Kong" = "Hong Kong";
 "New Delhi" = "New Delhi";
+"lastSelection" = "lastSelection";
+"suggestedLanguageKey" = "suggestedLanguageKey";
+"selectedTableKey" = "selectedTableKey";
 "onOffKeyTheme" = "onOffKeyTheme";
 "themeKey" = "themeKey";
 "darkTheme" = "darkTheme";
@@ -77,3 +86,13 @@
 "discountOn" = "discountOn";
 "discountOff" = "discountOff";
 "userStatus" = "ISUSERLOGGEDIN";
+"SearchFlights" = "Search Flights";
+"From" = "From";
+"To" = "To";
+"Hello" = "Hello";
+"Plan" = "Plan your next travel";
+"Departure Date" = "Departure date";
+"Return Date" = "Return date";
+"Sign out" = "Sign out";
+"Round Trip" = "Round Trip";
+"One Way" = "One Way";

@@ -19,21 +19,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         RunLoop.current.run(until: NSDate(timeIntervalSinceNow: 5) as Date)
         
-        if let THEME_KEY = UserDefaults.standard.object(forKey: R.string.localizable.themeKey()) as? String {
-            if THEME_KEY == R.string.localizable.lightTheme() {
-                UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .light
-            }
-            else if THEME_KEY == R.string.localizable.darkTheme() {
+        let userDefaults = UserDefaults.standard
+        
+        if let language = userDefaults.string(forKey: "Language") {
+            UserDefaults.standard.set(language, forKey: "Language")
+            Bundle.setLanguage(language)
+            
+            if let THEME_KEY = UserDefaults.standard.object(forKey: R.string.localizable.themeKey()) as? String {
+                if THEME_KEY == R.string.localizable.lightTheme() {
+                    UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .light
+                } else if THEME_KEY == R.string.localizable.darkTheme() {
                 UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .dark
+                }
             }
         }
         
-        if UserDefaults.standard.object(forKey: "Language") != nil && UserDefaults.standard.object(forKey: "Language") as! String == "pl" {
-            UserDefaults.standard.set("pl",forKey: "Language")
-        }
-        else {
-            UserDefaults.standard.set("en", forKey: "Language")
-        }
         return true
     }
 

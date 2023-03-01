@@ -1,0 +1,78 @@
+/* 
+  Localizable.strings
+  TrainingApp
+
+  Created by Dagmawit Alemayehu on 20/01/2023.
+  
+*/
+
+"Sign In" = "Log ind";
+"Sign Up" = "Tilmelde";
+"Create Account" = "Opret konto";
+"Confirm" = "Bekræfte";
+"Set Password" = "Indstil adgangskode";
+"Forgot password?" = "Glemt kodeord?";
+"Language" = "Sprog";
+"Suggested Languages" = "Foreslåede sprog";
+"English(US)" = "Engelsk(US)";
+"Default" = "Standard";
+"Polish" = "Polere";
+"English(UK)" = "Engelsk(UK)";
+"App will use" = "Appen vil bruge det første sprog, som den understøtter fra sprog og regionsindstillinger. Du kan vælge et andet sprog, som appen skal bruge, hvis du foretrækker det.";
+"Other Languages" = "Andre sprog";
+"showCreateAccountPage" = "showCreateAccountPage";
+"showForgotPasswordPage" = "showForgotPasswordPage";
+"HomeViewController" = "HomeViewController";
+"showLoginPage" = "showLoginPage";
+"showSettingsPage" = "showSettingsPage";
+"signOutSegue" = "signOutSegue";
+"backToHomepageSegue" = "backToHomepageSegue";
+"showLanguagesPage" = "showLanguagesPage";
+"backToSettingsSegue" = "backToSettingsSegue";
+"goToCodeSegue" = "goToCodeSegue";
+"backToLoginSegue" = "backToLoginSegue";
+"goToNewPassword" = "goToNewPassword";
+"goBackToForgotPass" = "goBackToForgotPass";
+"goToLoginAfterNewPass" = "goToLoginAfterNewPass";
+"backToVerficationSegue" = "backToVerficationSegue";
+"LanguageCell" = "LanguageCell";
+"Couldn'tSignin" = "Couldn't Sign in";
+"Couldn'tSignup" = "Couldn't Sign up";
+"Error" = "Error";
+"Success" = "Success";
+"Wrong Code" = "Wrong Code";
+"Please try again" = "Please try again";
+"A reset email has been sent to" = "A reset email has been sent to ";
+"email" = "email";
+"OK" = "OK";
+"Done" = "Done";
+"Empty" = "";
+"Dansk" = "Dansk";
+"Danish" = "Dansk";
+"Netherlands" = "Holland";
+"Dutch" = "Hollandske";
+"English(Canada)" = "Engelsk(Canada)";
+"English(Australia)" = "Engelsk(Australien)";
+"English(United States)" = "Engelsk(Forenede Stater)";
+"Italy" = "Italien";
+"Italian" = "Italiensk";
+"Frankfurt" = "Frankfurt";
+"Addis Ababa" = "Addis Abeba";
+"Heathrow" = "Heathrow";
+"Wroclaw" = "Wroclaw";
+"Hong Kong" = "Hong Kong";
+"New Delhi" = "New Delhi";
+"lastSelection" = "lastSelection";
+"suggestedLanguageKey" = "suggestedLanguageKey";
+"selectedTableKey" = "selectedTableKey";
+"userStatus" = "ISUSERLOGGEDIN";
+"SearchFlights" = "Søg efter fly";
+"From" = "Fra";
+"To" = "Til";
+"Hello" = "Hej";
+"Plan" = "Planlæg din næste rejse";
+"Departure Date" = "Afgangsdato";
+"Return Date" = "Retur dato";
+"Sign out" = "Log ud";
+"Round Trip" = "Rundtur";
+"One Way" = "En vej";

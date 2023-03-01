@@ -8,7 +8,7 @@
 import FirebaseAuth
 import UIKit
 
-class RegistrationViewController: UIViewController {
+final class RegistrationViewController: UIViewController {
 
     // MARK: - Properties
     
@@ -97,14 +97,11 @@ class RegistrationViewController: UIViewController {
     private func textDidChange(sender: UITextField) {
         if sender == emailTextField {
             viewModel.email = sender.text
-        }
-        else if sender == passwordTextField {
+        } else if sender == passwordTextField {
             viewModel.password = sender.text
-        }
-        else if sender == fullNameTextField {
+        } else if sender == fullNameTextField {
             viewModel.fullname = sender.text
-        }
-        else {
+        } else {
             viewModel.phoneNumber = sender.text
         }
         updateForm()

@@ -5,7 +5,9 @@
 //  Created by Dagmawit Alemayehu on 12/12/2022.
 //
 
+import Firebase
 import FirebaseAuth
+import FirebaseAuthInterop
 import FirebaseFirestore
 import UIKit
 
@@ -19,7 +21,7 @@ struct AuthCredentials {
 struct AuthService {
     static func registerUser(withCredential credentials: AuthCredentials, completion: @escaping (Error?) -> Void) {
         
-        Auth.auth().createUser(withEmail: credentials.email, password: credentials.password) { (result, error) in
+        Auth.auth().createUser(withEmail: credentials.email, password: credentials.password) { result, error in
             if let error = error {
                 print(error.localizedDescription)
                 return
@@ -37,7 +39,7 @@ struct AuthService {
     }
     
     static func signInUser(withEmail email: String, password: String, completion: @escaping (Error?) -> Void) {
-        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+        Auth.auth().signIn(withEmail: email, password: password) { result, error in
             if let error = error {
                 print(error.localizedDescription)
                 let alert = UIAlertController(title: R.string.localizable.couldnTSignin(), message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)

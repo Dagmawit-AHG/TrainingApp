@@ -71,7 +71,7 @@ struct ForgotPasswordViewModel: AuthenticationViewModel {
     }
 }
 
-struct CodeViewModel: AuthenticationViewModel {
+struct VerificationCodeViewModel: AuthenticationViewModel {
     var firstDigit: String?
     var secondDigit: String?
     var thirdDigit: String?
@@ -97,6 +97,23 @@ struct NewPasswordViewModel: AuthenticationViewModel {
     
     var formIsValid: Bool {
         return newPassword?.isEmpty == false && confirmPassword?.isEmpty == false
+    }
+    
+    var buttonBackgroundColor: UIColor {
+        return formIsValid ? R.color.enabledButton()! : R.color.disabledButton()!
+    }
+    
+    var buttonTitleColor: UIColor {
+        return formIsValid ? .white : R.color.disabledTitleColor()!
+    }
+}
+
+struct HomeViewModel: AuthenticationViewModel {
+    var fromTextField: String?
+    var toTextField: String?
+    
+    var formIsValid: Bool {
+        return fromTextField?.isEmpty == false && toTextField?.isEmpty == false
     }
     
     var buttonBackgroundColor: UIColor {

@@ -5,6 +5,7 @@
   Created by Dagmawit Alemayehu on 20/01/2023.
   
 */
+
 "Language" = "Język";
 "Suggested Languages" = "Zasugerował Języki";
 "English(US)" = "Angielski(Amerykański)";
@@ -41,20 +42,23 @@
 "Done" = "Done";
 "Empty" = "";
 "Dansk" = "Dansk";
-"Danish" = "Danish";
-"Netherlands" = "Netherlands";
-"Dutch" = "Dutch";
-"English(Canada)" = "English(Canada)";
-"English(Australia)" = "English(Australia)";
-"English(United States)" = "English(United States)";
-"Italy" = "Italy";
-"Italian" = "Italian";
+"Danish" = "Duński";
+"Netherlands" = "Holandia";
+"Dutch" = "Holenderski";
+"English(Canada)" = "Angielski(Kanada)";
+"English(Australia)" = "Angielski(Australia)";
+"English(United States)" = "Angielskie(Stany Zjednoczone)";
+"Italy" = "Włochy";
+"Italian" = "Włoski";
 "Frankfurt" = "Frankfurt";
 "Addis Ababa" = "Addis Ababa";
 "Heathrow" = "Heathrow";
-"Wroclow" = "Wroclow";
+"Wroclaw" = "Wroclaw";
 "Hong Kong" = "Hong Kong";
 "New Delhi" = "New Delhi";
+"lastSelection" = "lastSelection";
+"suggestedLanguageKey" = "suggestedLanguageKey";
+"selectedTableKey" = "selectedTableKey";
 "onOffKeyTheme" = "onOffKeyTheme";
 "themeKey" = "themeKey";
 "darkTheme" = "darkTheme";
@@ -76,3 +80,19 @@
 "discountOn" = "discountOn";
 "discountOff" = "discountOff";
 "userStatus" = "ISUSERLOGGEDIN";
+"Sign In" = "Zalogować Się";
+"Sign Up" = "Zapisać Się";
+"Create Account" = "Utwórz konto";
+"Confirm" = "Potwierdzać";
+"Set Password" = "Ustaw hasło";
+"Forgot password?" = "Zapomniałeś hasła?";
+"SearchFlights" = "Wyszukaj loty";
+"From" = "Z";
+"To" = "Do";
+"Hello" = "Cześć";
+"Plan" = "Zaplanuj kolejną podróż";
+"Departure Date" = "Data odjazdu";
+"Return Date" = "Data powrotu";
+"Sign out" = "Wyloguj się";
+"Round Trip" = "Lot w obie strony";
+"One Way" = "Jednokierunkowa";

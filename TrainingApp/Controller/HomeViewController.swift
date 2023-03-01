@@ -9,20 +9,46 @@ import FirebaseAuth
 import iOSDropDown
 import UIKit
 
-class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController {
     
     // MARK: - Properties
     
-    @IBOutlet private var fromTextField: UITextField!
-    @IBOutlet private var fromDropDown: DropDown!
+    private var viewModel = HomeViewModel()
+    private let userDefaults = UserDefaults.standard
+    
+    @IBOutlet private var helloLabel: UILabel!
+    @IBOutlet private var planLabel: UILabel!
+    @IBOutlet private var fromLabelRound: UILabel!
+    @IBOutlet private var toLabelRound: UILabel!
+    @IBOutlet private var departureLabel: UILabel!
+    @IBOutlet private var returnLabelRound: UILabel!
+    @IBOutlet private var fromLabelOne: UILabel!
+    @IBOutlet private var toLabelOne: UILabel!
+    @IBOutlet private var departureLabelOne: UILabel!
+    @IBOutlet private var fromTextFieldRound: UITextField!
+    @IBOutlet private var toTextFieldRound: UITextField!
+    @IBOutlet private var fromTextFieldOne: UITextField!
+    @IBOutlet private var toTextField: UITextField!
     @IBOutlet private var roundTripView: UIView!
     @IBOutlet private var oneWayTripView: UIView!
-    @IBOutlet private var fromPickerView: UIPickerView!
     @IBOutlet private var optionsSegment: UISegmentedControl!
     @IBOutlet private var settingsButton: UIImageView!
+    @IBOutlet private var departureTextField: UITextField!
+    @IBOutlet private var returnTextField: UITextField!
+    @IBOutlet private var departureTextFieldOne: UITextField!
+    @IBOutlet private var searchFlightButton: UIButton!
+    @IBOutlet private var spinner: UIActivityIndicatorView!
+    
+    private var citiesArray = [UITextField]()
+    private let pickerView = ToolbarPickerView()
     
     private var selectedCity: String?
-    private var listOfCities = [R.string.localizable.frankfurt(),R.string.localizable.addisAbaba(),R.string.localizable.heathrow(),R.string.localizable.wroclow(),R.string.localizable.hongKong(),R.string.localizable.newDelhi(),R.string.localizable.frankfurt(),R.string.localizable.addisAbaba(),R.string.localizable.heathrow(),R.string.localizable.wroclow(),R.string.localizable.hongKong(),R.string.localizable.newDelhi()]
+    private var originAirportCode = ""
+    private var destinationAirportCode = ""
+    
+    private var cities: [String] = []
+    
+    private let url = "https://autocomplete.travelpayouts.com/places2?locale=en&term=a#"
     
     // MARK: - Lifecycle
     
@@ -31,10 +57,19 @@ class HomeViewController: UIViewController {
         
         self.hideKeyboard()
         configureUI()
-        setupPickerView()
+        textFieldSetup()
+        configureNotificationObservers()
+        setupDelegatesForTextFields()
+        setupDelegateForPickerView()
         dismissPickerView()
         checkIfUserIsLoggedIn()
         setupTapGestureForViews()
+        
+        getData(from: url)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     // MARK: - API
@@ -48,6 +83,44 @@ class HomeViewController: UIViewController {
                 self.present(nav, animated: true, completion: nil)
             }
         }
+    }
+    
+    private func getData(from url: String) {
+        let task = URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: { data, _, error in
+                
+                guard let data = data, error == nil else { return }
+                
+                var result: [Field]?
+                do {
+                    result = try JSONDecoder().decode([Field].self, from: data)
+                }
+                catch {
+                    print(String(describing: error))
+                }
+                
+                guard let json = result else { return }
+                
+                for i in json {
+                    self.cities.append(i.code + " : " + i.name)
+                }
+            })
+            task.resume()
+        }
+    
+    private func searchFlights(from url: String) {
+        guard let url = URL(string: url) else { return }
+        
+        let token = "3PG3AfG91GK9FUwbkhQpIhIXzh2L"
+        var request = URLRequest(url: url)
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.httpMethod = "GET"
+        
+        URLSession.shared.dataTask(with: request) { (data, response , error) in
+            guard let data = data else { return }
+            print(String(data: data, encoding: .utf8) ?? "Invalid JSON")
+        }.resume()
     }
     
     // MARK: - Actions
@@ -71,6 +144,17 @@ class HomeViewController: UIViewController {
         performSegue(withIdentifier: R.string.localizable.showSettingsPage(), sender: self)
     }
     
+    @IBAction func searchFlightClicked(_ sender: UIButton) {
+        activateSpinner()
+        RunLoop.current.run(until: NSDate(timeIntervalSinceNow: 5) as Date)
+        spinner.stopAnimating()
+        spinner.isHidden = true
+        
+        let alert = UIAlertController(title: R.string.localizable.success(), message: "Success", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: R.string.localizable.oK(), style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == R.string.localizable.showSettingsPage() {
             guard let destinationVC = segue.destination as? SettingsViewController else { return }
@@ -83,9 +167,82 @@ class HomeViewController: UIViewController {
     
     // MARK: - Helpers
     
+    private func checkLanguage() {
+        if let language = userDefaults.string(forKey: "Language") {
+            UserDefaults.standard.set(language, forKey: "Language")
+            Bundle.setLanguage(language)
+        }
+    }
+    
     private func configureUI() {
+        checkLanguage()
+        helloLabel.labelSetupForHello()
+        planLabel.labelSetupForPlan()
+        fromLabelRound.labelSetupForFrom()
+        fromLabelOne.labelSetupForFrom()
+        toLabelRound.labelSetupForTo()
+        toLabelOne.labelSetupForTo()
+        departureLabel.labelSetupForDeparture()
+        returnLabelRound.labelSetupForReturn()
+        departureLabelOne.labelSetupForDeparture()
         optionsSegment?.addUnderlineForSelectedSegment()
         optionsSegment?.setFontSize()
+        
+        let roundTitle = NSAttributedString(string: R.string.localizable.roundTrip(), attributes: [NSAttributedString.Key.foregroundColor: R.color.color()!])
+        let onewayTitle = NSAttributedString(string: R.string.localizable.oneWay(), attributes: [NSAttributedString.Key.foregroundColor: R.color.color()!])
+        
+        optionsSegment.setTitle(roundTitle.string, forSegmentAt: 0)
+        optionsSegment.setTitle(onewayTitle.string, forSegmentAt: 1)
+        
+        searchFlightButton.buttonSetupForSearchFlight()
+        spinner.isHidden = true
+    }
+    
+    private func textFieldSetup() {
+        let borderColor = R.color.borderColorBlue()
+        fromTextFieldRound.layer.borderColor = borderColor?.cgColor
+        toTextFieldRound.layer.borderColor = borderColor?.cgColor
+        fromTextFieldOne.layer.borderColor = borderColor?.cgColor
+        toTextField.layer.borderColor = borderColor?.cgColor
+        departureTextField.layer.borderColor = borderColor?.cgColor
+        returnTextField.layer.borderColor = borderColor?.cgColor
+        departureTextFieldOne.layer.borderColor = borderColor?.cgColor
+        
+        fromTextFieldRound.layer.borderWidth = 1
+        toTextFieldRound.layer.borderWidth = 1
+        fromTextFieldOne.layer.borderWidth = 1
+        toTextField.layer.borderWidth = 1
+        departureTextField.layer.borderWidth = 1
+        returnTextField.layer.borderWidth = 1
+        departureTextFieldOne.layer.borderWidth = 1
+    }
+    
+    private func configureNotificationObservers() {
+        fromTextFieldRound.addTarget(self, action: #selector(textDidChange), for: .allEvents)
+        toTextFieldRound.addTarget(self, action: #selector(textDidChange), for: .allEvents)
+        fromTextFieldOne.addTarget(self, action: #selector(textDidChange), for: .allEvents)
+        toTextField.addTarget(self, action: #selector(textDidChange), for: .allEvents)
+    }
+    
+    @objc
+    private func textDidChange(sender: UITextField) {
+        switch sender {
+        case fromTextFieldRound:
+            viewModel.fromTextField = sender.text
+        case toTextFieldRound:
+            viewModel.toTextField = sender.text
+        case fromTextFieldOne:
+            viewModel.fromTextField = sender.text
+        case toTextField:
+            viewModel.toTextField = sender.text
+        default:
+            viewModel.fromTextField = R.string.localizable.empty()
+            viewModel.toTextField = R.string.localizable.empty()
+        }
+        let from = viewModel.fromTextField ?? R.string.localizable.empty()
+        let to = viewModel.toTextField ?? R.string.localizable.empty()
+        
+        updateForm()
     }
     
     private func setupTapGestureForViews() {
@@ -94,12 +251,26 @@ class HomeViewController: UIViewController {
         settingsButton?.isUserInteractionEnabled = true
     }
     
-    private func setupPickerView() {
-        let pickerView = UIPickerView()
+    private func setupDelegatesForTextFields() {
+        citiesArray += [fromTextFieldRound, toTextFieldRound, fromTextFieldOne, toTextField]
+        
+        for city in citiesArray {
+            city.delegate = self
+            city.inputView = pickerView
+            city.inputAccessoryView = pickerView.toolbar
+        }
+    }
+    
+    private func setupDelegateForPickerView() {
         pickerView.delegate = self
         pickerView.dataSource = self
+        pickerView.toolbarDelegate = self
         pickerView.layer.position = .init(x: 33, y: 102)
-        self.fromTextField?.inputView = pickerView
+    }
+    
+    private func activateSpinner() {
+        spinner.isHidden = false
+        spinner.startAnimating()
     }
     
     private func dismissPickerView() {
@@ -109,7 +280,10 @@ class HomeViewController: UIViewController {
         let button = UIBarButtonItem(title: R.string.localizable.done(), style: .plain, target: self, action: #selector(self.dismissAction))
         toolbar.setItems([button], animated: true)
         toolbar.isUserInteractionEnabled = true
-        self.fromTextField?.inputAccessoryView = toolbar
+        self.fromTextFieldRound.inputAccessoryView = toolbar
+        self.fromTextFieldOne.inputAccessoryView = toolbar
+        self.toTextFieldRound.inputAccessoryView = toolbar
+        self.toTextField.inputAccessoryView = toolbar
     }
     
     @objc
@@ -127,6 +301,14 @@ class HomeViewController: UIViewController {
 
 // MARK: - Extension
 
+extension HomeViewController: FormViewModel {
+    func updateForm() {
+        searchFlightButton.backgroundColor = viewModel.buttonBackgroundColor
+        searchFlightButton.setTitleColor(viewModel.buttonTitleColor, for: .normal)
+        searchFlightButton.isEnabled = viewModel.formIsValid
+    }
+}
+
 extension HomeViewController: UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -135,19 +317,35 @@ extension HomeViewController: UIPickerViewDelegate {
 
 extension HomeViewController: UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return self.listOfCities.count
+        return self.cities.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return self.listOfCities[row]
+        return self.cities[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.selectedCity = self.listOfCities[row]
-        self.fromTextField.text = self.selectedCity
+        
+        for city in citiesArray {
+            if city.isFirstResponder {
+                city.text = self.cities[row]
+            }
+        }
     }
 }
 
 extension HomeViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.pickerView.reloadAllComponents()
+    }
+}
 
+extension HomeViewController: ToolbarPickerViewDelegate {
+    func didTapDone() {
+        self.view.endEditing(true)
+    }
+    
+    func didTapCancel() {
+        self.view.endEditing(true)
+    }
 }

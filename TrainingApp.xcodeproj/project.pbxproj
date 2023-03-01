@@ -24,9 +24,10 @@
 		C110A06829420C440066535D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A06729420C440066535D /* HomeViewController.swift */; };
 		C110A06A2947312E0066535D /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110A0692947312E0066535D /* AuthService.swift */; };
 		C110A06C2949AE5D0066535D /* iOSDropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C110A06B2949AE5D0066535D /* iOSDropDown.framework */; };
-		C111177729547557003EDE37 /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = C111177629547557003EDE37 /* Airport.swift */; };
+		C1B52F8929AE58A60034D645 /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B52F8829AE58A50034D645 /* Flight.swift */; };
 		C1CB93A0297AB5130077CBA9 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CB939F297AB5130077CBA9 /* R.generated.swift */; };
 		C1CB93A3297AC4730077CBA9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C1CB93A5297AC4730077CBA9 /* Localizable.strings */; };
+		C1EBE57329963DDB007D291B /* ToolbarPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EBE57229963DDB007D291B /* ToolbarPickerView.swift */; };
 		C1EBE575299CB224007D291B /* AppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EBE574299CB224007D291B /* AppHelper.swift */; };
 		C1FA944D29640B4700D072C3 /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FA944C29640B4700D072C3 /* Field.swift */; };
 		C1FA944F296440EE00D072C3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FA944E296440EE00D072C3 /* SettingsViewController.swift */; };
@@ -57,13 +58,23 @@
 		C110A06729420C440066535D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C110A0692947312E0066535D /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		C110A06B2949AE5D0066535D /* iOSDropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = iOSDropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C111177629547557003EDE37 /* Airport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Airport.swift; sourceTree = "<group>"; };
+		C1B52F8829AE58A50034D645 /* Flight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
 		C1CB939F297AB5130077CBA9 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		C1CB93A4297AC4730077CBA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C1CB93A6297FE16E0077CBA9 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Main.strings; sourceTree = "<group>"; };
 		C1CB93A7297FE16F0077CBA9 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C1CB93A8297FE16F0077CBA9 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C1CB93AC297FF5040077CBA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		C1CB93CF2987EB990077CBA9 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Main.strings; sourceTree = "<group>"; };
+		C1CB93D02987EB990077CBA9 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		C1CB93D12987EB990077CBA9 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C1CB93D229891B220077CBA9 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
+		C1CB93D329891B220077CBA9 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		C1CB93D429891B220077CBA9 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C1EBE56D2989220B007D291B /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Main.strings; sourceTree = "<group>"; };
+		C1EBE56E2989220B007D291B /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		C1EBE56F2989220C007D291B /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C1EBE57229963DDB007D291B /* ToolbarPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarPickerView.swift; sourceTree = "<group>"; };
 		C1EBE574299CB224007D291B /* AppHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppHelper.swift; sourceTree = "<group>"; };
 		C1FA944C29640B4700D072C3 /* Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
 		C1FA944E296440EE00D072C3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +153,7 @@
 			children = (
 				C1EBE574299CB224007D291B /* AppHelper.swift */,
 				C110A061293A2EEB0066535D /* Extensions.swift */,
+				C1EBE57229963DDB007D291B /* ToolbarPickerView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -188,8 +200,8 @@
 			isa = PBXGroup;
 			children = (
 				C110A05B29364E260066535D /* User.swift */,
-				C111177629547557003EDE37 /* Airport.swift */,
 				C1FA944C29640B4700D072C3 /* Field.swift */,
+				C1B52F8829AE58A50034D645 /* Flight.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -269,6 +281,9 @@
 				en,
 				Base,
 				pl,
+				it,
+				nl,
+				da,
 			);
 			mainGroup = C110A029293604FF0066535D;
 			packageReferences = (
@@ -381,11 +396,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1FF9B52296EDCE300D5C67D /* ForgotPasswordViewController.swift in Sources */,
-				C111177729547557003EDE37 /* Airport.swift in Sources */,
 				C110A053293615610066535D /* AuthViewModel.swift in Sources */,
 				C110A03A293604FF0066535D /* StartViewController.swift in Sources */,
 				C110A036293604FF0066535D /* AppDelegate.swift in Sources */,
 				C1FF9B5429700F1C00D5C67D /* VerificationCodeViewController.swift in Sources */,
+				C1EBE57329963DDB007D291B /* ToolbarPickerView.swift in Sources */,
+				C1B52F8929AE58A60034D645 /* Flight.swift in Sources */,
 				C1CB93A0297AB5130077CBA9 /* R.generated.swift in Sources */,
 				C110A038293604FF0066535D /* SceneDelegate.swift in Sources */,
 				C1FA9451296808DB00D072C3 /* LanguageViewController.swift in Sources */,
@@ -412,6 +428,9 @@
 				C110A03C293604FF0066535D /* Base */,
 				C1CB93A6297FE16E0077CBA9 /* pl */,
 				C1CB93AC297FF5040077CBA9 /* en */,
+				C1CB93CF2987EB990077CBA9 /* it */,
+				C1CB93D229891B220077CBA9 /* nl */,
+				C1EBE56D2989220B007D291B /* da */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -421,6 +440,9 @@
 			children = (
 				C110A041293605020066535D /* Base */,
 				C1CB93A7297FE16F0077CBA9 /* pl */,
+				C1CB93D02987EB990077CBA9 /* it */,
+				C1CB93D329891B220077CBA9 /* nl */,
+				C1EBE56E2989220B007D291B /* da */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -430,6 +452,9 @@
 			children = (
 				C1CB93A4297AC4730077CBA9 /* en */,
 				C1CB93A8297FE16F0077CBA9 /* pl */,
+				C1CB93D12987EB990077CBA9 /* it */,
+				C1CB93D429891B220077CBA9 /* nl */,
+				C1EBE56F2989220C007D291B /* da */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -472,6 +497,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -533,6 +559,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;

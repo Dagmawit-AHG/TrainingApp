@@ -21,6 +21,7 @@ final class LoginViewController: UIViewController {
     @IBOutlet private var passwordTextField: UITextField!
     @IBOutlet private var forgotPasswordButton: UIButton!
     @IBOutlet private var signInButton: UIButton!
+    @IBOutlet private var createAccountButton: UIButton!
     
     // MARK: - Lifecycle
     
@@ -86,23 +87,26 @@ final class LoginViewController: UIViewController {
     // MARK: - Helpers
     
     private func configureUI() {
-            emailTextField.setBorder()
-            passwordTextField.setBorder()
-            signInButton.layer.cornerRadius = 5
-            signInButton.buttonSetupForLogin()
+        emailTextField?.setBorder()
+        passwordTextField?.setBorder()
+        signInButton?.layer.cornerRadius = 5
+        signInButton?.buttonSetupForLogin()
+        let createTitle = NSAttributedString(string: R.string.localizable.createAccount(), attributes: [NSAttributedString.Key.foregroundColor: R.color.borderColorBlue()!])
+        createAccountButton.setAttributedTitle(createTitle, for: .normal)
+        let forgotTitle = NSAttributedString(string: R.string.localizable.forgotPassword(), attributes: [NSAttributedString.Key.foregroundColor: R.color.borderColorBlue()!])
+        forgotPasswordButton.setAttributedTitle(forgotTitle, for: .normal)
     }
     
     private func configureNotificationObservers() {
-        emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
-        passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        emailTextField?.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        passwordTextField?.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
     }
     
     @objc
     private func textDidChange(sender: UITextField) {
         if sender == emailTextField {
             viewModel.email = sender.text
-        }
-        else {
+        } else {
             viewModel.password = sender.text
         }
         updateForm()
@@ -116,5 +120,14 @@ extension LoginViewController: FormViewModel {
         signInButton.backgroundColor = viewModel.buttonBackgroundColor
         signInButton.setTitleColor(viewModel.buttonTitleColor, for: .normal)
         signInButton.isEnabled = viewModel.formIsValid
+    }
+}
+
+// MARK: ForgotPasswordViewControllerDelegate
+
+extension LoginViewController: ForgotPasswordViewControllerDelegate {
+    
+    func viewControllerDidSendResetPasswordLink(_ viewController: ForgotPasswordViewController?) {
+        showMessage(withTitle: "Success", message: "We sent a link to your email to reset your password.")
     }
 }
