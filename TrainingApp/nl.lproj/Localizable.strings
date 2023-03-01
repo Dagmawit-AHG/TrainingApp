@@ -1,0 +1,78 @@
+/* 
+  Localizable.strings
+  TrainingApp
+
+  Created by Dagmawit Alemayehu on 20/01/2023.
+  
+*/
+
+"Sign In" = "Aanmelden";
+"Sign Up" = "Tilmelde";
+"Create Account" = "Account aanmaken";
+"Confirm" = "Bevestigen";
+"Set Password" = "Stel een wachtwoord in";
+"Forgot password?" = "Wachtwoord vergeten?";
+"Language" = "Taal";
+"Suggested Languages" = "Voorgestelde talen";
+"English(US)" = "Amerikaans Engels";
+"Default" = "Standaard";
+"Polish" = "Pools";
+"English(UK)" = "Engels(VK)";
+"App will use" = "De app gebruikt de eerste taal die wordt ondersteund vanuit de taal- en regio-instellingen. U kunt desgewenst een andere taal voor de app selecteren.";
+"Other Languages" = "Andere talen";
+"showCreateAccountPage" = "showCreateAccountPage";
+"showForgotPasswordPage" = "showForgotPasswordPage";
+"HomeViewController" = "HomeViewController";
+"showLoginPage" = "showLoginPage";
+"showSettingsPage" = "showSettingsPage";
+"signOutSegue" = "signOutSegue";
+"backToHomepageSegue" = "backToHomepageSegue";
+"showLanguagesPage" = "showLanguagesPage";
+"backToSettingsSegue" = "backToSettingsSegue";
+"goToCodeSegue" = "goToCodeSegue";
+"backToLoginSegue" = "backToLoginSegue";
+"goToNewPassword" = "goToNewPassword";
+"goBackToForgotPass" = "goBackToForgotPass";
+"goToLoginAfterNewPass" = "goToLoginAfterNewPass";
+"backToVerficationSegue" = "backToVerficationSegue";
+"LanguageCell" = "LanguageCell";
+"Couldn'tSignin" = "Couldn't Sign in";
+"Couldn'tSignup" = "Couldn't Sign up";
+"Error" = "Error";
+"Success" = "Success";
+"Wrong Code" = "Wrong Code";
+"Please try again" = "Please try again";
+"A reset email has been sent to" = "A reset email has been sent to ";
+"email" = "email";
+"OK" = "OK";
+"Done" = "Done";
+"Empty" = "";
+"Dansk" = "Dansk";
+"Danish" = "Deens";
+"Netherlands" = "Netherlands";
+"Dutch" = "Nederlands";
+"English(Canada)" = "Engels(Canada)";
+"English(Australia)" = "Engels(Australië)";
+"English(United States)" = "Engels Verenigde Staten";
+"Italy" = "Italië";
+"Italian" = "Italian";
+"Frankfurt" = "Frankfurt";
+"Addis Ababa" = "Addis Ababa";
+"Heathrow" = "Heathrow";
+"Wroclaw" = "Wroclaw";
+"Hong Kong" = "Hongkong";
+"New Delhi" = "New Delhi";
+"lastSelection" = "lastSelection";
+"suggestedLanguageKey" = "suggestedLanguageKey";
+"selectedTableKey" = "selectedTableKey";
+"userStatus" = "ISUSERLOGGEDIN";
+"SearchFlights" = "Zoek vluchten";
+"From" = "Van";
+"To" = "Naar";
+"Hello" = "Hallo";
+"Plan" = "Plan uw volgende reis";
+"Departure Date" = "Vertrekdatum";
+"Return Date" = "Retourdatum";
+"Sign out" = "Afmelden";
+"Round Trip" = "Rondvaart";
+"One Way" = "Een manier";

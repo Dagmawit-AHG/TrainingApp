@@ -5,8 +5,6 @@
 //  Created by Dagmawit Alemayehu on 03/01/2023.
 //
 
-import Foundation
-
 struct Field: Codable {
     var id: String
     var type: String
@@ -17,7 +15,7 @@ struct Field: Codable {
     var city_code: String?
     var city_name: String?
     var state_code: String?
-    var coordinates: [Float]
+    var coordinates: [String: Float]
     var index_strings: [String]?
     var weight: Int
     var cases: String?

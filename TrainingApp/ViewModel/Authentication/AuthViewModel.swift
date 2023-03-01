@@ -5,7 +5,6 @@
 //  Created by Dagmawit Alemayehu on 29/11/2022.
 //
 
-import Foundation
 import FirebaseAuth
 import UIKit
 
@@ -29,11 +28,11 @@ struct LoginViewModel: AuthenticationViewModel {
     }
     
     var buttonBackgroundColor: UIColor {
-        return formIsValid ? UIColor(red: 0.0, green: 0.6, blue: 1.0, alpha: 1.0) : UIColor(red: 0.0, green: 0.5, blue: 1.0, alpha: 0.5)
+        return formIsValid ? R.color.enabledButton()! : R.color.disabledButton()!
     }
     
     var buttonTitleColor: UIColor {
-        return formIsValid ? .white : UIColor(white: 1, alpha: 0.67)
+        return formIsValid ? .white : R.color.disabledTitleColor()!
     }
 }
 
@@ -48,10 +47,80 @@ struct RegistrationViewModel: AuthenticationViewModel {
     }
     
     var buttonBackgroundColor: UIColor {
-        return formIsValid ? UIColor(red: 0.0, green: 0.6, blue: 1.0, alpha: 1.0) : UIColor(red: 0.0, green: 0.5, blue: 1.0, alpha: 0.5)
+        return formIsValid ? R.color.enabledButton()! : R.color.disabledButton()!
     }
     
     var buttonTitleColor: UIColor {
-        return formIsValid ? .white : UIColor(white: 1, alpha: 0.67)
+        return formIsValid ? .white : R.color.disabledTitleColor()!
+    }
+}
+
+struct ForgotPasswordViewModel: AuthenticationViewModel {
+    var email: String?
+    
+    var formIsValid: Bool {
+        return email?.isEmpty == false
+    }
+    
+    var buttonBackgroundColor: UIColor {
+        return formIsValid ? R.color.enabledButton()! : R.color.disabledButton()!
+    }
+    
+    var buttonTitleColor: UIColor {
+        return formIsValid ? .white : R.color.disabledTitleColor()!
+    }
+}
+
+struct VerificationCodeViewModel: AuthenticationViewModel {
+    var firstDigit: String?
+    var secondDigit: String?
+    var thirdDigit: String?
+    var fourthDigit: String?
+    var fifthDigit: String?
+    
+    var formIsValid: Bool {
+        return firstDigit?.isEmpty == false && secondDigit?.isEmpty == false && thirdDigit?.isEmpty == false && fourthDigit?.isEmpty == false && fifthDigit?.isEmpty == false
+    }
+    
+    var buttonBackgroundColor: UIColor {
+        return formIsValid ? R.color.enabledButton()! : R.color.disabledButton()!
+    }
+    
+    var buttonTitleColor: UIColor {
+        return formIsValid ? .white : R.color.disabledTitleColor()!
+    }
+}
+
+struct NewPasswordViewModel: AuthenticationViewModel {
+    var newPassword: String?
+    var confirmPassword: String?
+    
+    var formIsValid: Bool {
+        return newPassword?.isEmpty == false && confirmPassword?.isEmpty == false
+    }
+    
+    var buttonBackgroundColor: UIColor {
+        return formIsValid ? R.color.enabledButton()! : R.color.disabledButton()!
+    }
+    
+    var buttonTitleColor: UIColor {
+        return formIsValid ? .white : R.color.disabledTitleColor()!
+    }
+}
+
+struct HomeViewModel: AuthenticationViewModel {
+    var fromTextField: String?
+    var toTextField: String?
+    
+    var formIsValid: Bool {
+        return fromTextField?.isEmpty == false && toTextField?.isEmpty == false
+    }
+    
+    var buttonBackgroundColor: UIColor {
+        return formIsValid ? R.color.enabledButton()! : R.color.disabledButton()!
+    }
+    
+    var buttonTitleColor: UIColor {
+        return formIsValid ? .white : R.color.disabledTitleColor()!
     }
 }

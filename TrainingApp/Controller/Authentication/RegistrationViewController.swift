@@ -8,7 +8,7 @@
 import FirebaseAuth
 import UIKit
 
-class RegistrationViewController: UIViewController {
+final class RegistrationViewController: UIViewController {
 
     // MARK: - Properties
     
@@ -43,28 +43,33 @@ class RegistrationViewController: UIViewController {
         
         AuthService.registerUser(withCredential: credentials) { [weak self] error in
             if let error = error {
-                print("DEBUG: Failed to register user \(error.localizedDescription)")
+                    print(error.localizedDescription)
+                
+                let alert = UIAlertController(title: R.string.localizable.couldnTSignup(), message: "\(error.localizedDescription)", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: R.string.localizable.oK(), style: UIAlertAction.Style.default, handler: nil))
+                self?.present(alert, animated: true, completion: nil)
                 return
             }
-            
             print("DEBUG: Successfully registered user with firestore...")
-            self?.performSegue(withIdentifier: "HomeViewController", sender: self)
+            self?.performSegue(withIdentifier: R.string.localizable.homeViewController(), sender: self)
         }
         }
     
     @IBAction private func signInButtonPressed(_ sender: UIButton) {
-        performSegue(withIdentifier: "showLoginPage", sender: self)
+        performSegue(withIdentifier: R.string.localizable.showLoginPage(), sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showLoginPage" {
+        if segue.identifier == R.string.localizable.showLoginPage() {
             guard let destinationVC = segue.destination as? LoginViewController else { return }
+            
             destinationVC.modalPresentationStyle = .fullScreen
             destinationVC.navigationController?.isNavigationBarHidden = false
             present(destinationVC, animated: true, completion: nil)
         }
-        else if segue.identifier == "HomeViewController" {
+        else if segue.identifier == R.string.localizable.homeViewController() {
             guard let destinationVC = segue.destination as? HomeViewController else { return }
+            
             destinationVC.modalPresentationStyle = .fullScreen
             destinationVC.navigationController?.isNavigationBarHidden = false
             present(destinationVC, animated: true, completion: nil)
@@ -92,14 +97,11 @@ class RegistrationViewController: UIViewController {
     private func textDidChange(sender: UITextField) {
         if sender == emailTextField {
             viewModel.email = sender.text
-        }
-        else if sender == passwordTextField {
+        } else if sender == passwordTextField {
             viewModel.password = sender.text
-        }
-        else if sender == fullNameTextField {
+        } else if sender == fullNameTextField {
             viewModel.fullname = sender.text
-        }
-        else {
+        } else {
             viewModel.phoneNumber = sender.text
         }
         updateForm()

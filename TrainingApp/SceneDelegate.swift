@@ -14,13 +14,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         guard let scene = (scene as? UIWindowScene) else { return }
+        
         window = UIWindow(windowScene: scene)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        let rootVC = storyboard.instantiateViewController(withIdentifier: "StartViewController")
-//        let navController = UINavigationController(rootViewController: rootVC)
-//        navController.navigationBar.backgroundColor = .clear
+        var rootVC = UIViewController()
+        if UserDefaults.standard.bool(forKey: R.string.localizable.userStatus()) {
+            rootVC = storyboard.instantiateViewController(withIdentifier: "HomeViewController")
+        } else {
+            rootVC = storyboard.instantiateViewController(withIdentifier: "StartViewController")
+        }
         self.window?.rootViewController = rootVC
         window?.makeKeyAndVisible()
     }
