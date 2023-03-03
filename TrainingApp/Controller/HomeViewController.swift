@@ -241,7 +241,8 @@ final class HomeViewController: UIViewController {
         }
         let from = viewModel.fromTextField ?? R.string.localizable.empty()
         let to = viewModel.toTextField ?? R.string.localizable.empty()
-        
+        print(from)
+        print(to)
         updateForm()
     }
     
